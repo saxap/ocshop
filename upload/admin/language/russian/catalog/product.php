@@ -26,6 +26,7 @@ $_['column_price']           = 'Цена на сайте';
 $_['column_quantity']        = 'Количество';
 $_['column_status']          = 'Статус';
 $_['column_action']          = 'Действие';
+$_['tab_marketplace_links']  = 'Marketplace';
 
 // Entry
 $_['entry_name']             = 'Название товара:';
@@ -78,6 +79,26 @@ $_['entry_tag']          	 = 'Теги товара:<br /><span class="help">р�
 $_['entry_reward']           = 'Бонусные баллы:';
 $_['entry_layout']           = 'Изменить схему:';
 $_['entry_main_category']    = 'Главная категория:';
+$_['entry_profile']          = 'Профиль:';
+$_['text_recurring_help']    = 'Recurring amounts are calculated by the frequency and cycles. <br />For example if you use a frequency of "week" and a cycle of "2", then the user will be billed every 2 weeks. <br />The length is the number of times the user will make a payment, set this to 0 if you want payments until they are cancelled.';
+$_['text_recurring_title']   = 'Recurring payments';
+$_['text_recurring_trial']   = 'Trial period';
+$_['entry_recurring']        = 'Recurring billing:';
+$_['entry_recurring_price']  = 'Recurring price:';
+$_['entry_recurring_freq']   = 'Recurring frequency:';
+$_['entry_recurring_cycle']  = 'Recurring cycles:<span class="help">How often its billed, must be 1 or more</span>';
+$_['entry_recurring_length'] = 'Recurring length:<span class="help">0 = until cancelled</span>';
+$_['entry_trial']            = 'Trial period:';
+$_['entry_trial_price']      = 'Trial recurring price:';
+$_['entry_trial_freq']       = 'Trial recurring frequency:';
+$_['entry_trial_cycle']      = 'Trial recurring cycles:<span class="help">How often its billed, must be 1 or more</span>';
+$_['entry_trial_length']     = 'Trial recurring length:';
+
+$_['text_length_day']        = 'День';
+$_['text_length_week']       = 'Неделя';
+$_['text_length_month']      = 'Месяц';
+$_['text_length_month_semi'] = 'Пол месяца';
+$_['text_length_year']       = 'Год';
 
 // Error
 $_['error_warning']          = 'Внимательно проверьте форму на ошибки!';

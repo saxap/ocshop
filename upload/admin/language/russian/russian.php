@@ -42,7 +42,7 @@ $_['button_back']             = 'Назад';
 $_['button_remove']           = 'Удалить';
 $_['button_backup']           = 'Бэкап';
 $_['button_restore']          = 'Восстановить';
-$_['button_repair']                 = 'Исправить';
+$_['button_repair']           = 'Исправить';
 $_['button_upload']           = 'Загрузка';
 $_['button_submit']           = 'Сохранить';
 $_['button_invoice']          = 'Показать счет';
@@ -70,6 +70,7 @@ $_['button_add_link']         = 'Добавить ссылку';
 $_['button_update_total']     = 'Обновить итоговые суммы';
 $_['button_approve']          = 'Активировать';
 $_['button_reset']            = 'Сброс';
+$_['button_add_profile']      = 'Добавить профиль';
 
 // Tab
 $_['tab_address']             = 'Адрес';
@@ -104,6 +105,17 @@ $_['tab_total']               = 'Итого';
 $_['tab_transaction']         = 'Транзакции';
 $_['tab_voucher']             = 'Подарочные сертификаты';
 $_['tab_voucher_history']     = 'История подарочных сертификатов';
+$_['tab_payment']             = 'Платежи';
+$_['tab_product']             = 'Продукты';
+$_['tab_return']              = 'Возвраты';
+$_['tab_reward']              = 'Бонусные баллы';
+$_['tab_profile']             = 'Профили';
+$_['tab_shipping']            = 'Информация о доставке';
+$_['tab_total']               = 'Итоги';
+$_['tab_transaction']         = 'Сделки';
+$_['tab_voucher']             = 'Ваучеры';
+$_['tab_voucher_history']     = 'История ваучеров';
+$_['tab_price']               = 'Цена';
 
 // Error
 $_['error_upload_1']          = 'Размер загружаемого файла превышает максимальный размер, указанный в php.ini!';
