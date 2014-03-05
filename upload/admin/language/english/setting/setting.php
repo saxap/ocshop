@@ -20,6 +20,8 @@ $_['text_shipping']                = 'Shipping Address';
 $_['text_payment']                 = 'Payment Address';
 $_['text_mail']                    = 'Mail';
 $_['text_smtp']                    = 'SMTP';
+$_['text_seo_url']                 = 'Default';
+$_['text_seo_pro']                 = 'SeoPro';
 
 // Entry
 $_['entry_name']                   = 'Store Name:';
@@ -116,6 +118,9 @@ $_['entry_error_display']          = 'Display Errors:';
 $_['entry_error_log']              = 'Log Errors:';
 $_['entry_error_filename']         = 'Error Log Filename:';
 $_['entry_google_analytics']       = 'Google Analytics Code:<br /><span class="help">Login to your <a href="http://www.google.com/analytics/" target="_blank"><u>Google Analytics</u></a> account and after creating your web site profile copy and paste the analytics code into this field.</span>';
+$_['entry_seo_url_type']         = 'Type Friendly URL:';
+$_['entry_seo_url_include_path'] = 'Friendly URL goods categories:<span class="help">/category/subcategory/product<br />(Only SeoPro)</span>';
+$_['entry_seo_url_postfix']      = 'End Friendly URL:<span class="help">For example. html<br />(Only SeoPro)</span>';
 
 // Error
 $_['error_warning']                = 'Warning: Please check the form carefully for errors!';

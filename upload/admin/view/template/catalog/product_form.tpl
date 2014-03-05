@@ -232,6 +232,19 @@
               <td><?php echo $entry_manufacturer; ?></td>
               <td><input type="text" name="manufacturer" value="<?php echo $manufacturer ?>" /><input type="hidden" name="manufacturer_id" value="<?php echo $manufacturer_id; ?>" /></td>
             </tr>
+			<tr>
+              <td><?php echo $entry_main_category; ?></td>
+              <td><select name="main_category_id">
+                <option value="0" selected="selected"><?php echo $text_none; ?></option>
+                <?php foreach ($categories as $category) { ?>
+                <?php if ($category['category_id'] == $main_category_id) { ?>
+                <option value="<?php echo $category['category_id']; ?>" selected="selected"><?php echo $category['name']; ?></option>
+                <?php } else { ?>
+                <option value="<?php echo $category['category_id']; ?>"><?php echo $category['name']; ?></option>
+                <?php } ?>
+                <?php } ?>
+              </select></td>
+            </tr>
             <tr>
               <td><?php echo $entry_category; ?></td>
               <td><input type="text" name="category" value="" /></td>

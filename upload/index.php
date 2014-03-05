@@ -222,11 +222,14 @@ $registry->set('encryption', new Encryption($config->get('config_encryption')));
 // Front Controller 
 $controller = new Front($registry);
 
-// Maintenance Mode
-$controller->addPreAction(new Action('common/maintenance'));
-
 // SEO URL's
-$controller->addPreAction(new Action('common/seo_url'));	
+if (!$seo_type = $config->get('config_seo_url_type')) {
+	$seo_type = 'seo_url';
+}
+$controller->addPreAction(new Action('common/' . $seo_type));
+
+// Maintenance Mode
+$controller->addPreAction(new Action('common/maintenance'));	
 	
 // Router
 if (isset($request->get['route'])) {

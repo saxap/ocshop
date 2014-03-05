@@ -75,6 +75,7 @@ $_['entry_tag']          	 = 'Product Tags:<br /><span class="help">comma separa
 $_['entry_reward']           = 'Reward Points:';
 $_['entry_layout']           = 'Layout Override:';
 $_['entry_profile']          = 'Profile:';
+$_['entry_main_category']    = 'Main Category:';
 
 $_['text_recurring_help']    = 'Recurring amounts are calculated by the frequency and cycles. <br />For example if you use a frequency of "week" and a cycle of "2", then the user will be billed every 2 weeks. <br />The length is the number of times the user will make a payment, set this to 0 if you want payments until they are cancelled.';
 $_['text_recurring_title']   = 'Recurring payments';

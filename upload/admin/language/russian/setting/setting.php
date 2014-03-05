@@ -20,6 +20,8 @@ $_['text_shipping']              = 'Адрес доставки';
 $_['text_payment']               = 'Платёжный адрес';
 $_['text_mail']                  = 'Mail';
 $_['text_smtp']                  = 'SMTP';
+$_['text_seo_url']               = 'По умолчанию';
+$_['text_seo_pro']               = 'SeoPro';
 
 // Entry
 $_['entry_name']                   = 'Название магазина:';
@@ -117,6 +119,9 @@ $_['entry_error_display']     = 'Показывать ошибки:';
 $_['entry_error_log']         = 'Записывать ошибки:';
 $_['entry_error_filename']    = 'Файл журнала ошибок:';
 $_['entry_google_analytics']  = 'Код Google Analytics:<br /><span class="help">Войдите в Ваш <a onclick="window.open(\'http://www.google.com/analytics/\');"><u>Google Analytics аккаунт</u></a> и после настройки добавьте сюда код выданный Google Analytics.</span>';
+$_['entry_seo_url_type']       = 'Тип ЧПУ:';
+$_['entry_seo_url_include_path'] = 'ЧПУ товаров с категориями:<span class="help">/category/subcategory/product<br />(только для SeoPro)</span>';
+$_['entry_seo_url_postfix']    = 'Окончание ЧПУ:<span class="help">Например .html<br />(только для SeoPro)</span>';
 
 // Error
 $_['error_warning']			  = 'Внимательно проверьте форму на ошибки!';
