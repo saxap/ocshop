@@ -361,6 +361,13 @@ label {
 	-khtml-border-radius: 5px;
 	border-radius: 5px;
 }
+#menu > ul > li > a.active {
+	background: #000000;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	border-radius: 5px;
+}
 #menu > ul > li > div {
 	display: none;
 	background: #FFFFFF;
