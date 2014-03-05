@@ -590,6 +590,8 @@ class ControllerCatalogProduct extends Controller {
 		$this->data['entry_reward'] = $this->language->get('entry_reward');
 		$this->data['entry_layout'] = $this->language->get('entry_layout');
 		$this->data['entry_profile'] = $this->language->get('entry_profile');
+		$this->data['entry_seo_title'] = $this->language->get('entry_seo_title');
+		$this->data['entry_seo_h1'] = $this->language->get('entry_seo_h1');
 
 		$this->data['text_recurring_help'] = $this->language->get('text_recurring_help');
 		$this->data['text_recurring_title'] = $this->language->get('text_recurring_title');

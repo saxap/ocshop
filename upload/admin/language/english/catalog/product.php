@@ -89,6 +89,8 @@ $_['entry_trial_price']      = 'Trial recurring price:';
 $_['entry_trial_freq']       = 'Trial recurring frequency:';
 $_['entry_trial_cycle']      = 'Trial recurring cycles:<span class="help">How often its billed, must be 1 or more</span>';
 $_['entry_trial_length']     = 'Trial recurring length:';
+$_['entry_seo_title']        = 'HTML Tag Title:';
+$_['entry_seo_h1']           = 'HTML Tag H1:';
 
 $_['text_length_day']        = 'Day';
 $_['text_length_week']       = 'Week';

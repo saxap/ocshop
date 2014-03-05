@@ -20,6 +20,10 @@ $_['entry_bottom']      = 'Bottom:<br/><span class="help">Display in the bottom 
 $_['entry_status']      = 'Status:';
 $_['entry_sort_order']  = 'Sort Order:';
 $_['entry_layout']      = 'Layout Override:';
+$_['entry_seo_title']   = 'HTML Tag Title:';
+$_['entry_seo_h1']      = 'HTML Tag H1:';
+$_['entry_meta_keyword'] = 'Meta Tag Keywords:';
+$_['entry_meta_description'] = 'Meta Tag Description:';
 
 // Error 
 $_['error_warning']     = 'Warning: Please check the form carefully for errors!';

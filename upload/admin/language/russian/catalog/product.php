@@ -79,6 +79,8 @@ $_['entry_tag']          	 = 'Теги товара:<br /><span class="help">р�
 $_['entry_reward']           = 'Бонусные баллы:';
 $_['entry_layout']           = 'Изменить схему:';
 $_['entry_main_category']    = 'Главная категория:';
+$_['entry_seo_title']        = 'HTML-тег Title:';
+$_['entry_seo_h1']           = 'HTML-тег H1:';
 $_['entry_profile']          = 'Профиль:';
 $_['text_recurring_help']    = 'Recurring amounts are calculated by the frequency and cycles. <br />For example if you use a frequency of "week" and a cycle of "2", then the user will be billed every 2 weeks. <br />The length is the number of times the user will make a payment, set this to 0 if you want payments until they are cancelled.';
 $_['text_recurring_title']   = 'Recurring payments';

@@ -127,7 +127,28 @@ class ControllerProductManufacturer extends Controller {
 		$manufacturer_info = $this->model_catalog_manufacturer->getManufacturer($manufacturer_id);
 
 		if ($manufacturer_info) {
-			$this->document->setTitle($manufacturer_info['name']);
+			if ($manufacturer_info['seo_title']) {
+				$this->document->setTitle($manufacturer_info['seo_title']);
+			} else {
+				$this->document->setTitle($manufacturer_info['name']);
+			}
+			
+			 if ($manufacturer_info['seo_h1']) {
+				$this->data['heading_title'] = $manufacturer_info['seo_h1'];
+				} else {
+				$this->data['heading_title'] = $manufacturer_info['name'];
+			}
+
+			$this->document->setDescription($manufacturer_info['meta_description']);
+			$this->document->setKeywords($manufacturer_info['meta_keyword']);			
+			$this->data['description'] = html_entity_decode($manufacturer_info['description'], ENT_QUOTES, 'UTF-8');
+			
+			if ($manufacturer_info['image']) {
+				$this->data['thumb'] = $this->model_tool_image->resize($manufacturer_info['image'], $this->config->get('config_image_category_width'), $this->config->get('config_image_category_height'));
+			} else {
+				$this->data['thumb'] = '';
+			}
+
 			$this->document->addScript('catalog/view/javascript/jquery/jquery.total-storage.min.js');
 
 			$url = '';
@@ -153,8 +174,6 @@ class ControllerProductManufacturer extends Controller {
 				'href'      => $this->url->link('product/manufacturer/info', 'manufacturer_id=' . $this->request->get['manufacturer_id'] . $url),
 				'separator' => $this->language->get('text_separator')
 			);
-
-			$this->data['heading_title'] = $manufacturer_info['name'];
 
 			$this->data['text_empty'] = $this->language->get('text_empty');
 			$this->data['text_quantity'] = $this->language->get('text_quantity');

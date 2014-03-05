@@ -20,9 +20,14 @@ $_['column_action']      = 'Действие';
 $_['entry_name']         = 'Производитель:';
 $_['entry_store']        = 'Магазины:';
 $_['entry_keyword']      = 'SEO URL:<br/><span class="help">Должно быть уникальным на всю систему.</span>';
+$_['entry_description']  = 'Описание:';
 $_['entry_image']        = 'Изображение:';
 $_['entry_sort_order']   = 'Порядок сортировки:';
 $_['entry_type']         = 'Тип:';
+$_['entry_seo_title']    = 'HTML-тег Title:';
+$_['entry_seo_h1']       = 'HTML-тег H1:';
+$_['entry_meta_keyword'] 		= 'Мета-тег Keywords:';
+$_['entry_meta_description'] = 'META Description:<br/><span class="help">Мета-тег "Описание"</span>';
 
 // Error
 $_['error_permission']   = 'У Вас нет прав для изменения производителей!';

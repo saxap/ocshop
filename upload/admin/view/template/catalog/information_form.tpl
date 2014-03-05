@@ -32,6 +32,22 @@
                   <span class="error"><?php echo $error_title[$language['language_id']]; ?></span>
                   <?php } ?></td>
               </tr>
+			  <tr>
+                <td><?php echo $entry_seo_h1; ?></td>
+                <td><input type="text" name="information_description[<?php echo $language['language_id']; ?>][seo_h1]" maxlength="255" size="100" value="<?php echo isset($information_description[$language['language_id']]) ? $information_description[$language['language_id']]['seo_h1'] : ''; ?>" /></td>
+              </tr>
+              <tr>
+                <td><?php echo $entry_seo_title; ?></td>
+                <td><input type="text" name="information_description[<?php echo $language['language_id']; ?>][seo_title]" maxlength="255" size="100" value="<?php echo isset($information_description[$language['language_id']]) ? $information_description[$language['language_id']]['seo_title'] : ''; ?>" /></td>
+              </tr>
+              <tr>
+                <td><?php echo $entry_meta_keyword; ?></td>
+                <td><input type="text" name="information_description[<?php echo $language['language_id']; ?>][meta_keyword]" maxlength="255" size="100" value="<?php echo isset($information_description[$language['language_id']]) ? $information_description[$language['language_id']]['meta_keyword'] : ''; ?>" /></td>
+              </tr>
+              <tr>
+                <td><?php echo $entry_meta_description; ?></td>
+                <td><textarea name="information_description[<?php echo $language['language_id']; ?>][meta_description]" cols="97" rows="2"><?php echo isset($information_description[$language['language_id']]) ? $information_description[$language['language_id']]['meta_description'] : ''; ?></textarea></td>
+              </tr>
               <tr>
                 <td><span class="required">*</span> <?php echo $entry_description; ?></td>
                 <td><textarea name="information_description[<?php echo $language['language_id']; ?>][description]" id="description<?php echo $language['language_id']; ?>"><?php echo isset($information_description[$language['language_id']]) ? $information_description[$language['language_id']]['description'] : ''; ?></textarea>
