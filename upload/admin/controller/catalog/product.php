@@ -1,6 +1,43 @@
 <?php 
 class ControllerCatalogProduct extends Controller {
-	private $error = array(); 
+	private $error = array();
+
+	public function price() {
+        if ($this->request->server['REQUEST_METHOD'] == 'POST') {
+        $this->db->query("UPDATE " . DB_PREFIX . "product SET price = '" . (integer)$this->request->post['price'] . "' WHERE product_id = '" . (int)$this->request->post['product_id'] . "'");
+        $this->cache->delete('product');
+        }
+        }	
+
+	public function quantity() {
+        if ($this->request->server['REQUEST_METHOD'] == 'POST') {
+        $this->db->query("UPDATE " . DB_PREFIX . "product SET quantity = '" . (float)$this->request->post['quantity'] . "' WHERE product_id = '" . (int)$this->request->post['product_id'] . "'");
+        $this->cache->delete('product');
+        }
+        }
+		
+
+	public function status() {
+        if ($this->request->server['REQUEST_METHOD'] == 'POST') {
+        $this->db->query("UPDATE " . DB_PREFIX . "product SET status = '" . (int)$this->request->post['status'] . "' WHERE product_id = '" . (int)$this->request->post['product_id'] . "'");
+        $this->cache->delete('product');
+        }
+        }		
+
+	public function name() {
+        if ($this->request->server['REQUEST_METHOD'] == 'POST') {
+        $this->db->query("UPDATE " . DB_PREFIX . "product_description SET name = '" . (string)$this->request->post['name'] . "' WHERE product_id = '" . (int)$this->request->post['product_id'] . "' AND language_id ='".(int)$this->config->get('config_language_id') ."'");
+        $this->cache->delete('product');
+        }
+        }
+
+	public function model() {
+        if ($this->request->server['REQUEST_METHOD'] == 'POST') {
+        $this->db->query("UPDATE " . DB_PREFIX . "product SET model = '" . (string)$this->request->post['model'] . "' WHERE product_id = '" . (int)$this->request->post['product_id'] . "'");
+        $this->cache->delete('product');
+
+        }
+        }
 
 	public function index() {
 		$this->language->load('catalog/product');
@@ -393,7 +430,17 @@ class ControllerCatalogProduct extends Controller {
 		$this->data['text_enabled'] = $this->language->get('text_enabled');		
 		$this->data['text_disabled'] = $this->language->get('text_disabled');		
 		$this->data['text_no_results'] = $this->language->get('text_no_results');		
-		$this->data['text_image_manager'] = $this->language->get('text_image_manager');		
+		$this->data['text_image_manager'] = $this->language->get('text_image_manager');
+
+		$this->data['text_new_price'] = $this->language->get('text_new_price');
+		$this->data['text_new_quantity'] = $this->language->get('text_new_quantity');
+		$this->data['text_new_model'] = $this->language->get('text_new_model');
+		$this->data['text_new_name'] = $this->language->get('text_new_name');
+		$this->data['text_browse'] = $this->language->get('text_browse');
+		$this->data['text_clear'] = $this->language->get('text_clear');		
+		$this->data['no_image'] = $this->language->get('no_image');
+		$this->data['button_save'] = $this->language->get('button_save');
+    	$this->data['button_cancel'] = $this->language->get('button_cancel');
 
 		$this->data['column_image'] = $this->language->get('column_image');		
 		$this->data['column_name'] = $this->language->get('column_name');		

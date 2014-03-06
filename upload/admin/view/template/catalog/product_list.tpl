@@ -83,22 +83,23 @@
                 <input type="checkbox" name="selected[]" value="<?php echo $product['product_id']; ?>" />
                 <?php } ?></td>
               <td class="center"><img src="<?php echo $product['image']; ?>" alt="<?php echo $product['name']; ?>" style="padding: 1px; border: 1px solid #DDDDDD;" /></td>
-              <td class="left"><?php echo $product['name']; ?></td>
-              <td class="left"><?php echo $product['model']; ?></td>
+              <td class="left"><div id="<?php echo $product['product_id']; ?>" class="inlineEditn"><?php echo $product['name']; ?></div></td>
+              <td class="left"><div id="<?php echo $product['product_id']; ?>" class="inlineEditm"><?php echo $product['model']; ?></div></td>
               <td class="left"><?php if ($product['special']) { ?>
-                <span style="text-decoration: line-through;"><?php echo $product['price']; ?></span><br/>
+                <span style="text-decoration: line-through;"><div id="<?php echo $product['product_id']; ?>" class="inlineEdit"><?php echo $product['price']; ?></div></span><br/>
                 <span style="color: #b00;"><?php echo $product['special']; ?></span>
                 <?php } else { ?>
-                <?php echo $product['price']; ?>
+                <div id="<?php echo $product['product_id']; ?>" class="inlineEdit"><?php echo $product['price']; ?></div>
                 <?php } ?></td>
               <td class="right"><?php if ($product['quantity'] <= 0) { ?>
-                <span style="color: #FF0000;"><?php echo $product['quantity']; ?></span>
+                <span style="color: #FF0000;"><div id="<?php echo $product['product_id']; ?>" class="inlineEditq"><?php echo $product['quantity']; ?></div></span>
                 <?php } elseif ($product['quantity'] <= 5) { ?>
-                <span style="color: #FFA500;"><?php echo $product['quantity']; ?></span>
+                <span style="color: #FFA500;"><div id="<?php echo $product['product_id']; ?>" class="inlineEditq"><?php echo $product['quantity']; ?></div></span>
                 <?php } else { ?>
-                <span style="color: #008000;"><?php echo $product['quantity']; ?></span>
-                <?php } ?></td>
-              <td class="left"><?php echo $product['status']; ?></td>
+                <span style="color: #008000;"><div id="<?php echo $product['product_id']; ?>" class="inlineEditq"><?php echo $product['quantity']; ?></div></span>
+                <?php } ?>
+			  </td>
+              <td class="left"><label><input type="checkbox" name="status" value="<?php echo $product['product_id']; ?>" <?php echo ($product['status'] == $text_enabled ? 'checked="checked"' : ''); ?> /><span><?php echo $product['status']; ?></span></label></td>
               <td class="right"><?php foreach ($product['action'] as $action) { ?>
                 [ <a href="<?php echo $action['href']; ?>"><?php echo $action['text']; ?></a> ]
                 <?php } ?></td>
@@ -211,6 +212,121 @@ $('input[name=\'filter_model\']').autocomplete({
 	focus: function(event, ui) {
       	return false;
    	}
+});
+//--></script>
+<script type="text/javascript"><!--
+  $(document).ready(function() {
+        $('input[name=\'status\']').change(function() {
+         $.post('index.php?route=catalog/product/status&token=<?php echo $token; ?>', 'status=' + ($(this).attr('checked') ? '1' : '0') + '&product_id=' + $(this).val());
+         var text = $(this).next().text() == '<?php echo $text_disabled; ?>' ? '<?php echo $text_enabled; ?>' : '<?php echo $text_disabled; ?>';
+          $(this).next().text(text);
+    });
+
+  }); 
+
+  $(".inlineEdit").bind("click", updateText);
+        function updateText() {
+						$(".inlineEdit").unbind('click');
+						OrigId = $(this).attr("id");
+                        OrigText= $(this).html();
+                        OrigId = $(this).attr("id");
+                        Save = '<a class="save"><img src="view/image/add.png" alt="<?php echo $button_save; ?>" title="<?php echo $button_save; ?>" /></a>&nbsp;';
+                        Revert= '<a class="revert"><img src="view/image/delete.png" alt="<?php echo $button_cancel; ?>" title="<?php echo $button_cancel; ?>" /></a>';
+                        $(this).addClass("selected").html('<input type="text" name="price"  value=' + OrigText + ' size="10" id="price' + OrigId + '" /><br/>' + Save + Revert).unbind('click', updateText);
+                };
+   
+
+        $(".revert").live("click", function () {
+        $(this).parent().html(OrigText).removeClass("selected");
+		$(".inlineEdit").bind("click", updateText);
+    });        
+
+                $(".save").live("click", function updatePrice(product_id) {                                
+                var price = $('#price' + OrigId).val();
+                $.post('index.php?route=catalog/product/price&token=<?php echo $token; ?>', 'price=' + price + '&product_id=' + OrigId);
+            alert('<?php echo $text_new_price; ?>' + price);
+        $(this).parent().html(price).removeClass("selected");
+		$(".inlineEdit").bind("click", updateText);
+});
+
+$(".inlineEditq").bind("click", updateTextq);
+
+function updateTextq() {
+						$(".inlineEditq").unbind('click');
+						OrigId = $(this).attr("id");
+                        OrigTextq= $(this).html();
+                        Saveq = '<a class="saveq"><img src="view/image/add.png" alt="<?php echo $button_save; ?>" title="<?php echo $button_save; ?>" /></a>&nbsp;';
+                        Revertq= '<a class="revertq"><img src="view/image/delete.png" alt="<?php echo $button_cancel; ?>" title="<?php echo $button_cancel; ?>" /></a>';
+                        $(this).addClass("selected").html('<input type="text" name="quantity"  size="10" id="quantity' + OrigId + '" value="' + OrigTextq +'" /><br/>' + Saveq + Revertq).unbind('click', updateTextq);                
+
+				};
+    
+        $(".revertq").live("click", function () {
+        $(this).parent().html(OrigTextq).removeClass("selected");
+		$(".inlineEditq").bind("click", updateTextq);
+    });                
+
+                $(".saveq").live("click", function updateQuantity(product_id) {                                
+
+                var quantity = $('#quantity' + OrigId).val();
+                $.post('index.php?route=catalog/product/quantity&token=<?php echo $token; ?>', 'quantity=' + quantity + '&product_id=' + OrigId);
+            alert('<?php echo $text_new_quantity; ?>' + quantity);
+        $(this).parent().html(quantity).removeClass("selected");
+		$(".inlineEditq").bind("click", updateTextq);
+});
+
+$(".inlineEditm").bind("click", updateTextm);
+
+function updateTextm() {
+						$(".inlineEditm").unbind('click');
+						OrigId = $(this).attr("id");
+                        OrigTextm= $(this).html();
+						Savem = '<a class="savem"><img src="view/image/add.png" alt="<?php echo $button_save; ?>" title="<?php echo $button_save; ?>" /></a>&nbsp;';
+                        Revertm= '<a class="revertm"><img src="view/image/delete.png" alt="<?php echo $button_cancel; ?>" title="<?php echo $button_cancel; ?>" /></a>';
+                        $(this).addClass("selected").html('<input type="text" name="model"  size="20" id="model' + OrigId + '" value="' + OrigTextm +'" /><br/>' + Savem + Revertm).unbind('click', updateTextm);
+
+				};      
+
+        $(".revertm").live("click", function () {
+        $(this).parent().html(OrigTextm).removeClass("selected");
+		$(".inlineEditm").bind("click", updateTextm);
+    });        
+
+                $(".savem").live("click", function updateModel(product_id) {                               
+
+                var model = $('#model' + OrigId).val();
+			  $.post('index.php?route=catalog/product/model&token=<?php echo $token; ?>', 'model=' + model + '&product_id=' + OrigId);
+            alert('<?php echo $text_new_model; ?>' + model);
+        $(this).parent().html(model).removeClass("selected");
+		$(".inlineEditm").bind("click", updateTextm);
+});
+
+$(".inlineEditn").bind("click", updateTextn);
+
+function updateTextn() {
+						$(".inlineEditn").unbind('click');
+						OrigId = $(this).attr("id");
+                        OrigTextn= $(this).html();
+                        Saven = '<a class="saven"><img src="view/image/add.png" alt="<?php echo $button_save; ?>" title="<?php echo $button_save; ?>" /></a>&nbsp;';
+                        Revertn= '<a class="revertn"><img src="view/image/delete.png" alt="<?php echo $button_cancel; ?>" title="<?php echo $button_cancel; ?>" /></a>'
+                        $(this).addClass("selected").html('<input type="text" name="name"  size="55" id="name' + OrigId + '" value="' + OrigTextn +'" /><br/>' + Saven + Revertn).unbind('click', updateTextn);
+				};
+    
+
+        $(".revertn").live("click", function () {
+        $(this).parent().html(OrigTextn).removeClass("selected");
+		$(".inlineEditn").bind("click", updateTextn);
+    });
+                
+                $(".saven").live("click", function updateName(product_id) {
+                                
+
+                var name = $('#name' + OrigId).val();
+
+                  $.post('index.php?route=catalog/product/name&token=<?php echo $token; ?>', 'name=' + name + '&product_id=' + OrigId);
+            alert('<?php echo $text_new_name; ?>' + name);
+        $(this).parent().html(name).removeClass("selected");
+		$(".inlineEditn").bind("click", updateTextn);
 });
 //--></script> 
 <?php echo $footer; ?>
