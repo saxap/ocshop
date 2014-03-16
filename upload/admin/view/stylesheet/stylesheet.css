@@ -558,3 +558,18 @@ table.form > tbody > tr > td {
 	position: relative;
 	top: 3px;
 }
+.inlineEdit,
+.inlineEditq,
+.inlineEditm,
+.inlineEditn {
+padding: 4px;
+}
+.inlineEdit:hover,
+.inlineEditq:hover,
+.inlineEditm:hover,
+.inlineEditn:hover {
+border: 1px solid #ddd;
+background: #eee;
+padding: 3px;
+margin: -0px
+}

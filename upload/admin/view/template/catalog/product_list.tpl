@@ -28,6 +28,12 @@
                 <?php } else { ?>
                 <a href="<?php echo $sort_name; ?>"><?php echo $column_name; ?></a>
                 <?php } ?></td>
+				 <td class="left">                
+                <?php echo $column_category; ?>
+              </td>
+              <td class="left">                
+                <?php echo $column_manufacturer; ?>
+              </td>
               <td class="left"><?php if ($sort == 'p.model') { ?>
                 <a href="<?php echo $sort_model; ?>" class="<?php echo strtolower($order); ?>"><?php echo $column_model; ?></a>
                 <?php } else { ?>
@@ -55,10 +61,26 @@
             <tr class="filter">
               <td></td>
               <td></td>
-              <td><input type="text" name="filter_name" value="<?php echo $filter_name; ?>" /></td>
-              <td><input type="text" name="filter_model" value="<?php echo $filter_model; ?>" /></td>
-              <td align="left"><input type="text" name="filter_price" value="<?php echo $filter_price; ?>" size="8"/></td>
-              <td align="right"><input type="text" name="filter_quantity" value="<?php echo $filter_quantity; ?>" style="text-align: right;" /></td>
+              <td><input type="text" name="filter_name" value="<?php echo $filter_name; ?>" size="48"/></td>
+			  <td><select name="filter_category_id" style="width: 130px;">
+              <option value="*"></option>
+		      <option value="null">-</option>
+		      <?php foreach($categories as $category) { ?>
+			  <option value="<?php echo $category['category_id'] ?>" <?php if($filter_category_id == $category['category_id']) echo 'selected="selected"'; ?>><?php echo $category['name'] ?></option>
+		      <?php }?>
+              </select>
+			  </td>
+              <td><select name="filter_manufacturer_id" style="width: 130px;">
+              <option value="*"></option>
+              <option value="null">-</option>
+			  <?php foreach($manufacturers as $manufacturer) { ?>
+			  <option value="<?php echo $manufacturer['manufacturer_id'] ?>"<?php if($filter_manufacturer_id == $manufacturer['manufacturer_id']) echo 'selected="selected"'; ?>><?php echo $manufacturer['name'] ?></option>
+			  <?php }?>
+              </select>
+			  </td>
+              <td><input type="text" name="filter_model" value="<?php echo $filter_model; ?>" size="9"/></td>
+              <td align="left"><input type="text" name="filter_price" value="<?php echo $filter_price; ?>" size="9"/></td>
+              <td align="right"><input type="text" name="filter_quantity" value="<?php echo $filter_quantity; ?>" style="text-align: right;" size="8"/></td>
               <td><select name="filter_status">
                   <option value="*"></option>
                   <?php if ($filter_status) { ?>
@@ -72,7 +94,7 @@
                   <option value="0"><?php echo $text_disabled; ?></option>
                   <?php } ?>
                 </select></td>
-              <td align="right"><a onclick="filter();" class="button"><?php echo $button_filter; ?></a></td>
+              <td align="right"><a onclick="clear_filter();" class="button"><?php echo $button_clear; ?></a></td>
             </tr>
             <?php if ($products) { ?>
             <?php foreach ($products as $product) { ?>
@@ -84,9 +106,11 @@
                 <?php } ?></td>
               <td class="center"><img src="<?php echo $product['image']; ?>" alt="<?php echo $product['name']; ?>" style="padding: 1px; border: 1px solid #DDDDDD;" /></td>
               <td class="left"><div id="<?php echo $product['product_id']; ?>" class="inlineEditn"><?php echo $product['name']; ?></div></td>
+			  <td class="left"><?php foreach ($product['category'] as $cat) echo $cat['name'] . '<br />'; ?></td>
+              <td class="left"><?php echo $product['manufacturer']; ?></td>
               <td class="left"><div id="<?php echo $product['product_id']; ?>" class="inlineEditm"><?php echo $product['model']; ?></div></td>
               <td class="left"><?php if ($product['special']) { ?>
-                <span style="text-decoration: line-through;"><div id="<?php echo $product['product_id']; ?>" class="inlineEdit"><?php echo $product['price']; ?></div></span><br/>
+                <span style="text-decoration: line-through;"><div class="inlineEdit"><?php echo $product['price']; ?></div></span><br/>
                 <span style="color: #b00;"><?php echo $product['special']; ?></span>
                 <?php } else { ?>
                 <div id="<?php echo $product['product_id']; ?>" class="inlineEdit"><?php echo $product['price']; ?></div>
@@ -99,7 +123,7 @@
                 <span style="color: #008000;"><div id="<?php echo $product['product_id']; ?>" class="inlineEditq"><?php echo $product['quantity']; ?></div></span>
                 <?php } ?>
 			  </td>
-              <td class="left"><label><input type="checkbox" name="status" value="<?php echo $product['product_id']; ?>" <?php echo ($product['status'] == $text_enabled ? 'checked="checked"' : ''); ?> /><span><?php echo $product['status']; ?></span></label></td>
+              <td class="left"><label><input type="checkbox" name="status"  <?php echo ($product['status'] == $text_enabled ? 'checked="checked"' : ''); ?> /><span><?php echo $product['status']; ?></span></label></td>
               <td class="right"><?php foreach ($product['action'] as $action) { ?>
                 [ <a href="<?php echo $action['href']; ?>"><?php echo $action['text']; ?></a> ]
                 <?php } ?></td>
@@ -117,15 +141,75 @@
     </div>
   </div>
 </div>
+<script id="productTemplate" type="text/x-jquery-tmpl">
+<tr>
+              <td style="text-align: center;"><input type="checkbox" name="selected[]" value="${product_id}" /></td>
+              <td class="center"><img src="${image}" alt="${name}" style="padding: 1px; border: 1px solid #DDDDDD;" /></td>
+              <td class="left"><div class="inlineEditn">${name}</div></td>
+			  <td class="left">{{each(i, cat) category}}${cat['name']}<br/>{{/each}}</td>
+	          <td class="left">${manufacturer}</td>
+              <td class="left"><div class="inlineEditm">${model}</div></td>
+              <td class="left">{{if special}}
+                <span style="text-decoration: line-through;"><div class="inlineEdit">${price}</div></span><br/>
+				<span style="color: #b00;">${special}</span>
+                {{else}}
+                <div class="inlineEdit">${price}</div>
+                {{/if}}
+	      </td>
+              <td class="right">
+		      {{if quantity <= 5}}
+			      {{if quantity <= 0}}
+				      <span style="color: #FF0000;">><div class="inlineEditq" >${quantity}</div></span>
+			      {{else}}
+				      <span style="color: #FFA500;">><div class="inlineEditq" >${quantity}</div></span>
+			      {{/if}}
+		      {{else}}
+			          <span style="color: #008000;"><div class="inlineEditq" >${quantity}</div></span>
+		      {{/if}}
+                </td>
+            {{if status == '<?php echo $text_enabled; ?>'  }}
+			  <td class="left"><label><input type="checkbox" name="status" checked="checked" /><span>${status}</span></label></td>
+			   {{else}}
+			  <td class="left"><label><input type="checkbox" name="status"/><span>${status}</span></label></td>
+			    {{/if}}
+              <td class="right">
+		{{each action}}
+			[ <a href="${href}">${text}</a> ]
+                {{/each}}
+	      </td>
+            </tr>
+</script>
+<script type="text/javascript" src="view/javascript/jquery/jquery.tmpl.min.js"></script>
 <script type="text/javascript"><!--
 function filter() {
-	url = 'index.php?route=catalog/product&token=<?php echo $token; ?>';
+	url = 'index.php?route=catalog/product/filter&token=<?php echo $token; ?>';
+
+	url += '&page=' + $('#page').val();
+
+	if ($('#sort').val()) {
+		url += '&sort=' + $('#sort').val();
+	}
+	if ($('#order').val()) {
+		url += '&order=' + $('#order').val();
+	}
 	
 	var filter_name = $('input[name=\'filter_name\']').attr('value');
 	
 	if (filter_name) {
 		url += '&filter_name=' + encodeURIComponent(filter_name);
 	}
+	
+	var category_id = $('select[name=\'filter_category_id\']').attr('value');
+	
+	if (category_id != '*') {
+		url += '&filter_category_id=' + encodeURIComponent(category_id);
+	}	
+
+	var manufacturer_id = $('select[name=\'filter_manufacturer_id\']').attr('value');
+	
+	if (manufacturer_id != '*') {
+		url += '&filter_manufacturer_id=' + encodeURIComponent(manufacturer_id);
+	}	
 	
 	var filter_model = $('input[name=\'filter_model\']').attr('value');
 	
@@ -151,182 +235,213 @@ function filter() {
 		url += '&filter_status=' + encodeURIComponent(filter_status);
 	}	
 
-	location = url;
+	$.ajax({
+		url: url,
+		dataType: 'json',
+		success : function(json) {
+				  $('table.list tr:gt(1)').empty();
+				  $("#productTemplate").tmpl(json.products).appendTo("table.list");
+				  $('.pagination').html(json.pagination);
+			  }
+	});
 }
 //--></script> 
 <script type="text/javascript"><!--
+
+function gsUV(e, t, v) {
+    var n = String(e).split("?");
+    var r = "";
+    if (n[1]) {
+        var i = n[1].split("&");
+        for (var s = 0; s <= i.length; s++) {
+            if (i[s]) {
+                var o = i[s].split("=");
+                if (o[0] && o[0] == t) {
+                    r = o[1];
+                    if (v != undefined) {
+                        i[s] = o[0] +'=' + v;
+                    }
+                    break;
+                }
+            }
+        }
+    }
+    if (v != undefined) {
+        return n[0] +'?'+ i.join('&');
+    }
+    return r
+}
 $('#form input').keydown(function(e) {
 	if (e.keyCode == 13) {
+		$('#page').val(1);
 		filter();
 	}
 });
+$('#form input').bind("input", function() {
+	if ($(this).val()=='') {
+		$('#page').val(1);
+		filter();
+	}
+});
+
+$('#form select').bind("change", function() {
+	$('#page').val(1);
+	filter();
+});
+
+$('.pagination .links a').live("click", function() {
+	var page = gsUV($(this).attr('href'), 'page');
+	$('#page').val(page);
+	filter();
+	return false;
+});
+
+$('#head a').live("click", function() {
+
+	var sort = gsUV($(this).attr('href'), 'sort');
+	$('#sort').val(sort);
+	var order = gsUV($(this).attr('href'), 'order');
+	$('#order').val(order);
+	$(this).attr('href', gsUV($(this).attr('href'), 'order', order=='DESC'?'ASC':'DESC'));
+	$('#head a').removeAttr('class');
+	this.className = order.toLowerCase();
+	filter();
+	return false;
+});
+function clear_filter() {
+	$('tr.filter select option:selected').prop('selected', false);
+	$('tr.filter input').val('');
+	filter();
+	return false;
+}
 //--></script> 
 <script type="text/javascript"><!--
-$('input[name=\'filter_name\']').autocomplete({
+$('.filter input').autocomplete({
 	delay: 500,
 	source: function(request, response) {
-		$.ajax({
-			url: 'index.php?route=catalog/product/autocomplete&token=<?php echo $token; ?>&filter_name=' +  encodeURIComponent(request.term),
-			dataType: 'json',
-			success: function(json) {		
-				response($.map(json, function(item) {
-					return {
-						label: item.name,
-						value: item.product_id
-					}
-				}));
-			}
-		});
-	}, 
-	select: function(event, ui) {
-		$('input[name=\'filter_name\']').val(ui.item.label);
-						
-		return false;
-	},
-	focus: function(event, ui) {
-      	return false;
-   	}
+	    filter();
+	}
 });
 
-$('input[name=\'filter_model\']').autocomplete({
-	delay: 500,
-	source: function(request, response) {
-		$.ajax({
-			url: 'index.php?route=catalog/product/autocomplete&token=<?php echo $token; ?>&filter_model=' +  encodeURIComponent(request.term),
-			dataType: 'json',
-			success: function(json) {		
-				response($.map(json, function(item) {
-					return {
-						label: item.model,
-						value: item.product_id
-					}
-				}));
-			}
-		});
-	}, 
-	select: function(event, ui) {
-		$('input[name=\'filter_model\']').val(ui.item.label);
-						
-		return false;
-	},
-	focus: function(event, ui) {
-      	return false;
-   	}
-});
-//--></script>
+//--></script> 
 <script type="text/javascript"><!--
-  $(document).ready(function() {
-        $('input[name=\'status\']').change(function() {
-         $.post('index.php?route=catalog/product/status&token=<?php echo $token; ?>', 'status=' + ($(this).attr('checked') ? '1' : '0') + '&product_id=' + $(this).val());
-         var text = $(this).next().text() == '<?php echo $text_disabled; ?>' ? '<?php echo $text_enabled; ?>' : '<?php echo $text_disabled; ?>';
-          $(this).next().text(text);
-    });
 
-  }); 
 
-  $(".inlineEdit").bind("click", updateText);
-        function updateText() {
-						$(".inlineEdit").unbind('click');
-						OrigId = $(this).attr("id");
-                        OrigText= $(this).html();
-                        OrigId = $(this).attr("id");
-                        Save = '<a class="save"><img src="view/image/add.png" alt="<?php echo $button_save; ?>" title="<?php echo $button_save; ?>" /></a>&nbsp;';
-                        Revert= '<a class="revert"><img src="view/image/delete.png" alt="<?php echo $button_cancel; ?>" title="<?php echo $button_cancel; ?>" /></a>';
-                        $(this).addClass("selected").html('<input type="text" name="price"  value=' + OrigText + ' size="10" id="price' + OrigId + '" /><br/>' + Save + Revert).unbind('click', updateText);
-                };
-   
+ $('input[name=\'status\']').live("click", updateStatus);
+		
+	function updateStatus() {
+		var product_id = $(this).parent().parent().parent().parent().find('input:checkbox').attr('value');
+		$.post('index.php?route=catalog/product/status&token=<?php echo $token; ?>', 'status=' + ($(this).attr('checked') ? '1' : '0') + '&product_id=' + product_id);
+        var text = $(this).next().text() == '<?php echo $text_disabled; ?>' ? '<?php echo $text_enabled; ?>' : '<?php echo $text_disabled; ?>';
+        $(this).next().text(text);
+   };
 
-        $(".revert").live("click", function () {
-        $(this).parent().html(OrigText).removeClass("selected");
-		$(".inlineEdit").bind("click", updateText);
-    });        
 
-                $(".save").live("click", function updatePrice(product_id) {                                
-                var price = $('#price' + OrigId).val();
-                $.post('index.php?route=catalog/product/price&token=<?php echo $token; ?>', 'price=' + price + '&product_id=' + OrigId);
-            alert('<?php echo $text_new_price; ?>' + price);
-        $(this).parent().html(price).removeClass("selected");
-		$(".inlineEdit").bind("click", updateText);
+
+
+$(".inlineEdit").live("click", updatePrice);
+
+function updatePrice() {
+		var  save =  '</br><a class="save"><img src="view/image/add.png" alt="<?php echo $button_save; ?>" title="<?php echo $button_save; ?>" /></a>&nbsp;';
+	    var  revert= '<a class="revert"><img src="view/image/delete.png" alt="<?php echo $button_cancel; ?>" title="<?php echo $button_cancel; ?>" /></a>'
+		$(this).after('<div class="editor"><input type="text" name="price" value="' + $(this).text() + '" size="30" />' + save + revert +'</div>');
+		$(this).hide();
+};
+    
+
+$(".revert").live("click", function () {
+ 	   	$(this).parent().parent().find('.inlineEdit').show();
+		$(this).parent().parent().find('.editor').remove();
+});
+	
+$(".save").live("click", function () {
+	 
+	 var product_id = $(this).parent().parent().parent().parent().find('input:checkbox').attr('value');
+	 var price = $(this).parent().parent().find('input').val();
+	 $.post('index.php?route=catalog/product/price&token=<?php echo $token; ?>', 'price=' + price + '&product_id=' + product_id);
+	 $(this).parent().parent().find('.inlineEdit').text(price).show();
+	 $(this).parent().parent().find('.editor').remove();
+	
 });
 
-$(".inlineEditq").bind("click", updateTextq);
+
+
+$(".inlineEditq").live("click", updateTextq);
 
 function updateTextq() {
-						$(".inlineEditq").unbind('click');
-						OrigId = $(this).attr("id");
-                        OrigTextq= $(this).html();
-                        Saveq = '<a class="saveq"><img src="view/image/add.png" alt="<?php echo $button_save; ?>" title="<?php echo $button_save; ?>" /></a>&nbsp;';
-                        Revertq= '<a class="revertq"><img src="view/image/delete.png" alt="<?php echo $button_cancel; ?>" title="<?php echo $button_cancel; ?>" /></a>';
-                        $(this).addClass("selected").html('<input type="text" name="quantity"  size="10" id="quantity' + OrigId + '" value="' + OrigTextq +'" /><br/>' + Saveq + Revertq).unbind('click', updateTextq);                
-
-				};
+		var  saveq =  '</br><a class="saveq"><img src="view/image/add.png" alt="<?php echo $button_save; ?>" title="<?php echo $button_save; ?>" /></a>&nbsp;';
+	    var  revertq= '<a class="revertq"><img src="view/image/delete.png" alt="<?php echo $button_cancel; ?>" title="<?php echo $button_cancel; ?>" /></a>'
+		$(this).after('<div class="editor"><input type="text" name="quantity" value="' + $(this).text() + '" size="30" />' + saveq + revertq +'</div>');
+		$(this).hide();
+};
     
-        $(".revertq").live("click", function () {
-        $(this).parent().html(OrigTextq).removeClass("selected");
-		$(".inlineEditq").bind("click", updateTextq);
-    });                
 
-                $(".saveq").live("click", function updateQuantity(product_id) {                                
-
-                var quantity = $('#quantity' + OrigId).val();
-                $.post('index.php?route=catalog/product/quantity&token=<?php echo $token; ?>', 'quantity=' + quantity + '&product_id=' + OrigId);
-            alert('<?php echo $text_new_quantity; ?>' + quantity);
-        $(this).parent().html(quantity).removeClass("selected");
-		$(".inlineEditq").bind("click", updateTextq);
+$(".revertq").live("click", function () {
+ 	   	$(this).parent().parent().find('.inlineEditq').show();
+		$(this).parent().parent().find('.editor').remove();
+});
+	
+$(".saveq").live("click", function () {
+	 
+	 var product_id = $(this).parent().parent().parent().parent().find('input:checkbox').attr('value');
+	 var quantity = $(this).parent().parent().find('input').val();
+	 $.post('index.php?route=catalog/product/quantity&token=<?php echo $token; ?>', 'quantity=' + quantity + '&product_id=' + product_id);
+	 $(this).parent().parent().find('.inlineEditq').text(quantity).show();
+	 $(this).parent().parent().find('.editor').remove();
+	
 });
 
-$(".inlineEditm").bind("click", updateTextm);
+
+$(".inlineEditm").live("click", updateTextm);
 
 function updateTextm() {
-						$(".inlineEditm").unbind('click');
-						OrigId = $(this).attr("id");
-                        OrigTextm= $(this).html();
-						Savem = '<a class="savem"><img src="view/image/add.png" alt="<?php echo $button_save; ?>" title="<?php echo $button_save; ?>" /></a>&nbsp;';
-                        Revertm= '<a class="revertm"><img src="view/image/delete.png" alt="<?php echo $button_cancel; ?>" title="<?php echo $button_cancel; ?>" /></a>';
-                        $(this).addClass("selected").html('<input type="text" name="model"  size="20" id="model' + OrigId + '" value="' + OrigTextm +'" /><br/>' + Savem + Revertm).unbind('click', updateTextm);
-
-				};      
-
-        $(".revertm").live("click", function () {
-        $(this).parent().html(OrigTextm).removeClass("selected");
-		$(".inlineEditm").bind("click", updateTextm);
-    });        
-
-                $(".savem").live("click", function updateModel(product_id) {                               
-
-                var model = $('#model' + OrigId).val();
-			  $.post('index.php?route=catalog/product/model&token=<?php echo $token; ?>', 'model=' + model + '&product_id=' + OrigId);
-            alert('<?php echo $text_new_model; ?>' + model);
-        $(this).parent().html(model).removeClass("selected");
-		$(".inlineEditm").bind("click", updateTextm);
-});
-
-$(".inlineEditn").bind("click", updateTextn);
-
-function updateTextn() {
-						$(".inlineEditn").unbind('click');
-						OrigId = $(this).attr("id");
-                        OrigTextn= $(this).html();
-                        Saven = '<a class="saven"><img src="view/image/add.png" alt="<?php echo $button_save; ?>" title="<?php echo $button_save; ?>" /></a>&nbsp;';
-                        Revertn= '<a class="revertn"><img src="view/image/delete.png" alt="<?php echo $button_cancel; ?>" title="<?php echo $button_cancel; ?>" /></a>'
-                        $(this).addClass("selected").html('<input type="text" name="name"  size="55" id="name' + OrigId + '" value="' + OrigTextn +'" /><br/>' + Saven + Revertn).unbind('click', updateTextn);
-				};
+		var  savem =  '</br><a class="savem"><img src="view/image/add.png" alt="<?php echo $button_save; ?>" title="<?php echo $button_save; ?>" /></a>&nbsp;';
+	    var  revertm= '<a class="revertm"><img src="view/image/delete.png" alt="<?php echo $button_cancel; ?>" title="<?php echo $button_cancel; ?>" /></a>'
+		$(this).after('<div class="editor"><input type="text" name="model" value="' + $(this).text() + '" size="30" />' + savem + revertm +'</div>');
+		$(this).hide();
+};
     
 
-        $(".revertn").live("click", function () {
-        $(this).parent().html(OrigTextn).removeClass("selected");
-		$(".inlineEditn").bind("click", updateTextn);
-    });
-                
-                $(".saven").live("click", function updateName(product_id) {
-                                
-
-                var name = $('#name' + OrigId).val();
-
-                  $.post('index.php?route=catalog/product/name&token=<?php echo $token; ?>', 'name=' + name + '&product_id=' + OrigId);
-            alert('<?php echo $text_new_name; ?>' + name);
-        $(this).parent().html(name).removeClass("selected");
-		$(".inlineEditn").bind("click", updateTextn);
+$(".revertm").live("click", function () {
+ 	   	$(this).parent().parent().find('.inlineEditm').show();
+		$(this).parent().parent().find('.editor').remove();
 });
-//--></script> 
+	
+$(".savem").live("click", function () {
+	 
+	 var product_id = $(this).parent().parent().parent().find('input:checkbox').attr('value');
+	 var model = $(this).parent().parent().find('input').val();
+	 $.post('index.php?route=catalog/product/model&token=<?php echo $token; ?>', 'model=' + model + '&product_id=' + product_id);
+	 $(this).parent().parent().find('.inlineEditm').text(model).show();
+	 $(this).parent().parent().find('.editor').remove();
+	
+});
+
+$(".inlineEditn").live("click", updateTextn);
+
+function updateTextn() {
+		var  saven =  '</br><a class="saven"><img src="view/image/add.png" alt="<?php echo $button_save; ?>" title="<?php echo $button_save; ?>" /></a>&nbsp;';
+	    var  revertn= '<a class="revertn"><img src="view/image/delete.png" alt="<?php echo $button_cancel; ?>" title="<?php echo $button_cancel; ?>" /></a>'
+		$(this).after('<div class="editor"><input type="text" name="name" value="' + $(this).text() + '" size="55" />' + saven + revertn +'</div>');
+		$(this).hide();
+};
+    
+
+$(".revertn").live("click", function () {
+ 	   	$(this).parent().parent().find('.inlineEditn').show();
+		$(this).parent().parent().find('.editor').remove();
+});
+	
+$(".saven").live("click", function () {
+	 
+	 var product_id = $(this).parent().parent().parent().find('input:checkbox').attr('value');
+	 var name = $(this).parent().parent().find('input').val();
+	 $.post('index.php?route=catalog/product/name&token=<?php echo $token; ?>', 'name=' + name + '&product_id=' + product_id);
+	 $(this).parent().parent().find('.inlineEditn').text(name).show();
+	 $(this).parent().parent().find('.editor').remove();
+	
+});
+                
+ 
+//--></script>
 <?php echo $footer; ?>

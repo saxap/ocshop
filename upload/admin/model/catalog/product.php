@@ -344,9 +344,22 @@ class ModelCatalogProduct extends Model {
 
 		return $query->row;
 	}
+	
+	public function getProductCatNames($product_id) {				
+		$query = $this->db->query("SELECT p2c.category_id FROM " . DB_PREFIX . "product_to_category p2c ".
+					  "WHERE product_id = '" . (int)$product_id . "' order by category_id");
+
+		$categories = array();
+		$this->load->model('catalog/category');
+		foreach ($query->rows as $row) {
+			$categories[] = $this->model_catalog_category->getCategory($row['category_id']);
+		}			
+		return $categories;
+	}
 
 	public function getProducts($data = array()) {
-		$sql = "SELECT * FROM " . DB_PREFIX . "product p LEFT JOIN " . DB_PREFIX . "product_description pd ON (p.product_id = pd.product_id)";
+		$sql = "SELECT p.*, pd.*,  m.name as 'm_name' FROM " . DB_PREFIX . "product p LEFT JOIN " . DB_PREFIX . "product_description pd ON (p.product_id = pd.product_id)";
+				$sql .= " LEFT JOIN " . DB_PREFIX . "manufacturer m ON (p.manufacturer_id = m.manufacturer_id)";
 
 		if (!empty($data['filter_category_id'])) {
 			$sql .= " LEFT JOIN " . DB_PREFIX . "product_to_category p2c ON (p.product_id = p2c.product_id)";			
@@ -355,11 +368,11 @@ class ModelCatalogProduct extends Model {
 		$sql .= " WHERE pd.language_id = '" . (int)$this->config->get('config_language_id') . "'"; 
 
 		if (!empty($data['filter_name'])) {
-			$sql .= " AND pd.name LIKE '" . $this->db->escape($data['filter_name']) . "%'";
+			$sql .= " AND pd.name LIKE '%" . $this->db->escape($data['filter_name']) . "%'";
 		}
 
 		if (!empty($data['filter_model'])) {
-			$sql .= " AND p.model LIKE '" . $this->db->escape($data['filter_model']) . "%'";
+			$sql .= " AND p.model LIKE '%" . $this->db->escape($data['filter_model']) . "%'";
 		}
 
 		if (!empty($data['filter_price'])) {
@@ -373,6 +386,33 @@ class ModelCatalogProduct extends Model {
 		if (isset($data['filter_status']) && !is_null($data['filter_status'])) {
 			$sql .= " AND p.status = '" . (int)$data['filter_status'] . "'";
 		}
+		
+		if (!empty($data['filter_category_id'])) {
+				if (!empty($data['filter_sub_category'])) {
+					$implode_data = array();
+					
+					$implode_data[] = "category_id = '" . (int)$data['filter_category_id'] . "'";
+					
+					$this->load->model('catalog/category');
+					
+					$categories = $this->model_catalog_category->getCategories($data['filter_category_id']);
+					
+					foreach ($categories as $category) {
+						$implode_data[] = "p2c.category_id = '" . (int)$category['category_id'] . "'";
+					}
+					
+					$sql .= " AND (" . implode(' OR ', $implode_data) . ")";			
+				} else {
+				    if ($data['filter_category_id'] == 'null') {
+					$sql .= " AND p2c.category_id is null ";
+				    } else {
+					$sql .= " AND p2c.category_id = '" . (int)$data['filter_category_id'] . "'";
+				    }
+				}
+			}
+			if (!empty($data['filter_manufacturer_id'])) {
+				$sql .= " AND p.manufacturer_id = '" . (int)$data['filter_manufacturer_id'] . "'";
+			}
 
 		$sql .= " GROUP BY p.product_id";
 
@@ -641,6 +681,34 @@ class ModelCatalogProduct extends Model {
 
 		if (isset($data['filter_status']) && !is_null($data['filter_status'])) {
 			$sql .= " AND p.status = '" . (int)$data['filter_status'] . "'";
+		}
+		
+		if (!empty($data['filter_category_id'])) {
+			if (!empty($data['filter_sub_category'])) {
+				$implode_data = array();
+				
+				$implode_data[] = "p2c.category_id = '" . (int)$data['filter_category_id'] . "'";
+				
+				$this->load->model('catalog/category');
+				
+				$categories = $this->model_catalog_category->getCategories($data['filter_category_id']);
+				
+				foreach ($categories as $category) {
+					$implode_data[] = "p2c.category_id = '" . (int)$category['category_id'] . "'";
+				}
+				
+				$sql .= " AND (" . implode(' OR ', $implode_data) . ")";			
+			} else {
+				    if ($data['filter_category_id'] == 'null') {
+					$sql .= " AND p2c.category_id is null ";
+				    } else {
+					$sql .= " AND p2c.category_id = '" . (int)$data['filter_category_id'] . "'";
+				    }
+			}
+		}
+
+		if (!empty($data['filter_manufacturer_id'])) {
+			$sql .= " AND p.manufacturer_id = '" . (int)$data['filter_manufacturer_id'] . "'";
 		}
 
 		$query = $this->db->query($sql);

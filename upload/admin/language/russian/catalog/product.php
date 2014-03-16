@@ -21,10 +21,13 @@ $_['text_new_name']             = 'Название успешно измене�
 
 // Column
 $_['column_name']            = 'Название товара';
+$_['column_category']        = 'Категория';
+$_['column_manufacturer']    = 'Производитель';
 $_['column_model']           = 'Модель';
 $_['column_image']           = 'Изображения';
-// Filter by category ADD
-$_['column_category']        = 'Category';
+
+$_['button_clear']           = 'Очистить';
+
 // End add
 $_['column_price']           = 'Цена на сайте';
 $_['column_quantity']        = 'Количество';
