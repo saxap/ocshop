@@ -5,7 +5,7 @@ $_['heading_title']                = 'Обзор';
 // Text
 $_['text_overview']                = 'Краткий обзор';
 $_['text_statistics']              = 'Статистика';
-$_['text_latest_10_orders']        = 'Последние 10 заказов';
+$_['text_latest_10_orders']        = 'Последние 15 заказов';
 $_['text_total_sale']              = 'Всего продано на сумму:';
 $_['text_total_sale_year']         = 'Всего продано в этом году на сумму:';
 $_['text_total_order']             = 'Всего заказов:';

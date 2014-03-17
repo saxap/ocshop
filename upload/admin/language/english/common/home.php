@@ -5,7 +5,7 @@ $_['heading_title']                 = 'Dashboard';
 // Text
 $_['text_overview']                 = 'Overview';
 $_['text_statistics']               = 'Statistics';
-$_['text_latest_10_orders']         = 'Latest 10 Orders';
+$_['text_latest_10_orders']         = 'Latest 15 Orders';
 $_['text_total_sale']               = 'Total Sales:';
 $_['text_total_sale_year']          = 'Total Sales This Year:';
 $_['text_total_order']              = 'Total Orders:';

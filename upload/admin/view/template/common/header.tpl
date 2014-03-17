@@ -52,6 +52,7 @@ $(document).ready(function(){
 </head>
 <body>
 <div id="container">
+	<?php if (!$logged) { ?>
     <div id="header">
   <div class="div1">
     <div class="div2"><img src="view/image/logo.png" title="<?php echo $heading_title; ?>" onclick="location = '<?php echo $home; ?>'" /></div>
@@ -59,10 +60,12 @@ $(document).ready(function(){
     <div class="div3"><img src="view/image/lock.png" alt="" style="position: relative; top: 3px;" />&nbsp;<?php echo $logged; ?></div>
     <?php } ?>
   </div>
+  <?php } ?>
   <?php if ($logged) { ?>
+  <div id="container-menu">
   <div id="menu">
     <ul class="left" style="display: none;">
-      <li id="dashboard"><a href="<?php echo $home; ?>" class="top"><?php echo $text_dashboard; ?></a></li>
+      <li id="dashboard"><a href="<?php echo $home; ?>" class="top"><img src="view/image/minilogo.png" title="<?php echo $text_dashboard; ?>"></a></li>
       <li id="catalog"><a class="top"><?php echo $text_catalog; ?></a>
         <ul>
           <li><a href="<?php echo $category; ?>"><?php echo $text_category; ?></a></li>
@@ -246,6 +249,7 @@ $(document).ready(function(){
       </li>
     </ul>
     <ul class="right" style="display: none;">
+	<li id="store-login"><img src="view/image/lock.png" alt="" style="position: relative; top: 3px;" />&nbsp;<?php echo $logged; ?></li>
       <li id="store"><a href="<?php echo $store; ?>" target="_blank" class="top"><?php echo $text_front; ?></a>
         <ul>
           <?php foreach ($stores as $stores) { ?>

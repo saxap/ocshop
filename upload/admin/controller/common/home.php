@@ -164,7 +164,7 @@ class ControllerCommonHome extends Controller {
 			'sort'  => 'o.date_added',
 			'order' => 'DESC',
 			'start' => 0,
-			'limit' => 10
+			'limit' => 15
 		);
 
 		$results = $this->model_sale_order->getOrders($data);

@@ -26,8 +26,10 @@
   <div class="box">
     <div class="heading">
       <h1><img src="view/image/home.png" alt="" /> <?php echo $heading_title; ?></h1>
+	  <div id="viz"><img src="view/image/order.png" alt="" /><a><?php echo $text_statistics; ?></a></div>
     </div>
     <div class="content">
+	<div id="statistic" class="vizibl">
       <div class="overview">
         <div class="dashboard-heading"><?php echo $text_overview; ?></div>
         <div class="dashboard-content">
@@ -81,6 +83,7 @@
           <div id="report" style="width: 390px; height: 170px; margin: auto;"></div>
         </div>
       </div>
+	  </div>
       <div class="latest">
         <div class="dashboard-heading"><?php echo $text_latest_10_orders; ?></div>
         <div class="dashboard-content">
@@ -154,5 +157,15 @@ function getSalesChart(range) {
 }
 
 getSalesChart($('#range').val());
-//--></script> 
+//--></script>
+<script type="text/javascript">
+$(document).ready(function(){
+
+$('#viz').click(function(){
+$('#statistic').toggleClass('vizibl');
+
+		});
+		
+});
+</script> 
 <?php echo $footer; ?>
