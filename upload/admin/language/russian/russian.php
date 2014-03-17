@@ -70,6 +70,8 @@ $_['button_add_link']         = 'Добавить ссылку';
 $_['button_update_total']     = 'Обновить итоговые суммы';
 $_['button_approve']          = 'Активировать';
 $_['button_reset']            = 'Сброс';
+$_['button_enable']           = 'Включить';
+$_['button_disable']          = 'Отключить';
 $_['button_add_profile']      = 'Добавить профиль';
 
 // Tab
