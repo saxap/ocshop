@@ -128,6 +128,8 @@ class ModelCatalogProduct extends Model {
 		} 
 
 		$this->cache->delete('product');
+		
+		return $product_id;
 	}
 
 	public function editProduct($product_id, $data) {
@@ -280,11 +282,14 @@ class ModelCatalogProduct extends Model {
 		}
 
 		$this->db->query("DELETE FROM `" . DB_PREFIX . "product_profile` WHERE product_id = " . (int)$product_id);		if (isset($data['product_profiles'])) {			foreach ($data['product_profiles'] as $profile) {				$this->db->query("INSERT INTO `" . DB_PREFIX . "product_profile` SET `product_id` = " . (int)$product_id . ", customer_group_id = " . (int)$profile['customer_group_id'] . ", `profile_id` = " . (int)$profile['profile_id']);			}		}		$this->cache->delete('product');
+		return $product_id;
 	}
 	
 	public function editProductStatus($product_id, $status) {
         $this->db->query("UPDATE " . DB_PREFIX . "product SET status = '" . (int)$status . "', date_modified = NOW() WHERE product_id = '" . (int)$product_id . "'");
         $this->cache->delete('product');
+		
+		return $product_id;
     }
 
 	public function copyProduct($product_id) {
@@ -342,6 +347,8 @@ class ModelCatalogProduct extends Model {
 		$this->db->query("DELETE FROM " . DB_PREFIX . "url_alias WHERE query = 'product_id=" . (int)$product_id. "'");
 
 		$this->cache->delete('product');
+		
+		return $product_id;
 	}
 
 	public function getProduct($product_id) {

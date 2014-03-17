@@ -237,7 +237,7 @@ class ControllerCatalogProduct extends Controller {
 		$this->load->model('catalog/product');
 
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validateForm()) {
-			$this->model_catalog_product->addProduct($this->request->post);
+			$product_id=$this->model_catalog_product->addProduct($this->request->post);
 
 			$this->session->data['success'] = $this->language->get('text_success');
 
@@ -283,7 +283,10 @@ class ControllerCatalogProduct extends Controller {
 				$url .= '&page=' . $this->request->get['page'];
 			}
 
-			$this->redirect($this->url->link('catalog/product', 'token=' . $this->session->data['token'] . $url, 'SSL'));
+			if(isset($this->request->post['save_continue']) and $this->request->post['save_continue'])
+            $this->redirect(HTTPS_SERVER . 'index.php?route=catalog/product/update&token=' . $this->session->data['token'].'&product_id='.$product_id);
+            else
+            $this->redirect(HTTPS_SERVER . 'index.php?route=catalog/product&token=' . $this->session->data['token'] . $url);
 		}
 
 		$this->getForm();
@@ -297,6 +300,7 @@ class ControllerCatalogProduct extends Controller {
 		$this->load->model('catalog/product');
 
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validateForm()) {
+			$product_id=$this->request->get['product_id'];
 			$this->model_catalog_product->editProduct($this->request->get['product_id'], $this->request->post);
 
 			$this->openbay->productUpdateListen($this->request->get['product_id'], $this->request->post);
@@ -345,7 +349,10 @@ class ControllerCatalogProduct extends Controller {
 				$url .= '&page=' . $this->request->get['page'];
 			}
 
-			$this->redirect($this->url->link('catalog/product', 'token=' . $this->session->data['token'] . $url, 'SSL'));
+			if(isset($this->request->post['save_continue']) and $this->request->post['save_continue'])
+            $this->redirect(HTTPS_SERVER . 'index.php?route=catalog/product/update&token=' . $this->session->data['token'].'&product_id='.$product_id);
+            else
+            $this->redirect(HTTPS_SERVER . 'index.php?route=catalog/product&token=' . $this->session->data['token'] . $url);
 		}
 
 		$this->getForm();
@@ -408,7 +415,10 @@ class ControllerCatalogProduct extends Controller {
 				$url .= '&page=' . $this->request->get['page'];
 			}
 
-			$this->redirect($this->url->link('catalog/product', 'token=' . $this->session->data['token'] . $url, 'SSL'));
+			if(isset($this->request->post['save_continue']) and $this->request->post['save_continue'])
+            $this->redirect(HTTPS_SERVER . 'index.php?route=catalog/product/update&token=' . $this->session->data['token'].'&product_id='.$product_id);
+            else
+            $this->redirect(HTTPS_SERVER . 'index.php?route=catalog/product&token=' . $this->session->data['token'] . $url);
 		}
 
 		$this->getList();
@@ -470,7 +480,10 @@ class ControllerCatalogProduct extends Controller {
 				$url .= '&page=' . $this->request->get['page'];
 			}
 
-			$this->redirect($this->url->link('catalog/product', 'token=' . $this->session->data['token'] . $url, 'SSL'));
+			if(isset($this->request->post['save_continue']) and $this->request->post['save_continue'])
+            $this->redirect(HTTPS_SERVER . 'index.php?route=catalog/product/update&token=' . $this->session->data['token'].'&product_id='.$product_id);
+            else
+            $this->redirect(HTTPS_SERVER . 'index.php?route=catalog/product&token=' . $this->session->data['token'] . $url);
 		}
 
 		$this->getList();
@@ -930,6 +943,7 @@ class ControllerCatalogProduct extends Controller {
 		$this->data['text_length_year'] = $this->language->get('text_length_year');
 
 		$this->data['button_save'] = $this->language->get('button_save');
+		$this->data['button_apply'] = $this->language->get('button_apply');
 		$this->data['button_cancel'] = $this->language->get('button_cancel');
 		$this->data['button_add_attribute'] = $this->language->get('button_add_attribute');
 		$this->data['button_add_option'] = $this->language->get('button_add_option');
@@ -1684,7 +1698,10 @@ class ControllerCatalogProduct extends Controller {
                 $url .= '&order=' . $this->request->get['order'];
             }
 
-            $this->redirect($this->url->link('catalog/product', 'token=' . $this->session->data['token'] . $url, 'SSL'));
+            if(isset($this->request->post['save_continue']) and $this->request->post['save_continue'])
+            $this->redirect(HTTPS_SERVER . 'index.php?route=catalog/product/update&token=' . $this->session->data['token'].'&product_id='.$product_id);
+            else
+            $this->redirect(HTTPS_SERVER . 'index.php?route=catalog/product&token=' . $this->session->data['token'] . $url);
         }
 
         $this->getList();
@@ -1719,7 +1736,10 @@ class ControllerCatalogProduct extends Controller {
                 $url .= '&order=' . $this->request->get['order'];
             }
 
-            $this->redirect($this->url->link('catalog/product', 'token=' . $this->session->data['token'] . $url, 'SSL'));
+            if(isset($this->request->post['save_continue']) and $this->request->post['save_continue'])
+            $this->redirect(HTTPS_SERVER . 'index.php?route=catalog/product/update&token=' . $this->session->data['token'].'&product_id='.$product_id);
+            else
+            $this->redirect(HTTPS_SERVER . 'index.php?route=catalog/product&token=' . $this->session->data['token'] . $url);
         }
 
         $this->getList();

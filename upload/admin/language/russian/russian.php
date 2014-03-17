@@ -29,6 +29,7 @@ $_['text_home']               = 'Главная';
 
 // Button
 $_['button_insert']           = 'Добавить';
+$_['button_apply']       	  = 'Применить';
 $_['button_delete']           = 'Удалить';
 $_['button_save']             = 'Сохранить';
 $_['button_cancel']           = 'Вернуться';
