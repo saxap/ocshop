@@ -7,8 +7,15 @@ CKEDITOR.editorConfig = function( config ) {
 	// Define changes to default configuration here.
 	// For the complete reference:
 	// http://docs.ckeditor.com/#!/api/CKEDITOR.config
-	config.filebrowserWindowWidth = '800';
-	config.filebrowserWindowHeight = '500';
+	config.filebrowserBrowseUrl = 'index.php?route=common/filemanager';
+	config.filebrowserImageBrowseUrl = 'index.php?route=common/filemanager';
+	config.filebrowserFlashBrowseUrl = 'index.php?route=common/filemanager';
+	config.filebrowserUploadUrl = 'index.php?route=common/filemanager';
+	config.filebrowserImageUploadUrl = 'index.php?route=common/filemanager';
+	config.filebrowserFlashUploadUrl = 'index.php?route=common/filemanager';		
+	config.filebrowserWindowWidth = '960';
+	config.filebrowserWindowHeight = '580';
+	
 	config.resize_enabled = false;
 	config.htmlEncodeOutput = false;
 	config.entities = false;

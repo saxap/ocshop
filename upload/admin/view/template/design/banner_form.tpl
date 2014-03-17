@@ -123,10 +123,12 @@ function image_upload(field, thumb) {
 			}
 		},	
 		bgiframe: false,
-		width: 700,
-		height: 400,
+		modal: false,
+		width: 960,
+		height: 520,
 		resizable: false,
-		modal: false
+		modal: false,
+		dialogClass: 'dlg'
 	});
 };
 //--></script> 
