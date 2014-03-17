@@ -32,6 +32,7 @@ $_['entry_telephone']              = 'Телефон:';
 $_['entry_fax']                  = 'Факс:';
 $_['entry_title']                = 'Заголовок:';
 $_['entry_meta_description']     = 'Мета-тег Description:';
+$_['entry_meta_keywords'] 		 = 'Мета-тег Keywords:'; 
 $_['entry_layout']               = 'Схема по умолчанию:';
 $_['entry_template']             = 'Шаблон магазина:';
 $_['entry_country']              = 'Страна:';

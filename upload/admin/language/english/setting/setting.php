@@ -32,6 +32,7 @@ $_['entry_telephone']              = 'Telephone:';
 $_['entry_fax']                    = 'Fax:';
 $_['entry_title']                  = 'Title:';
 $_['entry_meta_description']       = 'Meta Tag Description:';
+$_['entry_meta_keywords'] 		   = 'Meta Tag Keywords:'; 
 $_['entry_layout']                 = 'Default Layout:';
 $_['entry_template']               = 'Template:';
 $_['entry_country']                = 'Country:';

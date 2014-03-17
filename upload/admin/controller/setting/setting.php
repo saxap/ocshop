@@ -54,6 +54,7 @@ class ControllerSettingSetting extends Controller {
 		$this->data['entry_fax'] = $this->language->get('entry_fax');		
 		$this->data['entry_title'] = $this->language->get('entry_title');
 		$this->data['entry_meta_description'] = $this->language->get('entry_meta_description');
+		$this->data['entry_meta_keywords'] = $this->language->get('entry_meta_keywords');
 		$this->data['entry_layout'] = $this->language->get('entry_layout');
 		$this->data['entry_template'] = $this->language->get('entry_template');
 		$this->data['entry_country'] = $this->language->get('entry_country');
@@ -393,6 +394,12 @@ class ControllerSettingSetting extends Controller {
 			$this->data['config_meta_description'] = $this->request->post['config_meta_description'];
 		} else {
 			$this->data['config_meta_description'] = $this->config->get('config_meta_description');
+		}
+		
+		if (isset($this->request->post['config_meta_keywords'])) {
+		$this->data['config_meta_keywords'] = $this->request->post['config_meta_keywords'];
+		} else {
+		$this->data['config_meta_keywords'] = $this->config->get('config_meta_keywords');
 		}
 
 		if (isset($this->request->post['config_layout_id'])) {
