@@ -106,6 +106,10 @@
                 </tbody>
             </table>
         </div>
+		<div class="bottom">
+            <h1><img src="view/image/order.png" alt="" /> <?php echo $heading_title; ?></h1>
+            <div class="buttons"><a class="button" href="<?php echo $return ?>"><?php echo $text_return ?></a></div>
+        </div>
     </div>
 </div>
 <script type="text/javascript"><!--

@@ -79,6 +79,9 @@
       </form>
       <div class="pagination"><?php echo $pagination; ?></div>
     </div>
+	<div class="bottom">
+	<h1><img src="view/image/review.png" alt="" /> <?php echo $heading_title; ?></h1>
+	<div class="buttons"><a onclick="$('#form').attr('action', '<?php echo $enabled; ?>'); $('#form').submit();" class="button"><span><?php echo $button_enable; ?></span></a><a onclick="$('#form').attr('action', '<?php echo $disabled; ?>'); $('#form').submit();" class="button"><span><?php echo $button_disable; ?></span></a><a onclick="location = '<?php echo $insert; ?>'" class="button"><span><?php echo $button_insert; ?></span></a><a onclick="$('form').submit();" class="button"><span><?php echo $button_delete; ?></span></a></div>
   </div>
 </div>
 <?php echo $footer; ?>

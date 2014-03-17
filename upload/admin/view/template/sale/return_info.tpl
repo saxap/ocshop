@@ -137,6 +137,10 @@
           </tr>
         </table>
       </div>
+	  <div class="bottom">
+      <h1><img src="view/image/customer.png" alt="" /> <?php echo $heading_title; ?></h1>
+      <div class="buttons"><a href="<?php echo $cancel; ?>" class="button"><?php echo $button_cancel; ?></a></div>
+    </div>
     </div>
   </div>
 </div>

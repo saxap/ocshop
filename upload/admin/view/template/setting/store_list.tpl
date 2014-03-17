@@ -52,6 +52,10 @@
         </table>
       </form>
     </div>
+	<div class="bottom">
+      <h1><img src="view/image/setting.png" alt="" /> <?php echo $heading_title; ?></h1>
+      <div class="buttons"><a href="<?php echo $insert; ?>" class="button"><?php echo $button_insert; ?></a><a onclick="$('form').submit();" class="button"><?php echo $button_delete; ?></a></div>
+    </div>
   </div>
 </div>
 <?php echo $footer; ?> 

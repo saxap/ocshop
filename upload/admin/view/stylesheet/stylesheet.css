@@ -585,14 +585,48 @@ table.form > tbody > tr > td {
 .inlineEditq,
 .inlineEditm,
 .inlineEditn {
-padding: 4px;
+	padding: 4px;
 }
 .inlineEdit:hover,
 .inlineEditq:hover,
 .inlineEditm:hover,
 .inlineEditn:hover {
-border: 1px solid #ddd;
-background: #eee;
-padding: 3px;
-margin: -0px
+	border: 1px solid #ddd;
+	background: #eee;
+	padding: 3px;
+	margin: -0px
+}
+.box > .bottom {
+	height: 38px;
+	padding-left: 7px;
+	padding-right: 7px;
+	background: #F1F2F3;
+	border-left: 1px solid #DBDBDB;
+	border-right: 1px solid #DBDBDB;
+	border-bottom: 1px solid #DBDBDB;
+	-webkit-border-radius: 0px 0px 5px 5px;
+	-moz-border-radius: 0px 0px 5px 5px;
+	-khtml-border-radius: 0px 0px 5px 5px;
+	border-radius: 0px 0px 5px 5px;
+}
+.box > .bottom h1 {
+	margin: 0px;
+	padding: 11px 0px 0px 0px;
+	color: #003A88;
+	font-size: 16px;
+	float: left;
+}
+.box > .bottom h1 img {
+	float: left;
+	margin-top: -1px;
+	margin-left: 3px;
+	margin-right: 8px;
+}
+.box > .bottom .buttons {
+	float: right;
+	padding-top: 7px;
+	margin-right: 5px;
+}
+.box > .bottom .buttons .button {
+	margin-left: 5px;
 }
