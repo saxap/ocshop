@@ -4,6 +4,9 @@
 <meta charset="UTF-8" />
 <title><?php echo $title; ?></title>
 <base href="<?php echo $base; ?>" />
+<?php if ($robots) { ?>
+<meta name="robots" content="<?php echo $robots; ?>" />
+<?php } ?>
 <?php if ($description) { ?>
 <meta name="description" content="<?php echo $description; ?>" />
 <?php } ?>

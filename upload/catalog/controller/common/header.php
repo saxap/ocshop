@@ -20,7 +20,8 @@ class ControllerCommonHeader extends Controller {
 		$this->data['base'] = $server;
 		$this->data['description'] = $this->document->getDescription();
 		$this->data['keywords'] = $this->document->getKeywords();
-		$this->data['links'] = $this->document->getLinks();	 
+		$this->data['links'] = $this->document->getLinks();
+		$this->data['robots'] = $this->document->getRobots();
 		$this->data['styles'] = $this->document->getStyles();
 		$this->data['scripts'] = $this->document->getScripts();
 		$this->data['lang'] = $this->language->get('code');
