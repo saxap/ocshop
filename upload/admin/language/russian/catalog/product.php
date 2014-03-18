@@ -40,6 +40,7 @@ $_['entry_name']             = 'Название товара:';
 $_['entry_meta_keyword'] 	 = 'META Keywords:<br/><span class="help">Мета-тег "Ключевые слова"</span>';
 $_['entry_meta_description'] = 'META Description:<br/><span class="help">Мета-тег "Описание"</span>';
 $_['entry_description']      = 'Описание:';
+$_['entry_description_mini'] = 'Краткое Описание:';
 $_['entry_store']            = 'Магазины:';
 $_['entry_keyword']          = 'SEO URL:<br/><span class="help">Должно быть уникальным на всю систему.</span>';
 $_['entry_model']            = 'Модель:';
