@@ -7,6 +7,7 @@ class Document {
 	private $links = array();		
 	private $styles = array();
 	private $scripts = array();
+	private $og_image;
 	
 	public function setTitle($title) {
 		$this->title = $title;
@@ -17,12 +18,19 @@ class Document {
 	}
 	
 	public function setRobots($robots) {
-
 		$this->robots = $robots;
 	}
 
 	public function getRobots() {
 		return $this->robots;
+	}
+	
+	public function setOgImage($image) {
+		$this->og_image = $image;
+	}
+
+	public function getOgImage() {
+		return $this->og_image;
 	}
 	
 	public function setDescription($description) {
