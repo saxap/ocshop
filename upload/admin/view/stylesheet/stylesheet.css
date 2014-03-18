@@ -39,14 +39,16 @@ label {
 	cursor: pointer;
 }
 #header .div1 {
-	height: 56px;
+	height: 34px;
 	padding: 0px 30px;
-	background: url('../image/header.png') repeat-x;
+	background: #0381CB;
+	border-bottom: 1px solid #55BEFD;
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.52);
 	min-width: 900px;
 }
 #header .div2 {
 	color: #FFFFFF;
-	padding: 18px 0px 0px 0px;
+	padding: 8px 0px 0px 0px;
 	float: left;
 }
 #header .div3 {
