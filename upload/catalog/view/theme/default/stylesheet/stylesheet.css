@@ -317,17 +317,17 @@ label {
 }
 /* menu */
 #menu {
-	background: #585858;
-	border-bottom: 1px solid #000000;
+	background: #0381CB;
+	border-bottom: 1px solid #55BEFD;
 	height: 37px;
 	margin-bottom: 15px;
-	-webkit-border-radius: 5px 5px 5px 5px;
-	-moz-border-radius: 5px 5px 5px 5px;
-	-khtml-border-radius: 5px 5px 5px 5px;
-	border-radius: 5px 5px 5px 5px;
-	-webkit-box-shadow: 0px 2px 2px #DDDDDD;
-	-moz-box-shadow: 0px 2px 2px #DDDDDD;
-	box-shadow: 0px 2px 2px #DDDDDD;
+	-webkit-border-radius: 3px 3px 3px 3px;
+	-moz-border-radius: 3px 3px 3px 3px;
+	-khtml-border-radius: 3px 3px 3px 3px;
+	border-radius: 3px 3px 3px 3px;
+	-webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.52);
+	-moz-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.52);
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.52);
 	padding: 0px 5px;
 }
 #menu ul {
@@ -573,10 +573,10 @@ a.button, input.button {
 	font-size: 12px;
 	font-weight: bold;
 	background: url('../image/button.png') repeat-x;
-	-webkit-border-radius: 7px 7px 7px 7px;
-	-moz-border-radius: 7px 7px 7px 7px;
-	-khtml-border-radius: 7px 7px 7px 7px;
-	border-radius: 7px 7px 7px 7px;
+	-webkit-border-radius: 3px 3px 3px 3px;
+	-moz-border-radius: 3px 3px 3px 3px;
+	-khtml-border-radius: 3px 3px 3px 3px;
+	border-radius: 3px 3px 3px 3px;
 	-webkit-box-shadow: 0px 2px 2px #DDDDDD;
 	-moz-box-shadow: 0px 2px 2px #DDDDDD;
 	box-shadow: 0px 2px 2px #DDDDDD;
@@ -654,10 +654,10 @@ a.button:hover, input.button:hover {
 	margin-bottom: 20px;
 }
 .box .box-heading {
-	-webkit-border-radius: 7px 7px 0px 0px;
-	-moz-border-radius: 7px 7px 0px 0px;
-	-khtml-border-radius: 7px 7px 0px 0px;
-	border-radius: 7px 7px 0px 0px;
+	-webkit-border-radius: 3px 3px 0px 0px;
+	-moz-border-radius: 3px 3px 0px 0px;
+	-khtml-border-radius: 3px 3px 0px 0px;
+	border-radius: 3px 3px 0px 0px;
 	border: 1px solid #DBDEE1;
 	background: url('../image/background.png') repeat-x;
 	padding: 8px 10px 7px 10px;
@@ -669,10 +669,10 @@ a.button:hover, input.button:hover {
 }
 .box .box-content {
 	background: #FFFFFF;
-	-webkit-border-radius: 0px 0px 7px 7px;
-	-moz-border-radius: 0px 0px 7px 7px;
-	-khtml-border-radius: 0px 0px 7px 7px;
-	border-radius: 0px 0px 7px 7px;
+	-webkit-border-radius: 0px 0px 3px 3px;
+	-moz-border-radius: 0px 0px 3px 3px;
+	-khtml-border-radius: 0px 0px 3px 3px;
+	border-radius: 0px 0px 3px 3px;
 	border-left: 1px solid #DBDEE1;
 	border-right: 1px solid #DBDEE1;
 	border-bottom: 1px solid #DBDEE1;
@@ -684,11 +684,11 @@ a.button:hover, input.button:hover {
 	overflow: auto;
 }
 .box-product > div {
-	width: 130px;
-	display: inline-block;
-	vertical-align: top;
-	margin-right: 20px;
+    display: inline-block;
 	margin-bottom: 20px;
+	margin-right: 20px;
+	vertical-align: top;
+	width: 130px;
 }
 #column-left + #column-right + #content .box-product > div {
 	width: 119px;
@@ -952,11 +952,11 @@ ul.box-filter > li ul {
 	overflow: auto;
 }
 .product-grid > div {
-	width: 130px;
 	display: inline-block;
-	vertical-align: top;
-	margin-right: 20px;
-	margin-bottom: 15px;
+    margin-bottom: 15px;
+    margin-right: 20px;
+    vertical-align: top;
+    width: 130px;
 }
 #column-left + #column-right + #content .product-grid > div {
 	width: 125px;

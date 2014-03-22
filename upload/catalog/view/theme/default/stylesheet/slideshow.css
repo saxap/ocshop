@@ -9,6 +9,15 @@
  * March 2010
  */
 /* The Nivo Slider styles */
+.slideshow {
+	border:1px solid #DBDEE1;
+	margin-bottom: 20px;
+	padding: 3px;
+	-webkit-border-radius: 3px 3px 3px 3px;
+	-moz-border-radius: 3px 3px 3px 3px;
+	-khtml-border-radius: 3px 3px 3px 3px;
+	border-radius: 3px 3px 3px 3px;
+}
 .nivoSlider {
 	position: relative;
 }
