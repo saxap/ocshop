@@ -325,7 +325,7 @@ CREATE TABLE `oc_banner` (
 
 INSERT INTO `oc_banner` (`banner_id`, `name`, `status`) VALUES
 (6, 'HP Products', 1),
-(7, 'Samsung Tab', 1),
+(7, 'Home', 1),
 (8, 'Manufacturers', 1);
 
 -- --------------------------------------------------------
@@ -348,8 +348,10 @@ CREATE TABLE `oc_banner_image` (
 --
 
 INSERT INTO `oc_banner_image` (`banner_image_id`, `banner_id`, `link`, `image`) VALUES
-(54, 7, 'index.php?route=product/product&amp;path=57&amp;product_id=49', 'data/demo/samsung_banner.jpg'),
 (77, 6, 'index.php?route=product/manufacturer/info&amp;manufacturer_id=7', 'data/demo/hp_banner.jpg'),
+(78, 7, '#', 'data/demo/banner/banner1.jpg'),
+(79, 7, '#', 'data/demo/banner/banner2.jpg'),
+(80, 7, '#', 'data/demo/banner/banner3.jpg'),
 (75, 8, 'index.php?route=product/manufacturer/info&amp;manufacturer_id=5', 'data/demo/htc_logo.jpg'),
 (73, 8, 'index.php?route=product/manufacturer/info&amp;manufacturer_id=8', 'data/demo/apple_logo.jpg'),
 (74, 8, 'index.php?route=product/manufacturer/info&amp;manufacturer_id=9', 'data/demo/canon_logo.jpg'),
@@ -377,16 +379,20 @@ CREATE TABLE `oc_banner_image_description` (
 --
 
 INSERT INTO `oc_banner_image_description` (`banner_image_id`, `language_id`, `banner_id`, `title`) VALUES
-(54, 1, 7, 'Samsung Tab 10.1'),
 (77, 1, 6, 'HP Banner'),
+(78, 1, 7, 'banner1'),
+(79, 1, 7, 'banner2'),
+(80, 1, 7, 'banner3'),
 (75, 1, 8, 'HTC'),
 (74, 1, 8, 'Canon'),
 (73, 1, 8, 'Apple'),
 (72, 1, 8, 'Palm'),
 (71, 1, 8, 'Sony'),
 (76, 1, 8, 'Hewlett-Packard'),
-(54, 2, 7, 'Samsung Tab 10.1'),
 (77, 2, 6, 'HP Banner'),
+(78, 2, 7, 'banner1'),
+(79, 2, 7, 'banner2'),
+(80, 2, 7, 'banner3'),
 (75, 2, 8, 'HTC'),
 (74, 2, 8, 'Canon'),
 (73, 2, 8, 'Apple'),
@@ -482,7 +488,7 @@ CREATE TABLE `oc_category_description` (
 -- Dumping data for table `oc_category_description`
 --
 
-INSERT INTO `oc_category_description` (`category_id`, `language_id`, `name`, `description`, `description_mini`, `meta_description`, `meta_keyword`, `seo_title`, `seo_h1`) VALUES
+INSERT INTO `oc_category_description` (`category_id`, `language_id`, `name`, `description`, `meta_description`, `meta_keyword`, `seo_title`, `seo_h1`) VALUES
 (28, 1, 'Мониторы', '', '', '', '', ''),
 (33, 1, 'Камеры', '', '', '', '', ''),
 (32, 1, 'Веб-камеры', '', '', '', '', ''),
@@ -3092,7 +3098,7 @@ INSERT INTO `oc_setting` (`setting_id`, `store_id`, `group`, `key`, `value`, `se
 (105, 0, 'config', 'config_weight_class_id', '1', 0),
 (106, 0, 'config', 'config_currency_auto', '1', 0),
 (107, 0, 'config', 'config_currency', 'USD', 0),
-(108, 0, 'slideshow', 'slideshow_module', 'a:1:{i:0;a:8:{s:9:"banner_id";s:1:"7";s:5:"width";s:3:"980";s:6:"height";s:3:"280";s:11:"resize_type";s:7:"default";s:9:"layout_id";s:1:"1";s:8:"position";s:11:"content_top";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"1";}}', 1),
+(108, 0, 'slideshow', 'slideshow_module', 'a:1:{i:0;a:8:{s:9:"banner_id";s:1:"7";s:5:"width";s:3:"974";s:6:"height";s:3:"291";s:11:"resize_type";s:7:"default";s:9:"layout_id";s:1:"1";s:8:"position";s:11:"content_top";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"1";}}', 1),
 (109, 0, 'banner', 'banner_module', 'a:1:{i:0;a:8:{s:9:"banner_id";s:1:"6";s:5:"width";s:3:"182";s:6:"height";s:3:"182";s:11:"resize_type";s:7:"default";s:9:"layout_id";s:1:"3";s:8:"position";s:11:"column_left";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"3";}}', 1),
 (110, 0, 'config', 'config_name', 'Мой Магазин', 0),
 (111, 0, 'config', 'config_owner', 'Мое Имя', 0),

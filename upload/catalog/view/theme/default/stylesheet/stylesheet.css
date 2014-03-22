@@ -375,10 +375,10 @@ label {
 	z-index: 5;
 	padding: 5px;
 	border: 1px solid #000000;
-	-webkit-border-radius: 0px 0px 5px 5px;
-	-moz-border-radius: 0px 0px 5px 5px;
-	-khtml-border-radius: 0px 0px 5px 5px;
-	border-radius: 0px 0px 5px 5px;
+	-webkit-border-radius: 0px 0px 3px 3px;
+	-moz-border-radius: 0px 0px 3px 3px;
+	-khtml-border-radius: 0px 0px 3px 3px;
+	border-radius: 0px 0px 3px 3px;
 	background: url('../image/menu.png');
 }
 #menu > ul > li:hover > div {
