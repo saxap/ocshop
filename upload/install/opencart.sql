@@ -324,7 +324,7 @@ CREATE TABLE `oc_banner` (
 --
 
 INSERT INTO `oc_banner` (`banner_id`, `name`, `status`) VALUES
-(6, 'HP Products', 1),
+(6, 'Banner', 1),
 (7, 'Home', 1),
 (8, 'Manufacturers', 1);
 
@@ -348,7 +348,9 @@ CREATE TABLE `oc_banner_image` (
 --
 
 INSERT INTO `oc_banner_image` (`banner_image_id`, `banner_id`, `link`, `image`) VALUES
-(77, 6, 'index.php?route=product/manufacturer/info&amp;manufacturer_id=7', 'data/demo/hp_banner.jpg'),
+(82, 6, '#', 'data/demo/banner/ipad.png'),
+(83, 6, '#', 'data/demo/banner/iphone5.png'),
+(84, 6, '#', 'data/demo/banner/macbook.png'),
 (78, 7, '#', 'data/demo/banner/banner1.jpg'),
 (79, 7, '#', 'data/demo/banner/banner2.jpg'),
 (80, 7, '#', 'data/demo/banner/banner3.jpg'),
@@ -379,7 +381,9 @@ CREATE TABLE `oc_banner_image_description` (
 --
 
 INSERT INTO `oc_banner_image_description` (`banner_image_id`, `language_id`, `banner_id`, `title`) VALUES
-(77, 1, 6, 'HP Banner'),
+(82, 1, 6, 'Ipad'),
+(83, 1, 6, 'Iphone 5'),
+(84, 1, 6, 'macbook'),
 (78, 1, 7, 'banner1'),
 (79, 1, 7, 'banner2'),
 (80, 1, 7, 'banner3'),
@@ -389,7 +393,9 @@ INSERT INTO `oc_banner_image_description` (`banner_image_id`, `language_id`, `ba
 (72, 1, 8, 'Palm'),
 (71, 1, 8, 'Sony'),
 (76, 1, 8, 'Hewlett-Packard'),
-(77, 2, 6, 'HP Banner'),
+(82, 2, 6, 'Ipad'),
+(83, 2, 6, 'Iphone 5'),
+(84, 2, 6, 'macbook'),
 (78, 2, 7, 'banner1'),
 (79, 2, 7, 'banner2'),
 (80, 2, 7, 'banner3'),
