@@ -122,18 +122,43 @@ class ControllerCommonHeader extends Controller {
 				$children = $this->model_catalog_category->getCategories($category['category_id']);
 
 				foreach ($children as $child) {
-					$data = array(
-						'filter_category_id'  => $child['category_id'],
-						'filter_sub_category' => true
-					);
+					if ($this->config->get('config_product_count')) {
+						$data = array(
+							'filter_category_id'  => $child['category_id'],
+							'filter_sub_category' => true
+						);
+						
+						$product_total = $this->model_catalog_product->getTotalProducts($data);
+					}
 
-					$product_total = $this->model_catalog_product->getTotalProducts($data);
+					//Level 3
+		        $subchildren = $this->model_catalog_category->getCategories($child['category_id']);
+				    $subchildren_data = array(); 
+				foreach ($subchildren as $subchild) {
+					if ($this->config->get('config_product_count')) {
+						$data = array(
+							  'filter_category_id'  => $subchild['category_id'],
+							  'filter_sub_category' => true
+						);
+ 
+						$product_total = $this->model_catalog_product->getTotalProducts($data);
+					}
 
+					$subchildren_data[] = array(
+								'name'  => $subchild['name'] . ($this->config->get('config_product_count') ? ' (' . $product_total . ')' : ''),
+								'href'  => $this->url->link('product/category', 'path=' . $category['category_id'] . '_' . $child['category_id']. '_' . $subchild['category_id'])	
+						);						
+					}								
+ 
 					$children_data[] = array(
 						'name'  => $child['name'] . ($this->config->get('config_product_count') ? ' (' . $product_total . ')' : ''),
-						'href'  => $this->url->link('product/category', 'path=' . $category['category_id'] . '_' . $child['category_id'])
+						'href'  => $this->url->link('product/category', 'path=' . $category['category_id'] . '_' . $child['category_id']),					
+						'subchildren' => $subchildren_data,
+ 
 					);						
-				}
+				}				
+					//Level	3			
+				
 
 				// Level 1
 				$this->data['categories'][] = array(

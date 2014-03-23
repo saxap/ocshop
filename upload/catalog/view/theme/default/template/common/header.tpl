@@ -98,7 +98,13 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
           <?php $j = $i + ceil(count($category['children']) / $category['column']); ?>
           <?php for (; $i < $j; $i++) { ?>
           <?php if (isset($category['children'][$i])) { ?>
-          <li><a href="<?php echo $category['children'][$i]['href']; ?>"><?php echo $category['children'][$i]['name']; ?></a></li>
+          <li><a href="<?php echo $category['children'][$i]['href']; ?>"><?php echo $category['children'][$i]['name']; ?></a>
+          <?php if($category['children'][$i]['subchildren']) { ?>
+          <?php foreach ($category['children'][$i]['subchildren'] as $child) { ?>
+          <li><a href="<?php echo $child['href']; ?>"> &raquo; <?php echo $child['name']; ?></a></li>
+          <?php } ?>
+          <?php } ?>
+          </li>
           <?php } ?>
           <?php } ?>
         </ul>
