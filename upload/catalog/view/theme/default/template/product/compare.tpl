@@ -64,12 +64,19 @@
       </tr>
 	  <?php if ($review_status) { ?>
       <tr>
-        <td><?php echo $text_rating; ?></td>
-        <?php foreach ($products as $product) { ?>
-        <td><img src="catalog/view/theme/default/image/stars-<?php echo $products[$product['product_id']]['rating']; ?>.png" alt="<?php echo $products[$product['product_id']]['reviews']; ?>" /><br />
-          <?php echo $products[$product['product_id']]['reviews']; ?></td>
-        <?php } ?>
-      </tr>
+            <td><?php echo $text_rating; ?></td>
+            <?php foreach ($products as $product) { ?>
+            <td class="rating"><?php for ($i = 1; $i <= 5; $i++) { ?>
+              <?php if ($products[$product['product_id']]['rating'] < $i) { ?>
+              <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
+              <?php } else { ?>
+              <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>
+              <?php } ?>
+              <?php } ?>
+              <br />
+              <?php echo $products[$product['product_id']]['reviews']; ?></td>
+            <?php } ?>
+          </tr>
       <?php } ?>
 	  <tr>
         <td><?php echo $text_summary; ?></td>

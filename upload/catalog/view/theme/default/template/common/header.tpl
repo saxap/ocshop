@@ -29,6 +29,7 @@
 <link href="<?php echo $link['href']; ?>" rel="<?php echo $link['rel']; ?>" />
 <?php } ?>
 <link rel="stylesheet" type="text/css" href="catalog/view/theme/default/stylesheet/stylesheet.css" />
+<link rel="stylesheet" href="catalog/view/javascript/FortAwesome/css/font-awesome.min.css">
 <?php foreach ($styles as $style) { ?>
 <link rel="<?php echo $style['rel']; ?>" type="text/css" href="<?php echo $style['href']; ?>" media="<?php echo $style['media']; ?>" />
 <?php } ?>
@@ -70,7 +71,7 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
   <?php echo $currency; ?>
   <?php echo $cart; ?>
   <div id="search">
-    <div class="button-search"></div>
+    <div class="button-search"><i class="fa fa-search"></i></div>
     <input type="text" name="search" placeholder="<?php echo $text_search; ?>" value="<?php echo $search; ?>" />
   </div>
   <div id="welcome">
@@ -80,7 +81,7 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
     <?php echo $text_logged; ?>
     <?php } ?>
   </div>
-  <div class="links"><a href="<?php echo $home; ?>"><?php echo $text_home; ?></a><a href="<?php echo $wishlist; ?>" id="wishlist-total"><?php echo $text_wishlist; ?></a><a href="<?php echo $account; ?>"><?php echo $text_account; ?></a><a href="<?php echo $shopping_cart; ?>"><?php echo $text_shopping_cart; ?></a><a href="<?php echo $checkout; ?>"><?php echo $text_checkout; ?></a></div>
+  <div class="links"><a href="<?php echo $home; ?>"><i class="fa fa-home"></i><?php echo $text_home; ?></a><a href="<?php echo $wishlist; ?>" id="wishlist-total"><i class="fa fa-heart"></i><?php echo $text_wishlist; ?></a><a href="<?php echo $account; ?>"><i class="fa fa-user"></i><?php echo $text_account; ?></a><a href="<?php echo $shopping_cart; ?>"><i class="fa fa-shopping-cart"></i><?php echo $text_shopping_cart; ?></a><a href="<?php echo $checkout; ?>"><i class="fa fa-mail-forward"></i><?php echo $text_checkout; ?></a></div>
 </div>
 <?php if ($categories) { ?>
 <div id="menu">

@@ -1,6 +1,13 @@
+.modulcarousel {
+	-webkit-border-radius: 3px 3px 3px 3px;
+	-moz-border-radius: 3px 3px 3px 3px;
+	-khtml-border-radius: 3px 3px 3px 3px;
+	border-radius: 3px 3px 3px 3px;
+	border: 1px solid #DBDEE1;
+	padding: 10px;
+}
 .jcarousel-skin-opencart .jcarousel-container {
 	background: #FFF;
-	margin-bottom: 20px;
 }
 .jcarousel-skin-opencart .jcarousel-direction-rtl {
 	direction: rtl;
@@ -34,17 +41,17 @@
  */
 .jcarousel-skin-opencart .jcarousel-next-horizontal {
 	position: absolute;
-	top: 23px;
-	right: 5px;
+	top: 28px;
+	right: 0;
+	text-align: right;
 	width: 32px;
 	height: 32px;
 	cursor: pointer;
-	background: url('../image/button-next.png') center no-repeat;
+	color: #DBDEE1;
 }
 .jcarousel-skin-opencart .jcarousel-direction-rtl .jcarousel-next-horizontal {
 	left: 5px;
 	right: auto;
-	background: url('../image/button-previous.png') center no-repeat;
 }
 .jcarousel-skin-opencart .jcarousel-next-horizontal:hover, .jcarousel-skin-opencart .jcarousel-next-horizontal:focus {
 }
@@ -56,17 +63,16 @@
 }
 .jcarousel-skin-opencart .jcarousel-prev-horizontal {
 	position: absolute;
-	top: 23px;
+	top: 28px;
 	left: 0px;
 	width: 32px;
 	height: 32px;
 	cursor: pointer;
-	background: url('../image/button-previous.png') center no-repeat;
+	color: #DBDEE1;
 }
 .jcarousel-skin-opencart .jcarousel-direction-rtl .jcarousel-prev-horizontal {
 	left: auto;
 	right: 0px;
-	background: url('../image/button-next.png') center no-repeat;
 }
 .jcarousel-skin-opencart .jcarousel-prev-horizontal:hover, .jcarousel-skin-opencart .jcarousel-prev-horizontal:focus {
 }
