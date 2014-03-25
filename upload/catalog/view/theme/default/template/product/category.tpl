@@ -43,7 +43,7 @@
   <?php } ?>
   <?php if ($products) { ?>
   <div class="product-filter">
-    <div class="display"><?php echo $text_display; ?> <i class="fa fa-list fa-lg"></i><a onclick="display('grid');"><i class="fa fa-th fa-lg"></i></a></div>
+    <div class="display"><?php echo $text_display; ?> <i class="fa fa-list fa-lg"></i><a onclick="displaybutton('grid');"><i class="fa fa-th fa-lg"></i></a></div>
     <div class="product-compare"><a href="<?php echo $compare; ?>" id="compare-total"><i class="fa fa-files-o"></i> <?php echo $text_compare; ?></a></div>
 	<div class="limit"><b><?php echo $text_limit; ?></b>
       <select onchange="location = this.value;">
@@ -72,7 +72,12 @@
     <?php foreach ($products as $product) { ?>
     <div>
       <?php if ($product['thumb']) { ?>
-      <div class="image"><a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" title="<?php echo $product['name']; ?>" alt="<?php echo $product['name']; ?>" /></a></div>
+      <div class="image"><a href="<?php echo $product['href']; ?>">
+	  <img class="imagejail" src="catalog/view/theme/default/image/grey.gif" width="<?php echo $product['thumbwidth']; ?>" height="<?php echo $product['thumbheight']; ?>" data-src="<?php echo $product['thumb']; ?>" title="<?php echo $product['name']; ?>" alt="<?php echo $product['name']; ?>" />
+	  <noscript>
+      <img src="<?php echo $product['thumb']; ?>" title="<?php echo $product['name']; ?>" alt="<?php echo $product['name']; ?>" />
+	  </noscript>
+	  </div>
       <?php } ?>
       <div class="name"><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></div>
       <div class="description">
@@ -122,6 +127,17 @@
   <?php } ?>
   <?php echo $content_bottom; ?></div>
 <script type="text/javascript"><!--
+function displaybutton (view) {
+	display(view);
+	$(function(){
+                $('img.imagejail').jail({
+					effect: 'fadeIn',
+					offset: 300,
+					speed : 400
+				});
+            });
+};
+
 function display(view) {
 	if (view == 'list') {
 		$('.product-grid').attr('class', 'product-list');
@@ -160,7 +176,7 @@ function display(view) {
 			$(element).html(html);
 		});		
 		
-		$('.display').html('<?php echo $text_display; ?> <i class="fa fa-list fa-lg"></i> <a onclick="display(\'grid\');"><i class="fa fa-th fa-lg"></i></a>');
+		$('.display').html('<?php echo $text_display; ?> <i class="fa fa-list fa-lg"></i> <a onclick="displaybutton(\'grid\');"><i class="fa fa-th fa-lg"></i></a>');
 		
 		$.totalStorage('display', 'list'); 
 	} else {
@@ -196,7 +212,7 @@ function display(view) {
 			$(element).html(html);
 		});	
 					
-		$('.display').html('<?php echo $text_display; ?> <a onclick="display(\'list\');"><i class="fa fa-list fa-lg"></i></a> <i class="fa fa-th fa-lg"></i>');
+		$('.display').html('<?php echo $text_display; ?> <a onclick="displaybutton(\'list\');"><i class="fa fa-list fa-lg"></i></a> <i class="fa fa-th fa-lg"></i>');
 		
 		$.totalStorage('display', 'grid');
 	}

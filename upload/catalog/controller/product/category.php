@@ -113,6 +113,7 @@ class ControllerProductCategory extends Controller {
 			}
 			
 			$this->document->addScript('catalog/view/javascript/jquery/jquery.total-storage.min.js');
+			$this->document->addScript('catalog/view/javascript/jquery/jail/jail.min.js');
 
 			$this->data['text_refine'] = $this->language->get('text_refine');
 			$this->data['text_empty'] = $this->language->get('text_empty');			
@@ -223,8 +224,12 @@ class ControllerProductCategory extends Controller {
 			foreach ($results as $result) {
 				if ($result['image']) {
 					$image = $this->model_tool_image->resize($result['image'], $this->config->get('config_image_product_width'), $this->config->get('config_image_product_height'));
+					$imagewidth = $this->config->get('config_image_product_width');
+					$imageheight = $this->config->get('config_image_product_height');
 				} else {
 					$image = false;
+					$imagewidth = '';
+					$imageheight = '';
 				}
 
 				if (($this->config->get('config_customer_price') && $this->customer->isLogged()) || !$this->config->get('config_customer_price')) {
@@ -254,6 +259,8 @@ class ControllerProductCategory extends Controller {
 				$this->data['products'][] = array(
 					'product_id'  => $result['product_id'],
 					'thumb'       => $image,
+					'thumbwidth'  => $imagewidth,
+					'thumbheight' => $imageheight,
 					'name'        => $result['name'],
 					'description' => utf8_substr(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8')), 0, 300) . '..',
 					'description_mini' => html_entity_decode ($result['description_mini']),
