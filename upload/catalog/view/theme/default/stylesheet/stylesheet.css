@@ -545,6 +545,7 @@ table.radio tr.highlight:hover td {
 .pagination {
 	border-top: 1px solid #EEEEEE;
 	padding-top: 8px;
+	margin-top: 20px;
 	display: inline-block;
 	width: 100%;
 	margin-bottom: 10px;
@@ -793,6 +794,14 @@ input[type="submit"].button.button-mini {
 	border-right: 1px solid #DBDEE1;
 	border-bottom: 1px solid #DBDEE1;
 	padding: 10px;
+}
+.box .box-content ul {
+	margin: 0;
+	padding: 0;
+	list-style: none outside none;
+}
+.box .box-content ul li {
+    padding-top: 2px;
 }
 /* box products */
 .box-product {
@@ -1085,14 +1094,17 @@ ul.box-filter > li ul {
 	width: 100%;
 	overflow: auto;
 	border-left: 1px solid #DBDEE1;
+	border-top: 1px solid #DBDEE1;
 }
 .product-grid > div {
 	border-right: 1px solid #DBDEE1;
 	border-top: 1px solid #DBDEE1;
+	border-bottom: 1px solid #DBDEE1;
 	float: left;
 	height: 275px;
 	vertical-align: top;
 	padding: 10px;
+	margin-top: -1px;
 	width: 175px;
 }
 #column-left + #column-right + #content .product-grid > div {
