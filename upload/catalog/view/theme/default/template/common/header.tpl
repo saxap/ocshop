@@ -62,6 +62,7 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
 <?php echo $google_analytics; ?>
 </head>
 <body>
+<div id="header-bg"></div>
 <div id="container">
 <div id="header">
   <?php if ($logo) { ?>
