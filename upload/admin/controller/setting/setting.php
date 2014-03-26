@@ -51,7 +51,16 @@ class ControllerSettingSetting extends Controller {
 		$this->data['entry_address'] = $this->language->get('entry_address');
 		$this->data['entry_email'] = $this->language->get('entry_email');
 		$this->data['entry_telephone'] = $this->language->get('entry_telephone');
-		$this->data['entry_fax'] = $this->language->get('entry_fax');		
+		$this->data['entry_fax'] = $this->language->get('entry_fax');
+		$this->data['entry_welcome'] = $this->language->get('entry_welcome');
+		$this->data['entry_maps'] = $this->language->get('entry_maps');
+		$this->data['entry_maps'] = $this->language->get('entry_maps');
+		$this->data['entry_vk'] = $this->language->get('entry_vk');
+		$this->data['entry_fb'] = $this->language->get('entry_fb');
+		$this->data['entry_googleplus'] = $this->language->get('entry_googleplus');
+		$this->data['entry_youtube'] = $this->language->get('entry_youtube');
+		$this->data['entry_twitter'] = $this->language->get('entry_twitter');
+		$this->data['entry_time'] = $this->language->get('entry_time');
 		$this->data['entry_title'] = $this->language->get('entry_title');
 		$this->data['entry_meta_description'] = $this->language->get('entry_meta_description');
 		$this->data['entry_meta_keywords'] = $this->language->get('entry_meta_keywords');
@@ -382,6 +391,54 @@ class ControllerSettingSetting extends Controller {
 			$this->data['config_fax'] = $this->request->post['config_fax'];
 		} else {
 			$this->data['config_fax'] = $this->config->get('config_fax');
+		}
+		
+		if (isset($this->request->post['config_welcome'])) {
+			$this->data['config_welcome'] = $this->request->post['config_welcome'];
+		} else {
+			$this->data['config_welcome'] = $this->config->get('config_welcome');
+		}
+		
+		if (isset($this->request->post['config_maps'])) {
+			$this->data['config_maps'] = $this->request->post['config_maps'];
+		} else {
+			$this->data['config_maps'] = $this->config->get('config_maps');
+		}
+		
+		if (isset($this->request->post['config_vk'])) {
+			$this->data['config_vk'] = $this->request->post['config_vk'];
+		} else {
+			$this->data['config_vk'] = $this->config->get('config_vk');
+		}
+		
+		if (isset($this->request->post['config_fb'])) {
+			$this->data['config_fb'] = $this->request->post['config_fb'];
+		} else {
+			$this->data['config_fb'] = $this->config->get('config_fb');
+		}
+		
+		if (isset($this->request->post['config_googleplus'])) {
+			$this->data['config_googleplus'] = $this->request->post['config_googleplus'];
+		} else {
+			$this->data['config_googleplus'] = $this->config->get('config_googleplus');
+		}
+		
+		if (isset($this->request->post['config_youtube'])) {
+			$this->data['config_youtube'] = $this->request->post['config_youtube'];
+		} else {
+			$this->data['config_youtube'] = $this->config->get('config_youtube');
+		}
+		
+		if (isset($this->request->post['config_twitter'])) {
+			$this->data['config_twitter'] = $this->request->post['config_twitter'];
+		} else {
+			$this->data['config_twitter'] = $this->config->get('config_twitter');
+		}
+		
+		if (isset($this->request->post['config_time'])) {
+			$this->data['config_time'] = $this->request->post['config_time'];
+		} else {
+			$this->data['config_time'] = $this->config->get('config_time');
 		}
 
 		if (isset($this->request->post['config_title'])) {

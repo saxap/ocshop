@@ -46,6 +46,36 @@ class ControllerCommonFooter extends Controller {
 		$this->data['newsletter'] = $this->url->link('account/newsletter', '', 'SSL');		
 
 		$this->data['powered'] = sprintf($this->language->get('text_powered'), $this->config->get('config_name'), date('Y', time()));
+		
+		if (isset($this->request->server['HTTPS']) && (($this->request->server['HTTPS'] == 'on') || ($this->request->server['HTTPS'] == '1'))) {
+			$server = $this->config->get('config_ssl');
+		} else {
+			$server = $this->config->get('config_url');
+		}
+		
+		$this->data['base'] = $server;
+		
+		if ($this->config->get('config_logo') && file_exists(DIR_IMAGE . $this->config->get('config_logo'))) {
+			$this->data['logo'] = $server . 'image/' . $this->config->get('config_logo');
+		} else {
+			$this->data['logo'] = '';
+		}
+		
+		$this->data['name'] = $this->config->get('config_name');
+		$this->data['store'] = $this->config->get('config_name');
+		$this->data['welcome'] = html_entity_decode($this->config->get('config_welcome'));
+		$this->data['address'] = nl2br($this->config->get('config_address'));
+		$this->data['email'] = $this->config->get('config_email');
+		$this->data['telephone'] = $this->config->get('config_telephone');
+		$this->data['fax'] = $this->config->get('config_fax');
+		$this->data['maps'] = html_entity_decode($this->config->get('config_maps'));
+		$this->data['vk'] = $this->config->get('config_vk');
+		$this->data['fb'] = $this->config->get('config_fb');
+		$this->data['googleplus'] = $this->config->get('config_googleplus');
+		$this->data['youtube'] = $this->config->get('config_youtube');
+		$this->data['twitter'] = $this->config->get('config_twitter');
+		$this->data['time'] = $this->config->get('config_time');
+		$this->data['time'] = html_entity_decode($this->config->get('config_time'));
 
 		// Whos Online
 		if ($this->config->get('config_customer_online')) {

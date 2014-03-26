@@ -35,12 +35,20 @@
                 <span class="error"><?php echo $error_owner; ?></span>
                 <?php } ?></td>
             </tr>
+			<tr>
+              <td><?php echo $entry_welcome; ?></td>
+              <td><textarea name="config_welcome" cols="40" rows="5"><?php echo $config_welcome; ?></textarea>
+            </tr>
             <tr>
               <td><span class="required">*</span> <?php echo $entry_address; ?></td>
               <td><textarea name="config_address" cols="40" rows="5"><?php echo $config_address; ?></textarea>
                 <?php if ($error_address) { ?>
                 <span class="error"><?php echo $error_address; ?></span>
                 <?php } ?></td>
+            </tr>
+			<tr>
+              <td><?php echo $entry_maps; ?></td>
+			  <td><textarea name="config_maps" cols="40" rows="5"><?php echo $config_maps; ?></textarea>
             </tr>
             <tr>
               <td><span class="required">*</span> <?php echo $entry_email; ?></td>
@@ -51,14 +59,38 @@
             </tr>
             <tr>
               <td><span class="required">*</span> <?php echo $entry_telephone; ?></td>
-              <td><input type="text" name="config_telephone" value="<?php echo $config_telephone; ?>" />
+              <td><input type="text" name="config_telephone" value="<?php echo $config_telephone; ?>" size="40"/>
                 <?php if ($error_telephone) { ?>
                 <span class="error"><?php echo $error_telephone; ?></span>
                 <?php } ?></td>
             </tr>
             <tr>
               <td><?php echo $entry_fax; ?></td>
-              <td><input type="text" name="config_fax" value="<?php echo $config_fax; ?>" /></td>
+              <td><input type="text" name="config_fax" value="<?php echo $config_fax; ?>" size="40"/></td>
+            </tr>
+			<tr>
+              <td><?php echo $entry_vk; ?></td>
+              <td><input type="text" name="config_vk" value="<?php echo $config_vk; ?>" size="40"/></td>
+            </tr>
+			<tr>
+              <td><?php echo $entry_fb; ?></td>
+              <td><input type="text" name="config_fb" value="<?php echo $config_fb; ?>" size="40"/></td>
+            </tr>
+			<tr>
+              <td><?php echo $entry_googleplus; ?></td>
+              <td><input type="text" name="config_googleplus" value="<?php echo $config_googleplus; ?>" size="40"/></td>
+            </tr>
+			<tr>
+              <td><?php echo $entry_youtube; ?></td>
+              <td><input type="text" name="config_youtube" value="<?php echo $config_youtube; ?>" size="40"/></td>
+            </tr>
+			<tr>
+              <td><?php echo $entry_twitter; ?></td>
+              <td><input type="text" name="config_twitter" value="<?php echo $config_twitter; ?>" size="40"/></td>
+            </tr>
+			<tr>
+              <td><?php echo $entry_time; ?></td>
+              <td><input type="text" name="config_time" value="<?php echo $config_time; ?>" size="40"/></td>
             </tr>
           </table>
         </div>
