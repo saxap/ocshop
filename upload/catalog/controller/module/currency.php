@@ -2,6 +2,8 @@
 class ControllerModuleCurrency extends Controller {
 	protected function index() {
 		if (isset($this->request->post['currency_code'])) {
+			preg_match("{(coolfilter=[^&$]*?)p:([\d\.]+),([\d\.]+)}i", $this->request->post['redirect'], $price_matches);
+			$this->request->post['redirect'] = preg_replace("{(coolfilter=[^&$]*?)p:([\d\.]+),([\d\.]+)[;]*}i", "$1", $this->request->post['redirect']);
 			$this->currency->set($this->request->post['currency_code']);
 
 			unset($this->session->data['shipping_method']);

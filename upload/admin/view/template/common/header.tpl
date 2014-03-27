@@ -73,6 +73,15 @@ $(document).ready(function(){
         <ul>
           <li><a href="<?php echo $category; ?>"><?php echo $text_category; ?></a></li>
           <li><a href="<?php echo $product; ?>"><?php echo $text_product; ?></a></li>
+		  <?php if($coolfilter != ''){ ?>
+          <li>
+			<a href="<?php echo $coolfilter; ?>" class="parent"><?php echo $text_coolfilter; ?></a>
+			<ul style="display: none; visibility: hidden;">
+				<li><a href="<?php echo $coolfilter; ?>"><?php echo $text_coolfilter; ?></a></li>
+				<li><a href="<?php echo $coolfilter_group; ?>"><?php echo $text_coolfilter_group; ?></a></li>
+			</ul>
+		  </li>
+          <?php } ?>
           <li><a href="<?php echo $filter; ?>"><?php echo $text_filter; ?></a></li>
           <li><a href="<?php echo $profile; ?>"><?php echo $text_profile; ?></a></li>
           <li><a class="parent"><?php echo $text_attribute; ?></a>

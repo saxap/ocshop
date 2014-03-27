@@ -32,6 +32,8 @@ class ControllerCommonHeader extends Controller {
 		$this->data['text_category'] = $this->language->get('text_category');
 		$this->data['text_confirm'] = $this->language->get('text_confirm');
 		$this->data['text_country'] = $this->language->get('text_country');
+		$this->data['text_coolfilter'] = $this->language->get('text_coolfilter');
+		$this->data['text_coolfilter_group'] = $this->language->get('text_coolfilter_group');
 		$this->data['text_coupon'] = $this->language->get('text_coupon');
 		$this->data['text_currency'] = $this->language->get('text_currency');			
 		$this->data['text_customer'] = $this->language->get('text_customer');
@@ -138,6 +140,18 @@ class ControllerCommonHeader extends Controller {
 			$this->data['seomanager'] = $this->url->link('tool/seomanager', 'token=' . $this->session->data['token'], 'SSL');
 			$this->data['banner'] = $this->url->link('design/banner', 'token=' . $this->session->data['token'], 'SSL');
 			$this->data['category'] = $this->url->link('catalog/category', 'token=' . $this->session->data['token'], 'SSL');
+			
+			$this->load->model('setting/extension');
+            $extensions = $this->model_setting_extension->getInstalled('module');
+            $extension = 'coolfilter';
+            if (in_array($extension, $extensions)) {
+                $this->data['coolfilter'] = $this->url->link('catalog/coolfilter', 'token=' . $this->session->data['token'], 'SSL');
+				$this->data['coolfilter_group'] = $this->url->link('catalog/coolfilter_group', 'token=' . $this->session->data['token'], 'SSL');
+            }else{
+                $this->data['coolfilter'] = '';
+				$this->data['coolfilter_group'] = '';
+            }
+			
 			$this->data['country'] = $this->url->link('localisation/country', 'token=' . $this->session->data['token'], 'SSL');
 			$this->data['coupon'] = $this->url->link('sale/coupon', 'token=' . $this->session->data['token'], 'SSL');
 			$this->data['currency'] = $this->url->link('localisation/currency', 'token=' . $this->session->data['token'], 'SSL');
