@@ -272,6 +272,7 @@ class ControllerProductProduct extends Controller {
 			$this->data['button_compare'] = $this->language->get('button_compare');			
 			$this->data['button_upload'] = $this->language->get('button_upload');
 			$this->data['button_continue'] = $this->language->get('button_continue');
+			$this->data['button_edit_product'] = $this->language->get('button_edit_product');
 
 			$this->load->model('catalog/review');
 

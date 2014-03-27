@@ -51,6 +51,9 @@ $_['tab_attribute']     = 'Specification';
 $_['tab_review']        = 'Reviews (%s)';
 $_['tab_related']       = 'Related Products'; 
 
+// Buttons
+$_['button_edit_product']    = 'Edit product';
+
 // Error
 $_['error_name']        = 'Warning: Review Name must be between 3 and 25 characters!';
 $_['error_text']        = 'Warning: Review Text must be between 25 and 1000 characters!';

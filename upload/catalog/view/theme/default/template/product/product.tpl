@@ -263,7 +263,16 @@
     <a href="#tab-related"><?php echo $tab_related; ?> (<?php echo count($products); ?>)</a>
     <?php } ?>
   </div>
-  <div id="tab-description" class="tab-content"><?php echo $description; ?></div>
+  <div id="tab-description" class="tab-content">
+  <?php echo $description; ?>
+  <?php require_once(DIR_SYSTEM . 'library/user.php');
+  $this->registry->set('user', new User($this->registry));
+  if ($this->user->isLogged()) { $userLogged = true; } else { $userLogged = false;} if ($userLogged) { ?>
+  <div class="edit">
+  <a class="button" target="_blank" href="/admin/index.php?route=catalog/product/update&token=<?php echo $this->session->data['token']; ?>&product_id=<?php echo $product_id; ?>"><?php echo $button_edit_product; ?></a>
+  </div>
+  <?php } ?>
+  </div>
   <?php if ($attribute_groups) { ?>
   <div id="tab-attribute" class="tab-content">
     <table class="attribute">
