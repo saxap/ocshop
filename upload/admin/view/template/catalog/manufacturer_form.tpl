@@ -17,14 +17,7 @@
       <div id="tabs" class="htabs"><a href="#tab-general"><?php echo $tab_general; ?></a><a href="#tab-data"><?php echo $tab_data; ?></a></div>
       <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" id="form">
         <div id="tab-general">
-		  <div id="languages" class="htabs">
-            <?php foreach ($languages as $language) { ?>
-            <a href="#language<?php echo $language['language_id']; ?>"><img src="view/image/flags/<?php echo $language['image']; ?>" title="<?php echo $language['name']; ?>" /> <?php echo $language['name']; ?></a>
-            <?php } ?>
-          </div>
-          <?php foreach ($languages as $language) { ?>
-          <div id="language<?php echo $language['language_id']; ?>">
-            <table class="form">
+			  <table class="form">
 			<tr>
               <td><span class="required">*</span> <?php echo $entry_name; ?></td>
               <td><input type="text" name="name" value="<?php echo $name; ?>" size="100" />
@@ -32,6 +25,15 @@
                 <span class="error"><?php echo $error_name; ?></span>
                 <?php } ?></td>
             </tr>
+		  </table>
+		  <div id="languages" class="htabs">
+            <?php foreach ($languages as $language) { ?>
+            <a href="#language<?php echo $language['language_id']; ?>"><img src="view/image/flags/<?php echo $language['image']; ?>" title="<?php echo $language['name']; ?>" /> <?php echo $language['name']; ?></a>
+            <?php } ?>
+          </div>
+          <?php foreach ($languages as $language) { ?>
+          <div id="language<?php echo $language['language_id']; ?>">
+		   <table class="form">
 			<tr>
                 <td><?php echo $entry_seo_h1; ?></td>
                 <td><input type="text" name="manufacturer_description[<?php echo $language['language_id']; ?>][seo_h1]" maxlength="255" size="100" value="<?php echo isset($manufacturer_description[$language['language_id']]) ? $manufacturer_description[$language['language_id']]['seo_h1'] : ''; ?>" /></td>
