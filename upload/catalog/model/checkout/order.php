@@ -496,7 +496,9 @@ class ModelCheckoutOrder extends Model {
 			$mail->setSender($order_info['store_name']);
 			$mail->setSubject(html_entity_decode($subject, ENT_QUOTES, 'UTF-8'));
 			$mail->setHtml($html);
+			$mail->setHtml($html);
 			$mail->setText(html_entity_decode($text, ENT_QUOTES, 'UTF-8'));
+			$mail->addAttachment(DIR_IMAGE . $this->config->get('config_logo'));
 			$mail->send();
 
 			// Admin Alert Mail
@@ -544,6 +546,23 @@ class ModelCheckoutOrder extends Model {
 					$text .= $language->get('text_new_comment') . "\n\n";
 					$text .= $order_info['comment'] . "\n\n";
 				}
+				
+				$template->data['title'] = sprintf($language->get('text_new_subject'), html_entity_decode($order_info['store_name'], ENT_QUOTES, 'UTF-8'), $order_id);	
+				$template->data['text_greeting'] = sprintf($language->get('text_new_received'));
+				$template->data['text_link'] = '';
+				$template->data['text_download'] = '';
+				$template->data['text_instruction'] = '';
+				$template->data['text_footer'] = '';
+				$template->data['text_powered'] = '';
+				$template->data['link'] = '';
+				$template->data['download'] = '';	
+				$template->data['ip'] = $order_info['ip'] . '<br/><b>' . $language->get('text_new_order_status') . '</b> ' . $order_status;
+
+				if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/mail/order.tpl')) {
+				$html = $template->fetch($this->config->get('config_template') . '/template/mail/order.tpl');
+				} else {
+				$html = $template->fetch('default/template/checkout/mail/order.tpl');
+				}
 
 				$mail = new Mail(); 
 				$mail->protocol = $this->config->get('config_mail_protocol');
@@ -557,7 +576,9 @@ class ModelCheckoutOrder extends Model {
 				$mail->setFrom($this->config->get('config_email'));
 				$mail->setSender($order_info['store_name']);
 				$mail->setSubject(html_entity_decode($subject, ENT_QUOTES, 'UTF-8'));
+				$mail->setHtml($html);
 				$mail->setText(html_entity_decode($text, ENT_QUOTES, 'UTF-8'));
+				$mail->addAttachment(DIR_IMAGE . $this->config->get('config_logo'));
 				$mail->send();
 
 				// Send to additional alert emails
