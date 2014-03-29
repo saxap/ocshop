@@ -303,8 +303,6 @@ class ControllerCatalogProduct extends Controller {
 			$product_id=$this->request->get['product_id'];
 			$this->model_catalog_product->editProduct($this->request->get['product_id'], $this->request->post);
 
-			$this->openbay->productUpdateListen($this->request->get['product_id'], $this->request->post);
-
 			$this->session->data['success'] = $this->language->get('text_success');
 
 			$url = '';
@@ -368,7 +366,6 @@ class ControllerCatalogProduct extends Controller {
 		if (isset($this->request->post['selected']) && $this->validateDelete()) {
 			foreach ($this->request->post['selected'] as $product_id) {
 				$this->model_catalog_product->deleteProduct($product_id);
-				$this->openbay->deleteProduct($product_id);
 			}
 
 			$this->session->data['success'] = $this->language->get('text_success');
@@ -966,7 +963,6 @@ class ControllerCatalogProduct extends Controller {
 		$this->data['tab_links'] = $this->language->get('tab_links');
 		$this->data['tab_reward'] = $this->language->get('tab_reward');
 		$this->data['tab_design'] = $this->language->get('tab_design');
-		$this->data['tab_marketplace_links'] = $this->language->get('tab_marketplace_links');
 
 		if (isset($this->error['warning'])) {
 			$this->data['error_warning'] = $this->error['warning'];
