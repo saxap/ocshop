@@ -35,6 +35,7 @@ $_['text_prices']       	 = 'Цена';
 $_['text_manufacters']       = 'Производители';
 $_['text_options']           = 'Опции';
 $_['text_attributes']        = 'Атрибуты';
+$_['text_parameteres']       = 'Параметры';
 
 // StyleItems
 $_['style_slider']           = 'Бегунок';

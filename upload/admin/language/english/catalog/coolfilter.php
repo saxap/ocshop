@@ -35,6 +35,7 @@ $_['text_prices']       	 = 'Price';
 $_['text_manufacters']       = 'Manufacter';
 $_['text_options']           = 'Options';
 $_['text_attributes']        = 'Attributes';
+$_['text_parameteres']       = 'Parameteres';
 
 // StyleItems
 $_['style_slider']           = 'Slider';
