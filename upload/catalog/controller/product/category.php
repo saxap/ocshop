@@ -31,6 +31,7 @@ class ControllerProductCategory extends Controller {
 		
 		if (isset($this->request->get['coolfilter'])) {
 	        $coolfilter = $this->request->get['coolfilter'];
+			$this->document->setRobots('noindex,follow');
 		} else {
 	        $coolfilter = '';
 		}
