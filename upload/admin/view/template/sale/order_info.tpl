@@ -26,14 +26,6 @@
             <td><?php echo $text_order_id; ?></td>
             <td>#<?php echo $order_id; ?></td>
           </tr>
-          <?php if (!empty($amazon_order_id)) { ?>
-          
-          <tr>
-            <td><?php echo $text_amazon_order_id; ?></td>
-            <td><?php echo $amazon_order_id; ?></td>
-          </tr>
-          
-          <?php } ?>
           <tr>
             <td><?php echo $text_invoice_no; ?></td>
             <td><?php if ($invoice_no) { ?>
@@ -236,15 +228,6 @@
       <?php if ($shipping_method) { ?>
       <div id="tab-shipping" class="vtabs-content">
         <table class="form">
-          <?php if (!empty($amazon_order_id) && empty($shipping_lastname)) { ?> 
-            
-            <tr>
-              <td><?php echo $text_name; ?></td>
-              <td><?php echo $shipping_firstname; ?></td>
-            </tr>
-            
-           <?php } else { ?>
-            
             <tr>
               <td><?php echo $text_firstname; ?></td>
               <td><?php echo $shipping_firstname; ?></td>
@@ -254,7 +237,6 @@
               <td><?php echo $shipping_lastname; ?></td>
             </tr>
             
-           <?php } ?>
           <?php if ($shipping_company) { ?>
           <tr>
             <td><?php echo $text_company; ?></td>
@@ -984,19 +966,6 @@ $('.vtabs a').tabs();
     function orderStatusChange(){
         var status_id = $('select[name="order_status_id"]').val();
 
-        $('#openbayInfo').remove();
-
-        $.ajax({
-            url: 'index.php?route=extension/openbay/ajaxOrderInfo&token=<?php echo $this->request->get['token']; ?>&order_id=<?php echo $this->request->get['order_id']; ?>&status_id='+status_id,
-            type: 'post',
-            dataType: 'html',
-            beforeSend: function(){},
-            success: function(html) {
-                $('#history').after(html);
-            },
-            failure: function(){},
-            error: function(){}
-        });
     }
 
     function addOrderInfo(){
@@ -1005,16 +974,6 @@ $('.vtabs a').tabs();
 
         $('#old_order_status_id').val(status_id);
 
-        $.ajax({
-            url: 'index.php?route=extension/openbay/ajaxAddOrderInfo&token=<?php echo $token; ?>&order_id=<?php echo $order_id; ?>&status_id='+status_id+'&old_status_id='+old_status_id,
-            type: 'post',
-            dataType: 'html',
-            data: $(".openbayData").serialize(),
-            beforeSend: function(){},
-            success: function() {},
-            failure: function(){},
-            error: function(){}
-        });
     }
 
     $(document).ready(function() {
