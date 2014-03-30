@@ -678,6 +678,56 @@ CREATE TABLE `oc_category_filter` (
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `oc_category_option`
+--
+
+CREATE TABLE IF NOT EXISTS `oc_category_option` (
+  `option_id` int(10) NOT NULL AUTO_INCREMENT,
+  `status` int(1) DEFAULT '0',
+  `sort_order` int(10) DEFAULT '0',
+  PRIMARY KEY (`option_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=5 ;
+
+--
+-- Дамп данных таблицы `oc_category_option`
+--
+
+INSERT INTO `oc_category_option` (`option_id`, `status`, `sort_order`) VALUES
+(1, 1, 2),
+(2, 1, 1),
+(3, 1, 0),
+(4, 1, 4);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `oc_category_option_description`
+--
+
+CREATE TABLE IF NOT EXISTS `oc_category_option_description` (
+  `option_id` int(10) NOT NULL,
+  `language_id` int(10) NOT NULL,
+  `name` varchar(127) COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`option_id`,`language_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Дамп данных таблицы `oc_category_option_description`
+--
+
+INSERT INTO `oc_category_option_description` (`option_id`, `language_id`, `name`) VALUES
+(1, 1, 'Размер'),
+(1, 2, 'Size'),
+(2, 1, 'Производители'),
+(2, 2, 'Manufactured'),
+(3, 1, 'Цена'),
+(3, 2, 'Price'),
+(4, 1, 'Экран'),
+(4, 2, 'Экран');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `oc_category_to_layout`
 --
 
@@ -751,6 +801,170 @@ INSERT INTO `oc_category_to_store` (`category_id`, `store_id`) VALUES
 (58, 0);
 
 -- --------------------------------------------------------
+
+--
+-- Структура таблицы `oc_coolfilter_group`
+--
+
+CREATE TABLE IF NOT EXISTS `oc_coolfilter_group` (
+  `coolfilter_group_id` int(11) NOT NULL AUTO_INCREMENT,
+  `sort_order` int(3) NOT NULL,
+  PRIMARY KEY (`coolfilter_group_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=2 ;
+
+--
+-- Дамп данных таблицы `oc_coolfilter_group`
+--
+
+INSERT INTO `oc_coolfilter_group` (`coolfilter_group_id`, `sort_order`) VALUES
+(1, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `oc_coolfilter_group_description`
+--
+
+CREATE TABLE IF NOT EXISTS `oc_coolfilter_group_description` (
+  `coolfilter_group_id` int(11) NOT NULL,
+  `language_id` int(11) NOT NULL,
+  `name` varchar(64) COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`coolfilter_group_id`,`language_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Дамп данных таблицы `oc_coolfilter_group_description`
+--
+
+INSERT INTO `oc_coolfilter_group_description` (`coolfilter_group_id`, `language_id`, `name`) VALUES
+(1, 1, 'Первая'),
+(1, 2, 'Первая');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `oc_coolfilter_group_option_to_coolfilter_group`
+--
+
+CREATE TABLE IF NOT EXISTS `oc_coolfilter_group_option_to_coolfilter_group` (
+  `option_id` int(11) NOT NULL,
+  `coolfilter_group_id` int(11) NOT NULL,
+  PRIMARY KEY (`coolfilter_group_id`,`option_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Дамп данных таблицы `oc_coolfilter_group_option_to_coolfilter_group`
+--
+
+INSERT INTO `oc_coolfilter_group_option_to_coolfilter_group` (`option_id`, `coolfilter_group_id`) VALUES
+(1, 1),
+(2, 1),
+(3, 1),
+(4, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `oc_coolfilter_group_to_category`
+--
+
+CREATE TABLE IF NOT EXISTS `oc_coolfilter_group_to_category` (
+  `coolfilter_group_id` int(11) NOT NULL,
+  `category_id` int(11) NOT NULL,
+  PRIMARY KEY (`coolfilter_group_id`,`category_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Дамп данных таблицы `oc_coolfilter_group_to_category`
+--
+
+INSERT INTO `oc_coolfilter_group_to_category` (`coolfilter_group_id`, `category_id`) VALUES
+(1, 17),
+(1, 18),
+(1, 20),
+(1, 24),
+(1, 25),
+(1, 26),
+(1, 27),
+(1, 28),
+(1, 29),
+(1, 30),
+(1, 31),
+(1, 32),
+(1, 33),
+(1, 34),
+(1, 35),
+(1, 36),
+(1, 37),
+(1, 38),
+(1, 39),
+(1, 40),
+(1, 41),
+(1, 42),
+(1, 43),
+(1, 44),
+(1, 45),
+(1, 46),
+(1, 47),
+(1, 48),
+(1, 49),
+(1, 50),
+(1, 51),
+(1, 52),
+(1, 53),
+(1, 54),
+(1, 55),
+(1, 56),
+(1, 57),
+(1, 58);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `oc_type_option`
+--
+
+CREATE TABLE IF NOT EXISTS `oc_type_option` (
+  `option_id` int(11) NOT NULL,
+  `type_index` varchar(250) COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`type_index`,`option_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Дамп данных таблицы `oc_type_option`
+--
+
+INSERT INTO `oc_type_option` (`option_id`, `type_index`) VALUES
+(2, 'manufacter'),
+(1, 'option_11'),
+(4, 'parametere_1'),
+(3, 'price');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `oc_style_option`
+--
+
+CREATE TABLE IF NOT EXISTS `oc_style_option` (
+  `option_id` int(11) NOT NULL,
+  `style_id` varchar(250) COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`style_id`,`option_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Дамп данных таблицы `oc_style_option`
+--
+
+INSERT INTO `oc_style_option` (`option_id`, `style_id`) VALUES
+(1, 'checkbox'),
+(2, 'checkbox'),
+(4, 'checkbox'),
+(3, 'slider');
+
+-- --------------------------------------------------------
+
+
 
 --
 -- Table structure for table `oc_country`
@@ -1254,74 +1468,93 @@ CREATE TABLE `oc_download_description` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `oc_filter_group`
+-- Структура таблицы `oc_filter_group`
 --
 
-DROP TABLE IF EXISTS `oc_filter_group`;
-CREATE TABLE `oc_filter_group` (
+CREATE TABLE IF NOT EXISTS `oc_filter_group` (
   `filter_group_id` int(11) NOT NULL AUTO_INCREMENT,
   `sort_order` int(3) NOT NULL,
   PRIMARY KEY (`filter_group_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
--- Dumping data for table `oc_filter`
+-- Дамп данных таблицы `oc_filter_group`
 --
+
+INSERT INTO `oc_filter_group` (`filter_group_id`, `sort_order`) VALUES
+(1, 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `oc_filter_description`
+-- Структура таблицы `oc_filter_group_description`
 --
 
-DROP TABLE IF EXISTS `oc_filter_group_description`;
-CREATE TABLE `oc_filter_group_description` (
+CREATE TABLE IF NOT EXISTS `oc_filter_group_description` (
   `filter_group_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
   `name` varchar(64) NOT NULL,
   PRIMARY KEY (`filter_group_id`,`language_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `oc_filter_description`
+-- Дамп данных таблицы `oc_filter_group_description`
 --
+
+INSERT INTO `oc_filter_group_description` (`filter_group_id`, `language_id`, `name`) VALUES
+(1, 1, 'Экран'),
+(1, 2, 'Экран');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `oc_filter`
+-- Структура таблицы `oc_filter`
 --
 
-DROP TABLE IF EXISTS `oc_filter`;
-CREATE TABLE `oc_filter` (
+CREATE TABLE IF NOT EXISTS `oc_filter` (
   `filter_id` int(11) NOT NULL AUTO_INCREMENT,
   `filter_group_id` int(11) NOT NULL,
   `sort_order` int(3) NOT NULL,
   PRIMARY KEY (`filter_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
--- Dumping data for table `oc_filter`
+-- Дамп данных таблицы `oc_filter`
 --
+
+INSERT INTO `oc_filter` (`filter_id`, `filter_group_id`, `sort_order`) VALUES
+(1, 1, 0),
+(2, 1, 1),
+(3, 1, 2),
+(4, 1, 3);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `oc_filter_description`
+-- Структура таблицы `oc_filter_description`
 --
 
-DROP TABLE IF EXISTS `oc_filter_description`;
-CREATE TABLE `oc_filter_description` (
+CREATE TABLE IF NOT EXISTS `oc_filter_description` (
   `filter_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
   `filter_group_id` int(11) NOT NULL,
   `name` varchar(64) NOT NULL,
   PRIMARY KEY (`filter_id`,`language_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `oc_filter_description`
+-- Дамп данных таблицы `oc_filter_description`
 --
+
+INSERT INTO `oc_filter_description` (`filter_id`, `language_id`, `filter_group_id`, `name`) VALUES
+(1, 1, 1, '15'),
+(1, 2, 1, '15'),
+(2, 1, 1, '17'),
+(2, 2, 1, '17'),
+(3, 1, 1, '19'),
+(3, 2, 1, '19'),
+(4, 1, 1, '22'),
+(4, 2, 1, '22');
 
 -- --------------------------------------------------------
 
@@ -1361,7 +1594,11 @@ INSERT INTO `oc_extension` (`extension_id`, `type`, `code`) VALUES
 (398, 'total', 'voucher'),
 (407, 'payment', 'free_checkout'),
 (427, 'module', 'featured'),
-(419, 'module', 'slideshow');
+(419, 'module', 'slideshow'),
+(420, 'module', 'coolfilter'),
+(428, 'module', 'product_tab'),
+(429, 'module', 'viewed'),
+(430, 'module', 'reviews');
 
 -- --------------------------------------------------------
 
@@ -2262,7 +2499,7 @@ INSERT INTO `oc_product` (`product_id`, `model`, `sku`, `upc`, `location`, `quan
 (32, 'Product 5', '', '', '', 999, 6, 'data/demo/ipod_touch_1.jpg', 8, 1, '100.0000', 0, 9, '2009-02-03', '5.00', 1, '0.00', '0.00', '0.00', 1, 1, 1, 0, 1, '2009-02-03 17:07:26', '2011-09-30 01:07:22', 0),
 (33, 'Product 6', '', '', '', 1000, 6, 'data/demo/samsung_syncmaster_941bw.jpg', 0, 1, '200.0000', 0, 9, '2009-02-03', '5.00', 1, '0.00', '0.00', '0.00', 2, 1, 1, 0, 1, '2009-02-03 17:08:31', '2011-09-30 01:06:29', 0),
 (34, 'Product 7', '', '', '', 1000, 6, 'data/demo/ipod_shuffle_1.jpg', 8, 1, '100.0000', 0, 9, '2009-02-03', '5.00', 1, '0.00', '0.00', '0.00', 2, 1, 1, 0, 1, '2009-02-03 18:07:54', '2011-09-30 01:07:17', 0),
-(35, 'Product 8', '', '', '', 1000, 5, '', 0, 0, '100.0000', 0, 9, '2009-02-03', '5.00', 1, '0.00', '0.00', '0.00', 1, 1, 1, 0, 1, '2009-02-03 18:08:31', '2011-09-30 01:06:17', 0),
+(35, 'Product 8', '', '', '', 1000, 5, 'no_image.jpg', 0, 0, '100.0000', 0, 9, '2009-02-03', '5.00', 1, '0.00', '0.00', '0.00', 1, 1, 1, 0, 1, '2009-02-03 18:08:31', '2011-09-30 01:06:17', 0),
 (36, 'Product 9', '', '', '', 994, 6, 'data/demo/ipod_nano_1.jpg', 8, 0, '100.0000', 100, 9, '2009-02-03', '5.00', 1, '0.00', '0.00', '0.00', 2, 1, 1, 0, 1, '2009-02-03 18:09:19', '2011-09-30 01:07:12', 0),
 (40, 'product 11', '', '', '', 970, 5, 'data/demo/iphone_1.jpg', 8, 1, '101.0000', 0, 9, '2009-02-03', '10.00', 1, '0.00', '0.00', '0.00', 1, 1, 1, 0, 1, '2009-02-03 21:07:12', '2011-09-30 01:06:53', 0),
 (41, 'Product 14', '', '', '', 977, 5, 'data/demo/imac_1.jpg', 8, 1, '100.0000', 0, 9, '2009-02-03', '5.00', 1, '0.00', '0.00', '0.00', 1, 1, 1, 0, 1, '2009-02-03 21:07:26', '2011-09-30 01:06:44', 0),
@@ -2404,19 +2641,21 @@ INSERT INTO `oc_product_discount` (`product_discount_id`, `product_id`, `custome
 -- --------------------------------------------------------
 
 --
--- Table structure for table `oc_product_filter`
+-- Структура таблицы `oc_product_filter`
 --
 
-DROP TABLE IF EXISTS `oc_product_filter`;
-CREATE TABLE `oc_product_filter` (
+CREATE TABLE IF NOT EXISTS `oc_product_filter` (
   `product_id` int(11) NOT NULL,
   `filter_id` int(11) NOT NULL,
   PRIMARY KEY (`product_id`,`filter_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `oc_product_filter`
+-- Дамп данных таблицы `oc_product_filter`
 --
+
+INSERT INTO `oc_product_filter` (`product_id`, `filter_id`) VALUES
+(42, 4);
 
 -- --------------------------------------------------------
 
@@ -2952,11 +3191,10 @@ INSERT INTO `oc_return_status` (`return_status_id`, `language_id`, `name`) VALUE
 -- --------------------------------------------------------
 
 --
--- Table structure for table `oc_review`
+-- Структура таблицы `oc_review`
 --
 
-DROP TABLE IF EXISTS `oc_review`;
-CREATE TABLE `oc_review` (
+CREATE TABLE IF NOT EXISTS `oc_review` (
   `review_id` int(11) NOT NULL AUTO_INCREMENT,
   `product_id` int(11) NOT NULL,
   `customer_id` int(11) NOT NULL,
@@ -2968,12 +3206,14 @@ CREATE TABLE `oc_review` (
   `date_modified` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`review_id`),
   KEY `product_id` (`product_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
--- Dumping data for table `oc_review`
+-- Дамп данных таблицы `oc_review`
 --
 
+INSERT INTO `oc_review` (`review_id`, `product_id`, `customer_id`, `author`, `text`, `rating`, `status`, `date_added`, `date_modified`) VALUES
+(1, 48, 0, 'Василий Покупайкин', 'Демо отзыв про Ipod Classic самый лучший плеер в мире :-)', 5, 1, '2014-03-31 01:08:00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -3036,7 +3276,6 @@ INSERT INTO `oc_setting` (`setting_id`, `store_id`, `group`, `key`, `value`, `se
 (37, 0, 'flat', 'flat_tax_class_id', '9', 0),
 (38, 0, 'carousel', 'carousel_module', 'a:1:{i:0;a:10:{s:9:"banner_id";s:1:"8";s:5:"limit";s:1:"5";s:6:"scroll";s:1:"3";s:5:"width";s:2:"80";s:6:"height";s:2:"80";s:11:"resize_type";s:7:"default";s:9:"layout_id";s:1:"1";s:8:"position";s:14:"content_bottom";s:6:"status";s:1:"1";s:10:"sort_order";s:2:"-1";}}', 1),
 (39, 0, 'featured', 'featured_product', '43,40,42,49,46,47,28', 0),
-(40, 0, 'featured', 'featured_module', 'a:1:{i:0;a:8:{s:5:"limit";s:1:"6";s:11:"image_width";s:2:"80";s:12:"image_height";s:2:"80";s:11:"resize_type";s:7:"default";s:9:"layout_id";s:1:"1";s:8:"position";s:11:"content_top";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"2";}}', 1),
 (41, 0, 'flat', 'flat_cost', '5.00', 0),
 (42, 0, 'credit', 'credit_sort_order', '7', 0),
 (43, 0, 'credit', 'credit_status', '1', 0),
@@ -3062,8 +3301,8 @@ INSERT INTO `oc_setting` (`setting_id`, `store_id`, `group`, `key`, `value`, `se
 (63, 0, 'config', 'config_image_manufacturer_width', '80', 0),
 (64, 0, 'config', 'config_image_category_height', '80', 0),
 (65, 0, 'config', 'config_image_category_width', '80', 0),
-(66, 0, 'config', 'config_image_product_height', '80', 0),
-(67, 0, 'config', 'config_image_product_width', '80', 0),
+(66, 0, 'config', 'config_image_product_height', '160', 0),
+(67, 0, 'config', 'config_image_product_width', '160', 0),
 (68, 0, 'config', 'config_image_popup_height', '500', 0),
 (69, 0, 'config', 'config_image_popup_width', '500', 0),
 (70, 0, 'config', 'config_image_thumb_height', '317', 0),
@@ -3110,8 +3349,8 @@ INSERT INTO `oc_setting` (`setting_id`, `store_id`, `group`, `key`, `value`, `se
 (111, 0, 'config', 'config_owner', 'Мое Имя', 0),
 (112, 0, 'config', 'config_address', 'Адрес', 0),
 (113, 0, 'config', 'config_email', 'admin@store.ru', 0),
-(114, 0, 'config', 'config_telephone', '123456789', 0),
-(115, 0, 'config', 'config_fax', '', 0),
+(114, 0, 'config', 'config_telephone', '077 777 77 77', 0),
+(115, 0, 'config', 'config_fax', '088 888 88 88', 0),
 (116, 0, 'config', 'config_title', 'Мой Магазин', 0),
 (117, 0, 'config', 'config_meta_description', 'Мой Магазин', 0),
 (118, 0, 'config', 'config_template', 'default', 0),
@@ -3126,7 +3365,24 @@ INSERT INTO `oc_setting` (`setting_id`, `store_id`, `group`, `key`, `value`, `se
 (127, 0, 'config', 'config_customer_group_display', 'a:1:{i:0;s:1:\"1\";}', 1),
 (128, 0, 'config', 'config_robots', 'abot\r\ndbot\r\nebot\r\nhbot\r\nkbot\r\nlbot\r\nmbot\r\nnbot\r\nobot\r\npbot\r\nrbot\r\nsbot\r\ntbot\r\nvbot\r\nybot\r\nzbot\r\nbot.\r\nbot/\r\n_bot\r\n.bot\r\n/bot\r\n-bot\r\n:bot\r\n(bot\r\ncrawl\r\nslurp\r\nspider\r\nseek\r\naccoona\r\nacoon\r\nadressendeutschland\r\nah-ha.com\r\nahoy\r\naltavista\r\nananzi\r\nanthill\r\nappie\r\narachnophilia\r\narale\r\naraneo\r\naranha\r\narchitext\r\naretha\r\narks\r\nasterias\r\natlocal\r\natn\r\natomz\r\naugurfind\r\nbackrub\r\nbannana_bot\r\nbaypup\r\nbdfetch\r\nbig brother\r\nbiglotron\r\nbjaaland\r\nblackwidow\r\nblaiz\r\nblog\r\nblo.\r\nbloodhound\r\nboitho\r\nbooch\r\nbradley\r\nbutterfly\r\ncalif\r\ncassandra\r\nccubee\r\ncfetch\r\ncharlotte\r\nchurl\r\ncienciaficcion\r\ncmc\r\ncollective\r\ncomagent\r\ncombine\r\ncomputingsite\r\ncsci\r\ncurl\r\ncusco\r\ndaumoa\r\ndeepindex\r\ndelorie\r\ndepspid\r\ndeweb\r\ndie blinde kuh\r\ndigger\r\nditto\r\ndmoz\r\ndocomo\r\ndownload express\r\ndtaagent\r\ndwcp\r\nebiness\r\nebingbong\r\ne-collector\r\nejupiter\r\nemacs-w3 search engine\r\nesther\r\nevliya celebi\r\nezresult\r\nfalcon\r\nfelix ide\r\nferret\r\nfetchrover\r\nfido\r\nfindlinks\r\nfireball\r\nfish search\r\nfouineur\r\nfunnelweb\r\ngazz\r\ngcreep\r\ngenieknows\r\ngetterroboplus\r\ngeturl\r\nglx\r\ngoforit\r\ngolem\r\ngrabber\r\ngrapnel\r\ngralon\r\ngriffon\r\ngromit\r\ngrub\r\ngulliver\r\nhamahakki\r\nharvest\r\nhavindex\r\nhelix\r\nheritrix\r\nhku www octopus\r\nhomerweb\r\nhtdig\r\nhtml index\r\nhtml_analyzer\r\nhtmlgobble\r\nhubater\r\nhyper-decontextualizer\r\nia_archiver\r\nibm_planetwide\r\nichiro\r\niconsurf\r\niltrovatore\r\nimage.kapsi.net\r\nimagelock\r\nincywincy\r\nindexer\r\ninfobee\r\ninformant\r\ningrid\r\ninktomisearch.com\r\ninspector web\r\nintelliagent\r\ninternet shinchakubin\r\nip3000\r\niron33\r\nisraeli-search\r\nivia\r\njack\r\njakarta\r\njavabee\r\njetbot\r\njumpstation\r\nkatipo\r\nkdd-explorer\r\nkilroy\r\nknowledge\r\nkototoi\r\nkretrieve\r\nlabelgrabber\r\nlachesis\r\nlarbin\r\nlegs\r\nlibwww\r\nlinkalarm\r\nlink validator\r\nlinkscan\r\nlockon\r\nlwp\r\nlycos\r\nmagpie\r\nmantraagent\r\nmapoftheinternet\r\nmarvin/\r\nmattie\r\nmediafox\r\nmediapartners\r\nmercator\r\nmerzscope\r\nmicrosoft url control\r\nminirank\r\nmiva\r\nmj12\r\nmnogosearch\r\nmoget\r\nmonster\r\nmoose\r\nmotor\r\nmultitext\r\nmuncher\r\nmuscatferret\r\nmwd.search\r\nmyweb\r\nnajdi\r\nnameprotect\r\nnationaldirectory\r\nnazilla\r\nncsa beta\r\nnec-meshexplorer\r\nnederland.zoek\r\nnetcarta webmap engine\r\nnetmechanic\r\nnetresearchserver\r\nnetscoop\r\nnewscan-online\r\nnhse\r\nnokia6682/\r\nnomad\r\nnoyona\r\nnutch\r\nnzexplorer\r\nobjectssearch\r\noccam\r\nomni\r\nopen text\r\nopenfind\r\nopenintelligencedata\r\norb search\r\nosis-project\r\npack rat\r\npageboy\r\npagebull\r\npage_verifier\r\npanscient\r\nparasite\r\npartnersite\r\npatric\r\npear.\r\npegasus\r\nperegrinator\r\npgp key agent\r\nphantom\r\nphpdig\r\npicosearch\r\npiltdownman\r\npimptrain\r\npinpoint\r\npioneer\r\npiranha\r\nplumtreewebaccessor\r\npogodak\r\npoirot\r\npompos\r\npoppelsdorf\r\npoppi\r\npopular iconoclast\r\npsycheclone\r\npublisher\r\npython\r\nrambler\r\nraven search\r\nroach\r\nroad runner\r\nroadhouse\r\nrobbie\r\nrobofox\r\nrobozilla\r\nrules\r\nsalty\r\nsbider\r\nscooter\r\nscoutjet\r\nscrubby\r\nsearch.\r\nsearchprocess\r\nsemanticdiscovery\r\nsenrigan\r\nsg-scout\r\nshai''hulud\r\nshark\r\nshopwiki\r\nsidewinder\r\nsift\r\nsilk\r\nsimmany\r\nsite searcher\r\nsite valet\r\nsitetech-rover\r\nskymob.com\r\nsleek\r\nsmartwit\r\nsna-\r\nsnappy\r\nsnooper\r\nsohu\r\nspeedfind\r\nsphere\r\nsphider\r\nspinner\r\nspyder\r\nsteeler/\r\nsuke\r\nsuntek\r\nsupersnooper\r\nsurfnomore\r\nsven\r\nsygol\r\nszukacz\r\ntach black widow\r\ntarantula\r\ntempleton\r\n/teoma\r\nt-h-u-n-d-e-r-s-t-o-n-e\r\ntheophrastus\r\ntitan\r\ntitin\r\ntkwww\r\ntoutatis\r\nt-rex\r\ntutorgig\r\ntwiceler\r\ntwisted\r\nucsd\r\nudmsearch\r\nurl check\r\nupdated\r\nvagabondo\r\nvalkyrie\r\nverticrawl\r\nvictoria\r\nvision-search\r\nvolcano\r\nvoyager/\r\nvoyager-hc\r\nw3c_validator\r\nw3m2\r\nw3mir\r\nwalker\r\nwallpaper\r\nwanderer\r\nwauuu\r\nwavefire\r\nweb core\r\nweb hopper\r\nweb wombat\r\nwebbandit\r\nwebcatcher\r\nwebcopy\r\nwebfoot\r\nweblayers\r\nweblinker\r\nweblog monitor\r\nwebmirror\r\nwebmonkey\r\nwebquest\r\nwebreaper\r\nwebsitepulse\r\nwebsnarf\r\nwebstolperer\r\nwebvac\r\nwebwalk\r\nwebwatch\r\nwebwombat\r\nwebzinger\r\nwhizbang\r\nwhowhere\r\nwild ferret\r\nworldlight\r\nwwwc\r\nwwwster\r\nxenu\r\nxget\r\nxift\r\nxirq\r\nyandex\r\nyanga\r\nyeti\r\nyodao\r\nzao\r\nzippp\r\nzyborg', 0),
 (129, 0, 'config', 'config_password', '1', 0),
-(130, 0, 'config', 'config_product_count', '1', 0);
+(130, 0, 'config', 'config_product_count', '1', 0),
+(131, 0, 'config', 'config_address', 'Никольская улица, Москва, Россия', 0),
+(132, 0, 'config', 'config_maps', '<script type="text/javascript" charset="utf-8" src="//api-maps.yandex.ru/services/constructor/1.0/js/?sid=AREPYumVjPnV1kA3nNnK-tGQkXjuvo58&width=430&height=220"></script>', 0),
+(133, 0, 'config', 'config_fb', 'https://www.facebook.com/', 0),
+(134, 0, 'config', 'config_vk', 'http://vk.com/club65930646', 0),
+(135, 0, 'config', 'config_twitter', 'https://twitter.com/', 0),
+(136, 0, 'config', 'config_youtube', 'http://www.youtube.com/', 0),
+(137, 0, 'config', 'config_googleplus', 'https://plus.google.com/', 0),
+(138, 0, 'config', 'config_time', 'Пн. - Пт. 9:00 - 20:00<br />Сб. - Вс. 10:00 - 15:00', 0),
+(139, 0, 'config', 'config_welcome', 'Мы приветствуем Вас в демонстрационном магазине OCSHOP.CMS. На этом сайте Вы можете ознакомиться со всеми возможностями системы ', 0),
+(140, 0, 'coolfilter', 'count_enabled', '1', 0),
+(141, 0, 'coolfilter', 'coolfilter_module', 'a:1:{i:0;a:5:{s:9:"layout_id";s:1:"3";s:19:"coolfilter_group_id";s:1:"1";s:8:"position";s:11:"column_left";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"0";}}', 1),
+(148, 0, 'product_tab', 'product_tab_module', 'a:1:{i:0;a:7:{s:5:"limit";s:1:"6";s:11:"image_width";s:2:"80";s:12:"image_height";s:2:"80";s:9:"layout_id";s:1:"1";s:8:"position";s:11:"content_top";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"2";}}', 1),
+(155, 0, 'viewed', 'viewed_count', '5', 0),
+(156, 0, 'viewed', 'show_on_product', '1', 0),
+(157, 0, 'viewed', 'viewed_module', 'a:3:{i:0;a:6:{s:11:"image_width";s:2:"80";s:12:"image_height";s:2:"80";s:9:"layout_id";s:1:"2";s:8:"position";s:14:"content_bottom";s:6:"status";s:1:"1";s:10:"sort_order";s:2:"10";}i:1;a:6:{s:11:"image_width";s:2:"80";s:12:"image_height";s:2:"80";s:9:"layout_id";s:1:"3";s:8:"position";s:14:"content_bottom";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"5";}i:2;a:6:{s:11:"image_width";s:2:"80";s:12:"image_height";s:2:"80";s:9:"layout_id";s:1:"5";s:8:"position";s:14:"content_bottom";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"5";}}', 1),
+(158, 0, 'reviews', 'reviews_module', 'a:1:{i:0;a:10:{s:4:"type";s:6:"latest";s:6:"header";a:2:{i:1;s:31:"Последние отзывы";i:2;s:31:"Последние отзывы";}s:5:"limit";s:1:"4";s:10:"text_limit";s:3:"150";s:11:"image_width";s:2:"80";s:12:"image_height";s:2:"80";s:9:"layout_id";s:1:"3";s:8:"position";s:11:"column_left";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"5";}}', 1);
+
 
 -- --------------------------------------------------------
 
@@ -3355,7 +3611,7 @@ CREATE TABLE `oc_user_group` (
 --
 
 INSERT INTO `oc_user_group` (`user_group_id`, `name`, `permission`) VALUES
-(1, 'Главный администратор', 'a:2:{s:6:"access";a:112:{i:0;s:17:"catalog/attribute";i:1;s:23:"catalog/attribute_group";i:2;s:16:"catalog/category";i:3;s:16:"catalog/download";i:4;s:14:"catalog/filter";i:5;s:19:"catalog/information";i:6;s:20:"catalog/manufacturer";i:7;s:14:"catalog/option";i:8;s:15:"catalog/product";i:9;s:15:"catalog/profile";i:10;s:14:"catalog/review";i:11;s:18:"common/filemanager";i:12;s:13:"design/banner";i:13;s:19:"design/custom_field";i:14;s:13:"design/layout";i:15;s:14:"extension/feed";i:16;s:17:"extension/manager";i:17;s:16:"extension/module";i:18;s:17:"extension/payment";i:19;s:18:"extension/shipping";i:20;s:15:"extension/total";i:21;s:16:"feed/google_base";i:22;s:19:"feed/google_sitemap";i:23;s:20:"localisation/country";i:24;s:21:"localisation/currency";i:25;s:21:"localisation/geo_zone";i:26;s:21:"localisation/language";i:27;s:25:"localisation/length_class";i:28;s:25:"localisation/order_status";i:29;s:26:"localisation/return_action";i:30;s:26:"localisation/return_reason";i:31;s:26:"localisation/return_status";i:32;s:25:"localisation/stock_status";i:33;s:22:"localisation/tax_class";i:34;s:21:"localisation/tax_rate";i:35;s:25:"localisation/weight_class";i:36;s:17:"localisation/zone";i:37;s:14:"module/account";i:38;s:16:"module/affiliate";i:39;s:13:"module/banner";i:40;s:17:"module/bestseller";i:41;s:15:"module/carousel";i:42;s:15:"module/category";i:43;s:15:"module/featured";i:44;s:13:"module/filter";i:45;s:18:"module/google_talk";i:46;s:18:"module/information";i:47;s:13:"module/latest";i:48;s:16:"module/pp_layout";i:49;s:16:"module/slideshow";i:50;s:14:"module/special";i:51;s:12:"module/store";i:52;s:14:"module/welcome";i:53;s:21:"payment/bank_transfer";i:54;s:11:"payment/cod";i:55;s:21:"payment/free_checkout";i:56;s:14:"payment/liqpay";i:57;s:20:"payment/moneybookers";i:58;s:18:"payment/pp_express";i:59;s:25:"payment/pp_payflow_iframe";i:60;s:14:"payment/pp_pro";i:61;s:21:"payment/pp_pro_iframe";i:62;s:17:"payment/pp_pro_pf";i:63;s:17:"payment/pp_pro_uk";i:64;s:19:"payment/pp_standard";i:65;s:27:"report/affiliate_commission";i:66;s:22:"report/customer_credit";i:67;s:22:"report/customer_online";i:68;s:21:"report/customer_order";i:69;s:22:"report/customer_reward";i:70;s:24:"report/product_purchased";i:71;s:21:"report/product_viewed";i:72;s:18:"report/sale_coupon";i:73;s:17:"report/sale_order";i:74;s:18:"report/sale_return";i:75;s:20:"report/sale_shipping";i:76;s:15:"report/sale_tax";i:77;s:14:"sale/affiliate";i:78;s:12:"sale/contact";i:79;s:11:"sale/coupon";i:80;s:13:"sale/customer";i:81;s:20:"sale/customer_ban_ip";i:82;s:19:"sale/customer_group";i:83;s:10:"sale/order";i:84;s:14:"sale/recurring";i:85;s:11:"sale/return";i:86;s:12:"sale/voucher";i:87;s:18:"sale/voucher_theme";i:88;s:15:"setting/setting";i:89;s:13:"setting/store";i:90;s:17:"shipping/citylink";i:91;s:13:"shipping/flat";i:92;s:13:"shipping/free";i:93;s:13:"shipping/item";i:94;s:15:"shipping/pickup";i:95;s:15:"shipping/weight";i:96;s:11:"tool/backup";i:97;s:17:"tool/cachemanager";i:98;s:14:"tool/error_log";i:99;s:15:"tool/seomanager";i:100;s:12:"total/coupon";i:101;s:12:"total/credit";i:102;s:14:"total/handling";i:103;s:19:"total/low_order_fee";i:104;s:12:"total/reward";i:105;s:14:"total/shipping";i:106;s:15:"total/sub_total";i:107;s:9:"total/tax";i:108;s:11:"total/total";i:109;s:13:"total/voucher";i:110;s:9:"user/user";i:111;s:20:"user/user_permission";}s:6:"modify";a:112:{i:0;s:17:"catalog/attribute";i:1;s:23:"catalog/attribute_group";i:2;s:16:"catalog/category";i:3;s:16:"catalog/download";i:4;s:14:"catalog/filter";i:5;s:19:"catalog/information";i:6;s:20:"catalog/manufacturer";i:7;s:14:"catalog/option";i:8;s:15:"catalog/product";i:9;s:15:"catalog/profile";i:10;s:14:"catalog/review";i:11;s:18:"common/filemanager";i:12;s:13:"design/banner";i:13;s:19:"design/custom_field";i:14;s:13:"design/layout";i:15;s:14:"extension/feed";i:16;s:17:"extension/manager";i:17;s:16:"extension/module";i:18;s:17:"extension/payment";i:19;s:18:"extension/shipping";i:20;s:15:"extension/total";i:21;s:16:"feed/google_base";i:22;s:19:"feed/google_sitemap";i:23;s:20:"localisation/country";i:24;s:21:"localisation/currency";i:25;s:21:"localisation/geo_zone";i:26;s:21:"localisation/language";i:27;s:25:"localisation/length_class";i:28;s:25:"localisation/order_status";i:29;s:26:"localisation/return_action";i:30;s:26:"localisation/return_reason";i:31;s:26:"localisation/return_status";i:32;s:25:"localisation/stock_status";i:33;s:22:"localisation/tax_class";i:34;s:21:"localisation/tax_rate";i:35;s:25:"localisation/weight_class";i:36;s:17:"localisation/zone";i:37;s:14:"module/account";i:38;s:16:"module/affiliate";i:39;s:13:"module/banner";i:40;s:17:"module/bestseller";i:41;s:15:"module/carousel";i:42;s:15:"module/category";i:43;s:15:"module/featured";i:44;s:13:"module/filter";i:45;s:18:"module/google_talk";i:46;s:18:"module/information";i:47;s:13:"module/latest";i:48;s:16:"module/pp_layout";i:49;s:16:"module/slideshow";i:50;s:14:"module/special";i:51;s:12:"module/store";i:52;s:14:"module/welcome";i:53;s:21:"payment/bank_transfer";i:54;s:11:"payment/cod";i:55;s:21:"payment/free_checkout";i:56;s:14:"payment/liqpay";i:57;s:20:"payment/moneybookers";i:58;s:18:"payment/pp_express";i:59;s:25:"payment/pp_payflow_iframe";i:60;s:14:"payment/pp_pro";i:61;s:21:"payment/pp_pro_iframe";i:62;s:17:"payment/pp_pro_pf";i:63;s:17:"payment/pp_pro_uk";i:64;s:19:"payment/pp_standard";i:65;s:27:"report/affiliate_commission";i:66;s:22:"report/customer_credit";i:67;s:22:"report/customer_online";i:68;s:21:"report/customer_order";i:69;s:22:"report/customer_reward";i:70;s:24:"report/product_purchased";i:71;s:21:"report/product_viewed";i:72;s:18:"report/sale_coupon";i:73;s:17:"report/sale_order";i:74;s:18:"report/sale_return";i:75;s:20:"report/sale_shipping";i:76;s:15:"report/sale_tax";i:77;s:14:"sale/affiliate";i:78;s:12:"sale/contact";i:79;s:11:"sale/coupon";i:80;s:13:"sale/customer";i:81;s:20:"sale/customer_ban_ip";i:82;s:19:"sale/customer_group";i:83;s:10:"sale/order";i:84;s:14:"sale/recurring";i:85;s:11:"sale/return";i:86;s:12:"sale/voucher";i:87;s:18:"sale/voucher_theme";i:88;s:15:"setting/setting";i:89;s:13:"setting/store";i:90;s:17:"shipping/citylink";i:91;s:13:"shipping/flat";i:92;s:13:"shipping/free";i:93;s:13:"shipping/item";i:94;s:15:"shipping/pickup";i:95;s:15:"shipping/weight";i:96;s:11:"tool/backup";i:97;s:17:"tool/cachemanager";i:98;s:14:"tool/error_log";i:99;s:15:"tool/seomanager";i:100;s:12:"total/coupon";i:101;s:12:"total/credit";i:102;s:14:"total/handling";i:103;s:19:"total/low_order_fee";i:104;s:12:"total/reward";i:105;s:14:"total/shipping";i:106;s:15:"total/sub_total";i:107;s:9:"total/tax";i:108;s:11:"total/total";i:109;s:13:"total/voucher";i:110;s:9:"user/user";i:111;s:20:"user/user_permission";}}'),
+(1, 'Главный администратор', 'a:2:{s:6:"access";a:127:{i:0;s:17:"catalog/attribute";i:1;s:23:"catalog/attribute_group";i:2;s:16:"catalog/category";i:3;s:18:"catalog/coolfilter";i:4;s:24:"catalog/coolfilter_group";i:5;s:16:"catalog/download";i:6;s:14:"catalog/filter";i:7;s:19:"catalog/information";i:8;s:20:"catalog/manufacturer";i:9;s:14:"catalog/option";i:10;s:15:"catalog/product";i:11;s:15:"catalog/profile";i:12;s:14:"catalog/review";i:13;s:18:"common/filemanager";i:14;s:13:"design/banner";i:15;s:19:"design/custom_field";i:16;s:13:"design/layout";i:17;s:14:"extension/feed";i:18;s:17:"extension/manager";i:19;s:16:"extension/module";i:20;s:17:"extension/payment";i:21;s:18:"extension/shipping";i:22;s:15:"extension/total";i:23;s:16:"feed/google_base";i:24;s:19:"feed/google_sitemap";i:25;s:20:"localisation/country";i:26;s:21:"localisation/currency";i:27;s:21:"localisation/geo_zone";i:28;s:21:"localisation/language";i:29;s:25:"localisation/length_class";i:30;s:25:"localisation/order_status";i:31;s:26:"localisation/return_action";i:32;s:26:"localisation/return_reason";i:33;s:26:"localisation/return_status";i:34;s:25:"localisation/stock_status";i:35;s:22:"localisation/tax_class";i:36;s:21:"localisation/tax_rate";i:37;s:25:"localisation/weight_class";i:38;s:17:"localisation/zone";i:39;s:14:"module/account";i:40;s:16:"module/affiliate";i:41;s:13:"module/banner";i:42;s:17:"module/bestseller";i:43;s:15:"module/carousel";i:44;s:15:"module/category";i:45;s:17:"module/coolfilter";i:46;s:15:"module/featured";i:47;s:13:"module/filter";i:48;s:18:"module/google_talk";i:49;s:18:"module/information";i:50;s:13:"module/latest";i:51;s:16:"module/pp_layout";i:52;s:18:"module/product_tab";i:53;s:14:"module/reviews";i:54;s:16:"module/slideshow";i:55;s:14:"module/special";i:56;s:12:"module/store";i:57;s:13:"module/viewed";i:58;s:14:"module/welcome";i:59;s:21:"payment/bank_transfer";i:60;s:11:"payment/cod";i:61;s:21:"payment/free_checkout";i:62;s:14:"payment/liqpay";i:63;s:20:"payment/moneybookers";i:64;s:18:"payment/pp_express";i:65;s:25:"payment/pp_payflow_iframe";i:66;s:14:"payment/pp_pro";i:67;s:21:"payment/pp_pro_iframe";i:68;s:17:"payment/pp_pro_pf";i:69;s:17:"payment/pp_pro_uk";i:70;s:19:"payment/pp_standard";i:71;s:27:"report/affiliate_commission";i:72;s:22:"report/customer_credit";i:73;s:22:"report/customer_online";i:74;s:21:"report/customer_order";i:75;s:22:"report/customer_reward";i:76;s:24:"report/product_purchased";i:77;s:21:"report/product_viewed";i:78;s:18:"report/sale_coupon";i:79;s:17:"report/sale_order";i:80;s:18:"report/sale_return";i:81;s:20:"report/sale_shipping";i:82;s:15:"report/sale_tax";i:83;s:14:"sale/affiliate";i:84;s:12:"sale/contact";i:85;s:11:"sale/coupon";i:86;s:13:"sale/customer";i:87;s:20:"sale/customer_ban_ip";i:88;s:19:"sale/customer_group";i:89;s:10:"sale/order";i:90;s:14:"sale/recurring";i:91;s:11:"sale/return";i:92;s:12:"sale/voucher";i:93;s:18:"sale/voucher_theme";i:94;s:15:"setting/setting";i:95;s:13:"setting/store";i:96;s:17:"shipping/citylink";i:97;s:13:"shipping/flat";i:98;s:13:"shipping/free";i:99;s:13:"shipping/item";i:100;s:15:"shipping/pickup";i:101;s:15:"shipping/weight";i:102;s:11:"tool/backup";i:103;s:17:"tool/cachemanager";i:104;s:14:"tool/error_log";i:105;s:15:"tool/seomanager";i:106;s:12:"total/coupon";i:107;s:12:"total/credit";i:108;s:14:"total/handling";i:109;s:19:"total/low_order_fee";i:110;s:12:"total/reward";i:111;s:14:"total/shipping";i:112;s:15:"total/sub_total";i:113;s:9:"total/tax";i:114;s:11:"total/total";i:115;s:13:"total/voucher";i:116;s:9:"user/user";i:117;s:20:"user/user_permission";i:118;s:18:"feed/yandex_market";i:119;s:23:"shipping/courierautolux";i:120;s:15:"shipping/gunsel";i:121;s:15:"shipping/intime";i:122;s:17:"shipping/nexpress";i:123;s:19:"shipping/novaposhta";i:124;s:17:"shipping/by_total";i:125;s:21:"payment/nalogenniy_np";i:126;s:25:"payment/sberbank_transfer";}s:6:"modify";a:127:{i:0;s:17:"catalog/attribute";i:1;s:23:"catalog/attribute_group";i:2;s:16:"catalog/category";i:3;s:18:"catalog/coolfilter";i:4;s:24:"catalog/coolfilter_group";i:5;s:16:"catalog/download";i:6;s:14:"catalog/filter";i:7;s:19:"catalog/information";i:8;s:20:"catalog/manufacturer";i:9;s:14:"catalog/option";i:10;s:15:"catalog/product";i:11;s:15:"catalog/profile";i:12;s:14:"catalog/review";i:13;s:18:"common/filemanager";i:14;s:13:"design/banner";i:15;s:19:"design/custom_field";i:16;s:13:"design/layout";i:17;s:14:"extension/feed";i:18;s:17:"extension/manager";i:19;s:16:"extension/module";i:20;s:17:"extension/payment";i:21;s:18:"extension/shipping";i:22;s:15:"extension/total";i:23;s:16:"feed/google_base";i:24;s:19:"feed/google_sitemap";i:25;s:20:"localisation/country";i:26;s:21:"localisation/currency";i:27;s:21:"localisation/geo_zone";i:28;s:21:"localisation/language";i:29;s:25:"localisation/length_class";i:30;s:25:"localisation/order_status";i:31;s:26:"localisation/return_action";i:32;s:26:"localisation/return_reason";i:33;s:26:"localisation/return_status";i:34;s:25:"localisation/stock_status";i:35;s:22:"localisation/tax_class";i:36;s:21:"localisation/tax_rate";i:37;s:25:"localisation/weight_class";i:38;s:17:"localisation/zone";i:39;s:14:"module/account";i:40;s:16:"module/affiliate";i:41;s:13:"module/banner";i:42;s:17:"module/bestseller";i:43;s:15:"module/carousel";i:44;s:15:"module/category";i:45;s:17:"module/coolfilter";i:46;s:15:"module/featured";i:47;s:13:"module/filter";i:48;s:18:"module/google_talk";i:49;s:18:"module/information";i:50;s:13:"module/latest";i:51;s:16:"module/pp_layout";i:52;s:18:"module/product_tab";i:53;s:14:"module/reviews";i:54;s:16:"module/slideshow";i:55;s:14:"module/special";i:56;s:12:"module/store";i:57;s:13:"module/viewed";i:58;s:14:"module/welcome";i:59;s:21:"payment/bank_transfer";i:60;s:11:"payment/cod";i:61;s:21:"payment/free_checkout";i:62;s:14:"payment/liqpay";i:63;s:20:"payment/moneybookers";i:64;s:18:"payment/pp_express";i:65;s:25:"payment/pp_payflow_iframe";i:66;s:14:"payment/pp_pro";i:67;s:21:"payment/pp_pro_iframe";i:68;s:17:"payment/pp_pro_pf";i:69;s:17:"payment/pp_pro_uk";i:70;s:19:"payment/pp_standard";i:71;s:27:"report/affiliate_commission";i:72;s:22:"report/customer_credit";i:73;s:22:"report/customer_online";i:74;s:21:"report/customer_order";i:75;s:22:"report/customer_reward";i:76;s:24:"report/product_purchased";i:77;s:21:"report/product_viewed";i:78;s:18:"report/sale_coupon";i:79;s:17:"report/sale_order";i:80;s:18:"report/sale_return";i:81;s:20:"report/sale_shipping";i:82;s:15:"report/sale_tax";i:83;s:14:"sale/affiliate";i:84;s:12:"sale/contact";i:85;s:11:"sale/coupon";i:86;s:13:"sale/customer";i:87;s:20:"sale/customer_ban_ip";i:88;s:19:"sale/customer_group";i:89;s:10:"sale/order";i:90;s:14:"sale/recurring";i:91;s:11:"sale/return";i:92;s:12:"sale/voucher";i:93;s:18:"sale/voucher_theme";i:94;s:15:"setting/setting";i:95;s:13:"setting/store";i:96;s:17:"shipping/citylink";i:97;s:13:"shipping/flat";i:98;s:13:"shipping/free";i:99;s:13:"shipping/item";i:100;s:15:"shipping/pickup";i:101;s:15:"shipping/weight";i:102;s:11:"tool/backup";i:103;s:17:"tool/cachemanager";i:104;s:14:"tool/error_log";i:105;s:15:"tool/seomanager";i:106;s:12:"total/coupon";i:107;s:12:"total/credit";i:108;s:14:"total/handling";i:109;s:19:"total/low_order_fee";i:110;s:12:"total/reward";i:111;s:14:"total/shipping";i:112;s:15:"total/sub_total";i:113;s:9:"total/tax";i:114;s:11:"total/total";i:115;s:13:"total/voucher";i:116;s:9:"user/user";i:117;s:20:"user/user_permission";i:118;s:18:"feed/yandex_market";i:119;s:23:"shipping/courierautolux";i:120;s:15:"shipping/gunsel";i:121;s:15:"shipping/intime";i:122;s:17:"shipping/nexpress";i:123;s:19:"shipping/novaposhta";i:124;s:17:"shipping/by_total";i:125;s:21:"payment/nalogenniy_np";i:126;s:25:"payment/sberbank_transfer";}}'),
 (10, 'Демонстрация', '');
 
 -- --------------------------------------------------------
