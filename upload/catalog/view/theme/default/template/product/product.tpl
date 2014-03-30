@@ -393,7 +393,7 @@ $('select[name="profile_id"], input[name="quantity"]').change(function(){
             $('#profile-description').html('');
         },
 		success: function(json) {
-			$('.success, .warning, .attention, information, .error').remove();
+			$('.success, .warning, attention, information, .error').remove();
             
 			if (json['success']) {
                 $('#profile-description').html(json['success']);

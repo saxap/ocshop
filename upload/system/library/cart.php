@@ -27,7 +27,11 @@ class Cart {
 
 				// Options
 				if (!empty($product[1])) {
-					$options = unserialize(base64_decode($product[1]));
+					$str = str_replace("PLUSWASHERE", "+", $product[1]);
+					$str = str_replace("SLASHWASHERE", "/", $str);
+					$str = str_replace("EQUALWASHERE", "=", $str);
+					$str = base64_decode($str);
+					$options = unserialize($str);
 				} else {
 					$options = array();
 				} 
@@ -319,7 +323,11 @@ class Cart {
 		$key = (int)$product_id . ':';
 
 		if ($option) {
-			$key .= base64_encode(serialize($option)) . ':';
+			$tempOption = base64_encode(serialize($option));
+      		$tempOption = str_replace("+","PLUSWASHERE", $tempOption);
+      		$tempOption = str_replace("/","SLASHWASHERE", $tempOption);
+      		$tempOption = str_replace("=","EQUALWASHERE", $tempOption);
+      		$key = (int)$product_id . ':' . $tempOption;
 		}  else {
 			$key .= ':';
 		}
