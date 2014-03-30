@@ -24,6 +24,10 @@ class ControllerStep2 extends Controller {
 		$this->data['image_cache'] = DIR_OPENCART . 'image/cache';
 		$this->data['image_data'] = DIR_OPENCART . 'image/data';
 		$this->data['download'] = DIR_OPENCART . 'download';
+		$this->data['vqmod'] = DIR_OPENCART . 'vqmod';
+		$this->data['vqlogs'] = DIR_OPENCART . 'vqmod/logs';
+		$this->data['vqcache'] = DIR_OPENCART . 'vqmod/vqcache';
+		$this->data['vqxml'] = DIR_OPENCART . 'vqmod/xml';
 
 		$this->data['back'] = $this->url->link('step_1');
 
@@ -38,7 +42,7 @@ class ControllerStep2 extends Controller {
 
 	private function validate() {
 		if (phpversion() < '5.0') {
-			$this->error['warning'] = 'Warning: You need to use PHP5 or above for OpenCart to work!';
+			$this->error['warning'] = 'Warning: You need to use PHP5 or above for OCSHOP.CMS to work!';
 		}
 
 		if (!ini_get('file_uploads')) {
@@ -46,63 +50,79 @@ class ControllerStep2 extends Controller {
 		}
 
 		if (ini_get('session.auto_start')) {
-			$this->error['warning'] = 'Warning: OpenCart will not work with session.auto_start enabled!';
+			$this->error['warning'] = 'Warning: OCSHOP.CMS will not work with session.auto_start enabled!';
 		}
 
 		if (!extension_loaded('mysql')) {
-			$this->error['warning'] = 'Warning: MySQL extension needs to be loaded for OpenCart to work!';
+			$this->error['warning'] = 'Warning: MySQL extension needs to be loaded for OCSHOP.CMS to work!';
 		}
 
 		if (!extension_loaded('gd')) {
-			$this->error['warning'] = 'Warning: GD extension needs to be loaded for OpenCart to work!';
+			$this->error['warning'] = 'Warning: GD extension needs to be loaded for OCSHOP.CMS to work!';
 		}
 
 		if (!extension_loaded('curl')) {
-			$this->error['warning'] = 'Warning: CURL extension needs to be loaded for OpenCart to work!';
+			$this->error['warning'] = 'Warning: CURL extension needs to be loaded for OCSHOP.CMS to work!';
 		}
 
 		if (!function_exists('mcrypt_encrypt')) {
-			$this->error['warning'] = 'Warning: mCrypt extension needs to be loaded for OpenCart to work!';
+			$this->error['warning'] = 'Warning: mCrypt extension needs to be loaded for OCSHOP.CMS to work!';
 		}
 
 		if (!extension_loaded('zlib')) {
-			$this->error['warning'] = 'Warning: ZLIB extension needs to be loaded for OpenCart to work!';
+			$this->error['warning'] = 'Warning: ZLIB extension needs to be loaded for OCSHOP.CMS to work!';
 		}
 
 		if (!file_exists(DIR_OPENCART . 'config.php')) {
 			$this->error['warning'] = 'Warning: config.php does not exist. You need to rename config-dist.php to config.php!';
 		} elseif (!is_writable(DIR_OPENCART . 'config.php')) {
-			$this->error['warning'] = 'Warning: config.php needs to be writable for OpenCart to be installed!';
+			$this->error['warning'] = 'Warning: config.php needs to be writable for OCSHOP.CMS to be installed!';
 		}
 
 		if (!file_exists(DIR_OPENCART . 'admin/config.php')) {
 			$this->error['warning'] = 'Warning: admin/config.php does not exist. You need to rename admin/config-dist.php to admin/config.php!';
 		} elseif (!is_writable(DIR_OPENCART . 'admin/config.php')) {
-			$this->error['warning'] = 'Warning: admin/config.php needs to be writable for OpenCart to be installed!';
+			$this->error['warning'] = 'Warning: admin/config.php needs to be writable for OCSHOP.CMS to be installed!';
 		}
 
 		if (!is_writable(DIR_SYSTEM . 'cache')) {
-			$this->error['warning'] = 'Warning: Cache directory needs to be writable for OpenCart to work!';
+			$this->error['warning'] = 'Warning: Cache directory needs to be writable for OCSHOP.CMS to work!';
 		}
 
 		if (!is_writable(DIR_SYSTEM . 'logs')) {
-			$this->error['warning'] = 'Warning: Logs directory needs to be writable for OpenCart to work!';
+			$this->error['warning'] = 'Warning: Logs directory needs to be writable for OCSHOP.CMS to work!';
 		}
 
 		if (!is_writable(DIR_OPENCART . 'image')) {
-			$this->error['warning'] = 'Warning: Image directory needs to be writable for OpenCart to work!';
+			$this->error['warning'] = 'Warning: Image directory needs to be writable for OCSHOP.CMS to work!';
 		}
 
 		if (!is_writable(DIR_OPENCART . 'image/cache')) {
-			$this->error['warning'] = 'Warning: Image cache directory needs to be writable for OpenCart to work!';
+			$this->error['warning'] = 'Warning: Image cache directory needs to be writable for OCSHOP.CMS to work!';
 		}
 
 		if (!is_writable(DIR_OPENCART . 'image/data')) {
-			$this->error['warning'] = 'Warning: Image data directory needs to be writable for OpenCart to work!';
+			$this->error['warning'] = 'Warning: Image data directory needs to be writable for OCSHOP.CMS to work!';
 		}
 
 		if (!is_writable(DIR_OPENCART . 'download')) {
-			$this->error['warning'] = 'Warning: Download directory needs to be writable for OpenCart to work!';
+			$this->error['warning'] = 'Warning: Download directory needs to be writable for OCSHOP.CMS to work!';
+		}
+		
+		if (!is_writable(DIR_OPENCART . 'vqmod')) {
+			$this->error['warning'] = 'Warning: vQmod directory needs to be writable for OCSHOP.CMS to work!';
+		}
+		
+		if (!is_writable(DIR_OPENCART . 'vqmod/logs')) {
+			$this->error['warning'] = 'Warning: vQmod/Logs directory needs to be writable for OCSHOP.CMS to work!';
+		}
+		
+		if (!is_writable(DIR_OPENCART . 'vqmod/vqcache')) {
+			$this->error['warning'] = 'Warning: vQmod/vQcache directory needs to be writable for OCSHOP.CMS to work!';
+		}
+		
+		if (!is_writable(DIR_OPENCART . 'vqmod/xml')) {
+			$this->error['warning'] = 'Warning: vQmod/Xml directory needs to be writable for OCSHOP.CMS to work!';
 		}
 
 		if (!$this->error) {

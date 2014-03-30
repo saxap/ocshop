@@ -9,6 +9,7 @@ $_['text_attribute_group']             = 'Группы атрибутов';
 $_['text_backup']                      = 'Резервные копии';
 $_['text_cachemanager']                = 'Кэш Менеджер';
 $_['text_seomanager']                  = 'SEO Менеджер';
+$_['text_vqmod_manager']               = 'VQMod Менеджер';
 $_['text_banner']                      = 'Баннеры';
 $_['text_catalog']                     = 'Каталог';
 $_['text_category']                    = 'Категории';

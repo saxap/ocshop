@@ -183,6 +183,7 @@ $(document).ready(function(){
 		  <li><a href="<?php echo $backup; ?>"><?php echo $text_backup; ?></a></li>
           <li><a href="<?php echo $cachemanager; ?>"><?php echo $text_cachemanager; ?></a></li>
 		  <li><a href="<?php echo $seomanager; ?>"><?php echo $text_seomanager; ?></a></li>
+		  <li><a href="<?php echo $vqmod_manager; ?>"><?php echo $text_vqmod_manager; ?></a></li>
         </ul>
       </li>
       <li id="reports"><a class="top"><?php echo $text_reports; ?></a>

@@ -159,6 +159,31 @@
           </tr>
         </table>
     </fieldset>
+	<p>4. Убедитесь, что перечисленные ниже каталоги, имеют разрешение на запись.</p>
+    <fieldset>
+      <table>
+          <tr>
+            <th align="left"><b>Директория</b></th>
+            <th width="30%" align="left"><b>Состояние</b></th>
+          </tr>
+        <tr>
+            <td><?php echo $vqmod . '/'; ?></td>
+            <td><?php echo is_writable($vqmod) ? '<span class="good">Доступно для записи</span>' : '<span class="bad">Не доступно для записи</span>'; ?></td>
+          </tr>
+          <tr>
+            <td><?php echo $vqlogs . '/'; ?></td>
+            <td><?php echo is_writable($vqlogs) ? '<span class="good">Доступно для записи</span>' : '<span class="bad">Не доступно для записи</span>'; ?></td>
+          </tr>
+          <tr>
+            <td><?php echo $vqcache . '/'; ?></td>
+            <td><?php echo is_writable($vqcache) ? '<span class="good">Доступно для записи</span>' : '<span class="bad">Не доступно для записи</span>'; ?></td>
+          </tr>
+          <tr>
+            <td><?php echo $vqxml . '/'; ?></td>
+            <td><?php echo is_writable($vqxml) ? '<span class="good">Доступно для записи</span>' : '<span class="bad">Не доступно для записи</span>'; ?></td>
+          </tr>
+        </table>
+    </fieldset>
     <div class="buttons">
       <div class="left"><a href="<?php echo $back; ?>" class="button">Назад</a></div>
       <div class="right">
