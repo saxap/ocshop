@@ -1204,7 +1204,7 @@ ul.box-filter > li ul {
 	margin-right: 15px;
 }
 .product-info > .left + .right {
-	margin-left: 265px;
+	margin-left: 360px;
 }
 .product-info .image {
 	border: 1px solid #E7E7E7;
@@ -1214,7 +1214,7 @@ ul.box-filter > li ul {
 	text-align: center;
 }
 .product-info .image-additional {
-	width: 260px;
+	width: 360px;
 	margin-left: -10px;
 	clear: both;
 	overflow: hidden;
