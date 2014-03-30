@@ -1,9 +1,9 @@
 <?php echo $header; ?>
-<h1>Upgrade</h1>
+<h1>Обновление базы данных</h1>
 <div id="column-right">
   <ul>
-    <li><b>Upgrade</b></li>
-    <li>Finished</li>
+    <li><b>Обновление</b></li>
+      <li>Окончание</li>
   </ul>
 </div>
 <div id="content">
@@ -12,19 +12,19 @@
   <?php } ?>
   <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data">
     <fieldset>
-    <p><b>Follow these steps carefully!</b></p>
+    <p><b>Внимательно прочтите и выполните следующие действия!</b></p>
     <ol>
-      <li>Post any upgrade script errors problems in the forums</li>
-      <li>After upgrade, clear any cookies in your browser to avoid getting token errors.</li>
-      <li>Load the admin page & press Ctrl+F5 twice to force the browser to update the css changes.</li>
-      <li>Goto Admin -> Users -> User Groups and Edit the Top Adminstrator group. Check All boxes.</li>
-      <li>Goto Admin and Edit the main System Settings. Update all fields and click save, even if nothing changed.</li>
-      <li>Load the store front & press Ctrl+F5 twice to force the browser to update the css changes.</li>
+		<li>О любых ошибках и проблемах при обновлении сообщите на форуме</li>
+		<li>После обновления, удалите все куки в своем браузере, чтобы избежать ошибок с токенами.</li>
+		<li>Перейдите в Административную панель и дважды нажмите Ctrl+F5 для обновления кешированных CSS стилей.</li>
+		<li>Перейдите в разделе Система->Пользователи->Группы пользователей к редактированию группы Главный администратор и отметьте все чекбоксы.</li>
+		<li>Перейдите в разделе Система->Настройки к редактированию настроек магазина. Проверьте все значения настроек и нажмите кнопку Сохранить даже если ничего не меняли.</li>
+		<li>Перейдите в Публичную часть и дважды нажмите Ctrl+F5 для обновления кешированных CSS стилей.</li>
     </ol>
     </fieldset>
     <div class="buttons">
-      <div class="right">
-        <input type="submit" value="Continue" class="button" />
+	  <div class="right">
+        <input type="submit" value="Обновить" class="button" />
       </div>
     </div>
   </form>

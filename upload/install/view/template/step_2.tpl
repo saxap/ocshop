@@ -1,26 +1,26 @@
 <?php echo $header; ?>
-<h1>Step 2 - Pre-Installation</h1>
+<h1>Шаг 2 - Перед установкой</h1>
 <div id="column-right">
   <ul>
-    <li>License</li>
-    <li><b>Pre-Installation</b></li>
-    <li>Configuration</li>
-    <li>Finished</li>
-  </ul>
+      <li>Лицензия</li>
+      <li><b>Перед установкой</b></li>
+      <li>Конфигурация</li>
+      <li>Окончание</li>
+    </ul>
 </div>
 <div id="content">
   <?php if ($error_warning) { ?>
   <div class="warning"><?php echo $error_warning; ?></div>
   <?php } ?>
   <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data">
-    <p>1. Please configure your PHP settings to match requirements listed below.</p>
+    <p>1. Настройте PHP для соответствия следующим требованиям.</p>
     <fieldset>
       <table>
         <tr>
-          <th width="35%" align="left"><b>PHP Settings</b></th>
-          <th width="25%" align="left"><b>Current Settings</b></th>
-          <th width="25%" align="left"><b>Required Settings</b></th>
-          <th width="15%" align="center"><b>Status</b></th>
+          <th width="35%" align="left"><b>Настройки PHP</b></th>
+          <th width="25%" align="left"><b>Текущие настройки</b></th>
+          <th width="25%" align="left"><b>Необходимые настройки</b></th>
+          <th width="15%" align="center"><b>Состояние</b></th>
         </tr>
         <tr>
           <td>PHP Version:</td>
@@ -54,14 +54,14 @@
         </tr>
       </table>
     </fieldset>
-    <p>2. Please make sure the PHP extensions listed below are installed.</p>
+    <p>2. Убедитесь, что перечисленные ниже расширения установлены.</p>
     <fieldset>
       <table>
         <tr>
-          <th width="35%" align="left"><b>Extension</b></th>
-          <th width="25%" align="left"><b>Current Settings</b></th>
-          <th width="25%" align="left"><b>Required Settings</b></th>
-          <th width="15%" align="center"><b>Status</b></th>
+			<th width="35%" align="left"><b>Расширения</b></th>
+			<th width="25%" align="left"><b>Текущие настройки</b></th>
+			<th width="25%" align="left"><b>Необходимые настройки</b></th>
+			<th width="15%" align="center"><b>Состояние</b></th>
         </tr>
         <tr>
           <td>MySQL:</td>
@@ -95,74 +95,74 @@
         </tr>
       </table>
     </fieldset>
-    <p>3. Please make sure you have set the correct permissions on the files list below.</p>
+    <p>3. Убедитесь, что перечисленные ниже файлы имеют разрешение на запись.</p>
     <fieldset>
       <table>
         <tr>
-          <th align="left"><b>Files</b></th>
-          <th align="left"><b>Status</b></th>
+          <th align="left"><b>Файл</b></th>
+          <th align="left"><b>Состояние</b></th>
         </tr>
         <tr>
           <td><?php echo $config_catalog; ?></td>
           <td><?php if (!file_exists($config_catalog)) { ?>
-            <span class="bad">Missing</span>
+            <span class="bad">Файл отсутствует</span>
             <?php } elseif (!is_writable($config_catalog)) { ?>
-            <span class="bad">Unwritable</span>
+            <span class="bad">Не доступно для записи</span>
           <?php } else { ?>
-          <span class="good">Writable</span>
+          <span class="good">Доступно для записи</span>
           <?php } ?>
             </td>
         </tr>
         <tr>
           <td><?php echo $config_admin; ?></td>
           <td><?php if (!file_exists($config_admin)) { ?>
-            <span class="bad">Missing</span>
+            <span class="bad">Файл отсутствует</span>
             <?php } elseif (!is_writable($config_admin)) { ?>
-            <span class="bad">Unwritable</span>
+            <span class="bad">Не доступно для записи</span>
           <?php } else { ?>
-          <span class="good">Writable</span>
+          <span class="good">Доступно для записи</span>
           <?php } ?>
              </td>
         </tr>
       </table>
     </fieldset>
-    <p>4. Please make sure you have set the correct permissions on the directories list below.</p>
+    <p>4. Убедитесь, что перечисленные ниже каталоги, а также все их подкаталоги и файлы в них имеют разрешение на запись.</p>
     <fieldset>
       <table>
+          <tr>
+            <th align="left"><b>Директория</b></th>
+            <th width="30%" align="left"><b>Состояние</b></th>
+          </tr>
         <tr>
-          <th align="left"><b>Directories</b></th>
-          <th align="left"><b>Status</b></th>
-        </tr>
-        <tr>
-          <td><?php echo $cache . '/'; ?></td>
-          <td><?php echo is_writable($cache) ? '<span class="good">Writable</span>' : '<span class="bad">Unwritable</span>'; ?></td>
-        </tr>
-        <tr>
-          <td><?php echo $logs . '/'; ?></td>
-          <td><?php echo is_writable($logs) ? '<span class="good">Writable</span>' : '<span class="bad">Unwritable</span>'; ?></td>
-        </tr>
-        <tr>
-          <td><?php echo $image . '/'; ?></td>
-          <td><?php echo is_writable($image) ? '<span class="good">Writable</span>' : '<span class="bad">Unwritable</span>'; ?></td>
-        </tr>
-        <tr>
-          <td><?php echo $image_cache . '/'; ?></td>
-          <td><?php echo is_writable($image_cache) ? '<span class="good">Writable</span>' : '<span class="bad">Unwritable</span>'; ?></td>
-        </tr>
-        <tr>
-          <td><?php echo $image_data . '/'; ?></td>
-          <td><?php echo is_writable($image_data) ? '<span class="good">Writable</span>' : '<span class="bad">Unwritable</span>'; ?></td>
-        </tr>
-        <tr>
-          <td><?php echo $download . '/'; ?></td>
-          <td><?php echo is_writable($download) ? '<span class="good">Writable</span>' : '<span class="bad">Unwritable</span>'; ?></td>
-        </tr>
-      </table>
+            <td><?php echo $cache . '/'; ?></td>
+            <td><?php echo is_writable($cache) ? '<span class="good">Доступно для записи</span>' : '<span class="bad">Не доступно для записи</span>'; ?></td>
+          </tr>
+          <tr>
+            <td><?php echo $logs . '/'; ?></td>
+            <td><?php echo is_writable($logs) ? '<span class="good">Доступно для записи</span>' : '<span class="bad">Не доступно для записи</span>'; ?></td>
+          </tr>
+          <tr>
+            <td><?php echo $image . '/'; ?></td>
+            <td><?php echo is_writable($image) ? '<span class="good">Доступно для записи</span>' : '<span class="bad">Не доступно для записи</span>'; ?></td>
+          </tr>
+          <tr>
+            <td><?php echo $image_cache . '/'; ?></td>
+            <td><?php echo is_writable($image_cache) ? '<span class="good">Доступно для записи</span>' : '<span class="bad">Не доступно для записи</span>'; ?></td>
+          </tr>
+          <tr>
+            <td><?php echo $image_data . '/'; ?></td>
+            <td><?php echo is_writable($image_data) ? '<span class="good">Доступно для записи</span>' : '<span class="bad">Не доступно для записи</span>'; ?></td>
+          </tr>          
+          <tr>
+            <td><?php echo $download . '/'; ?></td>
+            <td><?php echo is_writable($download) ? '<span class="good">Доступно для записи</span>' : '<span class="bad">Не доступно для записи</span>'; ?></td>
+          </tr>
+        </table>
     </fieldset>
     <div class="buttons">
-      <div class="left"><a href="<?php echo $back; ?>" class="button">Back</a></div>
+      <div class="left"><a href="<?php echo $back; ?>" class="button">Назад</a></div>
       <div class="right">
-        <input type="submit" value="Continue" class="button" />
+        <input type="submit" value="Продолжить" class="button" />
       </div>
     </div>
   </form>
