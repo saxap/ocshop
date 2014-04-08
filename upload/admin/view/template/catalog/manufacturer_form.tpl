@@ -14,7 +14,7 @@
       <div class="buttons"><a onclick="$('#form').submit();" class="button"><?php echo $button_save; ?></a><a href="<?php echo $cancel; ?>" class="button"><?php echo $button_cancel; ?></a></div>
     </div>
     <div class="content">
-      <div id="tabs" class="htabs"><a href="#tab-general"><?php echo $tab_general; ?></a><a href="#tab-data"><?php echo $tab_data; ?></a></div>
+      <div id="tabs" class="htabs"><a href="#tab-general"><?php echo $tab_general; ?></a><a href="#tab-data"><?php echo $tab_data; ?></a><a href="#tab_related_mn"><?php echo $tab_related_mn; ?></a></div>
       <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" id="form">
         <div id="tab-general">
 			  <table class="form">
@@ -103,6 +103,42 @@
             </tr>
           </table>
         </div>
+		<div id="tab_related_mn">
+		<table>
+		<tr>
+              <td><?php echo $entry_related_mn; ?></td>
+              <td><input type="text" name="related" value="" /></td>
+            </tr>
+            <tr>
+              <td>&nbsp;</td>
+              <td><div class="scrollbox" id="product-related">
+                  <?php $class = 'odd'; ?>
+                  <?php foreach ($product_related as $product_related) { ?>
+                  <?php $class = ($class == 'even' ? 'odd' : 'even'); ?>
+                  <div id="product-related<?php echo $product_related['product_id']; ?>" class="<?php echo $class; ?>"> <?php echo $product_related['name']; ?><img src="view/image/delete.png" />
+                    <input type="hidden" name="product_related[]" value="<?php echo $product_related['product_id']; ?>" />
+                  </div>
+                  <?php } ?>
+                </div></td>
+            </tr>
+			<tr>
+              <td><?php echo $entry_related_article; ?></td>
+              <td><input type="text" name="related3" value="" /></td>
+            </tr>
+            <tr>
+              <td>&nbsp;</td>
+              <td><div class="scrollbox" id="article-related">
+                  <?php $class = 'odd'; ?>
+                  <?php foreach ($article_related as $article_related) { ?>
+                  <?php $class = ($class == 'even' ? 'odd' : 'even'); ?>
+                  <div id="article-related<?php echo $article_related['article_id']; ?>" class="<?php echo $class; ?>"> <?php echo $article_related['name']; ?><img src="view/image/delete.png" />
+                    <input type="hidden" name="article_related[]" value="<?php echo $article_related['article_id']; ?>" />
+                  </div>
+                  <?php } ?>
+                </div></td>
+            </tr>
+          </table>
+		</div>
       </form>
     </div>
 	<div class="bottom">
@@ -156,5 +192,79 @@ function image_upload(field, thumb) {
 <script type="text/javascript"><!--
 $('#tabs a').tabs();
 $('#languages a').tabs(); 
+//--></script>
+<script type="text/javascript"><!--
+$('input[name=\'related\']').autocomplete({
+	delay: 0,
+	source: function(request, response) {
+		$.ajax({
+			url: 'index.php?route=catalog/product/autocomplete&token=<?php echo $token; ?>&filter_name=' +  encodeURIComponent(request.term),
+			dataType: 'json',
+			success: function(json) {		
+				response($.map(json, function(item) {
+					return {
+						label: item.name,
+						value: item.product_id
+					}
+				}));
+			}
+		});
+		
+	}, 
+	select: function(event, ui) {
+		$('#product-related' + ui.item.value).remove();
+		
+		$('#product-related').append('<div id="product-related' + ui.item.value + '">' + ui.item.label + '<img src="view/image/delete.png" /><input type="hidden" name="product_related[]" value="' + ui.item.value + '" /></div>');
+
+		$('#product-related div:odd').attr('class', 'odd');
+		$('#product-related div:even').attr('class', 'even');
+				
+		return false;
+	}
+});
+
+$('#product-related div img').live('click', function() {
+	$(this).parent().remove();
+	
+	$('#product-related div:odd').attr('class', 'odd');
+	$('#product-related div:even').attr('class', 'even');	
+});
+//--></script>
+<script type="text/javascript"><!--
+$('input[name=\'related3\']').autocomplete({
+	delay: 0,
+	source: function(request, response) {
+		$.ajax({
+			url: 'index.php?route=blog/article/autocomplete&token=<?php echo $token; ?>&filter_name=' +  encodeURIComponent(request.term),
+			dataType: 'json',
+			success: function(json) {		
+				response($.map(json, function(item) {
+					return {
+						label: item.name,
+						value: item.article_id
+					}
+				}));
+			}
+		});
+		
+	}, 
+	select: function(event, ui) {
+		$('#article-related' + ui.item.value).remove();
+		
+		$('#article-related').append('<div id="article-related' + ui.item.value + '">' + ui.item.label + '<img src="view/image/delete.png" /><input type="hidden" name="article_related[]" value="' + ui.item.value + '" /></div>');
+
+		$('#article-related div:odd').attr('class', 'odd');
+		$('#article-related div:even').attr('class', 'even');
+				
+		return false;
+	}
+});
+
+$('#article-related div img').live('click', function() {
+	$(this).parent().remove();
+	
+	$('#article-related div:odd').attr('class', 'odd');
+	$('#article-related div:even').attr('class', 'even');	
+});
 //--></script> 
 <?php echo $footer; ?>

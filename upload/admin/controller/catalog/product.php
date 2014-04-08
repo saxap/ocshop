@@ -901,6 +901,8 @@ class ControllerCatalogProduct extends Controller {
 		$this->data['entry_category'] = $this->language->get('entry_category');
 		$this->data['entry_filter'] = $this->language->get('entry_filter');
 		$this->data['entry_related'] = $this->language->get('entry_related');
+		$this->data['entry_related2'] = $this->language->get('entry_related2');
+		$this->data['entry_blog_related'] = $this->language->get('entry_blog_related');
 		$this->data['entry_attribute'] = $this->language->get('entry_attribute');
 		$this->data['entry_text'] = $this->language->get('entry_text');
 		$this->data['entry_option'] = $this->language->get('entry_option');
@@ -1605,6 +1607,49 @@ class ControllerCatalogProduct extends Controller {
 				$this->data['product_related'][] = array(
 					'product_id' => $related_info['product_id'],
 					'name'       => $related_info['name']
+				);
+			}
+		}
+		
+		if (isset($this->request->post['product_related2'])) {
+			$products = $this->request->post['product_related2'];
+		} elseif (isset($this->request->get['product_id'])) {		
+			$products = $this->model_catalog_product->getProductRelated2($this->request->get['product_id']);
+		} else {
+			$products = array();
+		}
+	
+		$this->data['product_related2'] = array();
+		
+		foreach ($products as $product_id) {
+			$related_info = $this->model_catalog_product->getProduct($product_id);
+			
+			if ($related_info) {
+				$this->data['product_related2'][] = array(
+					'product_id' => $related_info['product_id'],
+					'name'       => $related_info['name']
+				);
+			}
+		}
+		
+		if (isset($this->request->post['blog_related_product'])) {
+			$articles = $this->request->post['blog_related_product'];
+		} elseif (isset($product_info)) {
+			$articles = $this->model_catalog_product->getArticleRelated($this->request->get['product_id']);
+		} else {
+			$articles = array();
+		}
+	
+		$this->data['blog_related_product'] = array();
+		$this->load->model('blog/article');
+		
+		foreach ($articles as $article_id) {
+			$article_info = $this->model_blog_article->getArticle($article_id);
+			
+			if ($article_info) {
+				$this->data['blog_related_product'][] = array(
+					'article_id' => $article_info['article_id'],
+					'name'       => $article_info['name']
 				);
 			}
 		}

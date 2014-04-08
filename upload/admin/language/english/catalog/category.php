@@ -29,6 +29,8 @@ $_['entry_column']           = 'Columns:<br/><span class="help">Number of column
 $_['entry_sort_order']       = 'Sort Order:';
 $_['entry_status']           = 'Status:';
 $_['entry_layout']           = 'Layout Override:';
+$_['entry_related_wb']          = 'Featured Products:';
+$_['entry_related_article']     = 'Be sure to check:';
 $_['entry_seo_title']        = 'HTML Tag Title:';
 $_['entry_seo_h1']           = 'HTML Tag H1:';
 

@@ -23,6 +23,8 @@ $_['entry_keyword']      = 'SEO URL:<br/><span class="help">Должно быт�
 $_['entry_description']  = 'Описание:';
 $_['entry_image']        = 'Изображение:';
 $_['entry_sort_order']   = 'Порядок сортировки:';
+$_['entry_related_mn']          = 'Рекомендуемые товары:';
+$_['entry_related_article']     = 'Рекомендуем почитать:';
 $_['entry_type']         = 'Тип:';
 $_['entry_seo_title']    = 'HTML-тег Title:';
 $_['entry_seo_h1']       = 'HTML-тег H1:';

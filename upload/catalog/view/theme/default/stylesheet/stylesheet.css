@@ -1948,3 +1948,16 @@ ul.box-filter > li ul {
 .banner div img {
 	margin-bottom: 20px;
 }
+/* blog */
+.box-article > div {
+    margin-bottom: 10px;
+    margin-top: 10px;
+    width: 360px;
+}
+.box-article .article-left {
+    float: left;
+    margin-right: 10px;
+}
+.box-article .rating {
+	text-align: center;
+}

@@ -15,4 +15,5 @@ $_['text_checkout']    = 'Оформление заказа';
 $_['text_search']      = 'Поиск';
 $_['text_information'] = 'Информация';
 $_['text_contact']     = 'Наши контакты';
+$_['text_blog']        = 'Блог';
 ?>

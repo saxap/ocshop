@@ -72,12 +72,34 @@ class ControllerCommonSeoPro extends Controller {
 					$path = $this->getPathByProduct($this->request->get['product_id']);
 					if ($path) $this->request->get['path'] = $path;
 				}
+				
+			//ocshop product download url fix	
+				if (isset($this->request->get['download_id'])) {
+					$this->request->get['route'] = 'product/product/download';
+					}
+			//ocshop product download url fix
+							
 			} elseif (isset($this->request->get['path'])) {
 				$this->request->get['route'] = 'product/category';
 			} elseif (isset($this->request->get['manufacturer_id'])) {
 				$this->request->get['route'] = 'product/manufacturer/info';
 			} elseif (isset($this->request->get['information_id'])) {
 				$this->request->get['route'] = 'information/information';
+			//ocshop  blog	
+			} elseif (isset($this->request->get['download_id'])) {
+				$this->request->get['route'] = 'blog/article/download';
+			}	
+			//ocshop blog
+			  elseif (isset($this->request->get['article_id'])) {
+				$this->request->get['route'] = 'blog/article';
+				if (!isset($this->request->get['blid'])) {
+					$blid = $this->getPathByArticle($this->request->get['article_id']);
+					if ($blid) $this->request->get['blid'] = $blid;
+				}
+			//ocshop  blog
+    		} elseif (isset($this->request->get['blid'])) {
+					$this->request->get['route'] = 'blog/news';
+			
 			} elseif(isset($this->cache_data['queries'][$route_])) {
 					header($this->request->server['SERVER_PROTOCOL'] . ' 301 Moved Permanently');
 					$this->response->redirect($this->cache_data['queries'][$route_]);
@@ -86,7 +108,7 @@ class ControllerCommonSeoPro extends Controller {
 					$this->request->get['route'] = $queries[$parts[0]];
 				}
 			}
-
+	
 
 			$this->validate();
 
@@ -133,7 +155,32 @@ class ControllerCommonSeoPro extends Controller {
 					if (!$data['path']) return $link;
 				}
 				break;
+			//ocshop	
+			case 'blog/article':
+				if (isset($data['article_id'])) {
+				
+					$tmp = $data;
+					$data = array();
+					if ($this->config->get('config_seo_url_include_path')) {
+						$data['blid'] = $this->getPathByArticle($tmp['article_id']);
+						if (!$data['blid']) return $link;
+					}
+					$data['article_id'] = $tmp['article_id'];
+					}
+		
+			break;	
+			
+			case 'blog/news':
+				if (isset($data['blid'])) {
+				$news = explode('_', $data['blid']);
+				$news = end($news);
+				$data['blid'] = $this->getPathByNews($news);
+				if (!$data['blid']) return $link;
 
+			}
+			break;		
+			
+			//ocshop
 			case 'product/product/review':
 			case 'information/information/info':
 				return $link;
@@ -177,6 +224,31 @@ class ControllerCommonSeoPro extends Controller {
 
 				default:
 					break;
+	//ocshop blog				
+				case'article_id':
+		
+				$queries[] = $key .'='. $value;
+				unset($data[ $key ]);
+				$postfix = 1;
+				break;		
+				
+				case 'news_id':
+				$categories = explode('_', $value);
+				foreach ($categories as $category) {
+					$queries[] = 'news_id=' . $category;
+				}
+				unset($data[$key]);
+				break;
+				
+     			case 'blid':
+				$news = explode('_', $value);
+				foreach ($news as $new) {
+					$queries[] = 'blid=' . $new;
+				}
+				unset($data[$key]);
+				break;
+	//ocshop blog			
+				
 			}
 		}
 
@@ -281,6 +353,63 @@ class ControllerCommonSeoPro extends Controller {
 
 		return $path[$category_id];
 	}
+	
+	private function getPathByNews($news_id) {
+		$news_id = (int)$news_id;
+		if ($news_id < 1) return false;
+
+		static $path = null;
+		if (!is_array($path)) {
+			$path = $this->cache->get('category.newspath');
+			if (!is_array($path)) $path = array();
+		}
+
+		if (!isset($path[$news_id])) {
+			$max_level = 10;
+
+			$sql = "SELECT CONCAT_WS('_'";
+			for ($i = $max_level-1; $i >= 0; --$i) {
+				$sql .= ",t$i.news_id";
+			}
+			$sql .= ") AS blid FROM " . DB_PREFIX . "news t0";
+			for ($i = 1; $i < $max_level; ++$i) {
+				$sql .= " LEFT JOIN " . DB_PREFIX . "news t$i ON (t$i.news_id = t" . ($i-1) . ".parent_id)";
+			}
+			$sql .= " WHERE t0.news_id = '" . $news_id . "'";
+
+			$query = $this->db->query($sql);
+
+			$path[$news_id] = $query->num_rows ? $query->row['blid'] : false;
+
+			$this->cache->set('category.newspath', $path);
+		}
+
+		return $path[$news_id];
+	}
+	
+	private function getPathByArticle($article_id) {
+		$article_id = (int)$article_id;
+		if ($article_id < 1) return false;
+
+
+		static $blid = null;
+		if (!is_array($blid)) {
+			$blid = $this->cache->get('article.seopath');
+			if (!is_array($blid)) $path = array();
+		}
+
+
+		if (!isset($blid[$article_id])) {
+			$query = $this->db->query("SELECT news_id FROM " . DB_PREFIX . "article_to_news WHERE article_id = '" . $article_id . "' ORDER BY main_news DESC LIMIT 1");
+
+			$blid[$article_id] = $this->getPathByNews($query->num_rows ? (int)$query->row['news_id'] : 0);
+
+		$this->cache->set('article.seopath', $blid);
+		}
+
+		return $blid[$article_id];
+	}
+	
 
 	private function validate() {
 		if (isset($this->request->get['route']) && $this->request->get['route'] == 'error/not_found') {

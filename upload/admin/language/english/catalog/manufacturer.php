@@ -21,6 +21,8 @@ $_['entry_name']         = 'Manufacturer Name:';
 $_['entry_store']        = 'Stores:';
 $_['entry_keyword']      = 'SEO Keyword:<br /><span class="help">Do not use spaces instead replace spaces with - and make sure the keyword is globally unique.</span>';
 $_['entry_image']        = 'Image:';
+$_['entry_related_mn']          = 'Featured Products:';
+$_['entry_related_article']     = 'Be sure to check:';
 $_['entry_sort_order']   = 'Sort Order:';
 $_['entry_type']         = 'Type:';
 $_['entry_meta_keyword'] = 'Meta Tag Keywords:';

@@ -33,9 +33,12 @@ class ControllerInformationSitemap extends Controller {
 		$this->data['text_search'] = $this->language->get('text_search');
 		$this->data['text_information'] = $this->language->get('text_information');
 		$this->data['text_contact'] = $this->language->get('text_contact');
+		$this->data['text_blog'] = $this->language->get('text_blog');
 
 		$this->load->model('catalog/category');
 		$this->load->model('catalog/product');
+		$this->load->model('blog/news');
+		$this->load->model('blog/article');
 
 		$this->data['categories'] = array();
 
@@ -70,6 +73,41 @@ class ControllerInformationSitemap extends Controller {
 				'children' => $level_2_data,
 				'href'     => $this->url->link('product/category', 'path=' . $category_1['category_id'])
 			);
+			}
+			
+			$this->data['$newss'] = array();
+			
+			$newss_1 = $this->model_blog_news->getCategories(0);
+		
+		foreach ($newss_1 as $news_1) {
+			$level_2_data = array();
+			
+			$newss_2 = $this->model_blog_news->getCategories($news_1['news_id']);
+			
+			foreach ($newss_2 as $news_2) {
+				$level_3_data = array();
+				
+				$newss_3 = $this->model_blog_news->getCategories($news_2['news_id']);
+				
+				foreach ($newss_3 as $news_3) {
+					$level_3_data[] = array(
+						'name' => $news_3['name'],
+						'href' => $this->url->link('blog/news', 'blid=' . $news_1['news_id'] . '_' . $news_2['news_id'] . '_' . $news_3['news_id'])
+					);
+				}
+				
+				$level_2_data[] = array(
+					'name'     => $news_2['name'],
+					'children' => $level_3_data,
+					'href'     => $this->url->link('blog/news', 'blid=' . $news_1['news_id'] . '_' . $news_2['news_id'])	
+				);					
+			}
+			
+			$this->data['newss'][] = array(
+				'name'     => $news_1['name'],
+				'children' => $level_2_data,
+				'href'     => $this->url->link('blog/news', 'blid=' . $news_1['news_id'])
+			);
 		}
 
 		$this->data['special'] = $this->url->link('product/special');
@@ -83,6 +121,7 @@ class ControllerInformationSitemap extends Controller {
 		$this->data['checkout'] = $this->url->link('checkout/checkout', '', 'SSL');
 		$this->data['search'] = $this->url->link('product/search');
 		$this->data['contact'] = $this->url->link('information/contact');
+		$this->data['blog'] = $this->url->link('blog/latest');
 
 		$this->load->model('catalog/information');
 

@@ -212,6 +212,9 @@ class ControllerCatalogCategory extends Controller {
 		$this->data['entry_layout'] = $this->language->get('entry_layout');
 		$this->data['entry_seo_title'] = $this->language->get('entry_seo_title');
 		$this->data['entry_seo_h1'] = $this->language->get('entry_seo_h1');
+		
+		$this->data['entry_related_wb'] = $this->language->get('entry_related_wb');
+		$this->data['entry_related_article'] = $this->language->get('entry_related_article');
 
 		$this->data['button_save'] = $this->language->get('button_save');
 		$this->data['button_cancel'] = $this->language->get('button_cancel');
@@ -219,6 +222,7 @@ class ControllerCatalogCategory extends Controller {
 		$this->data['tab_general'] = $this->language->get('tab_general');
 		$this->data['tab_data'] = $this->language->get('tab_data');
 		$this->data['tab_design'] = $this->language->get('tab_design');
+		$this->data['tab_related_wb'] = $this->language->get('tab_related_wb');
 
 		if (isset($this->error['warning'])) {
 			$this->data['error_warning'] = $this->error['warning'];
@@ -326,7 +330,49 @@ class ControllerCatalogCategory extends Controller {
 			$this->data['category_store'] = $this->model_catalog_category->getCategoryStores($this->request->get['category_id']);
 		} else {
 			$this->data['category_store'] = array(0);
-		}			
+		}
+
+		if (isset($this->request->post['product_related_wb'])) {
+			$products = $this->request->post['product_related_wb'];
+		} elseif (isset($this->request->get['product_id'])) {		
+			$products = $this->model_catalog_product->getProductRelated($this->request->get['product_id']);
+		} else {
+			$products = array();
+		}
+		
+		$this->data['product_related_wb'] = array();
+		
+		foreach ($products as $product_id) {
+			$related_info = $this->model_catalog_product->getProduct($product_id);
+			
+			if ($related_info) {
+				$this->data['product_related_wb'][] = array(
+					'product_id' => $related_info['product_id'],
+					'name'       => $related_info['name']
+				);
+			}
+		}
+		
+		if (isset($this->request->post['article_related'])) {
+			$articles = $this->request->post['article_related'];
+		} elseif (isset($this->request->get['article_id'])) {		
+			$articles = $this->model_blog_article->getArticleRelated($this->request->get['article_id']);
+		} else {
+			$articles = array();
+		}
+		
+		$this->data['article_related'] = array();
+		
+		foreach ($articles as $article_id) {
+			$related_info = $this->model_blog_article->getArticle($article_id);
+			
+			if ($related_info) {
+				$this->data['article_related'][] = array(
+					'article_id' => $related_info['article_id'],
+					'name'       => $related_info['name']
+				);
+			}
+		}
 
 		if (isset($this->request->post['keyword'])) {
 			$this->data['keyword'] = $this->request->post['keyword'];
@@ -386,6 +432,56 @@ class ControllerCatalogCategory extends Controller {
 			$this->data['status'] = $category_info['status'];
 		} else {
 			$this->data['status'] = 1;
+		}
+		
+		if (isset($this->request->post['product_related'])) {
+			$products = $this->request->post['product_related'];
+		} elseif (isset($category_info)) {		
+			$products = $this->model_catalog_category->getProductRelated($this->request->get['category_id']);
+		} else {
+			$products = array();
+		}
+
+	 				
+
+		$this->data['product_related'] = array();
+			
+		$this->load->model('catalog/product');
+		
+		foreach ($products as $product_id) {
+			$related_info = $this->model_catalog_product->getProduct($product_id);
+			
+			if ($related_info) {
+				$this->data['product_related'][] = array(
+					'product_id' => $related_info['product_id'],
+					'name'       => $related_info['name']
+				);
+			}
+		}
+		
+		if (isset($this->request->post['article_related'])) {
+			$articles = $this->request->post['article_related'];
+		} elseif (isset($category_info)) {		
+			$articles = $this->model_catalog_category->getArticleRelated($this->request->get['category_id']);
+		} else {
+			$articles = array();
+		}
+
+	 				
+
+		$this->data['article_related'] = array();
+			
+		$this->load->model('blog/article');
+		
+		foreach ($articles as $article_id) {
+			$related_info = $this->model_blog_article->getArticle($article_id);
+			
+			if ($related_info) {
+				$this->data['article_related'][] = array(
+					'article_id' => $related_info['article_id'],
+					'name'       => $related_info['name']
+				);
+			}
 		}
 
 		if (isset($this->request->post['category_layout'])) {

@@ -83,6 +83,8 @@ $_['entry_category']         = 'Показывать в категориях:<br
 $_['entry_filter']           = 'Фильтры:<br /><span class="help">(автодополнение)</span>';
 $_['entry_download']         = 'Загрузки:';
 $_['entry_related']          = 'Рекомендуемые:<br/><span class="help">(Автодополнение)</span>';
+$_['entry_related2']         = 'Похожие товары:<br/><span class="help">(Автодополнение)</span>';
+$_['entry_blog_related']          = 'Рекомендуем почитать:<br/><span class="help">(Автодополнение)</span>';
 $_['entry_tag']          	 = 'Теги товара:<br /><span class="help">разделяются запятой</span>';
 $_['entry_reward']           = 'Бонусные баллы:';
 $_['entry_layout']           = 'Изменить схему:';

@@ -340,6 +340,38 @@
                   <?php } ?>
                 </div></td>
             </tr>
+			<tr>
+              <td><?php echo $entry_related2; ?></td>
+              <td><input type="text" name="related2" value="" /></td>
+            </tr>
+            <tr>
+              <td>&nbsp;</td>
+              <td><div id="product-related2" class="scrollbox">
+                  <?php $class = 'odd'; ?>
+                  <?php foreach ($product_related2 as $product_related2) { ?>
+                  <?php $class = ($class == 'even' ? 'odd' : 'even'); ?>
+                  <div id="product-related2<?php echo $product_related2['product_id']; ?>" class="<?php echo $class; ?>"> <?php echo $product_related2['name']; ?><img src="view/image/delete.png" />
+                    <input type="hidden" name="product_related2[]" value="<?php echo $product_related2['product_id']; ?>" />
+                  </div>
+                  <?php } ?>
+                </div></td>
+            </tr>
+			<tr>
+              <td><?php echo $entry_blog_related; ?></td>
+              <td><input type="text" name="related_blog" value="" /></td>
+            </tr>
+            <tr>
+              <td>&nbsp;</td>
+              <td><div id="article-related" class="scrollbox">
+                  <?php $class = 'odd'; ?>
+                  <?php foreach ($blog_related_product as $blog_related_product) { ?>
+                  <?php $class = ($class == 'even' ? 'odd' : 'even'); ?>
+                  <div id="article-related<?php echo $blog_related_product['article_id']; ?>" class="<?php echo $class; ?>"> <?php echo $blog_related_product['name']; ?><img src="view/image/delete.png" />
+                    <input type="hidden" name="blog_related_product[]" value="<?php echo $blog_related_product['article_id']; ?>" />
+                  </div>
+                  <?php } ?>
+                </div></td>
+            </tr>
           </table>
         </div>
         <div id="tab-attribute">
@@ -1012,6 +1044,87 @@ $('#product-related div img').live('click', function() {
 	$('#product-related div:even').attr('class', 'even');	
 });
 //--></script> 
+<script type="text/javascript"><!--
+$('input[name=\'related2\']').autocomplete({
+	delay: 0,
+	source: function(request, response) {
+		$.ajax({
+			url: 'index.php?route=catalog/product/autocomplete&token=<?php echo $token; ?>&filter_name=' +  encodeURIComponent(request.term),
+			dataType: 'json',
+			success: function(json) {		
+				response($.map(json, function(item) {
+					return {
+						label: item.name,
+						value: item.product_id
+					}
+				}));
+			}
+		});
+		
+	}, 
+	select: function(event, ui) {
+		$('#product-related2' + ui.item.value).remove();
+		
+		$('#product-related2').append('<div id="product-related2' + ui.item.value + '">' + ui.item.label + '<img src="view/image/delete.png" /><input type="hidden" name="product_related2[]" value="' + ui.item.value + '" /></div>');
+
+		$('#product-related2 div:odd').attr('class', 'odd');
+		$('#product-related2 div:even').attr('class', 'even');
+				
+		return false;
+	},
+	focus: function(event, ui) {
+      return false;
+	}
+});
+
+$('#product-related2 div img').live('click', function() {
+	$(this).parent().remove();
+	
+	$('#product-related2 div:odd').attr('class', 'odd');
+	$('#product-related2 div:even').attr('class', 'even');	
+});
+//--></script>
+
+<script type="text/javascript"><!--
+$('input[name=\'related_blog\']').autocomplete({
+	delay: 0,
+	source: function(request, response) {
+		$.ajax({
+			url: 'index.php?route=blog/article/autocomplete&token=<?php echo $token; ?>&filter_name=' +  encodeURIComponent(request.term),
+			dataType: 'json',
+			success: function(json) {		
+				response($.map(json, function(item) {
+					return {
+						label: item.name,
+						value: item.article_id
+					}
+				}));
+			}
+		});
+		
+	}, 
+	select: function(event, ui) {
+		$('#article-related' + ui.item.value).remove();
+		
+		$('#article-related').append('<div id="article-related' + ui.item.value + '">' + ui.item.label + '<img src="view/image/delete.png" /><input type="hidden" name="blog_related_product[]" value="' + ui.item.value + '" /></div>');
+
+		$('#article-related div:odd').attr('class', 'odd');
+		$('#article-related div:even').attr('class', 'even');
+				
+		return false;
+	},
+	focus: function(event, ui) {
+      return false;
+	}
+});
+
+$('#article-related div img').live('click', function() {
+	$(this).parent().remove();
+	
+	$('#article-related div:odd').attr('class', 'odd');
+	$('#article-related div:even').attr('class', 'even');	
+});
+//--></script>
 <script type="text/javascript"><!--
 var attribute_row = <?php echo $attribute_row; ?>;
 

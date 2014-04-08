@@ -36,6 +36,12 @@ class ControllerCommonHeader extends Controller {
 		$this->data['text_country'] = $this->language->get('text_country');
 		$this->data['text_coolfilter'] = $this->language->get('text_coolfilter');
 		$this->data['text_coolfilter_group'] = $this->language->get('text_coolfilter_group');
+		$this->data['text_cms'] = $this->language->get('text_cms');
+		$this->data['text_news'] = $this->language->get('text_news');
+		$this->data['text_article'] = $this->language->get('text_article');
+		$this->data['text_gallery'] = $this->language->get('text_gallery');
+		$this->data['text_review_article'] = $this->language->get('text_review_article');
+		$this->data['text_blog_setting'] = $this->language->get('text_blog_setting');
 		$this->data['text_coupon'] = $this->language->get('text_coupon');
 		$this->data['text_currency'] = $this->language->get('text_currency');			
 		$this->data['text_customer'] = $this->language->get('text_customer');
@@ -144,6 +150,11 @@ class ControllerCommonHeader extends Controller {
 				$this->data['coolfilter_group'] = '';
             }
 			
+			$this->data['news'] = $this->url->link('blog/news', 'token=' . $this->session->data['token'], 'SSL');
+			$this->data['article'] = $this->url->link('blog/article', 'token=' . $this->session->data['token'], 'SSL');
+			$this->data['gallery'] = $this->url->link('blog/gallery', 'token=' . $this->session->data['token'], 'SSL');
+			$this->data['review_article'] = $this->url->link('blog/review_article', 'token=' . $this->session->data['token'], 'SSL');
+			$this->data['blog_setting'] = $this->url->link('blog/blog_setting', 'token=' . $this->session->data['token'], 'SSL');
 			$this->data['country'] = $this->url->link('localisation/country', 'token=' . $this->session->data['token'], 'SSL');
 			$this->data['coupon'] = $this->url->link('sale/coupon', 'token=' . $this->session->data['token'], 'SSL');
 			$this->data['currency'] = $this->url->link('localisation/currency', 'token=' . $this->session->data['token'], 'SSL');

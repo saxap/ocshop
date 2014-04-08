@@ -582,6 +582,30 @@ class ModelCatalogProduct extends Model {
 
 		return $product_data;
 	}
+	
+	public function getProductRelated2($product_id) {
+		$product_data = array();
+
+		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "product_related2 pr LEFT JOIN " . DB_PREFIX . "product p ON (pr.related_id = p.product_id) LEFT JOIN " . DB_PREFIX . "product_to_store p2s ON (p.product_id = p2s.product_id) WHERE pr.product_id = '" . (int)$product_id . "' AND p.status = '1' AND p.date_available <= NOW() AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "'");
+		
+		foreach ($query->rows as $result) { 
+			$product_data[$result['related_id']] = $this->getProduct($result['related_id']);
+		}
+		
+		return $product_data;
+	}
+	
+	public function getArticleRelated($product_id) {
+		$article_data = array();
+		$this->load->model('blog/article');
+		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "blog_related_product np LEFT JOIN " . DB_PREFIX . "article p ON (np.article_id = p.article_id) LEFT JOIN " . DB_PREFIX . "article_to_store p2s ON (p.article_id = p2s.article_id) WHERE np.product_id = '" . (int)$product_id . "' AND p.status = '1' AND p.date_available <= NOW() AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "'");
+		
+		foreach ($query->rows as $result) { 
+			$article_data[$result['article_id']] = $this->model_blog_article->getArticle($result['article_id']);
+		}
+
+		return $article_data;
+	}
 
 	public function getProductLayoutId($product_id) {
 		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "product_to_layout WHERE product_id = '" . (int)$product_id . "' AND store_id = '" . (int)$this->config->get('config_store_id') . "'");
@@ -854,6 +878,30 @@ class ModelCatalogProduct extends Model {
 		}		
 
 		return $this->db->query("SELECT * FROM `" . DB_PREFIX . "profile` `p` JOIN `" . DB_PREFIX . "product_profile` `pp` ON `pp`.`profile_id` = `p`.`profile_id` AND `pp`.`product_id` = " . (int)$product_id . " WHERE `pp`.`profile_id` = " . (int)$profile_id . " AND `status` = 1 AND `pp`.`customer_group_id` = " . (int)$customer_group_id)->row;
+	}
+	
+	public function getProductRelated_by_category($category_id, $limit) {
+
+		$product_data = array();
+				
+		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "product_related_wb pr LEFT JOIN " . DB_PREFIX . "product p ON (pr.product_id = p.product_id) LEFT JOIN " . DB_PREFIX . "product_to_store p2s ON (p.product_id = p2s.product_id) WHERE pr.category_id = '" . (int)$category_id . "' AND p.status = '1' AND p.date_available <= NOW() AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "' LIMIT " . (int)$limit); 
+
+		foreach ($query->rows as $result) { 
+			$product_data[$result['product_id']] = $this->getProduct($result['product_id']);
+		}
+		return $product_data;
+	}
+	
+	public function getProductRelated_by_manufacturer($manufacturer_id, $limit) {
+
+		$product_data = array();
+				
+		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "product_related_mn pr LEFT JOIN " . DB_PREFIX . "product p ON (pr.product_id = p.product_id) LEFT JOIN " . DB_PREFIX . "product_to_store p2s ON (p.product_id = p2s.product_id) WHERE pr.manufacturer_id = '" . (int)$manufacturer_id . "' AND p.status = '1' AND p.date_available <= NOW() AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "' LIMIT " . (int)$limit); 
+
+		foreach ($query->rows as $result) { 
+			$product_data[$result['product_id']] = $this->getProduct($result['product_id']);
+		}
+		return $product_data;
 	}
 
 	public function getTotalProductSpecials() {

@@ -284,12 +284,16 @@ class ControllerCatalogManufacturer extends Controller {
 		$this->data['entry_description'] = $this->language->get('entry_description');
 		$this->data['entry_seo_title'] = $this->language->get('entry_seo_title');
 		$this->data['entry_seo_h1'] = $this->language->get('entry_seo_h1');
+		
+		$this->data['entry_related_mn'] = $this->language->get('entry_related_mn');
+		$this->data['entry_related_article'] = $this->language->get('entry_related_article');
 
 		$this->data['button_save'] = $this->language->get('button_save');
 		$this->data['button_cancel'] = $this->language->get('button_cancel');
 
 		$this->data['tab_general'] = $this->language->get('tab_general');
 		$this->data['tab_data'] = $this->language->get('tab_data');
+		$this->data['tab_related_mn'] = $this->language->get('tab_related_mn');
 
 		if (isset($this->error['warning'])) {
 			$this->data['error_warning'] = $this->error['warning'];
@@ -375,7 +379,49 @@ class ControllerCatalogManufacturer extends Controller {
 			$this->data['manufacturer_store'] = $this->model_catalog_manufacturer->getManufacturerStores($this->request->get['manufacturer_id']);
 		} else {
 			$this->data['manufacturer_store'] = array(0);
-		}	
+		}
+
+		if (isset($this->request->post['product_related_mn'])) {
+			$products = $this->request->post['product_related_mn'];
+		} elseif (isset($this->request->get['product_id'])) {		
+			$products = $this->model_catalog_product->getProductRelated($this->request->get['product_id']);
+		} else {
+			$products = array();
+		}
+		
+		$this->data['product_related_mn'] = array();
+		
+		foreach ($products as $product_id) {
+			$related_info = $this->model_catalog_product->getProduct($product_id);
+			
+			if ($related_info) {
+				$this->data['product_related_mn'][] = array(
+					'product_id' => $related_info['product_id'],
+					'name'       => $related_info['name']
+				);
+			}
+		}
+		
+		if (isset($this->request->post['article_related_mn'])) {
+			$articles = $this->request->post['article_related_mn'];
+		} elseif (isset($this->request->get['article_id'])) {		
+			$articles = $this->model_blog_article->getArticleRelated($this->request->get['article_id']);
+		} else {
+			$articles = array();
+		}
+		
+		$this->data['article_related_mn'] = array();
+		
+		foreach ($articles as $article_id) {
+			$related_info = $this->model_blog_article->getArticle($article_id);
+			
+			if ($related_info) {
+				$this->data['article_related_mn'][] = array(
+					'article_id' => $related_info['article_id'],
+					'name'       => $related_info['name']
+				);
+			}
+		}
 
 		if (isset($this->request->post['keyword'])) {
 			$this->data['keyword'] = $this->request->post['keyword'];
@@ -411,6 +457,56 @@ class ControllerCatalogManufacturer extends Controller {
 			$this->data['sort_order'] = $manufacturer_info['sort_order'];
 		} else {
 			$this->data['sort_order'] = '';
+		}
+		
+		if (isset($this->request->post['product_related'])) {
+			$products = $this->request->post['product_related'];
+		} elseif (isset($manufacturer_info)) {		
+			$products = $this->model_catalog_manufacturer->getProductRelated($this->request->get['manufacturer_id']);
+		} else {
+			$products = array();
+		}
+
+	 				
+
+		$this->data['product_related'] = array();
+			
+		$this->load->model('catalog/product');
+		
+		foreach ($products as $product_id) {
+			$related_info = $this->model_catalog_product->getProduct($product_id);
+			
+			if ($related_info) {
+				$this->data['product_related'][] = array(
+					'product_id' => $related_info['product_id'],
+					'name'       => $related_info['name']
+				);
+			}
+		}
+
+		if (isset($this->request->post['article_related'])) {
+			$articles = $this->request->post['article_related'];
+		} elseif (isset($manufacturer_info)) {		
+			$articles = $this->model_catalog_manufacturer->getArticleRelated($this->request->get['manufacturer_id']);
+		} else {
+			$articles = array();
+		}
+
+	 				
+
+		$this->data['article_related'] = array();
+			
+		$this->load->model('blog/article');
+		
+		foreach ($articles as $article_id) {
+			$related_info = $this->model_blog_article->getArticle($article_id);
+			
+			if ($related_info) {
+				$this->data['article_related'][] = array(
+					'article_id' => $related_info['article_id'],
+					'name'       => $related_info['name']
+				);
+			}
 		}
 
 		$this->template = 'catalog/manufacturer_form.tpl';

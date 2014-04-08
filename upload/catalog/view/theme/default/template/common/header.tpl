@@ -115,6 +115,9 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
       <?php } ?>
     </li>
     <?php } ?>
+	<?php if ($this->config->get('config_blog_header_menu')) { ?>
+	<li><a href="<?php echo $blog; ?>"><i class="fa fa-book"></i> <?php echo $text_blog; ?></a></li>
+	<?php } ?>
   </ul>
 </div>
 <?php } ?>

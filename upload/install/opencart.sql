@@ -10,7 +10,7 @@
 -- --------------------------------------------------------
 
 --
--- Database: `opencart`
+-- Database: `ocshop`
 --
 
 -- --------------------------------------------------------
@@ -678,7 +678,7 @@ CREATE TABLE `oc_category_filter` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `oc_category_option`
+-- Table structure for table `oc_category_option`
 --
 
 CREATE TABLE IF NOT EXISTS `oc_category_option` (
@@ -689,7 +689,7 @@ CREATE TABLE IF NOT EXISTS `oc_category_option` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=5 ;
 
 --
--- Дамп данных таблицы `oc_category_option`
+-- Dumping data for table `oc_category_option`
 --
 
 INSERT INTO `oc_category_option` (`option_id`, `status`, `sort_order`) VALUES
@@ -701,7 +701,7 @@ INSERT INTO `oc_category_option` (`option_id`, `status`, `sort_order`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `oc_category_option_description`
+-- Table structure for table `oc_category_option_description`
 --
 
 CREATE TABLE IF NOT EXISTS `oc_category_option_description` (
@@ -712,7 +712,7 @@ CREATE TABLE IF NOT EXISTS `oc_category_option_description` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
--- Дамп данных таблицы `oc_category_option_description`
+-- Dumping data for table `oc_category_option_description`
 --
 
 INSERT INTO `oc_category_option_description` (`option_id`, `language_id`, `name`) VALUES
@@ -803,7 +803,7 @@ INSERT INTO `oc_category_to_store` (`category_id`, `store_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `oc_coolfilter_group`
+-- Table structure for table `oc_coolfilter_group`
 --
 
 CREATE TABLE IF NOT EXISTS `oc_coolfilter_group` (
@@ -813,7 +813,7 @@ CREATE TABLE IF NOT EXISTS `oc_coolfilter_group` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=2 ;
 
 --
--- Дамп данных таблицы `oc_coolfilter_group`
+-- Dumping data for table `oc_coolfilter_group`
 --
 
 INSERT INTO `oc_coolfilter_group` (`coolfilter_group_id`, `sort_order`) VALUES
@@ -822,7 +822,7 @@ INSERT INTO `oc_coolfilter_group` (`coolfilter_group_id`, `sort_order`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `oc_coolfilter_group_description`
+-- Table structure for table `oc_coolfilter_group_description`
 --
 
 CREATE TABLE IF NOT EXISTS `oc_coolfilter_group_description` (
@@ -833,7 +833,7 @@ CREATE TABLE IF NOT EXISTS `oc_coolfilter_group_description` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
--- Дамп данных таблицы `oc_coolfilter_group_description`
+-- Dumping data for table `oc_coolfilter_group_description`
 --
 
 INSERT INTO `oc_coolfilter_group_description` (`coolfilter_group_id`, `language_id`, `name`) VALUES
@@ -843,7 +843,7 @@ INSERT INTO `oc_coolfilter_group_description` (`coolfilter_group_id`, `language_
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `oc_coolfilter_group_option_to_coolfilter_group`
+-- Table structure for table `oc_coolfilter_group_option_to_coolfilter_group`
 --
 
 CREATE TABLE IF NOT EXISTS `oc_coolfilter_group_option_to_coolfilter_group` (
@@ -853,7 +853,7 @@ CREATE TABLE IF NOT EXISTS `oc_coolfilter_group_option_to_coolfilter_group` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
--- Дамп данных таблицы `oc_coolfilter_group_option_to_coolfilter_group`
+-- Dumping data for table `oc_coolfilter_group_option_to_coolfilter_group`
 --
 
 INSERT INTO `oc_coolfilter_group_option_to_coolfilter_group` (`option_id`, `coolfilter_group_id`) VALUES
@@ -865,7 +865,7 @@ INSERT INTO `oc_coolfilter_group_option_to_coolfilter_group` (`option_id`, `cool
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `oc_coolfilter_group_to_category`
+-- Table structure for table `oc_coolfilter_group_to_category`
 --
 
 CREATE TABLE IF NOT EXISTS `oc_coolfilter_group_to_category` (
@@ -875,7 +875,7 @@ CREATE TABLE IF NOT EXISTS `oc_coolfilter_group_to_category` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
--- Дамп данных таблицы `oc_coolfilter_group_to_category`
+-- Dumping data for table `oc_coolfilter_group_to_category`
 --
 
 INSERT INTO `oc_coolfilter_group_to_category` (`coolfilter_group_id`, `category_id`) VALUES
@@ -921,7 +921,7 @@ INSERT INTO `oc_coolfilter_group_to_category` (`coolfilter_group_id`, `category_
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `oc_type_option`
+-- Table structure for table `oc_type_option`
 --
 
 CREATE TABLE IF NOT EXISTS `oc_type_option` (
@@ -931,7 +931,7 @@ CREATE TABLE IF NOT EXISTS `oc_type_option` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
--- Дамп данных таблицы `oc_type_option`
+-- Dumping data for table `oc_type_option`
 --
 
 INSERT INTO `oc_type_option` (`option_id`, `type_index`) VALUES
@@ -943,7 +943,7 @@ INSERT INTO `oc_type_option` (`option_id`, `type_index`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `oc_style_option`
+-- Table structure for table `oc_style_option`
 --
 
 CREATE TABLE IF NOT EXISTS `oc_style_option` (
@@ -953,7 +953,7 @@ CREATE TABLE IF NOT EXISTS `oc_style_option` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
--- Дамп данных таблицы `oc_style_option`
+-- Dumping data for table `oc_style_option`
 --
 
 INSERT INTO `oc_style_option` (`option_id`, `style_id`) VALUES
@@ -1468,7 +1468,7 @@ CREATE TABLE `oc_download_description` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `oc_filter_group`
+-- Table structure for table `oc_filter_group`
 --
 
 CREATE TABLE IF NOT EXISTS `oc_filter_group` (
@@ -1478,7 +1478,7 @@ CREATE TABLE IF NOT EXISTS `oc_filter_group` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
--- Дамп данных таблицы `oc_filter_group`
+-- Dumping data for table `oc_filter_group`
 --
 
 INSERT INTO `oc_filter_group` (`filter_group_id`, `sort_order`) VALUES
@@ -1487,7 +1487,7 @@ INSERT INTO `oc_filter_group` (`filter_group_id`, `sort_order`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `oc_filter_group_description`
+-- Table structure for table `oc_filter_group_description`
 --
 
 CREATE TABLE IF NOT EXISTS `oc_filter_group_description` (
@@ -1498,7 +1498,7 @@ CREATE TABLE IF NOT EXISTS `oc_filter_group_description` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Дамп данных таблицы `oc_filter_group_description`
+-- Dumping data for table `oc_filter_group_description`
 --
 
 INSERT INTO `oc_filter_group_description` (`filter_group_id`, `language_id`, `name`) VALUES
@@ -1508,7 +1508,7 @@ INSERT INTO `oc_filter_group_description` (`filter_group_id`, `language_id`, `na
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `oc_filter`
+-- Table structure for table `oc_filter`
 --
 
 CREATE TABLE IF NOT EXISTS `oc_filter` (
@@ -1519,7 +1519,7 @@ CREATE TABLE IF NOT EXISTS `oc_filter` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
--- Дамп данных таблицы `oc_filter`
+-- Dumping data for table `oc_filter`
 --
 
 INSERT INTO `oc_filter` (`filter_id`, `filter_group_id`, `sort_order`) VALUES
@@ -1531,7 +1531,7 @@ INSERT INTO `oc_filter` (`filter_id`, `filter_group_id`, `sort_order`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `oc_filter_description`
+-- Table structure for table `oc_filter_description`
 --
 
 CREATE TABLE IF NOT EXISTS `oc_filter_description` (
@@ -1543,7 +1543,7 @@ CREATE TABLE IF NOT EXISTS `oc_filter_description` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Дамп данных таблицы `oc_filter_description`
+-- Dumping data for table `oc_filter_description`
 --
 
 INSERT INTO `oc_filter_description` (`filter_id`, `language_id`, `filter_group_id`, `name`) VALUES
@@ -1598,7 +1598,11 @@ INSERT INTO `oc_extension` (`extension_id`, `type`, `code`) VALUES
 (420, 'module', 'coolfilter'),
 (428, 'module', 'product_tab'),
 (429, 'module', 'viewed'),
-(430, 'module', 'reviews');
+(430, 'module', 'reviews'),
+(431, 'module', 'blog_category'),
+(432, 'module', 'blog_latest'),
+(433, 'module', 'blog_mostviewed'),
+(434, 'module', 'blog_reviews');
 
 -- --------------------------------------------------------
 
@@ -1780,7 +1784,12 @@ INSERT INTO `oc_layout` (`layout_id`, `name`) VALUES
 (8, 'Контакты'),
 (9, 'Карта сайта'),
 (10, 'Партнерская программа'),
-(11, 'Информация');
+(11, 'Информация'),
+(12, 'Блог'),
+(13, 'Категории Блога'),
+(14, 'Статьи Блога'),
+(15, 'Новинки'),
+(16, 'Акции');
 
 -- --------------------------------------------------------
 
@@ -1811,7 +1820,12 @@ INSERT INTO `oc_layout_route` (`layout_route_id`, `layout_id`, `store_id`, `rout
 (22, 5, 0, 'product/manufacturer'),
 (23, 7, 0, 'checkout/'),
 (31, 8, 0, 'information/contact'),
-(32, 9, 0, 'information/sitemap');
+(32, 9, 0, 'information/sitemap'),
+(33, 12, 0, 'blog/latest'),
+(34, 13, 0, 'blog/news'),
+(35, 14, 0, 'blog/article'),
+(36, 15, 0, 'product/latest'),
+(37, 16, 0, 'product/special');
 
 -- --------------------------------------------------------
 
@@ -2641,7 +2655,7 @@ INSERT INTO `oc_product_discount` (`product_discount_id`, `product_id`, `custome
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `oc_product_filter`
+-- Table structure for table `oc_product_filter`
 --
 
 CREATE TABLE IF NOT EXISTS `oc_product_filter` (
@@ -2651,7 +2665,7 @@ CREATE TABLE IF NOT EXISTS `oc_product_filter` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Дамп данных таблицы `oc_product_filter`
+-- Dumping data for table `oc_product_filter`
 --
 
 INSERT INTO `oc_product_filter` (`product_id`, `filter_id`) VALUES
@@ -2841,6 +2855,72 @@ INSERT INTO `oc_product_related` (`product_id`, `related_id`) VALUES
 (41, 42),
 (42, 40),
 (42, 41);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oc_product_related2`
+--
+
+CREATE TABLE IF NOT EXISTS `oc_product_related2` (
+  `product_id` int(11) NOT NULL,
+  `related_id` int(11) NOT NULL,
+  PRIMARY KEY (`product_id`,`related_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `oc_product_related2`
+--
+
+INSERT INTO `oc_product_related2` (`product_id`, `related_id`) VALUES
+(41, 42),
+(42, 41),
+(42, 43),
+(42, 45),
+(43, 42),
+(45, 42);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oc_product_related_mn`
+--
+
+CREATE TABLE IF NOT EXISTS `oc_product_related_mn` (
+  `product_id` int(11) NOT NULL,
+  `manufacturer_id` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `oc_product_related_mn`
+--
+
+INSERT INTO `oc_product_related_mn` (`product_id`, `manufacturer_id`) VALUES
+(44, 8),
+(43, 8),
+(41, 8),
+(42, 8);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oc_product_related_wb`
+--
+
+CREATE TABLE IF NOT EXISTS `oc_product_related_wb` (
+  `product_id` int(11) NOT NULL,
+  `category_id` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `oc_product_related_wb`
+--
+
+INSERT INTO `oc_product_related_wb` (`product_id`, `category_id`) VALUES
+(43, 33),
+(31, 33),
+(28, 33),
+(42, 33);
 
 -- --------------------------------------------------------
 
@@ -3191,7 +3271,7 @@ INSERT INTO `oc_return_status` (`return_status_id`, `language_id`, `name`) VALUE
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `oc_review`
+-- Table structure for table `oc_review`
 --
 
 CREATE TABLE IF NOT EXISTS `oc_review` (
@@ -3209,7 +3289,7 @@ CREATE TABLE IF NOT EXISTS `oc_review` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
--- Дамп данных таблицы `oc_review`
+-- Dumping data for table `oc_review`
 --
 
 INSERT INTO `oc_review` (`review_id`, `product_id`, `customer_id`, `author`, `text`, `rating`, `status`, `date_added`, `date_modified`) VALUES
@@ -3381,7 +3461,31 @@ INSERT INTO `oc_setting` (`setting_id`, `store_id`, `group`, `key`, `value`, `se
 (155, 0, 'viewed', 'viewed_count', '5', 0),
 (156, 0, 'viewed', 'show_on_product', '1', 0),
 (157, 0, 'viewed', 'viewed_module', 'a:3:{i:0;a:6:{s:11:"image_width";s:2:"80";s:12:"image_height";s:2:"80";s:9:"layout_id";s:1:"2";s:8:"position";s:14:"content_bottom";s:6:"status";s:1:"1";s:10:"sort_order";s:2:"10";}i:1;a:6:{s:11:"image_width";s:2:"80";s:12:"image_height";s:2:"80";s:9:"layout_id";s:1:"3";s:8:"position";s:14:"content_bottom";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"5";}i:2;a:6:{s:11:"image_width";s:2:"80";s:12:"image_height";s:2:"80";s:9:"layout_id";s:1:"5";s:8:"position";s:14:"content_bottom";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"5";}}', 1),
-(158, 0, 'reviews', 'reviews_module', 'a:1:{i:0;a:10:{s:4:"type";s:6:"latest";s:6:"header";a:2:{i:1;s:31:"Последние отзывы";i:2;s:31:"Последние отзывы";}s:5:"limit";s:1:"4";s:10:"text_limit";s:3:"150";s:11:"image_width";s:2:"80";s:12:"image_height";s:2:"80";s:9:"layout_id";s:1:"3";s:8:"position";s:11:"column_left";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"5";}}', 1);
+(158, 0, 'reviews', 'reviews_module', 'a:1:{i:0;a:10:{s:4:"type";s:6:"latest";s:6:"header";a:2:{i:1;s:31:"Последние отзывы";i:2;s:31:"Последние отзывы";}s:5:"limit";s:1:"4";s:10:"text_limit";s:3:"150";s:11:"image_width";s:2:"80";s:12:"image_height";s:2:"80";s:9:"layout_id";s:1:"3";s:8:"position";s:11:"column_left";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"5";}}', 1),
+(159, 0, 'blogconfig', 'config_blog_image_category_width', '80', 0),
+(160, 0, 'blogconfig', 'config_blog_image_category_height', '80', 0),
+(161, 0, 'blogconfig', 'config_blog_image_article_width', '160', 0),
+(162, 0, 'blogconfig', 'config_blog_image_article_height', '160', 0),
+(163, 0, 'blogconfig', 'config_blog_image_gallery_width', '173', 0),
+(164, 0, 'blogconfig', 'config_blog_image_gallery_height', '173', 0),
+(165, 0, 'blogconfig', 'config_blog_image_additional_width', '173', 0),
+(166, 0, 'blogconfig', 'config_blog_image_additional_height', '173', 0),
+(167, 0, 'blogconfig', 'config_blog_image_popup_width', '500', 0),
+(168, 0, 'blogconfig', 'config_blog_image_popup_height', '500', 0),
+(169, 0, 'blogconfig', 'config_blog_image_related_width', '150', 0),
+(170, 0, 'blogconfig', 'config_blog_image_related_height', '150', 0),
+(171, 0, 'blogconfig', 'config_blog_catalog_limit', '15', 0),
+(172, 0, 'blogconfig', 'config_blog_admin_limit', '20', 0),
+(173, 0, 'blogconfig', 'config_blog_header_menu', '1', 0),
+(174, 0, 'blogconfig', 'config_blog_article_count', '0', 0),
+(175, 0, 'blogconfig', 'config_blog_review_status', '1', 0),
+(176, 0, 'blogconfig', 'config_blog_download', '1', 0),
+(177, 0, 'blog_category', 'blog_category_module', 'a:3:{i:0;a:5:{s:9:"layout_id";s:2:"12";s:8:"position";s:11:"column_left";s:5:"count";s:1:"0";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"0";}i:1;a:5:{s:9:"layout_id";s:2:"13";s:8:"position";s:11:"column_left";s:5:"count";s:1:"0";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"0";}i:2;a:5:{s:9:"layout_id";s:2:"14";s:8:"position";s:11:"column_left";s:5:"count";s:1:"0";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"0";}}', 1),
+(178, 0, 'blog_latest', 'blog_latest_module', 'a:2:{i:0;a:8:{s:5:"limit";s:1:"3";s:10:"text_limit";s:3:"100";s:11:"image_width";s:2:"80";s:12:"image_height";s:2:"80";s:9:"layout_id";s:2:"13";s:8:"position";s:11:"column_left";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"1";}i:1;a:8:{s:5:"limit";s:1:"3";s:10:"text_limit";s:3:"100";s:11:"image_width";s:2:"80";s:12:"image_height";s:2:"80";s:9:"layout_id";s:2:"14";s:8:"position";s:14:"content_bottom";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"1";}}', 1),
+(179, 0, 'blog_mostviewed', 'blog_mostviewed_module', 'a:3:{i:0;a:8:{s:5:"limit";s:1:"3";s:10:"text_limit";s:3:"100";s:11:"image_width";s:2:"80";s:12:"image_height";s:2:"80";s:9:"layout_id";s:2:"14";s:8:"position";s:11:"column_left";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"2";}i:1;a:8:{s:5:"limit";s:1:"3";s:10:"text_limit";s:3:"100";s:11:"image_width";s:2:"80";s:12:"image_height";s:2:"80";s:9:"layout_id";s:2:"12";s:8:"position";s:11:"column_left";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"2";}i:2;a:8:{s:5:"limit";s:1:"3";s:10:"text_limit";s:3:"100";s:11:"image_width";s:2:"80";s:12:"image_height";s:2:"80";s:9:"layout_id";s:2:"13";s:8:"position";s:11:"column_left";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"2";}}', 1),
+(180, 0, 'blog_reviews', 'blog_reviews_module', 'a:3:{i:0;a:10:{s:4:"type";s:6:"latest";s:6:"header";a:2:{i:1;s:31:"Последние отзывы";i:2;s:17:"Recently Reviewed";}s:5:"limit";s:1:"3";s:10:"text_limit";s:3:"200";s:11:"image_width";s:2:"80";s:12:"image_height";s:2:"80";s:9:"layout_id";s:2:"14";s:8:"position";s:14:"content_bottom";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"3";}i:1;a:10:{s:4:"type";s:6:"latest";s:6:"header";a:2:{i:1;s:31:"Последние отзывы";i:2;s:17:"Recently Reviewed";}s:5:"limit";s:1:"3";s:10:"text_limit";s:3:"200";s:11:"image_width";s:2:"80";s:12:"image_height";s:2:"80";s:9:"layout_id";s:2:"12";s:8:"position";s:14:"content_bottom";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"3";}i:2;a:10:{s:4:"type";s:6:"latest";s:6:"header";a:2:{i:1;s:31:"Последние отзывы";i:2;s:17:"Recently Reviewed";}s:5:"limit";s:1:"3";s:10:"text_limit";s:3:"200";s:11:"image_width";s:2:"80";s:12:"image_height";s:2:"80";s:9:"layout_id";s:2:"13";s:8:"position";s:14:"content_bottom";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"3";}}', 1);
+
+
 
 
 -- --------------------------------------------------------
@@ -3563,7 +3667,13 @@ INSERT INTO `oc_url_alias` (`url_alias_id`, `query`, `keyword`, `seomanager`) VA
 (768, 'product_id=42', 'test', 0),
 (767, 'category_id=34', 'mp3-players', 0),
 (536, 'category_id=36', 'Normal', 0),
-(799, 'product/special', 'specials', 1);
+(799, 'product/special', 'specials', 1),
+(802, 'blid=69', 'news', 0),
+(801, 'blid=70', 'photos-reviews', 0),
+(803, 'blog/latest', 'blog', 1),
+(804, 'product/latest', 'latest', 1),
+(805, 'article_id=120', 'ocshop-cms-1-5-6-2', 0),
+(808, 'article_id=123', 'foto-obzor-pervij', 0);
 
 -- --------------------------------------------------------
 
@@ -3611,7 +3721,7 @@ CREATE TABLE `oc_user_group` (
 --
 
 INSERT INTO `oc_user_group` (`user_group_id`, `name`, `permission`) VALUES
-(1, 'Главный администратор', 'a:2:{s:6:"access";a:132:{i:0;s:17:"catalog/attribute";i:1;s:23:"catalog/attribute_group";i:2;s:16:"catalog/category";i:3;s:18:"catalog/coolfilter";i:4;s:24:"catalog/coolfilter_group";i:5;s:16:"catalog/download";i:6;s:14:"catalog/filter";i:7;s:19:"catalog/information";i:8;s:20:"catalog/manufacturer";i:9;s:14:"catalog/option";i:10;s:15:"catalog/product";i:11;s:15:"catalog/profile";i:12;s:14:"catalog/review";i:13;s:18:"common/filemanager";i:14;s:13:"design/banner";i:15;s:19:"design/custom_field";i:16;s:13:"design/layout";i:17;s:14:"extension/feed";i:18;s:17:"extension/manager";i:19;s:16:"extension/module";i:20;s:17:"extension/payment";i:21;s:18:"extension/shipping";i:22;s:15:"extension/total";i:23;s:16:"feed/google_base";i:24;s:19:"feed/google_sitemap";i:25;s:18:"feed/yandex_market";i:26;s:20:"localisation/country";i:27;s:21:"localisation/currency";i:28;s:21:"localisation/geo_zone";i:29;s:21:"localisation/language";i:30;s:25:"localisation/length_class";i:31;s:25:"localisation/order_status";i:32;s:26:"localisation/return_action";i:33;s:26:"localisation/return_reason";i:34;s:26:"localisation/return_status";i:35;s:25:"localisation/stock_status";i:36;s:22:"localisation/tax_class";i:37;s:21:"localisation/tax_rate";i:38;s:25:"localisation/weight_class";i:39;s:17:"localisation/zone";i:40;s:14:"module/account";i:41;s:16:"module/affiliate";i:42;s:13:"module/banner";i:43;s:17:"module/bestseller";i:44;s:15:"module/carousel";i:45;s:15:"module/category";i:46;s:17:"module/coolfilter";i:47;s:15:"module/featured";i:48;s:13:"module/filter";i:49;s:18:"module/google_talk";i:50;s:18:"module/information";i:51;s:13:"module/latest";i:52;s:16:"module/pp_layout";i:53;s:18:"module/product_tab";i:54;s:14:"module/reviews";i:55;s:16:"module/slideshow";i:56;s:14:"module/special";i:57;s:12:"module/store";i:58;s:13:"module/viewed";i:59;s:14:"module/welcome";i:60;s:21:"payment/bank_transfer";i:61;s:11:"payment/cod";i:62;s:21:"payment/free_checkout";i:63;s:14:"payment/liqpay";i:64;s:20:"payment/moneybookers";i:65;s:21:"payment/nalogenniy_np";i:66;s:18:"payment/pp_express";i:67;s:25:"payment/pp_payflow_iframe";i:68;s:14:"payment/pp_pro";i:69;s:21:"payment/pp_pro_iframe";i:70;s:17:"payment/pp_pro_pf";i:71;s:17:"payment/pp_pro_uk";i:72;s:19:"payment/pp_standard";i:73;s:25:"payment/sberbank_transfer";i:74;s:20:"payment/webmoney_wme";i:75;s:20:"payment/webmoney_wmr";i:76;s:20:"payment/webmoney_wmu";i:77;s:20:"payment/webmoney_wmz";i:78;s:27:"report/affiliate_commission";i:79;s:22:"report/customer_credit";i:80;s:22:"report/customer_online";i:81;s:21:"report/customer_order";i:82;s:22:"report/customer_reward";i:83;s:24:"report/product_purchased";i:84;s:21:"report/product_viewed";i:85;s:18:"report/sale_coupon";i:86;s:17:"report/sale_order";i:87;s:18:"report/sale_return";i:88;s:20:"report/sale_shipping";i:89;s:15:"report/sale_tax";i:90;s:14:"sale/affiliate";i:91;s:12:"sale/contact";i:92;s:11:"sale/coupon";i:93;s:13:"sale/customer";i:94;s:20:"sale/customer_ban_ip";i:95;s:19:"sale/customer_group";i:96;s:10:"sale/order";i:97;s:14:"sale/recurring";i:98;s:11:"sale/return";i:99;s:12:"sale/voucher";i:100;s:18:"sale/voucher_theme";i:101;s:15:"setting/setting";i:102;s:13:"setting/store";i:103;s:17:"shipping/by_total";i:104;s:17:"shipping/citylink";i:105;s:23:"shipping/courierautolux";i:106;s:13:"shipping/flat";i:107;s:13:"shipping/free";i:108;s:15:"shipping/gunsel";i:109;s:15:"shipping/intime";i:110;s:13:"shipping/item";i:111;s:17:"shipping/nexpress";i:112;s:19:"shipping/novaposhta";i:113;s:15:"shipping/pickup";i:114;s:15:"shipping/weight";i:115;s:11:"tool/backup";i:116;s:17:"tool/cachemanager";i:117;s:14:"tool/error_log";i:118;s:15:"tool/seomanager";i:119;s:18:"tool/vqmod_manager";i:120;s:12:"total/coupon";i:121;s:12:"total/credit";i:122;s:14:"total/handling";i:123;s:19:"total/low_order_fee";i:124;s:12:"total/reward";i:125;s:14:"total/shipping";i:126;s:15:"total/sub_total";i:127;s:9:"total/tax";i:128;s:11:"total/total";i:129;s:13:"total/voucher";i:130;s:9:"user/user";i:131;s:20:"user/user_permission";}s:6:"modify";a:132:{i:0;s:17:"catalog/attribute";i:1;s:23:"catalog/attribute_group";i:2;s:16:"catalog/category";i:3;s:18:"catalog/coolfilter";i:4;s:24:"catalog/coolfilter_group";i:5;s:16:"catalog/download";i:6;s:14:"catalog/filter";i:7;s:19:"catalog/information";i:8;s:20:"catalog/manufacturer";i:9;s:14:"catalog/option";i:10;s:15:"catalog/product";i:11;s:15:"catalog/profile";i:12;s:14:"catalog/review";i:13;s:18:"common/filemanager";i:14;s:13:"design/banner";i:15;s:19:"design/custom_field";i:16;s:13:"design/layout";i:17;s:14:"extension/feed";i:18;s:17:"extension/manager";i:19;s:16:"extension/module";i:20;s:17:"extension/payment";i:21;s:18:"extension/shipping";i:22;s:15:"extension/total";i:23;s:16:"feed/google_base";i:24;s:19:"feed/google_sitemap";i:25;s:18:"feed/yandex_market";i:26;s:20:"localisation/country";i:27;s:21:"localisation/currency";i:28;s:21:"localisation/geo_zone";i:29;s:21:"localisation/language";i:30;s:25:"localisation/length_class";i:31;s:25:"localisation/order_status";i:32;s:26:"localisation/return_action";i:33;s:26:"localisation/return_reason";i:34;s:26:"localisation/return_status";i:35;s:25:"localisation/stock_status";i:36;s:22:"localisation/tax_class";i:37;s:21:"localisation/tax_rate";i:38;s:25:"localisation/weight_class";i:39;s:17:"localisation/zone";i:40;s:14:"module/account";i:41;s:16:"module/affiliate";i:42;s:13:"module/banner";i:43;s:17:"module/bestseller";i:44;s:15:"module/carousel";i:45;s:15:"module/category";i:46;s:17:"module/coolfilter";i:47;s:15:"module/featured";i:48;s:13:"module/filter";i:49;s:18:"module/google_talk";i:50;s:18:"module/information";i:51;s:13:"module/latest";i:52;s:16:"module/pp_layout";i:53;s:18:"module/product_tab";i:54;s:14:"module/reviews";i:55;s:16:"module/slideshow";i:56;s:14:"module/special";i:57;s:12:"module/store";i:58;s:13:"module/viewed";i:59;s:14:"module/welcome";i:60;s:21:"payment/bank_transfer";i:61;s:11:"payment/cod";i:62;s:21:"payment/free_checkout";i:63;s:14:"payment/liqpay";i:64;s:20:"payment/moneybookers";i:65;s:21:"payment/nalogenniy_np";i:66;s:18:"payment/pp_express";i:67;s:25:"payment/pp_payflow_iframe";i:68;s:14:"payment/pp_pro";i:69;s:21:"payment/pp_pro_iframe";i:70;s:17:"payment/pp_pro_pf";i:71;s:17:"payment/pp_pro_uk";i:72;s:19:"payment/pp_standard";i:73;s:25:"payment/sberbank_transfer";i:74;s:20:"payment/webmoney_wme";i:75;s:20:"payment/webmoney_wmr";i:76;s:20:"payment/webmoney_wmu";i:77;s:20:"payment/webmoney_wmz";i:78;s:27:"report/affiliate_commission";i:79;s:22:"report/customer_credit";i:80;s:22:"report/customer_online";i:81;s:21:"report/customer_order";i:82;s:22:"report/customer_reward";i:83;s:24:"report/product_purchased";i:84;s:21:"report/product_viewed";i:85;s:18:"report/sale_coupon";i:86;s:17:"report/sale_order";i:87;s:18:"report/sale_return";i:88;s:20:"report/sale_shipping";i:89;s:15:"report/sale_tax";i:90;s:14:"sale/affiliate";i:91;s:12:"sale/contact";i:92;s:11:"sale/coupon";i:93;s:13:"sale/customer";i:94;s:20:"sale/customer_ban_ip";i:95;s:19:"sale/customer_group";i:96;s:10:"sale/order";i:97;s:14:"sale/recurring";i:98;s:11:"sale/return";i:99;s:12:"sale/voucher";i:100;s:18:"sale/voucher_theme";i:101;s:15:"setting/setting";i:102;s:13:"setting/store";i:103;s:17:"shipping/by_total";i:104;s:17:"shipping/citylink";i:105;s:23:"shipping/courierautolux";i:106;s:13:"shipping/flat";i:107;s:13:"shipping/free";i:108;s:15:"shipping/gunsel";i:109;s:15:"shipping/intime";i:110;s:13:"shipping/item";i:111;s:17:"shipping/nexpress";i:112;s:19:"shipping/novaposhta";i:113;s:15:"shipping/pickup";i:114;s:15:"shipping/weight";i:115;s:11:"tool/backup";i:116;s:17:"tool/cachemanager";i:117;s:14:"tool/error_log";i:118;s:15:"tool/seomanager";i:119;s:18:"tool/vqmod_manager";i:120;s:12:"total/coupon";i:121;s:12:"total/credit";i:122;s:14:"total/handling";i:123;s:19:"total/low_order_fee";i:124;s:12:"total/reward";i:125;s:14:"total/shipping";i:126;s:15:"total/sub_total";i:127;s:9:"total/tax";i:128;s:11:"total/total";i:129;s:13:"total/voucher";i:130;s:9:"user/user";i:131;s:20:"user/user_permission";}}'),
+(1, 'Главный администратор', 'a:2:{s:6:"access";a:145:{i:0;s:12:"blog/article";i:1;s:17:"blog/blog_setting";i:2;s:12:"blog/gallery";i:3;s:9:"blog/news";i:4;s:19:"blog/review_article";i:5;s:17:"catalog/attribute";i:6;s:23:"catalog/attribute_group";i:7;s:16:"catalog/category";i:8;s:18:"catalog/coolfilter";i:9;s:24:"catalog/coolfilter_group";i:10;s:16:"catalog/download";i:11;s:14:"catalog/filter";i:12;s:19:"catalog/information";i:13;s:20:"catalog/manufacturer";i:14;s:14:"catalog/option";i:15;s:15:"catalog/product";i:16;s:15:"catalog/profile";i:17;s:14:"catalog/review";i:18;s:18:"common/filemanager";i:19;s:13:"design/banner";i:20;s:19:"design/custom_field";i:21;s:13:"design/layout";i:22;s:14:"extension/feed";i:23;s:17:"extension/manager";i:24;s:16:"extension/module";i:25;s:17:"extension/payment";i:26;s:18:"extension/shipping";i:27;s:15:"extension/total";i:28;s:16:"feed/google_base";i:29;s:19:"feed/google_sitemap";i:30;s:18:"feed/yandex_market";i:31;s:20:"localisation/country";i:32;s:21:"localisation/currency";i:33;s:21:"localisation/geo_zone";i:34;s:21:"localisation/language";i:35;s:25:"localisation/length_class";i:36;s:25:"localisation/order_status";i:37;s:26:"localisation/return_action";i:38;s:26:"localisation/return_reason";i:39;s:26:"localisation/return_status";i:40;s:25:"localisation/stock_status";i:41;s:22:"localisation/tax_class";i:42;s:21:"localisation/tax_rate";i:43;s:25:"localisation/weight_class";i:44;s:17:"localisation/zone";i:45;s:14:"module/account";i:46;s:16:"module/affiliate";i:47;s:13:"module/banner";i:48;s:17:"module/bestseller";i:49;s:15:"module/carousel";i:50;s:15:"module/category";i:51;s:17:"module/coolfilter";i:52;s:15:"module/featured";i:53;s:13:"module/filter";i:54;s:18:"module/google_talk";i:55;s:18:"module/information";i:56;s:13:"module/latest";i:57;s:16:"module/pp_layout";i:58;s:18:"module/product_tab";i:59;s:14:"module/reviews";i:60;s:16:"module/slideshow";i:61;s:14:"module/special";i:62;s:12:"module/store";i:63;s:13:"module/viewed";i:64;s:14:"module/welcome";i:65;s:21:"payment/bank_transfer";i:66;s:11:"payment/cod";i:67;s:21:"payment/free_checkout";i:68;s:14:"payment/liqpay";i:69;s:20:"payment/moneybookers";i:70;s:21:"payment/nalogenniy_np";i:71;s:18:"payment/pp_express";i:72;s:25:"payment/pp_payflow_iframe";i:73;s:14:"payment/pp_pro";i:74;s:21:"payment/pp_pro_iframe";i:75;s:17:"payment/pp_pro_pf";i:76;s:17:"payment/pp_pro_uk";i:77;s:19:"payment/pp_standard";i:78;s:25:"payment/sberbank_transfer";i:79;s:20:"payment/webmoney_wme";i:80;s:20:"payment/webmoney_wmr";i:81;s:20:"payment/webmoney_wmu";i:82;s:20:"payment/webmoney_wmz";i:83;s:27:"report/affiliate_commission";i:84;s:22:"report/customer_credit";i:85;s:22:"report/customer_online";i:86;s:21:"report/customer_order";i:87;s:22:"report/customer_reward";i:88;s:24:"report/product_purchased";i:89;s:21:"report/product_viewed";i:90;s:18:"report/sale_coupon";i:91;s:17:"report/sale_order";i:92;s:18:"report/sale_return";i:93;s:20:"report/sale_shipping";i:94;s:15:"report/sale_tax";i:95;s:14:"sale/affiliate";i:96;s:12:"sale/contact";i:97;s:11:"sale/coupon";i:98;s:13:"sale/customer";i:99;s:20:"sale/customer_ban_ip";i:100;s:19:"sale/customer_group";i:101;s:10:"sale/order";i:102;s:14:"sale/recurring";i:103;s:11:"sale/return";i:104;s:12:"sale/voucher";i:105;s:18:"sale/voucher_theme";i:106;s:15:"setting/setting";i:107;s:13:"setting/store";i:108;s:17:"shipping/by_total";i:109;s:17:"shipping/citylink";i:110;s:23:"shipping/courierautolux";i:111;s:13:"shipping/flat";i:112;s:13:"shipping/free";i:113;s:15:"shipping/gunsel";i:114;s:15:"shipping/intime";i:115;s:13:"shipping/item";i:116;s:17:"shipping/nexpress";i:117;s:19:"shipping/novaposhta";i:118;s:15:"shipping/pickup";i:119;s:15:"shipping/weight";i:120;s:11:"tool/backup";i:121;s:17:"tool/cachemanager";i:122;s:14:"tool/error_log";i:123;s:15:"tool/seomanager";i:124;s:18:"tool/vqmod_manager";i:125;s:12:"total/coupon";i:126;s:12:"total/credit";i:127;s:14:"total/handling";i:128;s:19:"total/low_order_fee";i:129;s:12:"total/reward";i:130;s:14:"total/shipping";i:131;s:15:"total/sub_total";i:132;s:9:"total/tax";i:133;s:11:"total/total";i:134;s:13:"total/voucher";i:135;s:9:"user/user";i:136;s:20:"user/user_permission";i:137;s:20:"module/blog_category";i:138;s:18:"module/blog_latest";i:139;s:22:"module/blog_mostviewed";i:140;s:20:"module/blog_featured";i:141;s:19:"module/blog_reviews";i:142;s:22:"module/featuredarticle";i:143;s:17:"module/featuredwb";i:144;s:19:"feed/google_sitemap";}s:6:"modify";a:145:{i:0;s:12:"blog/article";i:1;s:17:"blog/blog_setting";i:2;s:12:"blog/gallery";i:3;s:9:"blog/news";i:4;s:19:"blog/review_article";i:5;s:17:"catalog/attribute";i:6;s:23:"catalog/attribute_group";i:7;s:16:"catalog/category";i:8;s:18:"catalog/coolfilter";i:9;s:24:"catalog/coolfilter_group";i:10;s:16:"catalog/download";i:11;s:14:"catalog/filter";i:12;s:19:"catalog/information";i:13;s:20:"catalog/manufacturer";i:14;s:14:"catalog/option";i:15;s:15:"catalog/product";i:16;s:15:"catalog/profile";i:17;s:14:"catalog/review";i:18;s:18:"common/filemanager";i:19;s:13:"design/banner";i:20;s:19:"design/custom_field";i:21;s:13:"design/layout";i:22;s:14:"extension/feed";i:23;s:17:"extension/manager";i:24;s:16:"extension/module";i:25;s:17:"extension/payment";i:26;s:18:"extension/shipping";i:27;s:15:"extension/total";i:28;s:16:"feed/google_base";i:29;s:19:"feed/google_sitemap";i:30;s:18:"feed/yandex_market";i:31;s:20:"localisation/country";i:32;s:21:"localisation/currency";i:33;s:21:"localisation/geo_zone";i:34;s:21:"localisation/language";i:35;s:25:"localisation/length_class";i:36;s:25:"localisation/order_status";i:37;s:26:"localisation/return_action";i:38;s:26:"localisation/return_reason";i:39;s:26:"localisation/return_status";i:40;s:25:"localisation/stock_status";i:41;s:22:"localisation/tax_class";i:42;s:21:"localisation/tax_rate";i:43;s:25:"localisation/weight_class";i:44;s:17:"localisation/zone";i:45;s:14:"module/account";i:46;s:16:"module/affiliate";i:47;s:13:"module/banner";i:48;s:17:"module/bestseller";i:49;s:15:"module/carousel";i:50;s:15:"module/category";i:51;s:17:"module/coolfilter";i:52;s:15:"module/featured";i:53;s:13:"module/filter";i:54;s:18:"module/google_talk";i:55;s:18:"module/information";i:56;s:13:"module/latest";i:57;s:16:"module/pp_layout";i:58;s:18:"module/product_tab";i:59;s:14:"module/reviews";i:60;s:16:"module/slideshow";i:61;s:14:"module/special";i:62;s:12:"module/store";i:63;s:13:"module/viewed";i:64;s:14:"module/welcome";i:65;s:21:"payment/bank_transfer";i:66;s:11:"payment/cod";i:67;s:21:"payment/free_checkout";i:68;s:14:"payment/liqpay";i:69;s:20:"payment/moneybookers";i:70;s:21:"payment/nalogenniy_np";i:71;s:18:"payment/pp_express";i:72;s:25:"payment/pp_payflow_iframe";i:73;s:14:"payment/pp_pro";i:74;s:21:"payment/pp_pro_iframe";i:75;s:17:"payment/pp_pro_pf";i:76;s:17:"payment/pp_pro_uk";i:77;s:19:"payment/pp_standard";i:78;s:25:"payment/sberbank_transfer";i:79;s:20:"payment/webmoney_wme";i:80;s:20:"payment/webmoney_wmr";i:81;s:20:"payment/webmoney_wmu";i:82;s:20:"payment/webmoney_wmz";i:83;s:27:"report/affiliate_commission";i:84;s:22:"report/customer_credit";i:85;s:22:"report/customer_online";i:86;s:21:"report/customer_order";i:87;s:22:"report/customer_reward";i:88;s:24:"report/product_purchased";i:89;s:21:"report/product_viewed";i:90;s:18:"report/sale_coupon";i:91;s:17:"report/sale_order";i:92;s:18:"report/sale_return";i:93;s:20:"report/sale_shipping";i:94;s:15:"report/sale_tax";i:95;s:14:"sale/affiliate";i:96;s:12:"sale/contact";i:97;s:11:"sale/coupon";i:98;s:13:"sale/customer";i:99;s:20:"sale/customer_ban_ip";i:100;s:19:"sale/customer_group";i:101;s:10:"sale/order";i:102;s:14:"sale/recurring";i:103;s:11:"sale/return";i:104;s:12:"sale/voucher";i:105;s:18:"sale/voucher_theme";i:106;s:15:"setting/setting";i:107;s:13:"setting/store";i:108;s:17:"shipping/by_total";i:109;s:17:"shipping/citylink";i:110;s:23:"shipping/courierautolux";i:111;s:13:"shipping/flat";i:112;s:13:"shipping/free";i:113;s:15:"shipping/gunsel";i:114;s:15:"shipping/intime";i:115;s:13:"shipping/item";i:116;s:17:"shipping/nexpress";i:117;s:19:"shipping/novaposhta";i:118;s:15:"shipping/pickup";i:119;s:15:"shipping/weight";i:120;s:11:"tool/backup";i:121;s:17:"tool/cachemanager";i:122;s:14:"tool/error_log";i:123;s:15:"tool/seomanager";i:124;s:18:"tool/vqmod_manager";i:125;s:12:"total/coupon";i:126;s:12:"total/credit";i:127;s:14:"total/handling";i:128;s:19:"total/low_order_fee";i:129;s:12:"total/reward";i:130;s:14:"total/shipping";i:131;s:15:"total/sub_total";i:132;s:9:"total/tax";i:133;s:11:"total/total";i:134;s:13:"total/voucher";i:135;s:9:"user/user";i:136;s:20:"user/user_permission";i:137;s:20:"module/blog_category";i:138;s:18:"module/blog_latest";i:139;s:22:"module/blog_mostviewed";i:140;s:20:"module/blog_featured";i:141;s:19:"module/blog_reviews";i:142;s:22:"module/featuredarticle";i:143;s:17:"module/featuredwb";i:144;s:19:"feed/google_sitemap";}}'),
 (10, 'Демонстрация', '');
 
 -- --------------------------------------------------------
@@ -4076,3 +4186,382 @@ CREATE TABLE `oc_zone_to_geo_zone` (
 
 INSERT INTO `oc_zone_to_geo_zone` (`zone_to_geo_zone_id`, `country_id`, `zone_id`, `geo_zone_id`, `date_added`, `date_modified`) VALUES
 (57, 176, 0, 3, '2010-02-26 22:33:24', '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oc_blog_related_product`
+--
+
+CREATE TABLE IF NOT EXISTS `oc_blog_related_product` (
+  `article_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  PRIMARY KEY (`article_id`,`product_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `oc_blog_related_product`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oc_news`
+--
+
+CREATE TABLE IF NOT EXISTS `oc_news` (
+  `news_id` int(11) NOT NULL AUTO_INCREMENT,
+  `image` varchar(255) DEFAULT NULL,
+  `parent_id` int(11) NOT NULL DEFAULT '0',
+  `top` tinyint(1) NOT NULL,
+  `column` int(3) NOT NULL,
+  `sort_order` int(3) NOT NULL DEFAULT '0',
+  `status` tinyint(1) NOT NULL,
+  `date_added` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `date_modified` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`news_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=69 ;
+
+--
+-- Dumping data for table `oc_news`
+--
+
+INSERT INTO `oc_news` (`news_id`, `image`, `parent_id`, `top`, `column`, `sort_order`, `status`, `date_added`, `date_modified`) VALUES
+(69, 'data/demo/apple_cinema_30.jpg', 0, 0, 0, 0, 1, '2014-04-08 03:56:26', '2014-04-08 04:00:30'),
+(70, 'data/demo/nikon_d300_1.jpg', 0, 1, 0, 0, 1, '2014-04-08 03:58:55', '2014-04-08 03:58:55');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oc_news_description`
+--
+
+CREATE TABLE IF NOT EXISTS `oc_news_description` (
+  `news_id` int(11) NOT NULL,
+  `language_id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL DEFAULT '',
+  `description` text NOT NULL,
+  `meta_description` varchar(255) NOT NULL,
+  `meta_keyword` varchar(255) NOT NULL,
+  `seo_title` varchar(255) NOT NULL,
+  `seo_h1` varchar(255) NOT NULL,
+  PRIMARY KEY (`news_id`,`language_id`),
+  KEY `name` (`name`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `oc_news_description`
+--
+
+INSERT INTO `oc_news_description` (`news_id`, `language_id`, `name`, `description`, `meta_description`, `meta_keyword`, `seo_title`, `seo_h1`) VALUES
+(69, 1, 'Новости', '', '', '', '', ''),
+(70, 1, 'Фото Обзоры', '', '', '', '', ''),
+(70, 2, 'Photos Reviews', '', '', '', '', ''),
+(69, 2, 'News', '', '', '', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oc_news_to_layout`
+--
+
+CREATE TABLE IF NOT EXISTS `oc_news_to_layout` (
+  `news_id` int(11) NOT NULL,
+  `store_id` int(11) NOT NULL,
+  `layout_id` int(11) NOT NULL,
+  PRIMARY KEY (`news_id`,`store_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oc_news_to_store`
+--
+
+CREATE TABLE IF NOT EXISTS `oc_news_to_store` (
+  `news_id` int(11) NOT NULL,
+  `store_id` int(11) NOT NULL,
+  PRIMARY KEY (`news_id`,`store_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `oc_news_to_store`
+--
+
+INSERT INTO `oc_news_to_store` (`news_id`, `store_id`) VALUES
+(69, 0),
+(70, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oc_review_article`
+--
+
+CREATE TABLE IF NOT EXISTS `oc_review_article` (
+  `review_article_id` int(11) NOT NULL AUTO_INCREMENT,
+  `article_id` int(11) NOT NULL,
+  `customer_id` int(11) NOT NULL,
+  `author` varchar(64) NOT NULL DEFAULT '',
+  `text` text NOT NULL,
+  `rating` int(1) NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '0',
+  `date_added` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `date_modified` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`review_article_id`),
+  KEY `article_id` (`article_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
+
+--
+-- Dumping data for table `oc_review_article`
+--
+
+INSERT INTO `oc_review_article` (`review_article_id`, `article_id`, `customer_id`, `author`, `text`, `rating`, `status`, `date_added`, `date_modified`) VALUES
+(11, 123, 0, 'Василий Покупайкин', 'Спасибо за отличный фото обзор, обязательно в ближайшее время приобрету себе такую тушку и напишу дополнение к Вашей статье.', 5, 1, '2014-04-08 05:59:25', '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oc_article`
+--
+
+CREATE TABLE IF NOT EXISTS `oc_article` (
+  `article_id` int(11) NOT NULL AUTO_INCREMENT,
+  `image` varchar(255) DEFAULT NULL,
+  `date_available` date NOT NULL,
+  `sort_order` int(11) NOT NULL DEFAULT '0',
+  `article_review` tinyint(1) NOT NULL DEFAULT '0',
+  `status` tinyint(1) NOT NULL DEFAULT '0',
+  `date_added` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `date_modified` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `viewed` int(5) NOT NULL DEFAULT '0',
+  `gstatus` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`article_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=120 ;
+
+--
+-- Dumping data for table `oc_article`
+--
+
+INSERT INTO `oc_article` (`article_id`, `image`, `date_available`, `sort_order`, `article_review`, `status`, `date_added`, `date_modified`, `viewed`, `gstatus`) VALUES
+(120, 'data/logo.png', '0000-00-00', 1, 1, 1, '2014-04-08 04:26:00', '0000-00-00 00:00:00', 2, 0),
+(123, 'data/logo.png', '0000-00-00', 1, 1, 1, '2014-03-31 06:55:15', '2014-04-08 05:37:36', 132, 1);
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oc_article_description`
+--
+
+CREATE TABLE IF NOT EXISTS `oc_article_description` (
+  `article_id` int(11) NOT NULL,
+  `language_id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `description` text NOT NULL,
+  `meta_description` varchar(255) NOT NULL,
+  `meta_keyword` varchar(255) NOT NULL,
+  `seo_title` varchar(255) NOT NULL,
+  `seo_h1` varchar(255) NOT NULL,
+  `tag` text NOT NULL,
+  PRIMARY KEY (`article_id`,`language_id`),
+  KEY `name` (`name`),
+  FULLTEXT KEY `description` (`description`),
+  FULLTEXT KEY `tag` (`tag`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `oc_article_description`
+--
+
+INSERT INTO `oc_article_description` (`article_id`, `language_id`, `name`, `description`, `meta_description`, `meta_keyword`, `seo_title`, `seo_h1`, `tag`) VALUES
+(120, 1, 'CMS для интернет магазинов OCSHOP.CMS v1.5.6.2', '&lt;p&gt;Рады представить Вашему вниманию OCSHOP.CMS v1.5.6.2 основанную на OpenCart v1.5.6.2&lt;/p&gt;\r\n', 'CMS для интернет магазинов OCSHOP.CMS v1.5.6.2 это бесплатный функциональный движок для создания качественных продающих магазинов.', 'cms, opencart, ocshop', 'CMS для интернет магазинов OCSHOP.CMS v1.5.6.2 - Скачать', 'CMS для интернет магазинов OCSHOP.CMS v1.5.6.2', ''),
+(120, 2, 'CMS for online stores OCSHOP.CMS v1.5.6.2', '&lt;p&gt;&lt;span class=&quot;long_text&quot; id=&quot;result_box&quot; lang=&quot;en&quot;&gt;&lt;span class=&quot;hps&quot;&gt;Are pleased to announce&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;OCSHOP.CMS v1.5.6.2&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;based on&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;OpenCart v1.5.6.2&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;\r\n', 'CMS for online stores OCSHOP.CMS v1.5.6.2 is a free functional engine to create high-quality shops selling.', 'cms, opencart, ocshop', 'CMS for online stores OCSHOP.CMS v1.5.6.2 - Download', 'CMS for online stores OCSHOP.CMS v1.5.6.2', ''),
+(123, 1, 'Фото Обзор Первый', '&lt;p&gt;Это первый фото обзор тут можно написать много какого то текста который описывает фото обзор и говорит что и как и почему для чего :-) Это первый фото обзор тут можно написать много какого то текста который описывает фото обзор и говорит что и как и почему для чего :-) Это первый фото обзор тут можно написать много какого то текста который описывает фото обзор и говорит что и как и почему для чего :-) Это первый фото обзор тут можно написать много какого то текста который описывает фото обзор и говорит что и как и почему для чего :-) Это первый фото обзор тут можно написать много какого то текста который описывает фото обзор и говорит что и как и почему для чего :-) Это первый фото обзор тут можно написать много какого то текста который описывает фото обзор и говорит что и как и почему для чего :-) Это первый фото обзор тут можно написать много какого то текста который описывает фото обзор и говорит что и как и почему для чего :-) Это первый фото обзор тут можно написать много какого то текста который описывает фото обзор и говорит что и как и почему для чего :-) Это первый фото обзор тут можно написать много какого то текста который описывает фото обзор и говорит что и как и почему для чего :-)&lt;/p&gt;\r\n', 'Фото Обзор Первый', 'Фото Обзор Первый', 'Фото Обзор Первый', 'Фото Обзор Первый', ''),
+(123, 2, 'First Photo Overview', '&lt;p&gt;&lt;span id=&quot;result_box&quot; lang=&quot;en&quot;&gt;&lt;span class=&quot;hps&quot;&gt;This is the first&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;review of the&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;photos&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;here&lt;/span&gt;&lt;span&gt;, you can write&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;a lot of&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;what that&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;that describes the&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;photo&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;review and&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;says&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;what and how&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;and why&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;what&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;:-) This is the first&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;review of the&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;photos&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;here&lt;/span&gt;&lt;span&gt;, you can write&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;a lot of&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;what that&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;that describes the&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;photo&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;review and&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;says&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;what and how&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;and why&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;what&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;:-) This is the first&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;review of the&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;photos&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;here&lt;/span&gt;&lt;span&gt;, you can write&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;a lot of&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;what that&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;that describes the&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;photo&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;review and&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;says&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;what and how&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;and why&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;what&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;:-) This is the first&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;review of the&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;photos&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;here&lt;/span&gt;&lt;span&gt;, you can write&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;a lot of&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;what that&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;that describes the&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;photo&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;review and&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;says&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;what and how&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;and why&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;what&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;:-) This is the first&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;review of the&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;photos&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;here&lt;/span&gt;&lt;span&gt;, you can write&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;a lot of&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;what that&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;that describes the&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;photo&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;review and&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;says&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;what and how&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;and why&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;what&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;:-) This is the first&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;review of the&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;photos&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;here&lt;/span&gt;&lt;span&gt;, you can write&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;a lot of&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;what that&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;that describes the&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;photo&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;review and&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;says&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;what and how&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;and why&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;what&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;:-) This is the first&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;review of the&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;photos&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;here&lt;/span&gt;&lt;span&gt;, you can write&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;a lot of&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;what that&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;that describes the&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;photo&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;review and&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;says&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;what and how&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;and why&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;what&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;:-) This is the first&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;review of the&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;photos&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;here&lt;/span&gt;&lt;span&gt;, you can write&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;a lot of&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;what that&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;that describes the&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;photo&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;review and&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;says&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;what and how&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;and why&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;what&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;:-) This is the first&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;review of the&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;photos&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;here&lt;/span&gt;&lt;span&gt;, you can write&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;a lot of&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;what that&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;that describes the&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;photo&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;review and&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;says&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;what and how&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;and why&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;what&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;:-)&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;\r\n', 'First Photo Overview', 'First Photo Overview', 'First Photo Overview', 'First Photo Overview', '');
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oc_article_image`
+--
+
+CREATE TABLE IF NOT EXISTS `oc_article_image` (
+  `article_image_id` int(11) NOT NULL AUTO_INCREMENT,
+  `article_id` int(11) NOT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `sort_order` int(3) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`article_image_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3981 ;
+
+--
+-- Dumping data for table `oc_article_image`
+--
+
+INSERT INTO `oc_article_image` (`article_image_id`, `article_id`, `image`, `sort_order`) VALUES
+(4104, 123, 'data/demo/nikon_d300_3.jpg', 6),
+(4103, 123, 'data/demo/canon_eos_5d_1.jpg', 1),
+(4102, 123, 'data/demo/nikon_d300_1.jpg', 4),
+(4101, 123, 'data/demo/nikon_d300_2.jpg', 5),
+(4100, 123, 'data/demo/nikon_d300_4.jpg', 7),
+(4099, 123, 'data/demo/canon_eos_5d_2.jpg', 2),
+(4097, 123, 'data/demo/nikon_d300_5.jpg', 8),
+(4098, 123, 'data/demo/canon_eos_5d_3.jpg', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oc_article_related`
+--
+
+CREATE TABLE IF NOT EXISTS `oc_article_related` (
+  `article_id` int(11) NOT NULL,
+  `related_id` int(11) NOT NULL,
+  PRIMARY KEY (`article_id`,`related_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `oc_article_related`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oc_article_related_gallery`
+--
+
+CREATE TABLE IF NOT EXISTS `oc_article_related_gallery` (
+  `article_id` int(11) NOT NULL,
+  `gallery_id` int(11) NOT NULL,
+  PRIMARY KEY (`article_id`,`gallery_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `oc_article_related_gallery`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oc_article_related_mn`
+--
+
+CREATE TABLE IF NOT EXISTS `oc_article_related_mn` (
+  `article_id` int(11) NOT NULL,
+  `manufacturer_id` int(11) NOT NULL,
+  PRIMARY KEY (`article_id`,`manufacturer_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `oc_article_related_mn`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oc_article_related_product`
+--
+
+CREATE TABLE IF NOT EXISTS `oc_article_related_product` (
+  `article_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  PRIMARY KEY (`article_id`,`product_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `oc_article_related_product`
+--
+
+INSERT INTO `oc_article_related_product` (`article_id`, `product_id`) VALUES
+(30, 123),
+(31, 123),
+(43, 123),
+(45, 123),
+(123, 30),
+(123, 31),
+(123, 43),
+(123, 45);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oc_article_related_wb`
+--
+
+CREATE TABLE IF NOT EXISTS `oc_article_related_wb` (
+  `article_id` int(11) NOT NULL,
+  `category_id` int(11) NOT NULL,
+  PRIMARY KEY (`article_id`,`category_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `oc_article_related_wb`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oc_article_to_download`
+--
+
+CREATE TABLE IF NOT EXISTS `oc_article_to_download` (
+  `article_id` int(11) NOT NULL,
+  `download_id` int(11) NOT NULL,
+  PRIMARY KEY (`article_id`,`download_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oc_article_to_layout`
+--
+
+CREATE TABLE IF NOT EXISTS `oc_article_to_layout` (
+  `article_id` int(11) NOT NULL,
+  `store_id` int(11) NOT NULL,
+  `layout_id` int(11) NOT NULL,
+  PRIMARY KEY (`article_id`,`store_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oc_article_to_news`
+--
+
+CREATE TABLE IF NOT EXISTS `oc_article_to_news` (
+  `article_id` int(11) NOT NULL,
+  `news_id` int(11) NOT NULL,
+  `main_news` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`article_id`,`news_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `oc_article_to_news`
+--
+
+INSERT INTO `oc_article_to_news` (`article_id`, `news_id`, `main_news`) VALUES
+(120, 69, 1),
+(123, 70, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oc_article_to_store`
+--
+
+CREATE TABLE IF NOT EXISTS `oc_article_to_store` (
+  `article_id` int(11) NOT NULL,
+  `store_id` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`article_id`,`store_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `oc_article_to_store`
+--
+
+INSERT INTO `oc_article_to_store` (`article_id`, `store_id`) VALUES
+(120, 0),
+(123, 0);
+
+-- --------------------------------------------------------

@@ -41,6 +41,24 @@ class ControllerFeedGoogleSitemap extends Controller {
 					$output .= '</url>';
 				}
 			}
+			
+			$this->load->model('blog/news');
+			
+			$output .= $this->getBlogCategories(0);
+			
+			
+			$this->load->model('blog/article');
+
+			$articles = $this->model_blog_article->getArticles();
+
+			foreach ($articles as $article) {
+				$output .= '<url>';
+				$output .= '<loc>' . str_replace('&', '&amp;', str_replace('&amp;', '&', $this->url->link('blog/article', 'article_id=' . $article['article_id']))) . '</loc>';
+				$output .= '<lastmod>' . substr(max($article['date_added'], $article['date_modified']), 0, 10) . '</lastmod>';
+				$output .= '<changefreq>weekly</changefreq>';
+				$output .= '<priority>1.0</priority>';
+				$output .= '</url>';
+			}
 
 			$this->load->model('catalog/information');
 
@@ -90,6 +108,31 @@ class ControllerFeedGoogleSitemap extends Controller {
 			}
 
 			$output .= $this->getCategories($result['category_id'], $new_path);
+		}
+
+		return $output;
+	}
+	
+	protected function getBlogCategories($parent_id, $current_path = '') {
+		$output = '';
+
+		$results = $this->model_blog_news->getCategories($parent_id);
+
+		foreach ($results as $result) {
+			if (!$current_path) {
+				$new_path = $result['news_id'];
+			} else {
+				$new_path = $current_path . '_' . $result['news_id'];
+			}
+
+			$output .= '<url>';
+			$output .= '<loc>' . str_replace('&', '&amp;', str_replace('&amp;', '&', $this->url->link('blog/news', 'blid=' . $new_path))) . '</loc>';
+			$output .= '<lastmod>' . substr(max($result['date_added'], $result['date_modified']), 0, 10) . '</lastmod>';
+			$output .= '<changefreq>weekly</changefreq>';
+			$output .= '<priority>0.7</priority>';
+			$output .= '</url>';
+
+			$output .= $this->getBlogCategories($result['news_id'], $new_path);
 		}
 
 		return $output;
