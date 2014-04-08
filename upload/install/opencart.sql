@@ -1942,6 +1942,24 @@ INSERT INTO `oc_manufacturer_description` (`manufacturer_id`, `language_id`, `de
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `oc_manufacturer_to_layout`
+--
+
+CREATE TABLE IF NOT EXISTS `oc_manufacturer_to_layout` (
+  `manufacturer_id` int(11) NOT NULL,
+  `store_id` int(11) NOT NULL,
+  `layout_id` int(11) NOT NULL,
+  PRIMARY KEY (`manufacturer_id`,`store_id`),
+  KEY `cae9af8f5afbde96d0404991762c91ea` (`layout_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `oc_manufacturer_to_layout`
+--
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `oc_manufacturer_to_store`
 --
 
@@ -3377,10 +3395,10 @@ INSERT INTO `oc_setting` (`setting_id`, `store_id`, `group`, `key`, `value`, `se
 (59, 0, 'config', 'config_image_additional_height', '75', 0),
 (60, 0, 'account', 'account_module', 'a:1:{i:0;a:4:{s:9:"layout_id";s:1:"6";s:8:"position";s:12:"column_right";s:6:"status";s:1:"1";s:10:"sort_order";s:1:"1";}}', 1),
 (61, 0, 'config', 'config_image_additional_width', '75', 0),
-(62, 0, 'config', 'config_image_manufacturer_height', '80', 0),
-(63, 0, 'config', 'config_image_manufacturer_width', '80', 0),
-(64, 0, 'config', 'config_image_category_height', '80', 0),
-(65, 0, 'config', 'config_image_category_width', '80', 0),
+(62, 0, 'config', 'config_image_manufacturer_height', '40', 0),
+(63, 0, 'config', 'config_image_manufacturer_width', '40', 0),
+(64, 0, 'config', 'config_image_category_height', '40', 0),
+(65, 0, 'config', 'config_image_category_width', '40', 0),
 (66, 0, 'config', 'config_image_product_height', '160', 0),
 (67, 0, 'config', 'config_image_product_width', '160', 0),
 (68, 0, 'config', 'config_image_popup_height', '500', 0),
