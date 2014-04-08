@@ -3,6 +3,9 @@ class ControllerCommonContentBottom extends Controller {
 	protected function index() {
 		$this->load->model('design/layout');
 		$this->load->model('catalog/category');
+		$this->load->model('blog/news');
+		$this->load->model('blog/article');
+		$this->load->model('catalog/manufacturer');
 		$this->load->model('catalog/product');
 		$this->load->model('catalog/information');
 
@@ -18,6 +21,20 @@ class ControllerCommonContentBottom extends Controller {
 			$path = explode('_', (string)$this->request->get['path']);
 
 			$layout_id = $this->model_catalog_category->getCategoryLayoutId(end($path));			
+		}
+		
+		if ($route == 'blog/news' && isset($this->request->get['blid'])) {
+			$blid = explode('_', (string)$this->request->get['blid']);
+
+			$layout_id = $this->model_blog_news->getCategoryLayoutId(end($blid));			
+		}
+		
+		if ($route == 'blog/article' && isset($this->request->get['article_id'])) {
+			$layout_id = $this->model_blog_article->getArticleLayoutId($this->request->get['article_id']);
+		}
+		
+		if ($route == 'product/manufacturer/info' && isset($this->request->get['manufacturer_id'])) {
+			$layout_id = $this->model_catalog_manufacturer->getManufacturersLayoutId($this->request->get['manufacturer_id']);
 		}
 
 		if ($route == 'product/product' && isset($this->request->get['product_id'])) {

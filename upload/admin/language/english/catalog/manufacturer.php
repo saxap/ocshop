@@ -23,6 +23,7 @@ $_['entry_keyword']      = 'SEO Keyword:<br /><span class="help">Do not use spac
 $_['entry_image']        = 'Image:';
 $_['entry_related_mn']          = 'Featured Products:';
 $_['entry_related_article']     = 'Be sure to check:';
+$_['entry_layout']       = 'Layout Override:';
 $_['entry_sort_order']   = 'Sort Order:';
 $_['entry_type']         = 'Type:';
 $_['entry_meta_keyword'] = 'Meta Tag Keywords:';

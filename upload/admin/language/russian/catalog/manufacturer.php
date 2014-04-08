@@ -25,6 +25,7 @@ $_['entry_image']        = 'Изображение:';
 $_['entry_sort_order']   = 'Порядок сортировки:';
 $_['entry_related_mn']          = 'Рекомендуемые товары:';
 $_['entry_related_article']     = 'Рекомендуем почитать:';
+$_['entry_layout']       = 'Изменить схему:';
 $_['entry_type']         = 'Тип:';
 $_['entry_seo_title']    = 'HTML-тег Title:';
 $_['entry_seo_h1']       = 'HTML-тег H1:';
