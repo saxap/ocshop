@@ -1120,7 +1120,7 @@ ul.box-filter > li ul {
 	border-top: 1px solid #DBDEE1;
 	border-bottom: 1px solid #DBDEE1;
 	float: left;
-	height: 275px;
+	height: 285px;
 	vertical-align: top;
 	padding: 10px;
 	margin-top: -1px;
@@ -1133,6 +1133,10 @@ ul.box-filter > li ul {
 	display: block;
 	margin-bottom: 0px;
 	text-align: center;
+}
+.product-grid .name {
+	height: 35px;
+    overflow: hidden;
 }
 .product-grid .name a {
 	color: #38B0E3;

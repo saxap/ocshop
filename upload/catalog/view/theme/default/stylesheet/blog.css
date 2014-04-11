@@ -125,7 +125,7 @@
 .blog-content .box-product > div {
     border: 1px solid #DBDEE1;
     float: left;
-    height: 275px;
+    height: 285px;
     margin-left: -1px;
 	margin-right: 0;
     padding: 10px;
@@ -134,6 +134,10 @@
 }
 .blog-content .box-articles > div {
 	height: 220px;
+}
+.blog-content .box-product .name {
+	height: 30px;
+    overflow: hidden;
 }
 .blog-content .box-articles .name {
 	height: 45px;
