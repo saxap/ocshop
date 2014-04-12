@@ -9,4 +9,7 @@ $_['text_logged']         = 'You are logged in as <i class="fa fa-user"></i> <a 
 $_['text_account']        = 'My Account';
 $_['text_checkout']       = 'Checkout';
 $_['text_blog']	   		  = 'Blog';
+$_['text_special']        = 'Specials';
+$_['text_latest']         = 'Latest';
+$_['text_brands']         = 'Brands';
 ?>

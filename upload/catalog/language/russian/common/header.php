@@ -9,4 +9,7 @@ $_['text_logged']   = 'Вы вошли как <i class="fa fa-user"></i> <a href
 $_['text_account']  = 'Постоянный покупатель';
 $_['text_checkout'] = 'Оформление заказа';
 $_['text_blog']	    = 'Блог';
+$_['text_special']  = 'Акции';
+$_['text_latest']   = 'Новинки';
+$_['text_brands']   = 'Производители';
 ?>

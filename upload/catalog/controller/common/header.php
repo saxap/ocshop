@@ -55,6 +55,9 @@ class ControllerCommonHeader extends Controller {
 		$this->data['text_account'] = $this->language->get('text_account');
 		$this->data['text_checkout'] = $this->language->get('text_checkout');
 		$this->data['text_blog'] = $this->language->get('text_blog');
+		$this->data['text_special'] = $this->language->get('text_special');
+		$this->data['text_latest'] = $this->language->get('text_latest');
+		$this->data['text_brands'] = $this->language->get('text_brands');
 
 		$this->data['home'] = $this->url->link('common/home');
 		$this->data['wishlist'] = $this->url->link('account/wishlist', '', 'SSL');
@@ -63,6 +66,9 @@ class ControllerCommonHeader extends Controller {
 		$this->data['shopping_cart'] = $this->url->link('checkout/cart');
 		$this->data['checkout'] = $this->url->link('checkout/checkout', '', 'SSL');
 		$this->data['blog'] = $this->url->link('blog/latest', '', 'SSL');
+		$this->data['special'] = $this->url->link('product/special');
+		$this->data['latest'] = $this->url->link('product/latest');
+		$this->data['brands'] = $this->url->link('product/manufacturer');
 
 		// Daniel's robot detector
 		$status = true;
@@ -171,6 +177,21 @@ class ControllerCommonHeader extends Controller {
 					'href'     => $this->url->link('product/category', 'path=' . $category['category_id'])
 				);
 			}
+		}
+		
+		if ($this->config->get('config_menu_brands')) {
+		$data = array();
+		$this->load->model('catalog/manufacturer');
+		$this->data['manufacturer'] = array();
+		$manufacturers = $this->model_catalog_manufacturer->getManufacturers($data);
+		if($manufacturers){
+		foreach($manufacturers as $manufacturer){
+		$this->data['manufacturer'][] = array(
+		'name' => $manufacturer['name'],
+		'href' => $this->url->link('product/manufacturer/info', 'manufacturer_id='.$manufacturer['manufacturer_id'])
+		);
+		}
+		}
 		}
 
 		$this->children = array(

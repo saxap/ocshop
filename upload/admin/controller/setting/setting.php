@@ -31,6 +31,7 @@ class ControllerSettingSetting extends Controller {
 		$this->data['text_no'] = $this->language->get('text_no');
 		$this->data['text_items'] = $this->language->get('text_items');
 		$this->data['text_product'] = $this->language->get('text_product');
+		$this->data['text_menu'] = $this->language->get('text_menu');
 		$this->data['text_voucher'] = $this->language->get('text_voucher');
 		$this->data['text_tax'] = $this->language->get('text_tax');
 		$this->data['text_account'] = $this->language->get('text_account');
@@ -76,6 +77,9 @@ class ControllerSettingSetting extends Controller {
 		$this->data['entry_weight_class'] = $this->language->get('entry_weight_class');
 		$this->data['entry_catalog_limit'] = $this->language->get('entry_catalog_limit');
 		$this->data['entry_admin_limit'] = $this->language->get('entry_admin_limit');
+		$this->data['entry_menu_special'] = $this->language->get('entry_menu_special');
+		$this->data['entry_menu_latest'] = $this->language->get('entry_menu_latest');
+		$this->data['entry_menu_brands'] = $this->language->get('entry_menu_brands');
 		$this->data['entry_product_count'] = $this->language->get('entry_product_count');
 		$this->data['entry_review'] = $this->language->get('entry_review');
 		$this->data['entry_download'] = $this->language->get('entry_download');
@@ -567,6 +571,24 @@ class ControllerSettingSetting extends Controller {
 			$this->data['config_product_count'] = $this->request->post['config_product_count'];
 		} else {
 			$this->data['config_product_count'] = $this->config->get('config_product_count');
+		}
+		
+		if (isset($this->request->post['config_menu_special'])) {
+			$this->data['config_menu_special'] = $this->request->post['config_menu_special'];
+		} else {
+			$this->data['config_menu_special'] = $this->config->get('config_menu_special');
+		}
+		
+		if (isset($this->request->post['config_menu_latest'])) {
+			$this->data['config_menu_latest'] = $this->request->post['config_menu_latest'];
+		} else {
+			$this->data['config_menu_latest'] = $this->config->get('config_menu_latest');
+		}
+		
+		if (isset($this->request->post['config_menu_brands'])) {
+			$this->data['config_menu_brands'] = $this->request->post['config_menu_brands'];
+		} else {
+			$this->data['config_menu_brands'] = $this->config->get('config_menu_brands');
 		}
 
 		if (isset($this->request->post['config_review_status'])) {

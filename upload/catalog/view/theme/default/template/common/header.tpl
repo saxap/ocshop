@@ -115,6 +115,23 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
       <?php } ?>
     </li>
     <?php } ?>
+	<?php if ($this->config->get('config_menu_special')) { ?>
+	<li><a href="<?php echo $special; ?>"><?php echo $text_special; ?></a></li>
+	<?php } ?>
+	<?php if ($this->config->get('config_menu_latest')) { ?>
+	<li><a href="<?php echo $latest; ?>"><?php echo $text_latest; ?></a></li>
+	<?php } ?>
+	<?php if ($this->config->get('config_menu_brands')) { ?>
+	<li><a href="<?php echo $brands; ?>"><?php echo $text_brands; ?></a>
+	<div>
+	<ul>
+	<?php foreach($manufacturer as $manufacturers){ ?>
+	<li><a href="<?php echo $manufacturers['href']; ?>"><?php echo $manufacturers['name']; ?></a></li>
+	<? } ?>
+	</ul>
+	</div>
+	</li>
+	<?php } ?>
 	<?php if ($this->config->get('config_blog_header_menu')) { ?>
 	<li><a href="<?php echo $blog; ?>"><i class="fa fa-book"></i> <?php echo $text_blog; ?></a></li>
 	<?php } ?>
