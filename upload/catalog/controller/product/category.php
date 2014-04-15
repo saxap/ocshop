@@ -231,10 +231,11 @@ class ControllerProductCategory extends Controller {
 			foreach ($results as $result) {
 				$data = array(
 					'filter_category_id'  => $result['category_id'],
-					'filter_sub_category' => true
+					'filter_sub_category' => true,
+					'coolfilter'         => $coolfilter
 				);
 
-				$product_total = $this->model_catalog_product->getTotalProducts($data, $coolfilter);				
+				$product_total = $this->model_catalog_product->getTotalProducts($data);				
 
 				$this->data['categories'][] = array(
 					'name'  => $result['name'] . ($this->config->get('config_product_count') ? ' (' . $product_total . ')' : ''),
@@ -251,12 +252,13 @@ class ControllerProductCategory extends Controller {
 				'sort'               => $sort,
 				'order'              => $order,
 				'start'              => ($page - 1) * $limit,
-				'limit'              => $limit
+				'limit'              => $limit,
+				'coolfilter'         => $coolfilter
 			);
 
-			$product_total = $this->model_catalog_product->getTotalProducts($data, $coolfilter); 
+			$product_total = $this->model_catalog_product->getTotalProducts($data); 
 
-			$results = $this->model_catalog_product->getProducts($data, $coolfilter);
+			$results = $this->model_catalog_product->getProducts($data);
 
 			foreach ($results as $result) {
 				if ($result['image']) {

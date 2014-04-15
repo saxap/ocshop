@@ -71,12 +71,19 @@ class ModelCatalogProduct extends Model {
 		}
 	}
 
-	public function getProducts($data = array(), $coolfilter=0) {
+	public function getProducts($data = array()) {
 		if ($this->customer->isLogged()) {
 			$customer_group_id = $this->customer->getCustomerGroupId();
 		} else {
 			$customer_group_id = $this->config->get('config_customer_group_id');
 		}
+		
+			if (!empty($data['coolfilter'])) {
+				$coolfilter = $data['coolfilter'];
+			} else {
+				$coolfilter = 0;
+			}
+			
 	// Start coolfilter
 			$currency_value = $this->currency->getValue();
 			$tax_rate = $this->tax->getTax(100, 9);
@@ -623,14 +630,21 @@ class ModelCatalogProduct extends Model {
 		return $query->rows;
 	}	
 
-	public function getTotalProducts($data = array(), $coolfilter = 0) {
+	public function getTotalProducts($data = array()) {
 		if ($this->customer->isLogged()) {
 			$customer_group_id = $this->customer->getCustomerGroupId();
 		} else {
 			$customer_group_id = $this->config->get('config_customer_group_id');
 		}
-	
-	// Start coolfilter
+				
+		// Start coolfilter
+		if (!empty($data['coolfilter'])) {
+			$coolfilter = $data['coolfilter'];
+		} else {
+			$coolfilter = 0;
+		}
+		
+		
 			$currency_value = $this->currency->getValue();
 			
 			$sql_add_table_prices = '';
@@ -679,6 +693,7 @@ class ModelCatalogProduct extends Model {
 						$values[1][0] = 0;
 					} else {
 						$values[1][0] = $values[1][0]/$currency_value;
+						
 					}
 					
 					if (!isset($values[1][1])) {
@@ -854,6 +869,7 @@ class ModelCatalogProduct extends Model {
 			$sql .= $sql_where_parameters;
 			//standart filter
 
+			
 		$query = $this->db->query($sql);
 
 		return $query->row['total'];

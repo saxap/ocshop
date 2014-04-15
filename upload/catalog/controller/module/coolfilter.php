@@ -243,7 +243,8 @@ class ControllerModuleCoolfilter extends Controller {
 		
 		$categories_id = explode("_", $path);
 		
-		$data_for_query['coolfilter_category_id'] = end($categories_id);
+		$data_for_query['filter_category_id'] = end($categories_id);
+		
 		
 		// Количество товаров в категории для фильтра
 		$data['count'] = '';
@@ -252,14 +253,18 @@ class ControllerModuleCoolfilter extends Controller {
 		
 			if (!$data['active']) {
 				$coolfilter_count = preg_replace('/(' . $option_key . ':)([^;]+)/i', '${1}' . $option_value, $coolfilter);
-				$data['count'] = $this->model_catalog_product->getTotalProducts($data_for_query, $coolfilter_count);
+				$data_for_query['coolfilter'] = $coolfilter_count;
+				$data['count'] = $this->model_catalog_product->getTotalProducts($data_for_query);
 			}
 			else {
 				$coolfilter_count = preg_replace('/(' . $option_key . ':)([^;]+)/i', '${1}' . $option_value, $get_coolfilter);
-				$data['count'] = $this->model_catalog_product->getTotalProducts($data_for_query, $coolfilter_count);
+				$data_for_query['coolfilter'] = $coolfilter_count;
+				$data['count'] = $this->model_catalog_product->getTotalProducts($data_for_query);
+			
 			}
 		
 		}
+
 
 		return $data;
 
