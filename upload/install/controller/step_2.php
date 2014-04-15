@@ -10,7 +10,7 @@ class ControllerStep2 extends Controller {
 		if (isset($this->error['warning'])) {
 			$this->data['error_warning'] = $this->error['warning'];
 		} else {
-			$this->data['error_warning'] = '';	
+			$this->data['error_warning'] = '';
 		}
 
 		$this->data['action'] = $this->url->link('step_2');
@@ -35,7 +35,7 @@ class ControllerStep2 extends Controller {
 		$this->children = array(
 			'header',
 			'footer'
-		);		
+		);
 
 		$this->response->setOutput($this->render());
 	}
@@ -71,6 +71,13 @@ class ControllerStep2 extends Controller {
 
 		if (!extension_loaded('zlib')) {
 			$this->error['warning'] = 'Warning: ZLIB extension needs to be loaded for OCSHOP.CMS to work!';
+		}
+
+		if (!function_exists('iconv')) {
+			// iconv or mbstrings are used in the utf8 helper. Only 1 is needed but suggested to enable mbstring if iconv is not set
+			if (!extension_loaded('mbstring')) {
+				$this->error['warning'] = 'Warning: mbstring extension needs to be loaded for OpenCart to work!';
+			}
 		}
 
 		if (!file_exists(DIR_OPENCART . 'config.php')) {
