@@ -465,23 +465,15 @@ class ControllerCommonFileManager extends Controller {
 					$json['error'] = $this->language->get('error_file_type');
 				}
 
-				// Check to see if any PHP files are trying to be uploaded
-				$content = file_get_contents($this->request->files['image']['tmp_name']);
-
-				if (preg_match('/\<\?/i', $content)) {
-					$json['error'] = $this->language->get('error_filetype');
-				}
-
 				if ($this->request->files['image']['error'] != UPLOAD_ERR_OK) {
 					$json['error'] = 'error_upload_' . $this->request->files['image']['error'];
-				}
+				}			
 			} else {
 				$json['error'] = $this->language->get('error_file');
 			}
 		} else {
 			$json['error'] = $this->language->get('error_directory');
 		}
-
 		
 		if (!$this->user->hasPermission('modify', 'common/filemanager')) {
       		$json['error'] = $this->language->get('error_permission');  

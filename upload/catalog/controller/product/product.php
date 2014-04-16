@@ -821,7 +821,7 @@ class ControllerProductProduct extends Controller {
 				$json['error'] = $this->language->get('error_filetype');
 			}
 
-			// Allowed file mime types
+			// Allowed file mime types		
 			$allowed = array();
 
 			$filetypes = explode("\n", $this->config->get('config_file_mime_allowed'));
@@ -831,13 +831,6 @@ class ControllerProductProduct extends Controller {
 			}
 
 			if (!in_array($this->request->files['file']['type'], $allowed)) {
-				$json['error'] = $this->language->get('error_filetype');
-			}
-
-			// Check to see if any PHP files are trying to be uploaded
-			$content = file_get_contents($this->request->files['file']['tmp_name']);
-
-			if (preg_match('/\<\?/i', $content)) {
 				$json['error'] = $this->language->get('error_filetype');
 			}
 
