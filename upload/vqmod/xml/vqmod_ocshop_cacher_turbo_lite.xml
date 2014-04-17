@@ -52,7 +52,7 @@
 			} 
 			$language_id = (int)$this->config->get('config_language_id');
 			$cache_data = array();
-			if (isset($cacheconfig['menu']['status'])) {
+			if ($cacheconfig['menu']['status']) {
 				if ($cacheconfig['menu']['status']) {
 					$cache_data  = $this->cache->get('menu');
 				};
@@ -69,9 +69,10 @@
 			$this->children = array(
 			]]></search>
 			<add><![CDATA[
-			
+			if ($cacheconfig['menu']['status']) {
 			$cache_data[$language_id][$active] = $this->data['categories'];
 			$this->cache->set('menu', $cache_data, (int)$cacheconfig['menu']['lifetime'], (int)$this->config->get('gzip'));
+			}
 			
 		}
 
@@ -93,7 +94,7 @@
 			$language_id = (int)$this->config->get('config_language_id');
 			$cache_data = array();
 			
-			if (isset($cacheconfig['categorymodule']['status'])) {
+			if ($cacheconfig['categorymodule']['status']) {
 				if ($cacheconfig['categorymodule']['status']) {
 					$cache_data  = $this->cache->get('module.categorymodule');
 				};
@@ -111,9 +112,10 @@
 			if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/module/category.tpl')) {
 			]]></search>
 			<add><![CDATA[
+			if ($cacheconfig['categorymodule']['status']) {
 			$cache_data[$language_id] = $this->data['categories'];
 			$this->cache->set('module.categorymodule', $cache_data, (int)$cacheconfig['categorymodule']['lifetime'], (int)$this->config->get('gzip'));
-			
+			}
 		}
 
 			]]></add>
