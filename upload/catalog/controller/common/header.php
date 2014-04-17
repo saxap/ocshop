@@ -113,6 +113,21 @@ class ControllerCommonHeader extends Controller {
 		} else {
 			$parts = array();
 		}
+		
+		if ($this->config->get('config_menu_brands')) {
+			$data = array();
+				$this->load->model('catalog/manufacturer');
+				$this->data['manufacturer'] = array();
+				$manufacturers = $this->model_catalog_manufacturer->getManufacturers($data);
+				if($manufacturers){
+				foreach($manufacturers as $manufacturer){
+					$this->data['manufacturer'][] = array(
+					'name' => $manufacturer['name'],
+					'href' => $this->url->link('product/manufacturer/info', 'manufacturer_id='.$manufacturer['manufacturer_id'])
+					);
+				}
+			}
+		}
 
 		$this->load->model('catalog/category');
 
@@ -179,20 +194,7 @@ class ControllerCommonHeader extends Controller {
 			}
 		}
 		
-		if ($this->config->get('config_menu_brands')) {
-		$data = array();
-		$this->load->model('catalog/manufacturer');
-		$this->data['manufacturer'] = array();
-		$manufacturers = $this->model_catalog_manufacturer->getManufacturers($data);
-		if($manufacturers){
-		foreach($manufacturers as $manufacturer){
-		$this->data['manufacturer'][] = array(
-		'name' => $manufacturer['name'],
-		'href' => $this->url->link('product/manufacturer/info', 'manufacturer_id='.$manufacturer['manufacturer_id'])
-		);
-		}
-		}
-		}
+		
 
 		$this->children = array(
 			'module/language',
