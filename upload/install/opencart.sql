@@ -681,7 +681,8 @@ CREATE TABLE `oc_category_filter` (
 -- Table structure for table `oc_category_option`
 --
 
-CREATE TABLE IF NOT EXISTS `oc_category_option` (
+DROP TABLE IF EXISTS `oc_category_option`;
+CREATE TABLE `oc_category_option` (
   `option_id` int(10) NOT NULL AUTO_INCREMENT,
   `status` int(1) DEFAULT '0',
   `sort_order` int(10) DEFAULT '0',
@@ -704,7 +705,8 @@ INSERT INTO `oc_category_option` (`option_id`, `status`, `sort_order`) VALUES
 -- Table structure for table `oc_category_option_description`
 --
 
-CREATE TABLE IF NOT EXISTS `oc_category_option_description` (
+DROP TABLE IF EXISTS `oc_category_option_description`;
+CREATE TABLE `oc_category_option_description` (
   `option_id` int(10) NOT NULL,
   `language_id` int(10) NOT NULL,
   `name` varchar(127) COLLATE utf8_bin NOT NULL,
@@ -806,7 +808,8 @@ INSERT INTO `oc_category_to_store` (`category_id`, `store_id`) VALUES
 -- Table structure for table `oc_coolfilter_group`
 --
 
-CREATE TABLE IF NOT EXISTS `oc_coolfilter_group` (
+DROP TABLE IF EXISTS `oc_coolfilter_group`;
+CREATE TABLE `oc_coolfilter_group` (
   `coolfilter_group_id` int(11) NOT NULL AUTO_INCREMENT,
   `sort_order` int(3) NOT NULL,
   PRIMARY KEY (`coolfilter_group_id`)
@@ -825,7 +828,8 @@ INSERT INTO `oc_coolfilter_group` (`coolfilter_group_id`, `sort_order`) VALUES
 -- Table structure for table `oc_coolfilter_group_description`
 --
 
-CREATE TABLE IF NOT EXISTS `oc_coolfilter_group_description` (
+DROP TABLE IF EXISTS `oc_coolfilter_group_description`;
+CREATE TABLE `oc_coolfilter_group_description` (
   `coolfilter_group_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
   `name` varchar(64) COLLATE utf8_bin NOT NULL,
@@ -846,7 +850,8 @@ INSERT INTO `oc_coolfilter_group_description` (`coolfilter_group_id`, `language_
 -- Table structure for table `oc_coolfilter_group_option_to_coolfilter_group`
 --
 
-CREATE TABLE IF NOT EXISTS `oc_coolfilter_group_option_to_coolfilter_group` (
+DROP TABLE IF EXISTS `oc_coolfilter_group_option_to_coolfilter_group`;
+CREATE TABLE `oc_coolfilter_group_option_to_coolfilter_group` (
   `option_id` int(11) NOT NULL,
   `coolfilter_group_id` int(11) NOT NULL,
   PRIMARY KEY (`coolfilter_group_id`,`option_id`)
@@ -868,7 +873,8 @@ INSERT INTO `oc_coolfilter_group_option_to_coolfilter_group` (`option_id`, `cool
 -- Table structure for table `oc_coolfilter_group_to_category`
 --
 
-CREATE TABLE IF NOT EXISTS `oc_coolfilter_group_to_category` (
+DROP TABLE IF EXISTS `oc_coolfilter_group_to_category`;
+CREATE TABLE `oc_coolfilter_group_to_category` (
   `coolfilter_group_id` int(11) NOT NULL,
   `category_id` int(11) NOT NULL,
   PRIMARY KEY (`coolfilter_group_id`,`category_id`)
@@ -924,7 +930,8 @@ INSERT INTO `oc_coolfilter_group_to_category` (`coolfilter_group_id`, `category_
 -- Table structure for table `oc_type_option`
 --
 
-CREATE TABLE IF NOT EXISTS `oc_type_option` (
+DROP TABLE IF EXISTS `oc_type_option`;
+CREATE TABLE `oc_type_option` (
   `option_id` int(11) NOT NULL,
   `type_index` varchar(250) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`type_index`,`option_id`)
@@ -946,7 +953,8 @@ INSERT INTO `oc_type_option` (`option_id`, `type_index`) VALUES
 -- Table structure for table `oc_style_option`
 --
 
-CREATE TABLE IF NOT EXISTS `oc_style_option` (
+DROP TABLE IF EXISTS `oc_style_option`;
+CREATE TABLE `oc_style_option` (
   `option_id` int(11) NOT NULL,
   `style_id` varchar(250) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`style_id`,`option_id`)
@@ -1471,7 +1479,8 @@ CREATE TABLE `oc_download_description` (
 -- Table structure for table `oc_filter_group`
 --
 
-CREATE TABLE IF NOT EXISTS `oc_filter_group` (
+DROP TABLE IF EXISTS `oc_filter_group`;
+CREATE TABLE `oc_filter_group` (
   `filter_group_id` int(11) NOT NULL AUTO_INCREMENT,
   `sort_order` int(3) NOT NULL,
   PRIMARY KEY (`filter_group_id`)
@@ -1490,7 +1499,8 @@ INSERT INTO `oc_filter_group` (`filter_group_id`, `sort_order`) VALUES
 -- Table structure for table `oc_filter_group_description`
 --
 
-CREATE TABLE IF NOT EXISTS `oc_filter_group_description` (
+DROP TABLE IF EXISTS `oc_filter_group_description`;
+CREATE TABLE `oc_filter_group_description` (
   `filter_group_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
   `name` varchar(64) NOT NULL,
@@ -1511,7 +1521,8 @@ INSERT INTO `oc_filter_group_description` (`filter_group_id`, `language_id`, `na
 -- Table structure for table `oc_filter`
 --
 
-CREATE TABLE IF NOT EXISTS `oc_filter` (
+DROP TABLE IF EXISTS `oc_filter`;
+CREATE TABLE `oc_filter` (
   `filter_id` int(11) NOT NULL AUTO_INCREMENT,
   `filter_group_id` int(11) NOT NULL,
   `sort_order` int(3) NOT NULL,
@@ -1534,7 +1545,8 @@ INSERT INTO `oc_filter` (`filter_id`, `filter_group_id`, `sort_order`) VALUES
 -- Table structure for table `oc_filter_description`
 --
 
-CREATE TABLE IF NOT EXISTS `oc_filter_description` (
+DROP TABLE IF EXISTS `oc_filter_description`;
+CREATE TABLE `oc_filter_description` (
   `filter_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
   `filter_group_id` int(11) NOT NULL,
@@ -1945,7 +1957,8 @@ INSERT INTO `oc_manufacturer_description` (`manufacturer_id`, `language_id`, `de
 -- Table structure for table `oc_manufacturer_to_layout`
 --
 
-CREATE TABLE IF NOT EXISTS `oc_manufacturer_to_layout` (
+DROP TABLE IF EXISTS `oc_manufacturer_to_layout`;
+CREATE TABLE `oc_manufacturer_to_layout` (
   `manufacturer_id` int(11) NOT NULL,
   `store_id` int(11) NOT NULL,
   `layout_id` int(11) NOT NULL,
@@ -2676,7 +2689,8 @@ INSERT INTO `oc_product_discount` (`product_discount_id`, `product_id`, `custome
 -- Table structure for table `oc_product_filter`
 --
 
-CREATE TABLE IF NOT EXISTS `oc_product_filter` (
+DROP TABLE IF EXISTS `oc_product_filter`;
+CREATE TABLE `oc_product_filter` (
   `product_id` int(11) NOT NULL,
   `filter_id` int(11) NOT NULL,
   PRIMARY KEY (`product_id`,`filter_id`)
@@ -2880,7 +2894,8 @@ INSERT INTO `oc_product_related` (`product_id`, `related_id`) VALUES
 -- Table structure for table `oc_product_related2`
 --
 
-CREATE TABLE IF NOT EXISTS `oc_product_related2` (
+DROP TABLE IF EXISTS `oc_product_related2`;
+CREATE TABLE `oc_product_related2` (
   `product_id` int(11) NOT NULL,
   `related_id` int(11) NOT NULL,
   PRIMARY KEY (`product_id`,`related_id`)
@@ -2904,7 +2919,8 @@ INSERT INTO `oc_product_related2` (`product_id`, `related_id`) VALUES
 -- Table structure for table `oc_product_related_mn`
 --
 
-CREATE TABLE IF NOT EXISTS `oc_product_related_mn` (
+DROP TABLE IF EXISTS `oc_product_related_mn`;
+CREATE TABLE `oc_product_related_mn` (
   `product_id` int(11) NOT NULL,
   `manufacturer_id` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
@@ -2925,7 +2941,8 @@ INSERT INTO `oc_product_related_mn` (`product_id`, `manufacturer_id`) VALUES
 -- Table structure for table `oc_product_related_wb`
 --
 
-CREATE TABLE IF NOT EXISTS `oc_product_related_wb` (
+DROP TABLE IF EXISTS `oc_product_related_wb`;
+CREATE TABLE `oc_product_related_wb` (
   `product_id` int(11) NOT NULL,
   `category_id` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
@@ -3292,7 +3309,8 @@ INSERT INTO `oc_return_status` (`return_status_id`, `language_id`, `name`) VALUE
 -- Table structure for table `oc_review`
 --
 
-CREATE TABLE IF NOT EXISTS `oc_review` (
+DROP TABLE IF EXISTS `oc_review`;
+CREATE TABLE `oc_review` (
   `review_id` int(11) NOT NULL AUTO_INCREMENT,
   `product_id` int(11) NOT NULL,
   `customer_id` int(11) NOT NULL,
@@ -4214,7 +4232,8 @@ INSERT INTO `oc_zone_to_geo_zone` (`zone_to_geo_zone_id`, `country_id`, `zone_id
 -- Table structure for table `oc_blog_related_product`
 --
 
-CREATE TABLE IF NOT EXISTS `oc_blog_related_product` (
+DROP TABLE IF EXISTS `oc_blog_related_product`;
+CREATE TABLE `oc_blog_related_product` (
   `article_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
   PRIMARY KEY (`article_id`,`product_id`)
@@ -4230,7 +4249,8 @@ CREATE TABLE IF NOT EXISTS `oc_blog_related_product` (
 -- Table structure for table `oc_news`
 --
 
-CREATE TABLE IF NOT EXISTS `oc_news` (
+DROP TABLE IF EXISTS `oc_news`;
+CREATE TABLE `oc_news` (
   `news_id` int(11) NOT NULL AUTO_INCREMENT,
   `image` varchar(255) DEFAULT NULL,
   `parent_id` int(11) NOT NULL DEFAULT '0',
@@ -4257,7 +4277,8 @@ INSERT INTO `oc_news` (`news_id`, `image`, `parent_id`, `top`, `column`, `sort_o
 -- Table structure for table `oc_news_description`
 --
 
-CREATE TABLE IF NOT EXISTS `oc_news_description` (
+DROP TABLE IF EXISTS `oc_news_description`;
+CREATE TABLE `oc_news_description` (
   `news_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL DEFAULT '',
@@ -4286,7 +4307,8 @@ INSERT INTO `oc_news_description` (`news_id`, `language_id`, `name`, `descriptio
 -- Table structure for table `oc_news_to_layout`
 --
 
-CREATE TABLE IF NOT EXISTS `oc_news_to_layout` (
+DROP TABLE IF EXISTS `oc_news_to_layout`;
+CREATE TABLE `oc_news_to_layout` (
   `news_id` int(11) NOT NULL,
   `store_id` int(11) NOT NULL,
   `layout_id` int(11) NOT NULL,
@@ -4299,7 +4321,8 @@ CREATE TABLE IF NOT EXISTS `oc_news_to_layout` (
 -- Table structure for table `oc_news_to_store`
 --
 
-CREATE TABLE IF NOT EXISTS `oc_news_to_store` (
+DROP TABLE IF EXISTS `oc_news_to_store`;
+CREATE TABLE `oc_news_to_store` (
   `news_id` int(11) NOT NULL,
   `store_id` int(11) NOT NULL,
   PRIMARY KEY (`news_id`,`store_id`)
@@ -4319,7 +4342,8 @@ INSERT INTO `oc_news_to_store` (`news_id`, `store_id`) VALUES
 -- Table structure for table `oc_review_article`
 --
 
-CREATE TABLE IF NOT EXISTS `oc_review_article` (
+DROP TABLE IF EXISTS `oc_review_article`;
+CREATE TABLE `oc_review_article` (
   `review_article_id` int(11) NOT NULL AUTO_INCREMENT,
   `article_id` int(11) NOT NULL,
   `customer_id` int(11) NOT NULL,
@@ -4346,7 +4370,8 @@ INSERT INTO `oc_review_article` (`review_article_id`, `article_id`, `customer_id
 -- Table structure for table `oc_article`
 --
 
-CREATE TABLE IF NOT EXISTS `oc_article` (
+DROP TABLE IF EXISTS `oc_article`;
+CREATE TABLE `oc_article` (
   `article_id` int(11) NOT NULL AUTO_INCREMENT,
   `image` varchar(255) DEFAULT NULL,
   `date_available` date NOT NULL,
@@ -4373,7 +4398,8 @@ INSERT INTO `oc_article` (`article_id`, `image`, `date_available`, `sort_order`,
 -- Table structure for table `oc_article_description`
 --
 
-CREATE TABLE IF NOT EXISTS `oc_article_description` (
+DROP TABLE IF EXISTS `oc_article_description`;
+CREATE TABLE `oc_article_description` (
   `article_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
@@ -4406,7 +4432,8 @@ INSERT INTO `oc_article_description` (`article_id`, `language_id`, `name`, `desc
 -- Table structure for table `oc_article_image`
 --
 
-CREATE TABLE IF NOT EXISTS `oc_article_image` (
+DROP TABLE IF EXISTS `oc_article_image`;
+CREATE TABLE `oc_article_image` (
   `article_image_id` int(11) NOT NULL AUTO_INCREMENT,
   `article_id` int(11) NOT NULL,
   `image` varchar(255) DEFAULT NULL,
@@ -4434,7 +4461,8 @@ INSERT INTO `oc_article_image` (`article_image_id`, `article_id`, `image`, `sort
 -- Table structure for table `oc_article_related`
 --
 
-CREATE TABLE IF NOT EXISTS `oc_article_related` (
+DROP TABLE IF EXISTS `oc_article_related`;
+CREATE TABLE `oc_article_related` (
   `article_id` int(11) NOT NULL,
   `related_id` int(11) NOT NULL,
   PRIMARY KEY (`article_id`,`related_id`)
@@ -4450,7 +4478,8 @@ CREATE TABLE IF NOT EXISTS `oc_article_related` (
 -- Table structure for table `oc_article_related_gallery`
 --
 
-CREATE TABLE IF NOT EXISTS `oc_article_related_gallery` (
+DROP TABLE IF EXISTS `oc_article_related_gallery`;
+CREATE TABLE `oc_article_related_gallery` (
   `article_id` int(11) NOT NULL,
   `gallery_id` int(11) NOT NULL,
   PRIMARY KEY (`article_id`,`gallery_id`)
@@ -4466,7 +4495,8 @@ CREATE TABLE IF NOT EXISTS `oc_article_related_gallery` (
 -- Table structure for table `oc_article_related_mn`
 --
 
-CREATE TABLE IF NOT EXISTS `oc_article_related_mn` (
+DROP TABLE IF EXISTS `oc_article_related_mn`;
+CREATE TABLE `oc_article_related_mn` (
   `article_id` int(11) NOT NULL,
   `manufacturer_id` int(11) NOT NULL,
   PRIMARY KEY (`article_id`,`manufacturer_id`)
@@ -4483,7 +4513,8 @@ CREATE TABLE IF NOT EXISTS `oc_article_related_mn` (
 -- Table structure for table `oc_article_related_product`
 --
 
-CREATE TABLE IF NOT EXISTS `oc_article_related_product` (
+DROP TABLE IF EXISTS `oc_article_related_product`;
+CREATE TABLE `oc_article_related_product` (
   `article_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
   PRIMARY KEY (`article_id`,`product_id`)
@@ -4509,7 +4540,8 @@ INSERT INTO `oc_article_related_product` (`article_id`, `product_id`) VALUES
 -- Table structure for table `oc_article_related_wb`
 --
 
-CREATE TABLE IF NOT EXISTS `oc_article_related_wb` (
+DROP TABLE IF EXISTS `oc_article_related_wb`;
+CREATE TABLE `oc_article_related_wb` (
   `article_id` int(11) NOT NULL,
   `category_id` int(11) NOT NULL,
   PRIMARY KEY (`article_id`,`category_id`)
@@ -4525,7 +4557,8 @@ CREATE TABLE IF NOT EXISTS `oc_article_related_wb` (
 -- Table structure for table `oc_article_to_download`
 --
 
-CREATE TABLE IF NOT EXISTS `oc_article_to_download` (
+DROP TABLE IF EXISTS `oc_article_to_download`;
+CREATE TABLE `oc_article_to_download` (
   `article_id` int(11) NOT NULL,
   `download_id` int(11) NOT NULL,
   PRIMARY KEY (`article_id`,`download_id`)
@@ -4537,7 +4570,8 @@ CREATE TABLE IF NOT EXISTS `oc_article_to_download` (
 -- Table structure for table `oc_article_to_layout`
 --
 
-CREATE TABLE IF NOT EXISTS `oc_article_to_layout` (
+DROP TABLE IF EXISTS `oc_article_to_layout`;
+CREATE TABLE `oc_article_to_layout` (
   `article_id` int(11) NOT NULL,
   `store_id` int(11) NOT NULL,
   `layout_id` int(11) NOT NULL,
@@ -4550,7 +4584,8 @@ CREATE TABLE IF NOT EXISTS `oc_article_to_layout` (
 -- Table structure for table `oc_article_to_news`
 --
 
-CREATE TABLE IF NOT EXISTS `oc_article_to_news` (
+DROP TABLE IF EXISTS `oc_article_to_news`;
+CREATE TABLE `oc_article_to_news` (
   `article_id` int(11) NOT NULL,
   `news_id` int(11) NOT NULL,
   `main_news` tinyint(1) NOT NULL DEFAULT '0',
@@ -4571,7 +4606,8 @@ INSERT INTO `oc_article_to_news` (`article_id`, `news_id`, `main_news`) VALUES
 -- Table structure for table `oc_article_to_store`
 --
 
-CREATE TABLE IF NOT EXISTS `oc_article_to_store` (
+DROP TABLE IF EXISTS `oc_article_to_store`;
+CREATE TABLE `oc_article_to_store` (
   `article_id` int(11) NOT NULL,
   `store_id` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`article_id`,`store_id`)
