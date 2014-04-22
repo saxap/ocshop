@@ -119,6 +119,9 @@ class ControllerProductCategory extends Controller {
 							'seo_h1' => $this->language->get('text_all_products'),
 							'image' => '',
 							'description' => '');
+						//india style fix	
+						$this->request->get['path'] = 0;
+						//india style fix							
 					}
 		
 			if ($category_info['seo_title']) {
