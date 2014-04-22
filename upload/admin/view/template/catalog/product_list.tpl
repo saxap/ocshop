@@ -18,9 +18,12 @@
 	</div>
     <div class="content">
       <form action="<?php echo $delete; ?>" method="post" enctype="multipart/form-data" id="form">
+		<input hidden id="page" value="1">
+		<input hidden id="sort" value="pd.name">
+		<input hidden id="order" value="ASC">
         <table class="list">
           <thead>
-            <tr>
+           <tr id="head">
               <td width="1" style="text-align: center;"><input type="checkbox" onclick="$('input[name*=\'selected\']').attr('checked', this.checked);" /></td>
               <td class="center"><?php echo $column_image; ?></td>
               <td class="left"><?php if ($sort == 'pd.name') { ?>
@@ -162,9 +165,9 @@
               <td class="right">
 		      {{if quantity <= 5}}
 			      {{if quantity <= 0}}
-				      <span style="color: #FF0000;">><div class="inlineEditq" >${quantity}</div></span>
+				      <span style="color: #FF0000;"><div class="inlineEditq" >${quantity}</div></span>
 			      {{else}}
-				      <span style="color: #FFA500;">><div class="inlineEditq" >${quantity}</div></span>
+				      <span style="color: #FFA500;"><div class="inlineEditq" >${quantity}</div></span>
 			      {{/if}}
 		      {{else}}
 			          <span style="color: #008000;"><div class="inlineEditq" >${quantity}</div></span>
