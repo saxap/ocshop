@@ -10,7 +10,7 @@ class ControllerModuleViewed extends Controller {
       		$viewed_products = $this->session->data['viewed'];
     	}
         
-        if (isset($this->request->get['route']) && $this->request->get['route'] == 'product/product') {
+        if (isset($this->request->get['route']) && isset($this->request->get['product_id']) && $this->request->get['route'] == 'product/product') {
             
             $product_id = $this->request->get['product_id'];   
                
