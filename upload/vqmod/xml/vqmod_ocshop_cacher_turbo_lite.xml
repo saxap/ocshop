@@ -21,7 +21,7 @@
 		<operation>
 			<search position="replace"><![CDATA[$data = unserialize($cache);]]></search>
 			
-			<add><![CDATA[$data = unserialize(@gzuncompress($cache));]]></add>
+			<add><![CDATA[$data = @unserialize(@gzuncompress($cache));]]></add>
 			
 		</operation>
 		
