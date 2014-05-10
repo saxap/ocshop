@@ -107,10 +107,10 @@ class ModelCatalogProduct extends Model {
 				$values = explode(':', $option);
 				
 				
-				if ($values[0] == 'm') {
+				if ($values[0] == 'm' && preg_match('/^[\d\,]*$/', $values[1])) {
 					$sql_where_manufacteurs = ' AND p.manufacturer_id IN (' . $this->db->escape($values[1]) . ')';
 				}
-				if (preg_match('/o_\d+/', $values[0])) {
+				if (preg_match('/o_\d+/', $values[0]) && preg_match('/^[\d\,]*$/', $values[1])) {
 					$option_id = $this->db->escape($values[0]);
 					$sql_add_table_options .= ' LEFT JOIN ' . DB_PREFIX . 'product_option_value pov' . $option_id . ' ON (p.product_id = pov' . $option_id . '.product_id)';
 					
@@ -165,13 +165,9 @@ class ModelCatalogProduct extends Model {
 					$sql_where_prices .= "AND tb.price >= '" . $values[1][0] . "' AND (tb.discount IS NULL OR tb.discount >= '" . $values[1][0] . "') AND (tb.special IS NULL OR tb.special >= '" . $values[1][0] . "') AND tb.price <= '" . $values[1][1] . "' AND (tb.discount IS NULL OR tb.discount <= '" . $values[1][1] . "') AND (tb.special IS NULL OR tb.special <= '" . $values[1][1] . "')";
 				}
 				//standart filter
-				if (preg_match('/p_\d+/', $values[0])) {
-				
-		
-				
-					if (preg_match('/p_\d+/', $values[0])) {
+				if (preg_match('/p_\d+/', $values[0]) && preg_match('/^[\d\,]*$/', $values[1])) {
+
 					$parameter_id = $this->db->escape($values[0]);
-					
 					
 					
 					$sql_add_table_parameters .= " LEFT JOIN " . DB_PREFIX . "product_filter par" . $parameter_id . " ON (p.product_id = par" . $parameter_id . ".product_id) LEFT JOIN  " . DB_PREFIX . "filter_description fd" . $parameter_id . "  ON (par" . $parameter_id . ".filter_id = fd" . $parameter_id . ".filter_id) ";
@@ -188,7 +184,7 @@ class ModelCatalogProduct extends Model {
 										
 					$sql_where_parameters .= " AND (fd" . $parameter_id . ".language_id = '" . (int)$this->config->get('config_language_id') . "' AND par" . $parameter_id . ".filter_id IN (" . $values[1] . "))";
 					
-					}
+					
 				}
 				//standart filter
 				}
@@ -663,13 +659,15 @@ class ModelCatalogProduct extends Model {
 						
 			  foreach (explode(';', $coolfilter) as $option) {
 				$values = explode(':', $option);
-				if ($values[0] == 'm') {
+				
+				
+				if ($values[0] == 'm' && preg_match('/^[\d\,]*$/', $values[1])) {
 					$sql_where_manufacteurs = ' AND p.manufacturer_id IN (' . $this->db->escape($values[1]) . ')';
 				}
-				if (preg_match('/o_\d+/', $values[0])) {
+				if (preg_match('/o_\d+/', $values[0]) && preg_match('/^[\d\,]*$/', $values[1])) {
 					$option_id = $this->db->escape($values[0]);
 					$sql_add_table_options .= ' LEFT JOIN ' . DB_PREFIX . 'product_option_value pov' . $option_id . ' ON (p.product_id = pov' . $option_id . '.product_id)';
-					
+					$values[1] = preg_replace("/[^0-9\,]/", "", $values[1]);
 					$sql_where_options .= ' AND pov' . $option_id . '.option_value_id IN (' . $this->db->escape($values[1]) .') AND (pov' . $option_id . '.subtract=0 OR pov' . $option_id . '.subtract=1 AND pov' . $option_id . '.quantity > 0)';
 				}
 				if (preg_match('/a_\d+/', $values[0])) {
@@ -688,7 +686,10 @@ class ModelCatalogProduct extends Model {
 				}
 				if ($values[0] == 'p') {
 					
-					$values[1] = explode(",", $values[1]);
+					if (isset($values[1])) {
+					    $values[1] = explode(",", $values[1]);
+					}
+					
 					if (!isset($values[1][0])) {
 						$values[1][0] = 0;
 					} else {
@@ -718,14 +719,9 @@ class ModelCatalogProduct extends Model {
 				
 				
 				//standart filter
-				if (preg_match('/p_\d+/', $values[0])) {
 				
-		
-				
-					if (preg_match('/p_\d+/', $values[0])) {
+					if (preg_match('/p_\d+/', $values[0]) && preg_match('/^[\d\,]*$/', $values[1])) {
 					$parameter_id = $this->db->escape($values[0]);
-					
-					
 					
 					$sql_add_table_parameters .= " LEFT JOIN " . DB_PREFIX . "product_filter par" . $parameter_id . " ON (p.product_id = par" . $parameter_id . ".product_id) LEFT JOIN  " . DB_PREFIX . "filter_description fd" . $parameter_id . "  ON (par" . $parameter_id . ".filter_id = fd" . $parameter_id . ".filter_id) ";
 					$get_id = explode("_", $values[0]);
@@ -740,9 +736,7 @@ class ModelCatalogProduct extends Model {
 					$values[1] = "'" . implode("','", $values[1]) . "'";
 										
 					$sql_where_parameters .= " AND (fd" . $parameter_id . ".language_id = '" . (int)$this->config->get('config_language_id') . "' AND par" . $parameter_id . ".filter_id IN (" . $values[1] . "))";// 
-					}
-				}
-								
+					}			
 				}
 			} 
 

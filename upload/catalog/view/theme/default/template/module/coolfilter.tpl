@@ -136,8 +136,13 @@
 	
 	function setUrl(coolfilter) {
 		var href = location.href;
+		
+		var exp = /&page=(.*?)(&|$)/g;
+		href = href.replace(exp, "");
 		var exp = /&coolfilter=(.*?)(&|$)/g;
+		href = href.replace(exp, "");
 		href = href.replace(exp, "$2") + '&coolfilter=' + coolfilter;
+				
 		location = href;
 	}
 	
@@ -152,7 +157,7 @@
 	
 	function resetcoolfilter() {
 		var href = location.href;
-		var exp = /(\?|&)coolfilter=(.*?)(&|$)/g;
+		var exp = /(\?|\&)coolfilter=(.*)?(&|$)/g;
 		href = href.replace(exp, "");
 		location = href;
 	}
@@ -186,5 +191,8 @@
 		$(this).siblings("a").toggleClass("coolfilter_active");
 		$(this).parents(".coolfilter-item-select-list").show();
     });
+	
+	
+	
 	
 </script>

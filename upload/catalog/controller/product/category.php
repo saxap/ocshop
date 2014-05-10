@@ -320,9 +320,17 @@ class ControllerProductCategory extends Controller {
 			if (isset($this->request->get['filter'])) {
 				$url .= '&filter=' . $this->request->get['filter'];
 			}
+			
+			if (isset($this->request->get['coolfilter'])) {
+				$url .= '&coolfilter=' . $this->request->get['coolfilter'];
+			}
 
 			if (isset($this->request->get['limit'])) {
 				$url .= '&limit=' . $this->request->get['limit'];
+			}
+			
+			if (isset($this->request->get['coolfilter'])) {
+				$url .= '&coolfilter=' . $this->request->get['coolfilter'];
 			}
 
 			$this->data['sorts'] = array();
@@ -396,6 +404,10 @@ class ControllerProductCategory extends Controller {
 			if (isset($this->request->get['order'])) {
 				$url .= '&order=' . $this->request->get['order'];
 			}
+			
+			if (isset($this->request->get['coolfilter'])) {
+				$url .= '&coolfilter=' . $this->request->get['coolfilter'];
+			}
 
 			$this->data['limits'] = array();
 
@@ -427,6 +439,10 @@ class ControllerProductCategory extends Controller {
 
 			if (isset($this->request->get['limit'])) {
 				$url .= '&limit=' . $this->request->get['limit'];
+			}
+			
+			if (isset($this->request->get['coolfilter'])) {
+				$url .= '&coolfilter=' . $this->request->get['coolfilter'];
 			}
 
 			$pagination = new Pagination();
