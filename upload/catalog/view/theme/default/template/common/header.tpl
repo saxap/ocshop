@@ -127,7 +127,7 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
 	<ul>
 	<?php foreach($manufacturer as $manufacturers){ ?>
 	<li><a href="<?php echo $manufacturers['href']; ?>"><?php echo $manufacturers['name']; ?></a></li>
-	<? } ?>
+	<?php } ?>
 	</ul>
 	</div>
 	</li>
