@@ -32,7 +32,7 @@ $_['entry_email']                  = 'E-Mail:';
 $_['entry_telephone']              = 'Telephone:';
 $_['entry_fax']                    = 'Fax:';
 $_['entry_welcome']                = 'Welcome:';
-$_['entry_maps']                   = 'Yandex Maps:<br /><span class="help"><a target="_blank" href="http://api.yandex.ru/maps/tools/constructor/">Designer maps</a><br />Width: 500 Height: 240</span>';
+$_['entry_maps']                   = 'Yandex Maps:<br /><span class="help"><a target="_blank" href="http://api.yandex.ru/maps/tools/constructor/">Designer maps</a><br />Width: 430 Height: 220</span>';
 $_['entry_vk']                     = 'Vkontakte:';
 $_['entry_fb']                     = 'Facebook:';
 $_['entry_googleplus']             = 'Google+:';

@@ -32,7 +32,7 @@ $_['entry_email']                  = 'E-Mail:';
 $_['entry_telephone']              = 'Телефон:';
 $_['entry_fax']                    = 'Факс:';
 $_['entry_welcome']                = 'Приветствие:';
-$_['entry_maps']                 = 'Яндекс карта:<br /><span class="help"><a target="_blank" href="http://api.yandex.ru/maps/tools/constructor/">Конструктор карт</a><br />Ширина: 500 Высота: 240</span>';
+$_['entry_maps']                 = 'Яндекс карта:<br /><span class="help"><a target="_blank" href="http://api.yandex.ru/maps/tools/constructor/">Конструктор карт</a><br />Ширина: 430 Высота: 220</span>';
 $_['entry_vk']                   = 'Вконтакте:';
 $_['entry_fb']                   = 'Фейсбук:';
 $_['entry_googleplus']           = 'Google+:';
