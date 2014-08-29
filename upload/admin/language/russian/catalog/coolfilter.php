@@ -28,7 +28,7 @@ $_['entry_store']            = 'Магазины:';
 $_['entry_sort_order']       = 'Порядок сортировки:';
 $_['entry_type']			 = 'Тип фильтра:';
 $_['entry_style']			 = 'Стиль фильтра:';
-$_['entry_filter_groups']    = 'Группы фильтров:';
+$_['entry_coolfilter_groups']    = 'Группы фильтров:';
 
 // TypeItems
 $_['text_prices']       	 = 'Цена';
