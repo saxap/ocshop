@@ -362,7 +362,7 @@ class ModelCatalogProduct extends Model {
 			$data = array_merge($data, array('product_option' => $this->getProductOptions($product_id)));
 			$data = array_merge($data, array('product_related' => $this->getProductRelated($product_id)));
 			$data = array_merge($data, array('product_related2' => $this->getProductRelated2($product_id)));
-			$data = array_merge($data, array('blog_related_product' => $this->getArticleRelated($article_id)));
+			$data = array_merge($data, array('blog_related_product' => $this->getArticleRelated($product_id)));
 			$data = array_merge($data, array('product_reward' => $this->getProductRewards($product_id)));
 			$data = array_merge($data, array('product_special' => $this->getProductSpecials($product_id)));
 			$data = array_merge($data, array('product_category' => $this->getProductCategories($product_id)));
