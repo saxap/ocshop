@@ -94,6 +94,7 @@ class ControllerBlogNews extends Controller {
 			
 			$this->document->addStyle('catalog/view/theme/default/stylesheet/blog.css');
 			$this->document->addScript('catalog/view/javascript/jquery/jail/jail.min.js');
+			$this->document->addScript('catalog/view/javascript/jquery/jquery.total-storage.min.js');
 			
 			$this->data['text_refine'] = $this->language->get('text_refine');
 			$this->data['text_views'] = $this->language->get('text_views');
