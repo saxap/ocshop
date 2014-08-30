@@ -75,7 +75,7 @@ class ControllerModuleBlogMostViewed extends Controller {
 		
 		$this->data['action'] = $this->url->link('module/blog_mostviewed', 'token=' . $this->session->data['token'], 'SSL');
 		
-		$this->data['cancel'] = $this->url->link('extension/blog_module', 'token=' . $this->session->data['token'], 'SSL');
+		$this->data['cancel'] = $this->url->link('extension/module', 'token=' . $this->session->data['token'], 'SSL');
 		
 		$this->data['modules'] = array();
 		
