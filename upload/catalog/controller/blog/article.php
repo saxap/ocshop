@@ -258,6 +258,8 @@ class ControllerBlogArticle extends Controller {
 				);
 			}	
 			
+			$this->data['download_status'] = $this->config->get('config_blog_download');
+			
 			$this->data['downloads'] = array();
 			
 			$results = $this->model_blog_article->getDownloads($this->request->get['article_id']);
