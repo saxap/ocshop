@@ -130,6 +130,8 @@ class ControllerBlogLatest extends Controller {
 			
 			$results = $this->model_blog_article->getArticles($data);
 			
+			$this->data['review_status'] = $this->config->get('config_blog_review_status');
+			
 
 		foreach ($results as $result) {
 				if ($result['image']) {

@@ -85,6 +85,7 @@ class ControllerBlogNews extends Controller {
 
 			$this->document->setDescription($news_info['meta_description']);
 			$this->document->setKeywords($news_info['meta_keyword']);
+			$this->data['review_status'] = $this->config->get('config_blog_review_status');
 			
 			 if ($news_info['seo_h1']) {
 				$this->data['heading_title'] = $news_info['seo_h1'];
