@@ -23,6 +23,8 @@ class ControllerToolCachemanager extends Controller {
 			$this->model_setting_setting->editSetting('cachemanager', $this->request->post);		
 
 			$this->session->data['success'] = $this->language->get('text_success_setting');
+			
+			$this->clearsystemcache();
 
 			$this->redirect($this->url->link('tool/cachemanager', 'token=' . $this->session->data['token'], 'SSL'));
 		}
@@ -218,11 +220,15 @@ class ControllerToolCachemanager extends Controller {
 			$this->load->language('tool/cachemanager');
 		
 			$pattern = $this->request->get['pattern'];
+			
 			$files = glob(DIR_CACHE . 'cache.'. $pattern .'*');
-			foreach($files as $file){
-				$this->deldir($file);
-			}
-					
+			
+			if ($files) {
+				foreach($files as $file){
+					@unlink($file);
+				}
+			}		
+			
 			$this->session->data['success'] = $this->language->get('text_success');
 		}
 		
@@ -231,12 +237,17 @@ class ControllerToolCachemanager extends Controller {
 	
 	
 	public function clearsystemcache() {
+	
 		$this->load->language('tool/cachemanager');
+		
 		$files = glob(DIR_CACHE . 'cache.*');
-		foreach($files as $file){
-			$this->deldir($file);
-		}
-                
+		
+		if ($files) {
+			foreach($files as $file){
+				$this->deldir($file);
+			};
+        }
+        
 		$this->session->data['success'] = $this->language->get('text_success');
 		
         $this->redirect(HTTPS_SERVER . 'index.php?route=tool/cachemanager&token=' . $this->session->data['token']);		
@@ -250,13 +261,13 @@ class ControllerToolCachemanager extends Controller {
 			if ($files) {
 				foreach ($files as $file) {
 					if (is_file($file)) {
-						unlink($file);
+						@unlink($file);
 					}
 				}
 			}
 
 			if (is_file($this->vqmod_modcache)) {
-				unlink($this->vqmod_modcache);
+				@unlink($this->vqmod_modcache);
 			}
 
 			if ($return) {
@@ -270,8 +281,10 @@ class ControllerToolCachemanager extends Controller {
 	}
         
 	public function clearcache() {
+	
 		$this->load->language('tool/cachemanager');
-                $imgfiles = glob(DIR_IMAGE . 'cache/*');
+		
+        $imgfiles = glob(DIR_IMAGE . 'cache/*');
               foreach($imgfiles as $imgfile){
                      $this->deldir($imgfile);
 		}
@@ -280,10 +293,14 @@ class ControllerToolCachemanager extends Controller {
         $this->redirect(HTTPS_SERVER . 'index.php?route=tool/cachemanager&token=' . $this->session->data['token']);		
 		}
 		
-    public function deldir($dirname){         
+    public function deldir($dirname){   
+	
 		if(file_exists($dirname)) {
+		
 			if(is_dir($dirname)){
+			
                             $dir=opendir($dirname);
+							
                             while($filename=readdir($dir)){
                                     if($filename!="." && $filename!=".."){
                                         $file=$dirname."/".$filename;
@@ -299,6 +316,7 @@ class ControllerToolCachemanager extends Controller {
 	
 	
 	protected function validate() {
+	
 		if (!$this->user->hasPermission('modify', 'tool/cachemanager')) {
 			$this->error['warning'] = $this->language->get('error_permission');
 		}
