@@ -152,6 +152,7 @@ class ControllerCommonHeader extends Controller {
 						);
 						
 						$product_total = $this->model_catalog_product->getTotalProducts($data);
+						
 					}
 
 					//Level 3
@@ -164,11 +165,11 @@ class ControllerCommonHeader extends Controller {
 							  'filter_sub_category' => true
 						);
  
-						$product_total = $this->model_catalog_product->getTotalProducts($data);
+						$sub_total = $this->model_catalog_product->getTotalProducts($data);
 					}
 
 					$subchildren_data[] = array(
-								'name'  => $subchild['name'] . ($this->config->get('config_product_count') ? ' (' . $product_total . ')' : ''),
+								'name'  => $subchild['name'] . ($this->config->get('config_product_count') ? ' (' . $sub_total . ')' : ''),
 								'href'  => $this->url->link('product/category', 'path=' . $category['category_id'] . '_' . $child['category_id']. '_' . $subchild['category_id'])	
 						);						
 					}								
