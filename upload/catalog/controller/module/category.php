@@ -46,7 +46,7 @@ class ControllerModuleCategory extends Controller {
 
 				$product_total = $this->model_catalog_product->getTotalProducts($data);
 
-				$total += $product_total;
+				//$total += $product_total;
 
 				$children_data[] = array(
 					'category_id' => $child['category_id'],
