@@ -182,6 +182,7 @@ class ControllerCommonSeoPro extends Controller {
 			
 			//ocshop
 			case 'product/product/review':
+			case 'product/search':
 			case 'blog/article/review':
 			case 'information/information/info':
 				return $link;
