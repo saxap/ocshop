@@ -103,7 +103,8 @@ class ControllerProductLatest extends Controller {
 			'sort'  => $sort,
 			'order' => $order,
 			'start' => ($page - 1) * $this->data['limit'],
-			'limit' => $this->data['limit']
+			'limit' => $this->data['limit'],
+			'max' 	=> 	$this->max
 		);
 			
 			
@@ -118,7 +119,7 @@ class ControllerProductLatest extends Controller {
 			'limit' => 	$this->max
 		);
 			
-			
+		
 		$product_total = $this->model_catalog_product->getTotalProducts($data);
 		
 		
