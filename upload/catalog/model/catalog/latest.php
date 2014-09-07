@@ -70,8 +70,6 @@ class ModelCatalogLatest extends Model {
 			$sql .= " LIMIT " . (int)$data['start'] . "," . (int)$data['limit'];
 		}
 			
-			print_r($sql);
-			
 			$query = $this->db->query($sql);
 		 	 
 			foreach ($query->rows as $result) {
