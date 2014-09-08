@@ -13,6 +13,8 @@
 -- Database: `ocshop`
 --
 
+SET sql_mode = '';
+
 -- --------------------------------------------------------
 
 CREATE TABLE `oc_product_profile` (
