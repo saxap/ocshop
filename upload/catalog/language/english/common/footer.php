@@ -5,6 +5,7 @@ $_['text_service']      = 'Customer Service';
 $_['text_extra']        = 'Extras';
 $_['text_contact']      = 'Contact Us';
 $_['text_return']       = 'Returns';
+$_['text_testimonial']  = 'Testimonial';
 $_['text_sitemap']      = 'Site Map';
 $_['text_manufacturer'] = 'Brands';
 $_['text_voucher']      = 'Gift Vouchers';

@@ -5,6 +5,7 @@ $_['text_service']      = 'Служба поддержки';
 $_['text_extra']        = 'Дополнительно';
 $_['text_contact']      = 'Связаться с нами';
 $_['text_return']       = 'Возврат товара';
+$_['text_testimonial']  = 'Отзывы о Магазине';
 $_['text_sitemap']      = 'Карта сайта';
 $_['text_manufacturer'] = 'Производители';
 $_['text_voucher']      = 'Подарочные сертификаты';
