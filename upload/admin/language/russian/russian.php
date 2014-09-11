@@ -121,6 +121,7 @@ $_['tab_transaction']         = 'Сделки';
 $_['tab_voucher']             = 'Ваучеры';
 $_['tab_voucher_history']     = 'История ваучеров';
 $_['tab_price']               = 'Цена';
+$_['tab_sms']                 = 'SMS';
 
 // Error
 $_['error_upload_1']          = 'Размер загружаемого файла превышает максимальный размер, указанный в php.ini!';
