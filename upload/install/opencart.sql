@@ -3119,6 +3119,26 @@ CREATE TABLE `oc_product_to_layout` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `oc_product_to_sticker`
+--
+
+DROP TABLE IF EXISTS `oc_product_to_sticker`;
+CREATE TABLE IF NOT EXISTS `oc_product_to_sticker` (
+  `product_id` int(11) NOT NULL,
+  `sticker_id` int(11) NOT NULL,
+  `position` tinyint(1) NOT NULL,
+  KEY `product_id` (`product_id`),
+  KEY `sticker_id` (`sticker_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumping data for table `oc_product_to_sticker`
+--
+
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `oc_product_to_store`
 --
 
@@ -3530,6 +3550,32 @@ INSERT INTO `oc_setting` (`setting_id`, `store_id`, `group`, `key`, `value`, `se
 
 
 
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oc_sticker`
+--
+
+DROP TABLE IF EXISTS `oc_sticker`;
+CREATE TABLE IF NOT EXISTS `oc_sticker` (
+  `sticker_id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(64) NOT NULL,
+  `status` tinyint(1) NOT NULL,
+  `image` varchar(255) NOT NULL,
+  PRIMARY KEY (`sticker_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=18 ;
+
+--
+-- Dumping data for table `oc_sticker`
+--
+
+INSERT INTO `oc_sticker` (`sticker_id`, `name`, `status`, `image`) VALUES
+(15, 'Лучший Выбор', 1, 'data/stiker/best.png'),
+(13, 'Новинка', 1, 'data/stiker/new.png'),
+(14, 'Хит Продаж', 1, 'data/stiker/bestseller.png'),
+(16, 'Акция', 1, 'data/stiker/special.png'),
+(17, 'Лучшая цена', 1, 'data/stiker/bestprice.png');
 
 -- --------------------------------------------------------
 

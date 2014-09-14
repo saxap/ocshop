@@ -168,6 +168,30 @@
               <td><?php echo $entry_keyword; ?></td>
               <td><input type="text" name="keyword" value="<?php echo $keyword; ?>" /></td>
             </tr>
+			<tr>
+              <td><?php echo $entry_sticker; ?></td>
+			   <td>
+			   <?php for ($i = 0; $i <= 3; $i++) { ?>
+			   <div class="sticker_block">
+			   <div class="corner_name">	   
+			   <?php echo ${'text_corner' . $i}; ?> <span class="square  <?php echo 'corner_' . $i; ?>"></span>
+			   </div>
+			   <div class="sticker-select">
+			   <select name="product_stickers[<?php echo $i; ?>]">
+                <option value="0" selected="selected"><?php echo $text_none; ?></option>
+                <?php foreach ($stickers as $sticker) { ?>
+                <?php if (!empty($product_stickers[$i]) && $product_stickers[$i] == $sticker['sticker_id']) { ?>
+                <option value="<?php echo $sticker['sticker_id']; ?>" selected="selected"><?php echo $sticker['name']; ?></option>
+                <?php } else { ?>
+                <option value="<?php echo $sticker['sticker_id']; ?>"><?php echo $sticker['name']; ?></option>
+                <?php } ?>
+                <?php } ?>
+              </select>
+			  </div>
+			  </div>
+			  <?php } ?>
+			  </td>			 			  
+			</tr>
             <tr>
               <td><?php echo $entry_image; ?></td>
               <td><div class="image"><img src="<?php echo $thumb; ?>" alt="" id="thumb" /><br />

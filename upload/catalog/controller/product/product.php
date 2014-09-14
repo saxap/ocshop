@@ -409,6 +409,7 @@ class ControllerProductProduct extends Controller {
 			$this->data['rating'] = (int)$product_info['rating'];
 			$this->data['description'] = html_entity_decode($product_info['description'], ENT_QUOTES, 'UTF-8');
 			$this->data['attribute_groups'] = $this->model_catalog_product->getProductAttributes($this->request->get['product_id']);
+			$this->data['sticker'] = $this->getStickers($result['product_id']) ;
 
 			$this->data['products'] = array();
 
@@ -438,6 +439,8 @@ class ControllerProductProduct extends Controller {
 				} else {
 					$rating = false;
 				}
+				
+				$stickers = $this->getStickers($result['product_id']) ;
 
 				$this->data['products'][] = array(
 					'product_id' => $result['product_id'],
@@ -446,6 +449,7 @@ class ControllerProductProduct extends Controller {
 					'price'   	 => $price,
 					'special' 	 => $special,
 					'rating'     => $rating,
+					'sticker'     => $stickers,
 					'reviews'    => sprintf($this->language->get('text_reviews'), (int)$result['reviews']),
 					'href'    	 => $this->url->link('product/product', 'product_id=' . $result['product_id'])
 				);
@@ -478,6 +482,8 @@ class ControllerProductProduct extends Controller {
 				} else {
 					$rating = false;
 				}
+				
+				$stickers = $this->getStickers($result['product_id']) ;
 							
 				$this->data['products2'][] = array(
 					'product_id' => $result['product_id'],
@@ -486,6 +492,7 @@ class ControllerProductProduct extends Controller {
 					'price'   	 => $price,
 					'special' 	 => $special,
 					'rating'     => $rating,
+					'sticker'     => $stickers,
 					'reviews'    => sprintf($this->language->get('text_reviews'), (int)$result['reviews']),
 					'href'    	 => $this->url->link('product/product', 'product_id=' . $result['product_id']),
 				);
@@ -853,6 +860,34 @@ class ControllerProductProduct extends Controller {
 		}	
 
 		$this->response->setOutput(json_encode($json));		
+	}
+	
+	private function getStickers($product_id) {
+	
+ 	$stickers = $this->model_catalog_product->getProductStickerbyProductId($product_id) ;	
+		
+		if (!$stickers) {
+			return;
+		}
+		
+		$this->data['stickers'] = array();
+		
+		foreach ($stickers as $sticker) {
+			$this->data['stickers'][] = array(
+				'position' => $sticker['position'],
+				'image'    => HTTP_SERVER . 'image/' . $sticker['image']
+			);		
+		}
+
+	
+		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/product/stickers.tpl')) {
+			$this->template = $this->config->get('config_template') . '/template/product/stickers.tpl';
+		} else {
+			$this->template = 'default/template/product/stickers.tpl';
+		}
+	
+		return $this->render();
+	
 	}
 }
 ?>

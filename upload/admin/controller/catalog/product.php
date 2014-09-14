@@ -4,14 +4,14 @@ class ControllerCatalogProduct extends Controller {
 
 	public function price() {
         if ($this->request->server['REQUEST_METHOD'] == 'POST') {
-        $this->db->query("UPDATE " . DB_PREFIX . "product SET price = '" . (float)$this->request->post['price'] . "' WHERE product_id = '" . (int)$this->request->post['product_id'] . "'");
+        $this->db->query("UPDATE " . DB_PREFIX . "product SET price = '" . (integer)$this->request->post['price'] . "' WHERE product_id = '" . (int)$this->request->post['product_id'] . "'");
         $this->cache->delete('product');
         }
         }	
 
 	public function quantity() {
         if ($this->request->server['REQUEST_METHOD'] == 'POST') {
-        $this->db->query("UPDATE " . DB_PREFIX . "product SET quantity = '" . (int)$this->request->post['quantity'] . "' WHERE product_id = '" . (int)$this->request->post['product_id'] . "'");
+        $this->db->query("UPDATE " . DB_PREFIX . "product SET quantity = '" . (float)$this->request->post['quantity'] . "' WHERE product_id = '" . (int)$this->request->post['product_id'] . "'");
         $this->cache->delete('product');
         }
         }
@@ -965,7 +965,16 @@ class ControllerCatalogProduct extends Controller {
 		$this->data['tab_links'] = $this->language->get('tab_links');
 		$this->data['tab_reward'] = $this->language->get('tab_reward');
 		$this->data['tab_design'] = $this->language->get('tab_design');
-
+		
+		//stickers
+		$this->data['text_corner0'] = $this->language->get('text_corner0');
+		$this->data['text_corner1'] = $this->language->get('text_corner1');
+		$this->data['text_corner2'] = $this->language->get('text_corner2');
+		$this->data['text_corner3'] = $this->language->get('text_corner3');
+		$this->data['entry_sticker'] = $this->language->get('entry_sticker');
+		//stickers
+		
+		
 		if (isset($this->error['warning'])) {
 			$this->data['error_warning'] = $this->error['warning'];
 		} else {
@@ -1681,6 +1690,18 @@ class ControllerCatalogProduct extends Controller {
 		$this->load->model('design/layout');
 
 		$this->data['layouts'] = $this->model_design_layout->getLayouts();
+		
+		$this->load->model('design/sticker');
+
+		$this->data['stickers'] = $this->model_design_sticker->getStickersProduct();
+	
+		if (isset($this->request->post['product_stickers'])) {
+			$this->data['product_stickers'] = $this->request->post['product_stickers'];
+		} elseif (isset($product_info)) {
+			$this->data['product_stickers'] = $this->model_design_sticker->getProductSticker($product_info['product_id']);
+		} else {
+			$this->data['product_stickers'] = array();
+		}
 
 		$this->template = 'catalog/product_form.tpl';
 		$this->children = array(

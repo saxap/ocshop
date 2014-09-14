@@ -112,6 +112,13 @@ $_['text_length_month']      = 'Месяц';
 $_['text_length_month_semi'] = 'Пол месяца';
 $_['text_length_year']       = 'Год';
 
+//stickers
+$_['text_corner0']           = 'Верхний левый';
+$_['text_corner1']           = 'Верхний правый';
+$_['text_corner2']           = 'Нижний левый';
+$_['text_corner3']           = 'Нижний правый';
+$_['entry_sticker']          = 'Промо Стикеры:';
+
 // Error
 $_['error_warning']          = 'Внимательно проверьте форму на ошибки!';
 $_['error_permission']       = 'У Вас нет прав для изменения товаров!';

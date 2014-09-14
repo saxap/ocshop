@@ -11,6 +11,7 @@ $_['text_cachemanager']                = 'Кэш Менеджер';
 $_['text_seomanager']                  = 'SEO Менеджер';
 $_['text_vqmod_manager']               = 'VQMod Менеджер';
 $_['text_banner']                      = 'Баннеры';
+$_['text_sticker']                     = 'Промо Стикеры';
 $_['text_catalog']                     = 'Каталог';
 $_['text_cms']             	           = 'Блог';
 $_['text_news'] 	                   = 'Категории Блога';
