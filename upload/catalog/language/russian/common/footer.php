@@ -4,6 +4,7 @@ $_['text_information']  = 'Информация';
 $_['text_service']      = 'Служба поддержки';
 $_['text_extra']        = 'Дополнительно';
 $_['text_contact']      = 'Связаться с нами';
+$_['text_abuses']       = 'Пожаловаться Директору';
 $_['text_return']       = 'Возврат товара';
 $_['text_testimonial']  = 'Отзывы о Магазине';
 $_['text_sitemap']      = 'Карта сайта';

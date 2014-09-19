@@ -7,6 +7,7 @@ class ControllerCommonFooter extends Controller {
 		$this->data['text_service'] = $this->language->get('text_service');
 		$this->data['text_extra'] = $this->language->get('text_extra');
 		$this->data['text_contact'] = $this->language->get('text_contact');
+		$this->data['text_abuses'] = $this->language->get('text_abuses');
 		$this->data['text_return'] = $this->language->get('text_return');
 		$this->data['text_testimonial'] = $this->language->get('text_testimonial');
 		$this->data['text_sitemap'] = $this->language->get('text_sitemap');
@@ -34,6 +35,7 @@ class ControllerCommonFooter extends Controller {
 		}
 
 		$this->data['contact'] = $this->url->link('information/contact');
+		$this->data['abuses'] = $this->url->link('information/abuses');
 		$this->data['return'] = $this->url->link('account/return/insert', '', 'SSL');
 		$this->data['testimonial'] = $this->url->link('product/testimonial');
 		$this->data['sitemap'] = $this->url->link('information/sitemap');

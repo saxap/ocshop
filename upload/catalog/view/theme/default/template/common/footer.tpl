@@ -41,6 +41,7 @@
     <h3><?php echo $text_service; ?></h3>
     <ul>
       <li><a href="<?php echo $return; ?>"><?php echo $text_return; ?></a></li>
+	  <li><a href="<?php echo $abuses; ?>"><?php echo $text_abuses; ?></a></li>
 	  <li><a href="<?php echo $affiliate; ?>"><?php echo $text_affiliate; ?></a></li>
 	  <li><a href="<?php echo $testimonial; ?>"><?php echo $text_testimonial; ?></a></li>
       <li><a href="<?php echo $sitemap; ?>"><?php echo $text_sitemap; ?></a></li>
