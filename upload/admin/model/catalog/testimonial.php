@@ -133,38 +133,5 @@ class ModelCatalogTestimonial extends Model {
 		return $query->row['cdatetime'];
 	}	
 
-
-
-	public function createDatabaseTables() {
-		$sql  = "CREATE TABLE IF NOT EXISTS `".DB_PREFIX."testimonial` ( ";
-		$sql .= "`testimonial_id` int(11) NOT NULL AUTO_INCREMENT, ";
-		$sql .= "`name` varchar(64) COLLATE utf8_bin NOT NULL, ";
-		$sql .= "`city` varchar(64) COLLATE utf8_bin DEFAULT NULL, "; 
-		$sql .= "`email` varchar(96) COLLATE utf8_bin DEFAULT NULL, ";
-		$sql .= "`status` int(1) NOT NULL DEFAULT '0', ";
-		$sql .= "`rating` int(1) NOT NULL DEFAULT '0', ";
-		$sql .= "`date_added` datetime NOT NULL DEFAULT '0000-00-00 00:00:00', ";
-		$sql .= "PRIMARY KEY (`testimonial_id`) ";
-		$sql .= ") ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;";
-		$this->db->query($sql);
-
-		$sql  = "CREATE TABLE IF NOT EXISTS `".DB_PREFIX."testimonial_description` ( ";
-		$sql .= "`testimonial_id` int(11) NOT NULL, ";
-		$sql .= "`language_id` int(11) NOT NULL, ";
-		$sql .= "`title` varchar(64) COLLATE utf8_unicode_ci NOT NULL DEFAULT '', ";
-		$sql .= "`description` text COLLATE utf8_unicode_ci NOT NULL, ";
-		$sql .= "PRIMARY KEY (`testimonial_id`,`language_id`) ";
-		$sql .= ") ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;";
-		$this->db->query($sql);
-	}
-	
-	
-	public function dropDatabaseTables() {
-		$sql = "DROP TABLE IF EXISTS `".DB_PREFIX."testimonial`;";
-		$this->db->query($sql);
-		$sql = "DROP TABLE IF EXISTS `".DB_PREFIX."testimonial_description`;";
-		$this->db->query($sql);
-	}
-
 }
 ?>
