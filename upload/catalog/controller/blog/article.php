@@ -61,11 +61,6 @@ class ControllerBlogArticle extends Controller {
 				$url .= '&filter_news_id=' . $this->request->get['filter_news_id'];
 			}	
 						
-			$this->data['breadcrumbs'][] = array(
-				'text'      => $this->language->get('text_search'),
-				'href'      => $this->url->link('article/search', $url),
-				'separator' => $this->language->get('text_separator')
-			); 	
 		}
 		
 		if (isset($this->request->get['article_id'])) {
@@ -101,12 +96,7 @@ class ControllerBlogArticle extends Controller {
 				$url .= '&filter_news_id=' . $this->request->get['filter_news_id'];
 			}
 			
-			$this->data['breadcrumbs'][] = array(
-				'text'      => $article_info['name'],
-				'href'      => $this->url->link('blog/article', $url . '&article_id=' . $this->request->get['article_id']),
-				'separator' => $this->language->get('text_separator')
-			);
-			
+
 			
 			if ($article_info['seo_title']) {
 				$this->document->setTitle($article_info['seo_title']);

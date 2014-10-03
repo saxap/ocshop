@@ -50,6 +50,8 @@ class ControllerBlogNews extends Controller {
 			$blid = '';
 		
 			$parts = explode('_', (string)$this->request->get['blid']);
+			
+			$news_id = (int)array_pop($parts);
 		
 			foreach ($parts as $blid_id) {
 				if (!$blid) {
@@ -60,7 +62,7 @@ class ControllerBlogNews extends Controller {
 									
 				$news_info = $this->model_blog_news->getCategory($blid_id);
 				
-				if ($news_info) {
+				if ($news_info && ($blid_id != $news_id)) {
 	       			$this->data['breadcrumbs'][] = array(
    	    				'text'      => $news_info['name'],
 						'href'      => $this->url->link('blog/news', 'blid=' . $blid),
@@ -69,11 +71,11 @@ class ControllerBlogNews extends Controller {
 				}
 			}		
 		
-			$news_id = (int)array_pop($parts);
+			
 		} else {
 			$news_id = 0;
 		}
-		
+
 		$news_info = $this->model_blog_news->getCategory($news_id);
 	
 		if ($news_info) {

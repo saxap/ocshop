@@ -1,6 +1,7 @@
 <?php 
 class ControllerBlogLatest extends Controller { 	
 	public function index() { 
+	
 		$this->language->load('blog/latest');
 
 		$this->load->model('blog/article');
@@ -65,12 +66,6 @@ class ControllerBlogLatest extends Controller {
 		if (isset($this->request->get['limit'])) {
 			$url .= '&limit=' . $this->request->get['limit'];
 		}
-
-		$this->data['breadcrumbs'][] = array(
-			'text'      => $this->language->get('heading_title'),
-			'href'      => $this->url->link('blog/latest', $url),
-			'separator' => $this->language->get('text_separator')
-		);
 
 		$this->data['heading_title'] = $this->language->get('heading_title');
 
