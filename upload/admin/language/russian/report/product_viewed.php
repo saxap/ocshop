@@ -14,4 +14,3 @@ $_['column_percent']   = 'Процент';
 
 // Error
 $_['error_permission'] = 'У Вас нет прав для изменений!';
-

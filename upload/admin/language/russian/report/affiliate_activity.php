@@ -22,4 +22,3 @@ $_['entry_affiliate']   = 'Партнер';
 $_['entry_ip']          = 'IP';
 $_['entry_date_start']  = 'Дата начала';
 $_['entry_date_end']    = 'Дата окончания';
-

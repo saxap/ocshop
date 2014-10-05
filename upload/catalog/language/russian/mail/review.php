@@ -6,4 +6,3 @@ $_['text_product']	= 'Товар: %s';
 $_['text_reviewer']	= 'Отзыв оставил: %s';
 $_['text_rating']	= 'Оценка: %s';
 $_['text_review']	= 'Отзыв:';
-

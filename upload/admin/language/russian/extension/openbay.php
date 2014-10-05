@@ -87,4 +87,3 @@ $_['help_ftp_pasv']                    	= 'Change your FTP connection to passive
 $_['help_ftp_beta']             		= 'Caution! The beta version may not work correctly';
 $_['help_patch']						= 'If you update your files through FTP you need to run the patch to complete the update';
 $_['help_clear_faq']					= 'Show all of the help notifications again';
-

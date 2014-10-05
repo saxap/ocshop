@@ -22,4 +22,3 @@ $_['entry_bank_branch_number']  = 'Номер отделения';
 $_['entry_bank_swift_code']     = 'БИК';
 $_['entry_bank_account_name']   = 'Корр. счет';
 $_['entry_bank_account_number'] = 'Расчетный счет';
-

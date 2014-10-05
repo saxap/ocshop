@@ -9,4 +9,3 @@ $_['column_status']     = 'Состояние';
 $_['column_total']      = 'Сумма';
 $_['column_date_added'] = 'Добавлено';
 $_['column_action']     = 'Действие';
-

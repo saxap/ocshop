@@ -33,4 +33,3 @@ $_['help_return_url']      = 'This needs to be added in the PayPal app configura
 $_['error_permission']     = 'Warning: You do not have permission to modify module Log In with PayPal!';
 $_['error_client_id']      = 'Client ID required!';
 $_['error_secret']         = 'Secret required!';
-

@@ -27,4 +27,3 @@ $_['entry_cc_choice']			= 'Choose an Existing Card';
 // Help
 $_['help_start_date']			= '(if available)';
 $_['help_issue']				= '(for Maestro and Solo cards only)';
-

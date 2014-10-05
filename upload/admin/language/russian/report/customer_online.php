@@ -17,4 +17,3 @@ $_['column_action']     = 'Действие';
 // Entry
 $_['entry_ip']          = 'IP';
 $_['entry_customer']    = 'Клиент';
-

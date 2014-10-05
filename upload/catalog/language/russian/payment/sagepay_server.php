@@ -24,4 +24,3 @@ $_['entry_card_existing']		= 'Existing';
 $_['entry_card_new']			= 'New';
 $_['entry_card_save']			= 'Remember card details for future use';
 $_['entry_cc_choice']			= 'Choose an Existing Card';
-

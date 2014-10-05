@@ -4,4 +4,3 @@ $_['heading_title'] = 'Люди Online';
 
 // Text
 $_['text_view']     = 'подробнее...';
-

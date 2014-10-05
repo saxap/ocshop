@@ -21,4 +21,3 @@ $_['text_affiliate_login']         = '<a href="affiliate_id=%d">%s</a> - вып�
 $_['text_affiliate_password']      = '<a href="affiliate_id=%d">%s</a> - обновлен пароль.';
 $_['text_affiliate_payment']       = '<a href="affiliate_id=%d">%s</a> - обновлены детали оплаты.';
 $_['text_affiliate_register']      = '<a href="affiliate_id=%d">%s</a> - зарегистрирован новый аккаунт.';
-

@@ -17,8 +17,7 @@ $_['text_affiliate']       = 'Партнерская программа';
 $_['text_store']           = 'Магазин';
 $_['text_front']           = 'Магазин';
 $_['text_help']            = 'Помощь';
-$_['text_homepage']        = 'Сайт ';
-$_['text_support']         = 'Форум';
+$_['text_homepage']        = 'Блог ';
+$_['text_support']         = 'Форум поддержки';
 $_['text_documentation']   = 'Документация';
 $_['text_logout']          = 'Выход';
-

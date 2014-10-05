@@ -16,4 +16,3 @@ $_['error_custom_field'] = '%s required!';
 $_['error_address']      = 'Warning: Shipping address required!';
 $_['error_method']       = 'Warning: Shipping method required!';
 $_['error_no_shipping']  = 'Warning: No Shipping options are available!';
-

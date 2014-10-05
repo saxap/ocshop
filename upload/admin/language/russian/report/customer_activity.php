@@ -28,4 +28,3 @@ $_['entry_customer']      = 'Клиент';
 $_['entry_ip']            = 'IP';
 $_['entry_date_start']    = 'Дата начала';
 $_['entry_date_end']      = 'Дата окончания';
-

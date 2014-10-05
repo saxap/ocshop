@@ -16,4 +16,3 @@ $_['entry_cc_issue']			= 'Код карты (Issue):';
 // Help
 $_['help_start_date']			= '(если известно)';
 $_['help_issue']				= '(только для Maestro и Solo карт)';
-

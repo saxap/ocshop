@@ -28,4 +28,3 @@ $_['entry_cc_zipcode']			= 'Zipcode';
 $_['entry_cc_phone']			= 'Phone';
 $_['entry_cc_email']			= 'E-mail';
 $_['entry_cc_choice']			= 'Choose an Existing Card';
-

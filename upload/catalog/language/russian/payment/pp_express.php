@@ -25,4 +25,3 @@ $_['button_cancel_recurring']	= 'Cancel payments';
 // Error
 $_['error_heading_title']		= 'Возникла ошибка ...';
 $_['error_too_many_failures']	= 'В процессе оплаты произошла ошибка';
-

@@ -64,7 +64,7 @@ $_['text_return_status']               = 'Статусы возврата';
 $_['text_sale']                        = 'Продажи';
 $_['text_shipping']                    = 'Доставка';
 $_['text_setting']                     = 'Настройки';
-$_['text_stock_status']                = 'Статусы склада';
+$_['text_stock_status']                = 'Состояние на складе';
 $_['text_system']                      = 'Система';
 $_['text_tax']                         = 'Налоги';
 $_['text_tax_class']                   = 'Налоговый класс';
@@ -95,4 +95,3 @@ $_['text_openbay_report_price']        = 'Pricing report';
 $_['text_openbay_order_import']        = 'Order import';
 $_['text_paypal_manage']               = 'PayPal';
 $_['text_paypal_search']               = 'Поиск транзакции';
-

@@ -17,4 +17,3 @@ $_['help_code']        = 'Перейдите <a href="https://developers.google.
 // Error
 $_['error_permission'] = 'У Вас нет прав для управления данным модулем!';
 $_['error_code']       = 'Необходим код';
-
