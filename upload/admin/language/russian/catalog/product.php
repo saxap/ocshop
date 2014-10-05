@@ -72,6 +72,7 @@ $_['entry_required']         = 'Необходимо';
 $_['entry_status']           = 'Статус';
 $_['entry_sort_order']       = 'Порядок сортировки';
 $_['entry_category']         = 'Показывать в категориях';
+$_['entry_main_category']    = 'Главная категория';
 $_['entry_filter']           = 'Фильтры';
 $_['entry_download']         = 'Загрузки';
 $_['entry_related']          = 'Связанные продукты';

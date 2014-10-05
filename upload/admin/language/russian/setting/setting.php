@@ -18,6 +18,8 @@ $_['text_shipping']                    = 'Адрес доставки';
 $_['text_payment']                     = 'Адрес плательщика';
 $_['text_mail']                        = 'Mail';
 $_['text_smtp']                        = 'SMTP';
+$_['text_seo_url']					   = 'По умолчанию';
+$_['text_seo_pro']					   = 'SeoPro';
 
 // Entry
 $_['entry_name']                       = 'Название магазина';
@@ -117,6 +119,10 @@ $_['entry_secure']                     = 'Использовать SSL';
 $_['entry_shared']                     = 'Использовать Shared Sessions';
 $_['entry_robots']                     = 'Robots';
 $_['entry_seo_url']                    = 'Включить ЧПУ';
+$_['entry_seo_url_type'] 			   = 'Тип ЧПУ';
+$_['entry_seo_url_include_path']       = 'ЧПУ товаров с категориями';
+$_['entry_seo_url_postfix']			   = 'Окончание ЧПУ';
+
 $_['entry_file_max_size']	           = 'Максимальный размер файла';
 $_['entry_file_ext_allowed']           = 'Разрешенные типы файлов';
 $_['entry_file_mime_allowed']          = 'Разрешенные MIME типы';
@@ -185,6 +191,8 @@ $_['help_secure']                      = 'Для использования SSL 
 $_['help_shared']                      = 'Помещает идентификатор сессии в URI, позволяя поддерживать одну сессию при переходах между разными доменами.';
 $_['help_robots']                      = 'Список веб-роботов (их User Agents), для которых НЕ НАДО использовать метод Shared Sessions. Каждый User Agent указывается в новой строке.';
 $_['help_seo_url']                     = 'Включить функцию ЧПУ. Для включения так же необходимо переименовать файл htaccess.txt в .htaccess';
+$_['help_seo_url_include_path'] 	   = '/category/subcategory/product<br />(только для SeoPro)';
+$_['help_seo_url_postfix'] 			   = 'Например .html<br />(только для SeoPro)';
 $_['help_file_max_size']		       = 'Максимальный размер изображения, который может быть загружен через Менеджер изображений (размер в байтах).';
 $_['help_file_ext_allowed']            = 'Добавьте расширение файла, которое может быть загружено (ввод с новой строки).';
 $_['help_file_mime_allowed']           = 'Добавьте MIME типы файлов, разрешенные для загрузки. Каждый тип на новой строке.';
@@ -225,4 +233,3 @@ $_['error_ftp_username']               = 'Необходимо указать FT
 $_['error_ftp_password']               = 'Необходимо указать FTP Пароль!';
 $_['error_error_filename']             = 'Необходимо указать Файл журнала ошибок!';
 $_['error_encryption']                 = 'Ключ шифрования должен быть от 3 до 32 символов!';
-
