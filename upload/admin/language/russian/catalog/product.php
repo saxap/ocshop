@@ -28,6 +28,7 @@ $_['column_action']          = 'Действие';
 $_['entry_name']             = 'Название товара';
 $_['entry_description']      = 'Описание';
 $_['entry_meta_title'] 	     = 'Мета-тег Title';
+$_['entry_meta_h1'] 	     = 'HTML-тег H1';
 $_['entry_meta_keyword'] 	 = 'Мета-тег Keyword';
 $_['entry_meta_description'] = 'Мета-тег Description';
 $_['entry_keyword']          = 'SEO URL';
@@ -103,6 +104,6 @@ $_['help_tag']          	 = 'теги разделяются запятой';
 $_['error_warning']          = 'Внимательно проверьте форму на ошибки!';
 $_['error_permission']       = 'У Вас нет прав для изменения товаров!';
 $_['error_name']             = 'Название товара должно содержать от 3 до 255 символов!';
-$_['error_meta_title']       = 'Мета-тег Title должен содержать от 3 до 255 символов!';
+$_['error_meta_title']       = 'Мета-тег Title должен содержать от 0 до 255 символов!';
+$_['error_meta_h1']	         = 'HTML-тег H1 должен быть от 0 до 255 символов!';
 $_['error_model']            = 'Модель товара должна содержать от 3 до 64 символов!';
-
