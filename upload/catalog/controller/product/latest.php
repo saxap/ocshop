@@ -15,6 +15,7 @@ class ControllerProductLatest extends Controller {
 		
 		if (isset($this->request->get['sort'])) {
 			$sort = $this->request->get['sort'];
+			$this->document->setRobots('noindex,follow');
 		} else {
 			$sort = 'pd.date';
 		}
@@ -27,12 +28,14 @@ class ControllerProductLatest extends Controller {
 			 
   		if (isset($this->request->get['page'])) {
 			$page = $this->request->get['page'];
+			$this->document->setRobots('noindex,follow');
 		} else {
 			$page = 1;
 		}
 		
 		if (isset($this->request->get['limit'])) {
 			$this->data['limit'] = $this->request->get['limit'];
+			$this->document->setRobots('noindex,follow');
 		} else {
 			$this->data['limit'] = $this->config->get('config_catalog_limit');
 		}
@@ -165,6 +168,8 @@ class ControllerProductLatest extends Controller {
 			} else {
 				$rating = false;
 			}
+			
+			$stickers = $this->getStickers($result['product_id']) ;
 						
 			$this->data['products'][] = array(
 				'product_id'  => $result['product_id'],
@@ -178,6 +183,7 @@ class ControllerProductLatest extends Controller {
 				'special'     => $special,
 				'tax'         => $tax,
 				'rating'      => $result['rating'],
+				'sticker'     => $stickers,
 				'reviews'     => sprintf($this->language->get('text_reviews'), (int)$result['reviews']),
 				'href'        => $this->url->link('product/product', 'product_id=' . $result['product_id'] . $url)
 			);
@@ -315,10 +321,10 @@ class ControllerProductLatest extends Controller {
 				
 		$this->data['continue'] = $this->url->link('common/home');
 
-		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/product/latest.tpl')) {
-			$this->template = $this->config->get('config_template') . '/template/product/latest.tpl';
+		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/product/special.tpl')) {
+			$this->template = $this->config->get('config_template') . '/template/product/special.tpl';
 		} else {
-			$this->template = 'default/template/product/latest.tpl';
+			$this->template = 'default/template/product/special.tpl';
 		}
 		
 		$this->children = array(
@@ -332,5 +338,33 @@ class ControllerProductLatest extends Controller {
 	
 		$this->response->setOutput($this->render());			
   	}
+	
+	private function getStickers($product_id) {
+	
+ 	$stickers = $this->model_catalog_product->getProductStickerbyProductId($product_id) ;	
+		
+		if (!$stickers) {
+			return;
+		}
+		
+		$this->data['stickers'] = array();
+		
+		foreach ($stickers as $sticker) {
+			$this->data['stickers'][] = array(
+				'position' => $sticker['position'],
+				'image'    => HTTP_SERVER . 'image/' . $sticker['image']
+			);		
+		}
+
+	
+		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/product/stickers.tpl')) {
+			$this->template = $this->config->get('config_template') . '/template/product/stickers.tpl';
+		} else {
+			$this->template = 'default/template/product/stickers.tpl';
+		}
+	
+		return $this->render();
+	
+	}
 }
 ?>
