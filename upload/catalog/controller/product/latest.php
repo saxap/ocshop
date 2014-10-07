@@ -318,10 +318,10 @@ class ControllerProductLatest extends Controller {
 				
 		$this->data['continue'] = $this->url->link('common/home');
 
-		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/product/latest.tpl')) {
-			$this->template = $this->config->get('config_template') . '/template/product/latest.tpl';
+		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/product/special.tpl')) {
+			$this->template = $this->config->get('config_template') . '/template/product/special.tpl';
 		} else {
-			$this->template = 'default/template/product/latest.tpl';
+			$this->template = 'default/template/product/special.tpl';
 		}
 		
 		$this->children = array(
