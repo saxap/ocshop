@@ -14,6 +14,7 @@ class ControllerProductBestseller extends Controller {
 		
 		if (isset($this->request->get['sort'])) {
 			$sort = $this->request->get['sort'];
+			$this->document->setRobots('noindex,follow');
 		} else {
 			$sort = 'pd.date';
 		}
@@ -26,12 +27,14 @@ class ControllerProductBestseller extends Controller {
 			 
   		if (isset($this->request->get['page'])) {
 			$page = $this->request->get['page'];
+			$this->document->setRobots('noindex,follow');
 		} else {
 			$page = 1;
 		}
 		
 		if (isset($this->request->get['limit'])) {
 			$this->data['limit'] = $this->request->get['limit'];
+			$this->document->setRobots('noindex,follow');
 		} else {
 			$this->data['limit'] = $this->config->get('config_catalog_limit');
 		}
