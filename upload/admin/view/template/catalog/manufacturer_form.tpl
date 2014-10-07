@@ -124,7 +124,10 @@
                 <label class="col-sm-2 control-label" for="input-keyword"><span data-toggle="tooltip" title="<?php echo $help_keyword; ?>"><?php echo $entry_keyword; ?></span></label>
                 <div class="col-sm-10">
                   <input type="text" name="keyword" value="<?php echo $keyword; ?>" placeholder="<?php echo $entry_keyword; ?>" id="input-keyword" class="form-control" />
-                </div>
+				  <?php if ($error_keyword) { ?>
+				  <div class="text-danger"><?php echo $error_keyword; ?></div>
+				  <?php } ?>
+				</div>
               </div>
               <div class="form-group">
                 <label class="col-sm-2 control-label"><?php echo $entry_image; ?></label>

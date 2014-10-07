@@ -39,3 +39,4 @@ $_['error_name']         = 'Manufacturer Name must be between 2 and 64 character
 $_['error_product']      = 'Warning: This manufacturer cannot be deleted as it is currently assigned to %s products!';
 $_['error_meta_title']   = 'Meta Title must be greater than 0 and less than 255 characters!';
 $_['error_meta_h1']	     = 'HTML Tag H1 must be greater than 0 and less than 255 characters!';
+$_['error_keyword']      = 'SEO keyword already in use!';

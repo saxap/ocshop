@@ -39,6 +39,7 @@ $_['error_title']            = 'Information Title must be between 3 and 64 chara
 $_['error_description']      = 'Description must be more than 3 characters!';
 $_['error_meta_title']       = 'Meta Title must be greater than 0 and less than 255 characters!';
 $_['error_meta_h1']       	 = 'HTML Tag H1 must be greater than 0 and less than 255 characters!';
+$_['error_keyword']          = 'SEO keyword already in use!';
 $_['error_account']          = 'Warning: This information page cannot be deleted as it is currently assigned as the store account terms!';
 $_['error_checkout']         = 'Warning: This information page cannot be deleted as it is currently assigned as the store checkout terms!';
 $_['error_affiliate']        = 'Warning: This information page cannot be deleted as it is currently assigned as the store affiliate terms!';
