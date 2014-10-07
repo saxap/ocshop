@@ -16,6 +16,7 @@ class ControllerCommonFooter extends Controller {
 		$this->data['text_affiliate'] = $this->language->get('text_affiliate');
 		$this->data['text_special'] = $this->language->get('text_special');
 		$this->data['text_bestseller'] = $this->language->get('text_bestseller');
+		$this->data['text_mostviewed'] = $this->language->get('text_mostviewed');
 		$this->data['text_latest'] = $this->language->get('text_latest');
 		$this->data['text_account'] = $this->language->get('text_account');
 		$this->data['text_order'] = $this->language->get('text_order');
@@ -45,6 +46,7 @@ class ControllerCommonFooter extends Controller {
 		$this->data['affiliate'] = $this->url->link('affiliate/account', '', 'SSL');
 		$this->data['special'] = $this->url->link('product/special');
 		$this->data['bestseller'] = $this->url->link('product/bestseller');
+		$this->data['mostviewed'] = $this->url->link('product/mostviewed');
 		$this->data['latest'] = $this->url->link('product/latest');
 		$this->data['account'] = $this->url->link('account/account', '', 'SSL');
 		$this->data['order'] = $this->url->link('account/order', '', 'SSL');

@@ -7,8 +7,6 @@ class ControllerProductMostviewed extends Controller {
 
     	$this->language->load('product/mostviewed');
 		
-		$this->load->model('catalog/mostviewed');
-		
 		$this->load->model('catalog/product');
 		
 		$this->load->model('tool/image');
@@ -16,7 +14,7 @@ class ControllerProductMostviewed extends Controller {
 		if (isset($this->request->get['sort'])) {
 			$sort = $this->request->get['sort'];
 		} else {
-			$sort = 'pd.date';
+			$sort = 'p.viewed';
 		}
 
 		if (isset($this->request->get['order'])) {
@@ -107,8 +105,8 @@ class ControllerProductMostviewed extends Controller {
 			'max' 	=> 	$this->max
 		);
 			
-			
-		$results = $this->model_catalog_mostviewed->getmostviewed($data);	
+
+		$results = $this->model_catalog_product->getmostviewed($data);	
 		
 		
 		
@@ -129,9 +127,10 @@ class ControllerProductMostviewed extends Controller {
 		
 		}
 	
-		
+	
 			
 		foreach ($results as $result) {
+		
 			if ($result['image']) {
 				$image = $this->model_tool_image->resize($result['image'], $this->config->get('config_image_product_width'), $this->config->get('config_image_product_height'));
 				$imagewidth = $this->config->get('config_image_product_width');
@@ -196,8 +195,8 @@ class ControllerProductMostviewed extends Controller {
 		
 		$this->data['sorts'][] = array(
 			'text'  => $this->language->get('text_default'),
-			'value' => 'p.sort_order-ASC',
-			'href'  => $this->url->link('product/mostviewed', 'sort=p.sort_order&order=ASC' . $url)
+			'value' => 'p.viewed-DESC',
+			'href'  => $this->url->link('product/mostviewed', 'sort=p.viewed&order=DESC' . $url)
 		);
 		
 		$this->data['sorts'][] = array(
@@ -260,6 +259,18 @@ class ControllerProductMostviewed extends Controller {
 			'text'  => $this->language->get('text_model_desc'),
 			'value' => 'p.model-DESC',
 			'href'  => $this->url->link('product/mostviewed', 'sort=p.model&order=DESC' . $url)
+		);		
+		
+		$this->data['sorts'][] = array(
+				'text'  => $this->language->get('text_viewed_desc'),
+				'value' => 'p.viewed-DESC',
+				'href'  => $this->url->link('product/mostviewed', 'sort=p.viewed&order=DESC' . $url)
+		); 
+
+		$this->data['sorts'][] = array(
+			'text'  => $this->language->get('text_viewed_asc'),
+			'value' => 'p.viewed-ASC',
+			'href'  => $this->url->link('product/mostviewed', 'sort=p.viewed&order=ASC' . $url)
 		);
 		
 		$url = '';
@@ -318,10 +329,10 @@ class ControllerProductMostviewed extends Controller {
 				
 		$this->data['continue'] = $this->url->link('common/home');
 
-		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/product/mostviewed.tpl')) {
-			$this->template = $this->config->get('config_template') . '/template/product/mostviewed.tpl';
+		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/product/special.tpl')) {
+			$this->template = $this->config->get('config_template') . '/template/product/special.tpl';
 		} else {
-			$this->template = 'default/template/product/mostviewed.tpl';
+			$this->template = 'default/template/product/special.tpl';
 		}
 		
 		$this->children = array(
