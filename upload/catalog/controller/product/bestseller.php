@@ -7,7 +7,6 @@ class ControllerProductBestseller extends Controller {
 
     	$this->language->load('product/bestseller');
 		
-		$this->load->model('catalog/bestseller');
 		
 		$this->load->model('catalog/product');
 		
@@ -108,19 +107,12 @@ class ControllerProductBestseller extends Controller {
 		);
 			
 			
-		$results = $this->model_catalog_bestseller->getbestseller($data);	
+		$results = $this->model_catalog_product->getBestSellers($data);	
 		
 		
 		
-		$data = array(
-			'sort'  => $sort,
-			'order' => $order,
-			'start' => ($page - 1) * $this->data['limit'],
-			'limit' => 	$this->max
-		);
-			
 		
-		$product_total = $this->model_catalog_product->getTotalProducts($data);
+		$product_total = $this->model_catalog_product->getTotalBestSellers($data);
 		
 		
 		if ($product_total > $this->max) {
@@ -318,10 +310,10 @@ class ControllerProductBestseller extends Controller {
 				
 		$this->data['continue'] = $this->url->link('common/home');
 
-		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/product/bestseller.tpl')) {
-			$this->template = $this->config->get('config_template') . '/template/product/bestseller.tpl';
+		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/product/special.tpl')) {
+			$this->template = $this->config->get('config_template') . '/template/product/special.tpl';
 		} else {
-			$this->template = 'default/template/product/bestseller.tpl';
+			$this->template = 'default/template/product/special.tpl';
 		}
 		
 		$this->children = array(

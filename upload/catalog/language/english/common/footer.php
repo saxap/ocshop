@@ -12,6 +12,7 @@ $_['text_manufacturer'] = 'Brands';
 $_['text_voucher']      = 'Gift Vouchers';
 $_['text_affiliate']    = 'Affiliates';
 $_['text_special']      = 'Specials';
+$_['text_bestseller']   = 'Bestseller';
 $_['text_latest']       = 'Latest';
 $_['text_account']      = 'My Account';
 $_['text_order']        = 'Order History';

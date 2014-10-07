@@ -375,7 +375,28 @@ class ModelCatalogProduct extends Model {
 		}
 
 		return $product_sticker_data;
+	}	
+/*
+	public function getProductBenefit($product_id) {
+		$product_benefit_data = array();
+
+		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "product_to_benefit WHERE product_id = '" . (int)$product_id . "'");
+
+		foreach ($query->rows as $result) {
+			$product_sticker_data[] = $result['sticker_id'];
+		}
+
+		return $product_sticker_data;
 	}
+*/
+	//ocshop benefits
+	public function getProductBenefitsbyProductId($product_id) {
+
+		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "product_to_benefit p2b LEFT JOIN " . DB_PREFIX . "benefit b ON (p2b.benefit_id = b.benefit_id) LEFT JOIN " . DB_PREFIX . "benefit_description bd ON (p2b.benefit_id = bd.benefit_id) WHERE product_id = '" . (int)$product_id . "' AND bd.language_id = '" . (int)$this->config->get('config_language_id')."'");
+
+		return $query->rows;
+	}	
+	//ocshop benefits
 	
 	public function getProductStickerbyProductId($product_id) {
 
@@ -383,7 +404,7 @@ class ModelCatalogProduct extends Model {
 
 		return $query->rows;
 	}
-
+	
 	public function getProductSpecials($data = array()) {
 		if ($this->customer->isLogged()) {
 			$customer_group_id = $this->customer->getCustomerGroupId();
@@ -496,6 +517,227 @@ class ModelCatalogProduct extends Model {
 		}
 
 		return $product_data;
+	}
+	
+	public function getBestSellers($data) {
+		if ($this->customer->isLogged()) {
+			$customer_group_id = $this->customer->getCustomerGroupId();
+		} else {
+			$customer_group_id = $this->config->get('config_customer_group_id');
+		}	
+
+		$product_data = $this->cache->get('product.bestsellers.' . (int)$this->config->get('config_language_id') . '.' . (int)$this->config->get('config_store_id'). '.' . $customer_group_id . '.' . (int)$data['limit']);
+
+		$product_data = null;
+		
+		if (!$product_data) { 
+			$product_data = array();
+
+		$sql = "SELECT DISTINCT p.product_id FROM (SELECT p.product_id, p.sort_order, p.price, p.model, 
+		(SELECT price FROM " . DB_PREFIX . "product_discount pd2 WHERE pd2.product_id = p.product_id AND pd2.customer_group_id = '" . (int)$customer_group_id . "' AND pd2.quantity = '1' AND ((pd2.date_start = '0000-00-00' OR pd2.date_start < NOW()) AND (pd2.date_end = '0000-00-00' OR pd2.date_end > NOW())) ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1) AS discount, 
+		(SELECT ps.price FROM " . DB_PREFIX . "product_special ps WHERE ps.product_id = p.product_id AND ps.customer_group_id = '" . (int)$customer_group_id . "' AND ((ps.date_start = '0000-00-00' OR ps.date_start < NOW()) AND (ps.date_end = '0000-00-00' OR ps.date_end > NOW())) ORDER BY ps.priority ASC, ps.price ASC LIMIT 1) AS special,  
+		(SELECT AVG(rating) FROM " . DB_PREFIX . "review r1 WHERE r1.product_id = p.product_id AND r1.status = '1' GROUP BY r1.product_id) AS rating, 
+	 COUNT(op.product_id)  AS total FROM " . DB_PREFIX . "order_product op LEFT JOIN `" . DB_PREFIX . "order` o ON (op.order_id = o.order_id) LEFT JOIN `" . DB_PREFIX . "product` p ON (op.product_id = p.product_id) LEFT JOIN " . DB_PREFIX . "product_to_store p2s ON (p.product_id = p2s.product_id) WHERE o.order_status_id > '0' AND p.status = '1' AND p.date_available <= NOW() AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "' GROUP BY op.product_id ORDER BY total DESC LIMIT 0, " . (int)$data['max'];
+			
+		$sql .= ") p LEFT JOIN " . DB_PREFIX . "product_description pd ON (p.product_id = pd.product_id AND pd.language_id = '".  (int)$this->config->get('config_language_id') ."') ORDER BY ";
+		
+		$sort_data = array(
+			'pd.name',
+			'quantity',
+			'ps.price',
+			'rating',
+			'p.sort_order',
+			'p.model'
+		);	
+			
+		if (isset($data['sort']) && in_array($data['sort'], $sort_data)) {
+			if ($data['sort'] == 'pd.name') {
+				$sql .= " LCASE('pd.name')";
+			} elseif ($data['sort'] == 'ps.price') {
+				$sql .= " (CASE WHEN special IS NOT NULL THEN special WHEN discount IS NOT NULL THEN discount ELSE p.price END)";
+			} else {
+				$sql .= " " . $data['sort'];
+			}
+		} else {
+			$sql .= " sort_order";	
+		}
+		
+		if (isset($data['order']) && ($data['order'] == 'DESC')) {
+			$sql .= " DESC, LCASE(name) DESC";
+		} else {
+			$sql .= " ASC, LCASE(name) ASC";
+		}
+	
+				
+		if (isset($data['start']) || isset($data['limit'])) {
+			if ($data['start'] < 0) {
+				$data['start'] = 0;
+			}				
+
+			if ($data['limit'] < 1) {
+				$data['limit'] = 20;
+			}	
+		
+			$sql .= " LIMIT " . (int)$data['start'] . "," . (int)$data['limit'];
+		}
+		
+		$query = $this->db->query($sql);
+
+			foreach ($query->rows as $result) { 		
+				$product_data[$result['product_id']] = $this->getProduct($result['product_id']);
+			}
+
+			$this->cache->set('product.bestsellers.' . (int)$this->config->get('config_language_id') . '.' . (int)$this->config->get('config_store_id'). '.' . $customer_group_id . '.' . (int)$data['limit'], $product_data);
+		}
+
+		return $product_data;
+	}	
+	
+	public function getTotalBestSellers($data) {
+		if ($this->customer->isLogged()) {
+			$customer_group_id = $this->customer->getCustomerGroupId();
+		} else {
+			$customer_group_id = $this->config->get('config_customer_group_id');
+		}	
+
+		$total = $this->cache->get('product.totalbestsellers.' . (int)$this->config->get('config_language_id') . '.' . (int)$this->config->get('config_store_id'). '.' . $customer_group_id . '.' . (int)$data['limit']);
+
+		$total = null;
+		
+		if (!$total) { 
+			$total = array();
+
+		$sql = "SELECT COUNT(total) as total FROM (SELECT COUNT(DISTINCT op.product_id)  AS total FROM " . DB_PREFIX . "order_product op LEFT JOIN `" . DB_PREFIX . "order` o ON (op.order_id = o.order_id) LEFT JOIN `" . DB_PREFIX . "product` p ON (op.product_id = p.product_id) LEFT JOIN " . DB_PREFIX . "product_to_store p2s ON (p.product_id = p2s.product_id) WHERE o.order_status_id > '0' AND p.status = '1' AND p.date_available <= NOW() AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "' GROUP BY op.product_id ORDER BY total DESC LIMIT 0, " . (int)$data['max'].") bp";
+			
+
+			$query = $this->db->query($sql);
+		
+			$total = $query->row['total'];
+
+			$this->cache->set('product.totalbestsellers.' . (int)$this->config->get('config_language_id') . '.' . (int)$this->config->get('config_store_id'). '.' . $customer_group_id . '.' . (int)$data['limit'], $total);
+		}
+
+		return $total;
+	}
+	
+	
+	public function getMostViewed($data) {
+
+		if ($this->customer->isLogged()) {
+			$customer_group_id = $this->customer->getCustomerGroupId();
+		} else {
+			$customer_group_id = $this->config->get('config_customer_group_id');
+		}	
+
+		$product_data = $this->cache->get('product.mostviewed.' . (int)$this->config->get('config_language_id') . '.' . (int)$this->config->get('config_store_id'). '.' . $customer_group_id . '.' . (int)$data['limit']);
+
+		$product_data = null;
+		
+		if (!$product_data) { 
+			$product_data = array();
+
+		$sql = "SELECT * FROM (SELECT p.product_id, 
+		(SELECT AVG(rating) AS total FROM " . DB_PREFIX . "review r1 WHERE r1.product_id = p.product_id 
+		AND r1.status = '1' GROUP BY r1.product_id) AS rating, (SELECT price FROM " . DB_PREFIX . "product_discount pd2 
+		WHERE pd2.product_id = p.product_id AND pd2.customer_group_id = '" . (int)$customer_group_id . "' 
+		AND pd2.quantity = '1' AND ((pd2.date_start = '0000-00-00' OR pd2.date_start < NOW()) 
+		AND (pd2.date_end = '0000-00-00' OR pd2.date_end > NOW())) ORDER BY pd2.priority ASC, pd2.price ASC LIMIT 1) AS discount, 
+		(SELECT price FROM " . DB_PREFIX . "product_special ps 
+		WHERE ps.product_id = p.product_id AND ps.customer_group_id = '" . (int)$customer_group_id . "' 
+		AND ((ps.date_start = '0000-00-00' OR ps.date_start < NOW()) AND (ps.date_end = '0000-00-00' OR ps.date_end > NOW())) 
+		ORDER BY ps.priority ASC, ps.price ASC LIMIT 1) AS special, p.sort_order, p.viewed, p.price, p.model"; 
+		
+		$sql .= " FROM " . DB_PREFIX . "product p  	
+		LEFT JOIN " . DB_PREFIX . "product_to_store p2s ON (p.product_id = p2s.product_id) 
+		WHERE p.status = '1' AND p.date_available <= NOW() 
+		AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "' 
+		GROUP BY p.product_id  ORDER by p.viewed DESC  LIMIT 0, " . (int)$data['max'];
+
+		$sql .= ") p LEFT JOIN " . DB_PREFIX . "product_description pd ON (p.product_id = pd.product_id AND pd.language_id = '".  (int)$this->config->get('config_language_id') ."') ORDER BY ";
+	
+		$sort_data = array(
+			'pd.name',
+			'quantity',
+			'ps.price',
+			'rating',
+			'p.sort_order',
+			'p.model',
+			'p.viewed'
+		);	
+		
+		if (isset($data['sort']) && in_array($data['sort'], $sort_data)) {
+			if ($data['sort'] == 'pd.name') {
+				$sql .= " LCASE('pd.name')";
+			} elseif ($data['sort'] == 'ps.price') {
+				$sql .= " (CASE WHEN special IS NOT NULL THEN special WHEN discount IS NOT NULL THEN discount ELSE p.price END)";
+			} else {
+				$sql .= " " . $data['sort'];
+			}
+		} else {
+			$sql .= " p.sort_order";	
+		}
+		
+		if (isset($data['order']) && ($data['order'] == 'DESC')) {
+			$sql .= " DESC, LCASE(name) DESC";
+		} else {
+			$sql .= " ASC, LCASE(name) ASC";
+		}
+	
+				
+		if (isset($data['start']) || isset($data['limit'])) {
+			if ($data['start'] < 0) {
+				$data['start'] = 0;
+			}				
+
+			if ($data['limit'] < 1) {
+				$data['limit'] = 20;
+			}	
+		
+			$sql .= " LIMIT " . (int)$data['start'] . "," . (int)$data['limit'];
+		}
+
+		$query = $this->db->query($sql);
+
+			foreach ($query->rows as $result) { 		
+				$product_data[$result['product_id']] = $this->getProduct($result['product_id']);
+			}
+
+			$this->cache->set('product.mostviewed.' . (int)$this->config->get('config_language_id') . '.' . (int)$this->config->get('config_store_id'). '.' . $customer_group_id . '.' . (int)$data['limit'], $product_data);
+		}
+
+		return $product_data;
+	}	
+	
+	public function getTotalMostViewed($data) {
+		if ($this->customer->isLogged()) {
+			$customer_group_id = $this->customer->getCustomerGroupId();
+		} else {
+			$customer_group_id = $this->config->get('config_customer_group_id');
+		}	
+
+		$total = $this->cache->get('product.totalmostviewed.' . (int)$this->config->get('config_language_id') . '.' . (int)$this->config->get('config_store_id'). '.' . $customer_group_id . '.' . (int)$data['limit']);
+
+		$total = null;
+		
+		if (!$total) { 
+			$total = array();
+
+		$sql = "SELECT COUNT(mv.product) as total 
+		FROM (SELECT COUNT(DISTINCT p.product_id)  AS total FROM " . DB_PREFIX . " product` p 
+		LEFT JOIN " . DB_PREFIX . "product_to_store p2s ON (p.product_id = p2s.product_id) 
+		WHERE o.order_status_id > '0' AND p.status = '1' AND p.date_available <= NOW() 
+		AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "' 
+		GROUP BY op.product_id ORDER BY p.viewed DESC LIMIT 0, " . (int)$data['max'].") mv";
+			
+
+			$query = $this->db->query($sql);
+		
+			$total = $query->row['total'];
+
+			$this->cache->set('product.totalmostviewed.' . (int)$this->config->get('config_language_id') . '.' . (int)$this->config->get('config_store_id'). '.' . $customer_group_id . '.' . (int)$data['limit'], $total);
+		}
+
+		return $total;
 	}
 
 	public function getProductAttributes($product_id) {

@@ -12,6 +12,7 @@ $_['text_manufacturer'] = 'Производители';
 $_['text_voucher']      = 'Подарочные сертификаты';
 $_['text_affiliate']    = 'Партнёрская программа';
 $_['text_special']      = 'Акции';
+$_['text_bestseller']   = 'Хиты Продаж';
 $_['text_latest']       = 'Новинки';
 $_['text_account']      = 'Личный Кабинет';
 $_['text_order']        = 'История заказов';
