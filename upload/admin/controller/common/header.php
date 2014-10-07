@@ -31,6 +31,7 @@ class ControllerCommonHeader extends Controller {
 		$this->data['text_vqmod_manager'] = $this->language->get('text_vqmod_manager');
 		$this->data['text_banner'] = $this->language->get('text_banner');
 		$this->data['text_sticker'] = $this->language->get('text_sticker');
+		$this->data['text_benefit'] = $this->language->get('text_benefit');
 		$this->data['text_catalog'] = $this->language->get('text_catalog');
 		$this->data['text_category'] = $this->language->get('text_category');
 		$this->data['text_confirm'] = $this->language->get('text_confirm');
@@ -141,6 +142,7 @@ class ControllerCommonHeader extends Controller {
 			$this->data['vqmod_manager'] = $this->url->link('tool/vqmod_manager', 'token=' . $this->session->data['token'], 'SSL');
 			$this->data['banner'] = $this->url->link('design/banner', 'token=' . $this->session->data['token'], 'SSL');
 			$this->data['sticker'] = $this->url->link('design/sticker', 'token=' . $this->session->data['token'], 'SSL');
+			$this->data['benefit'] = $this->url->link('design/benefit', 'token=' . $this->session->data['token'], 'SSL');
 			$this->data['category'] = $this->url->link('catalog/category', 'token=' . $this->session->data['token'], 'SSL');
 			
 			$this->load->model('setting/extension');

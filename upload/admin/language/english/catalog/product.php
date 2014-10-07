@@ -114,6 +114,7 @@ $_['text_corner1']           = 'Top Right';
 $_['text_corner2']           = 'Bottom Left';
 $_['text_corner3']           = 'Bottom Right';
 $_['entry_sticker']          = 'Promotional Stickers:';
+$_['text_benefits']         = 'Benefits:';
 
 // Error
 $_['error_warning']          = 'Warning: Please check the form carefully for errors!';

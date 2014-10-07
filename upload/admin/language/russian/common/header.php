@@ -12,6 +12,7 @@ $_['text_seomanager']                  = 'SEO Менеджер';
 $_['text_vqmod_manager']               = 'VQMod Менеджер';
 $_['text_banner']                      = 'Баннеры';
 $_['text_sticker']                     = 'Промо Стикеры';
+$_['text_benefit']                     = 'Преимущества Товара';
 $_['text_catalog']                     = 'Каталог';
 $_['text_cms']             	           = 'Блог';
 $_['text_news'] 	                   = 'Категории Блога';

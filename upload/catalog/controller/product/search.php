@@ -150,6 +150,7 @@ class ControllerProductSearch extends Controller {
 		$this->data['text_grid'] = $this->language->get('text_grid');		
 		$this->data['text_sort'] = $this->language->get('text_sort');
 		$this->data['text_limit'] = $this->language->get('text_limit');
+		$this->data['text_benefits'] = $this->language->get('text_benefits');
 
 		$this->data['entry_search'] = $this->language->get('entry_search');
 		$this->data['entry_description'] = $this->language->get('entry_description');
@@ -254,6 +255,36 @@ class ControllerProductSearch extends Controller {
 				}
 				
 				$stickers = $this->getStickers($result['product_id']) ;
+				
+				//ocshop benefits
+				$productbenefits = $this->model_catalog_product->getProductBenefitsbyProductId($result['product_id']);
+				
+				$benefits = array();
+				
+				foreach ($productbenefits as $benefit) {
+					if ($benefit['image'] && file_exists(DIR_IMAGE . $benefit['image'])) {
+						$bimage = $benefit['image'];
+						if ($benefit['type']) {
+							$bimage = $this->model_tool_image->resize($bimage, 25, 25);
+						} else {
+							$bimage = $this->model_tool_image->resize($bimage, 120, 60);
+						}
+					} else {
+						$bimage = 'no_image.jpg';
+					}
+
+					$benefits[] = array(
+						'benefit_id'      	=> $benefit['benefit_id'],
+						'name'      		=> $benefit['name'],
+						'description'      	=> strip_tags(html_entity_decode($benefit['description'])),
+						'thumb'      		=> $bimage,
+						'link'      		=> $benefit['link'],
+						'type'      		=> $benefit['type']
+						//'sort_order' => $benefit['sort_order']
+					);
+				}
+
+				//ocshop benefits
 
 				$this->data['products'][] = array(
 					'product_id'  => $result['product_id'],
@@ -268,6 +299,7 @@ class ControllerProductSearch extends Controller {
 					'tax'         => $tax,
 					'rating'      => $result['rating'],
 					'sticker'     => $stickers,
+					'benefits'    => $benefits,
 					'reviews'     => sprintf($this->language->get('text_reviews'), (int)$result['reviews']),
 					'href'        => $this->url->link('product/product', 'product_id=' . $result['product_id'] . $url)
 				);

@@ -251,7 +251,49 @@
             <tr>
               <td><?php echo $entry_sort_order; ?></td>
               <td><input type="text" name="sort_order" value="<?php echo $sort_order; ?>" size="2" /></td>
+            </tr> 	
+		<?php if ($benefits) { ?>			
+			<tr>
+              <td><?php echo $text_benefits; ?></td>
+              <td>
+			  <ul class="benefit">
+			  <?php foreach ($benefits as $benefit) { ?>
+					<?php if (in_array($benefit['benefit_id'], $product_benefits)) { ?>
+						<li class="checked">
+						<span class="thumb"><img src="<?php echo $benefit['thumb']; ?>" alt="" /></span>
+						<span><?php echo $benefit['name']; ?></span>
+						<span style="display:none;"><input type="checkbox" name="product_benefits[]" value="<?php echo $benefit['benefit_id']; ?>" checked="checked"></span>
+						</li>
+					<?php } else { ?> 
+						<li>
+						<span class="thumb"><img src="<?php echo $benefit['thumb']; ?>" alt="" /></span>
+						<span><?php echo $benefit['name']; ?></span>
+						<span style="display:none;"><input type="checkbox" name="product_benefits[]" value="<?php echo 	$benefit['benefit_id']; ?>"></span>
+						</li>
+					<?php } ?>
+			  <?php } ?>
+			  </ul>
+			  </td>
             </tr>
+		<?php } ?>
+	<style>
+	.benefit {list-style: none; padding: 0; margin: 0}
+	.benefit li {display: inline-block; border: 1px solid #aaa; padding: 4px 6px; margin: 2px; cursor: pointer; line-height: 8px;}
+	.benefit li.checked {border: 1px solid #0381CB; background: rgba(85, 190, 253, 0.2);}
+	.benefit li:hover {background: rgba(85, 190, 253, 0.1);}
+	.benefit li span {display: table-cell;vertical-align: middle;}
+	.thumb {padding-right: 5px;}
+	</style>
+	<script>
+	$('.benefit').on('click', 'li', function(){
+	if (!$(this).hasClass('checked'))		{
+		$(this).find('input').first().attr('checked', true) ;
+		} else {
+		$(this).find('input').first().attr('checked', false) ;
+		}
+	$(this).toggleClass('checked');
+	})
+	</script> 
           </table>
         </div>
         <div id="tab-links">
@@ -930,6 +972,8 @@ $('input[name=\'manufacturer\']').focus(function() {
 		$('input[name=\'manufacturer_id\']').attr('value', 0);
 		};
 });
+
+
 
 // Category
 $('input[name=\'category\']').autocomplete({

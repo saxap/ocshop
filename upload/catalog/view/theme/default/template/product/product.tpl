@@ -228,6 +228,46 @@
           <span class="links"><i class="fa fa-heart-o"></i> <a onclick="addToWishList('<?php echo $product_id; ?>');"><?php echo $button_wishlist; ?></a><br />
             <i class="fa fa-files-o"></i> <a onclick="addToCompare('<?php echo $product_id; ?>');"><?php echo $button_compare; ?></a></span>
         </div>
+		
+		<?php if ($benefits) { ?>
+		<div class="present">
+			<?php foreach ($benefits as $benefit) { ?>	
+				<?php if ($benefit['type'] == 0) { ?>
+					<div>
+						<?php if (!$benefit['link']) { ?>
+						   <span class="thumb"><img src="<?php echo $benefit['thumb']; ?>" alt="<?php echo $benefit['name']; ?>" /></span>
+						<?php } else { ?> 
+						   <a href="<?php echo $benefit['link']; ?>" target="_blank" title="<?php echo $benefit['name']; ?>"><span class="thumb"><img src="<?php echo $benefit['thumb']; ?>" alt="<?php echo $benefit['name']; ?>" /></span></a>
+						<?php } ?>
+					</div>
+				<?php } ?> 
+			<?php } ?>
+		</div>
+		<?php } ?>
+		
+		<?php if ($benefits) { ?>
+		<div class="benefits">
+		<div><?php echo $text_benefits; ?></div>
+		<ul class="benefit">
+		<?php foreach ($benefits as $benefit) { ?>	
+			<?php if ($benefit['type'] == 1) { ?>
+				<li>
+					<?php if (!$benefit['link']) { ?>
+					   <span class="thumb"><img src="<?php echo $benefit['thumb']; ?>" alt="<?php echo $benefit['name']; ?>" /></span>
+					<?php } else { ?> 
+					   <a href="<?php echo $benefit['link']; ?>" target="_blank" title="<?php echo $benefit['name']; ?>"><span class="thumb"><img src="<?php echo $benefit['thumb']; ?>" alt="<?php echo $benefit['name']; ?>" /></span></a>
+					<?php } ?>
+					<?php if ($benefit['description']) { ?>
+						<div class="benefit_description"><?php echo $benefit['description']; ?></div>
+					<?php } ?>
+				</li>
+			<?php } ?> 
+		<?php } ?>
+		</ul>
+		</div>
+		<?php } ?>
+		
+		
         <?php if ($minimum > 1) { ?>
         <div class="minimum"><?php echo $text_minimum; ?></div>
         <?php } ?>
@@ -245,8 +285,8 @@
 	   &nbsp;&nbsp;<a onclick="$('a[href=\'#tab-review\']').trigger('click');"><?php echo $reviews; ?></a>&nbsp;&nbsp;|&nbsp;&nbsp;<a onclick="$('a[href=\'#tab-review\']').trigger('click');"><?php echo $text_write; ?></a></div>
         <div class="pluso" data-background="transparent" data-options="small,round,line,horizontal,nocounter,theme=04" data-services="vkontakte,odnoklassniki,moimir,facebook,twitter,google"></div>
       </div>
-      <?php } ?>
-    </div>
+      <?php } ?>		
+    </div>			
   </div>
   <div id="tabs" class="htabs"><a href="#tab-description"><?php echo $tab_description; ?></a>
     <?php if ($attribute_groups) { ?>
@@ -603,5 +643,5 @@ $(document).ready(function() {
     s.src = ('https:' == window.location.protocol ? 'https' : 'http')  + '://share.pluso.ru/pluso-like.js';
     var h=d[g]('body')[0];
     h.appendChild(s);
-  }})();</script>  
+  }})();</script>
 <?php echo $footer; ?>

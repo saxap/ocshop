@@ -972,6 +972,7 @@ class ControllerCatalogProduct extends Controller {
 		$this->data['text_corner2'] = $this->language->get('text_corner2');
 		$this->data['text_corner3'] = $this->language->get('text_corner3');
 		$this->data['entry_sticker'] = $this->language->get('entry_sticker');
+		$this->data['text_benefits'] = $this->language->get('text_benefits');
 		//stickers
 		
 		
@@ -1693,12 +1694,43 @@ class ControllerCatalogProduct extends Controller {
 		
 		$this->load->model('design/sticker');
 
-		$this->data['stickers'] = $this->model_design_sticker->getStickersProduct();
-	
+		$this->data['stickers'] = $this->model_design_sticker->getStickersProduct();		
+		//benefits
+		$this->load->model('design/benefit');
+
+		$productbenefits = $this->model_design_benefit->getBenefits();
+		
+		$this->data['benefits'] = array();
+		
+		foreach ($productbenefits as $benefit) {
+			if ($benefit['image'] && file_exists(DIR_IMAGE . $benefit['image'])) {
+				$image = $benefit['image'];
+			} else {
+				$image = 'no_image.jpg';
+			}
+
+			$this->data['benefits'][] = array(
+				'benefit_id'      	=> $benefit['benefit_id'],
+				'name'      		=> $benefit['name'],
+				'thumb'      		=> $this->model_tool_image->resize($image, 16, 16)
+				//'sort_order' => $benefit['sort_order']
+			);
+		}
+		
+		
+		if (isset($this->request->post['product_benefits'])) {
+			$this->data['product_benefits'] = $this->request->post['product_benefits'];
+		} elseif (isset($this->request->get['product_id'])) {
+			$this->data['product_benefits'] = $this->model_catalog_product->getBenefits($this->request->get['product_id']);
+		} else {
+			$this->data['product_benefits'] = array();
+		}
+
+		//benefits
 		if (isset($this->request->post['product_stickers'])) {
 			$this->data['product_stickers'] = $this->request->post['product_stickers'];
-		} elseif (isset($product_info)) {
-			$this->data['product_stickers'] = $this->model_design_sticker->getProductSticker($product_info['product_id']);
+		} elseif (isset($this->request->get['product_id'])) {
+			$this->data['product_stickers'] = $this->model_design_sticker->getProductSticker($this->request->get['product_id']);
 		} else {
 			$this->data['product_stickers'] = array();
 		}

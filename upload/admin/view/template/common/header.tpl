@@ -160,6 +160,7 @@ $(document).ready(function(){
               <li><a href="<?php echo $layout; ?>"><?php echo $text_layout; ?></a></li>
               <li><a href="<?php echo $banner; ?>"><?php echo $text_banner; ?></a></li>
 			  <li><a href="<?php echo $sticker; ?>"><?php echo $text_sticker; ?></a></li>
+			  <li><a href="<?php echo $benefit; ?>"><?php echo $text_benefit; ?></a></li>
             </ul>
           </li>
           <li><a class="parent"><?php echo $text_users; ?></a>

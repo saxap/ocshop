@@ -12,6 +12,7 @@ $_['text_seomanager']                  = 'SEO Manager';
 $_['text_vqmod_manager']               = 'VQMod Manager';
 $_['text_banner']                      = 'Banners';
 $_['text_sticker']					   = 'Promotional Stickers';
+$_['text_benefit']					   = 'Product Benefits';
 $_['text_catalog']                     = 'Catalog';
 $_['text_category']                    = 'Categories';
 $_['text_coolfilter']                  = 'Coolfilter';
