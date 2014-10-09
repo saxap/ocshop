@@ -37,7 +37,13 @@ class ControllerBlogLatest extends Controller {
 		}
 
 		$this->document->setTitle($this->language->get('heading_title'));
-		$this->document->addStyle('catalog/view/theme/default/stylesheet/blog.css');
+		
+		if (file_exists('catalog/view/theme/' . $this->config->get('config_template') . '/stylesheet/blog.css')) {
+			$this->document->addStyle('catalog/view/theme/' . $this->config->get('config_template') . '/stylesheet/blog.css');
+		} else {
+			$this->document->addStyle('catalog/view/theme/default/stylesheet/blog.css');
+		}
+		
 		$this->document->addScript('catalog/view/javascript/jquery/jquery.total-storage.min.js');
 		$this->document->addScript('catalog/view/javascript/jquery/jail/jail.min.js');
 
