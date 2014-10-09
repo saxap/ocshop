@@ -6,9 +6,7 @@ class ControllerProductLatest extends Controller {
 	public function index() { 
 
     	$this->language->load('product/latest');
-		
-		$this->load->model('catalog/latest');
-		
+			
 		$this->load->model('catalog/product');
 		
 		$this->load->model('tool/image');
@@ -112,7 +110,7 @@ class ControllerProductLatest extends Controller {
 		);
 			
 			
-		$results = $this->model_catalog_latest->getLatest($data);	
+		$results = $this->model_catalog_product->getLatest($data);	
 		
 		
 		
