@@ -4,14 +4,14 @@ $_['heading_title']					= 'Amazon Payments';
 
 // Text
 $_['text_payment']					= 'Payment';
-$_['text_success']					= 'Amazon Payments module has been updated';
+$_['text_success']					= 'Success: Amazon Payments module has been updated';
 $_['text_edit']                     = 'Edit Amazon Payment';
 $_['text_germany']					= 'Germany';
 $_['text_uk']						= 'United Kingdom';
 $_['text_live']						= 'Live';
 $_['text_sandbox']					= 'Sandbox';
 $_['text_upload_success']			= 'File was uploaded successfully';
-$_['text_button_settings']			= 'Checkout button settings';
+$_['text_button_settings']			= 'Checkout Button Settings';
 $_['text_orange']					= 'Orange';
 $_['text_tan']						= 'Tan';
 $_['text_white']					= 'White';
@@ -26,7 +26,7 @@ $_['text_amazon_order_id']			= 'Amazon Order ID';
 $_['text_upload']					= 'Upload';
 $_['text_upload_template']			= 'Upload the filled in template by clicking on the button below. Make sure it is saved as a tab-delimited file.';
 $_['text_amazon_checkout']			= '<a onclick="window.open(\'http://go.amazonservices.com/UKCBASPOpenCart.html\');"><img src="view/image/payment/amazon.png" alt="Amazon Payments" title="Amazon Payments" style="border: 1px solid #EEEEEE;" /></a>';
-$_['text_amazon_join']				= '<a href="http://go.amazonservices.com/UKCBASPOpenCart.html" target="_blank" title="Click here to join Amazon Payments"><u>Click here to create your Amazon Payments account</u></a>';
+$_['text_amazon_join']				= 'To create your Amazon Payments account <a href="http://go.amazonservices.com/UKCBASPOpenCart.html" target="_blank" title="Click here to join Amazon Payments" class="alert-link">click here.</a>';
 
 // Column
 $_['column_submission_id']			= 'Submission ID';
@@ -48,7 +48,7 @@ $_['entry_cron_job_url']			= 'Cron Job\'s URL';
 $_['entry_cron_job_token']			= 'Secret Token';
 $_['entry_cron_job_last_run']		= 'Cron job\'s Last Run Time';
 $_['entry_ip']						= 'IP Address';
-$_['entry_ip_allowed']				= 'IP\'s allowed';
+$_['entry_ip_allowed']				= 'IPs allowed';
 $_['entry_total']	         		= 'Total';
 $_['entry_geo_zone']			    = 'Geo Zone';
 $_['entry_status']					= 'Status';
@@ -74,4 +74,3 @@ $_['error_access_key']		        = 'Access Key is required';
 $_['error_merchant_id']		        = 'Merchant ID is required';
 $_['error_curreny']					= 'Your shop must have %s currency installed and enabled';
 $_['error_upload']					= 'Upload failed';
-

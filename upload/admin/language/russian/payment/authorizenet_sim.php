@@ -6,7 +6,7 @@ $_['heading_title']					= 'Authorize.Net (SIM)';
 $_['text_payment']					= 'Payment';
 $_['text_success']					= 'Success: You have modified Authorize.Net (SIM) account details!';
 $_['text_edit']                     = 'Edit Authorize.Net (SIM)';
-$_['text_authorizenet_sim']			= '<a onclick="window.open(\'http://reseller.authorize.net/application/?id=5561103\');"><img src="view/image/payment/authorizenet.png" alt="Authorize.Net" title="Authorize.Net" style="border: 1px solid #EEEEEE;" /></a>';
+$_['text_authorizenet_sim']			= '<a onclick="window.open(\'http://reseller.authorize.net/application/?id=5561142\');"><img src="view/image/payment/authorizenet.png" alt="Authorize.Net" title="Authorize.Net" style="border: 1px solid #EEEEEE;" /></a>';
 
 // Entry
 $_['entry_merchant']				= 'Merchant ID';
@@ -29,4 +29,3 @@ $_['help_total']					= 'The checkout total the order must reach before this paym
 $_['error_permission']				= 'Warning: You do not have permission to modify payment Authorize.Net (SIM)!';
 $_['error_merchant']				= 'Merchant ID Required!';
 $_['error_key']						= 'Transaction Key Required!';
-
