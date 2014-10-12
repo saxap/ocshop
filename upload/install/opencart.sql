@@ -1767,7 +1767,17 @@ CREATE TABLE IF NOT EXISTS `oc_manufacturer_description` (
 
 INSERT INTO `oc_manufacturer_description` (`manufacturer_id`, `language_id`, `description`, `meta_description`, `meta_keyword`, `meta_title`, `meta_h1`) VALUES
 (8, 2, '&lt;p&gt;описание en&lt;br&gt;&lt;/p&gt;', 'desc en', 'keyw en', 'title en', 'h1 en'),
-(8, 1, '&lt;p&gt;описание ru&lt;br&gt;&lt;/p&gt;', 'desc ru', 'keyw ru', 'длиннный тайтл длиннный тайтлдлиннный тайтлдлиннный тайтлдлиннный тайтл длиннный тайтл длиннный тайтлдлиннный тайтлдлиннный тайтлдлиннный тайтл', 'h1 ru');
+(8, 1, '&lt;p&gt;описание ru&lt;br&gt;&lt;/p&gt;', 'desc ru', 'keyw ru', 'длиннный тайтл длиннный тайтлдлиннный тайтлдлиннный тайтлдлиннный тайтл длиннный тайтл длиннный тайтлдлиннный тайтлдлиннный тайтлдлиннный тайтл', 'h1 ru'),
+(9, 1, '&lt;p&gt;&lt;br&gt;&lt;/p&gt;', '', '', '', ''),
+(9, 2, '&lt;p&gt;&lt;br&gt;&lt;/p&gt;', '', '', '', ''),
+(7, 1, '&lt;p&gt;&lt;br&gt;&lt;/p&gt;', '', '', '', ''),
+(7, 2, '&lt;p&gt;&lt;br&gt;&lt;/p&gt;', '', '', '', ''),
+(5, 1, '&lt;p&gt;&lt;br&gt;&lt;/p&gt;', '', '', '', ''),
+(5, 2, '&lt;p&gt;&lt;br&gt;&lt;/p&gt;', '', '', '', ''),
+(6, 1, '&lt;p&gt;&lt;br&gt;&lt;/p&gt;', '', '', '', ''),
+(6, 2, '&lt;p&gt;&lt;br&gt;&lt;/p&gt;', '', '', '', ''),
+(10, 1, '&lt;p&gt;&lt;br&gt;&lt;/p&gt;', '', '', '', ''),
+(10, 2, '&lt;p&gt;&lt;br&gt;&lt;/p&gt;', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -3458,11 +3468,11 @@ INSERT INTO `oc_url_alias` (`url_alias_id`, `query`, `keyword`) VALUES
 (825, 'product_id=36', 'ipod-nano'),
 (826, 'product_id=34', 'ipod-shuffle'),
 (827, 'product_id=32', 'ipod-touch'),
-(828, 'manufacturer_id=9', 'canon'),
-(829, 'manufacturer_id=5', 'htc'),
-(830, 'manufacturer_id=7', 'hewlett-packard'),
-(831, 'manufacturer_id=6', 'palm'),
-(832, 'manufacturer_id=10', 'sony'),
+(844, 'manufacturer_id=9', 'canon'),
+(846, 'manufacturer_id=5', 'htc'),
+(845, 'manufacturer_id=7', 'hewlett-packard'),
+(847, 'manufacturer_id=6', 'palm'),
+(848, 'manufacturer_id=10', 'sony'),
 (841, 'information_id=6', 'delivery'),
 (842, 'information_id=3', 'privacy'),
 (843, 'information_id=5', 'terms');
