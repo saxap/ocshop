@@ -1,6 +1,8 @@
 <?php
 class ControllerCommonSeoPro extends Controller {
 	private $cache_data = null;
+	private $languages = array();
+	private $config_language;
 
 	public function __construct($registry) {
 		parent::__construct($registry);
@@ -14,9 +16,20 @@ class ControllerCommonSeoPro extends Controller {
 			}
 			$this->cache->set('seo_pro', $this->cache_data);
 		}
+
+		$query = $this->db->query("SELECT `value` FROM `" . DB_PREFIX . "setting` WHERE `key` = 'config_language'");
+		$this->config_language = $query->row['value'];
+
+		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "language WHERE status = '1'");
+
+		foreach ($query->rows as $result) {
+			$this->languages[$result['code']] = $result;
+		}
+
 	}
 
 	public function index() {
+
 
 		// Add rewrite to url class
 		if ($this->config->get('config_seo_url')) {
@@ -29,7 +42,7 @@ class ControllerCommonSeoPro extends Controller {
 		if (!isset($this->request->get['_route_'])) {
 			$this->validate();
 		} else {
-			$route_ = $route = $this->request->get['_route_'];
+			$route = $this->request->get['_route_'];
 			unset($this->request->get['_route_']);
 			$parts = explode('/', trim(utf8_strtolower($route), '/'));
 			list($last_part) = explode('.', array_pop($parts));
@@ -49,20 +62,14 @@ class ControllerCommonSeoPro extends Controller {
 				}
 
 				reset($parts);
-			
 				foreach ($parts as $part) {
 					$url = explode('=', $queries[$part], 2);
+
 					if ($url[0] == 'category_id') {
 						if (!isset($this->request->get['path'])) {
 							$this->request->get['path'] = $url[1];
 						} else {
 							$this->request->get['path'] .= '_' . $url[1];
-						}
-					} elseif ($url[0] == 'blid') {
-						if (!isset($this->request->get['blid'])) {
-							$this->request->get['blid'] = $url[1];
-						} else {
-							$this->request->get['blid'] .= '_' . $url[1];
 						}
 					} elseif (count($url) > 1) {
 						$this->request->get[$url[0]] = $url[1];
@@ -71,41 +78,22 @@ class ControllerCommonSeoPro extends Controller {
 			} else {
 				$this->request->get['route'] = 'error/not_found';
 			}
-			
+
 			if (isset($this->request->get['product_id'])) {
 				$this->request->get['route'] = 'product/product';
 				if (!isset($this->request->get['path'])) {
 					$path = $this->getPathByProduct($this->request->get['product_id']);
 					if ($path) $this->request->get['path'] = $path;
 				}
-			
-			//ocshop product download url fix	
-				if (isset($this->request->get['download_id'])) {
-					$this->request->get['route'] = 'product/product/download';
-					}
-			//ocshop product download url fix
-							
 			} elseif (isset($this->request->get['path'])) {
 				$this->request->get['route'] = 'product/category';
 			} elseif (isset($this->request->get['manufacturer_id'])) {
-				$this->request->get['route'] = 'product/manufacturer/info';
+				$this->request->get['route'] = 'product/manufacturer/product';
+				if (VERSION > '1.5.3') { 
+					$this->request->get['route'] = 'product/manufacturer/info';
+				}
 			} elseif (isset($this->request->get['information_id'])) {
 				$this->request->get['route'] = 'information/information';
-			//ocshop  blog	
-			} elseif (isset($this->request->get['download_id'])) {
-				$this->request->get['route'] = 'blog/article/download';
-			}	
-			//ocshop blog
-			elseif (isset($this->request->get['article_id'])) {
-				$this->request->get['route'] = 'blog/article';
-				if (!isset($this->request->get['blid'])) {
-					$blid = $this->getPathByArticle($this->request->get['article_id']);
-					if ($blid) $this->request->get['blid'] = $blid;
-				}
-		
-			//ocshop  blog
-    		} elseif (isset($this->request->get['blid'])) {
-					$this->request->get['route'] = 'blog/news';			
 			} elseif(isset($this->cache_data['queries'][$route_])) {
 					header($this->request->server['SERVER_PROTOCOL'] . ' 301 Moved Permanently');
 					$this->response->redirect($this->cache_data['queries'][$route_]);
@@ -114,25 +102,26 @@ class ControllerCommonSeoPro extends Controller {
 					$this->request->get['route'] = $queries[$parts[0]];
 				}
 			}
-	
-	
+
+
 			$this->validate();
 
 			if (isset($this->request->get['route'])) {
-				return $this->forward($this->request->get['route']);
+				return new Action($this->request->get['route']);
 			}
 		}
 	}
 
 	public function rewrite($link) {
+
 		if (!$this->config->get('config_seo_url')) return $link;
 
 		$seo_url = '';
 
-		$component = parse_url(str_replace('&amp;', '&', $link));
+		$url_info = parse_url(str_replace('&amp;', '&', $link));
 
 		$data = array();
-		parse_str($component['query'], $data);
+		parse_str($url_info['query'], $data);
 
 		$route = $data['route'];
 		unset($data['route']);
@@ -161,35 +150,8 @@ class ControllerCommonSeoPro extends Controller {
 					if (!$data['path']) return $link;
 				}
 				break;
-			//ocshop	
-			case 'blog/article':
-				if (isset($data['article_id'])) {
-				
-					$tmp = $data;
-					$data = array();
-					if ($this->config->get('config_seo_url_include_path')) {
-						$data['blid'] = $this->getPathByArticle($tmp['article_id']);
-						if (!$data['blid']) return $link;
-					}
-					$data['article_id'] = $tmp['article_id'];
-					}
-		
-			break;	
-			
-			case 'blog/news':
-				if (isset($data['blid'])) {
-				$news = explode('_', $data['blid']);
-				$news = end($news);
-				$data['blid'] = $this->getPathByNews($news);
-				if (!$data['blid']) return $link;
 
-			}
-			break;		
-			
-			//ocshop
 			case 'product/product/review':
-			case 'product/search':
-			case 'blog/article/review':
 			case 'information/information/info':
 				return $link;
 				break;
@@ -197,14 +159,14 @@ class ControllerCommonSeoPro extends Controller {
 			default:
 				break;
 		}
+		
+		// Убираем старый вариант формирования, добавляем формирование ссылки с портом
+		$link = $url_info['scheme'] . '://' . $url_info['host'] . (isset($url_info['port']) ? ':' . $url_info['port'] : '') . '/';
+		
+		// Полностью запрещаем common/home
 
-		if ($component['scheme'] == 'https') {
-			$link = $this->config->get('config_ssl');
-		} else {
-			$link = $this->config->get('config_url');
-		}
+		$link .= (($route == 'common/home') ?  '' : 'index.php?route=' . $route);
 
-		$link .= 'index.php?route=' . $route;
 
 		if (count($data)) {
 			$link .= '&amp;' . urldecode(http_build_query($data, '', '&amp;'));
@@ -217,6 +179,10 @@ class ControllerCommonSeoPro extends Controller {
 				case 'manufacturer_id':
 				case 'category_id':
 				case 'information_id':
+				case 'search':
+				case 'sub_category':
+				case 'description':
+
 					$queries[] = $key . '=' . $value;
 					unset($data[$key]);
 					$postfix = 1;
@@ -232,32 +198,6 @@ class ControllerCommonSeoPro extends Controller {
 
 				default:
 					break;
-	//ocshop blog				
-				case'article_id':
-		
-				$queries[] = $key .'='. $value;
-				unset($data[ $key ]);
-				$postfix = 1;
-				break;		
-				
-				case 'news_id':
-				$categories = explode('_', $value);
-				foreach ($categories as $category) {
-					$queries[] = 'news_id=' . $category;
-				}
-				unset($data[$key]);
-				break;
-				
-     			case 'blid':
-				$news = explode('_', $value);
-				
-				foreach ($news as $new) {
-					$queries[] = 'blid=' . $new;
-				}
-				unset($data[$key]);
-				break;
-	//ocshop blog			
-				
 			}
 		}
 
@@ -285,12 +225,16 @@ class ControllerCommonSeoPro extends Controller {
 		if ($seo_url == '') return $link;
 
 		$seo_url = trim($seo_url, '/');
-
-		if ($component['scheme'] == 'https') {
+	
+		// Убираем старый вариант формирования, добавляем формирование ссылки с портом
+		/*
+		if ($url_info['scheme'] == 'https') {
 			$seo_url = $this->config->get('config_ssl') . $seo_url;
 		} else {
 			$seo_url = $this->config->get('config_url') . $seo_url;
-		}
+		}*/
+
+		$seo_url = $url_info['scheme'] . '://' . $url_info['host'] . (isset($url_info['port']) ? ':' . $url_info['port'] : '') . '/' . $seo_url;
 
 		if (isset($postfix)) {
 			$seo_url .= trim($this->config->get('config_seo_url_postfix'));
@@ -302,10 +246,11 @@ class ControllerCommonSeoPro extends Controller {
 			$seo_url = substr($seo_url, 0, -1);
 		}
 
+
 		if (count($data)) {
 			$seo_url .= '?' . urldecode(http_build_query($data, '', '&amp;'));
 		}
-
+		
 		return $seo_url;
 	}
 
@@ -362,63 +307,6 @@ class ControllerCommonSeoPro extends Controller {
 
 		return $path[$category_id];
 	}
-	
-	private function getPathByNews($news_id) {
-		$news_id = (int)$news_id;
-		if ($news_id < 1) return false;
-
-		static $path = null;
-		if (!is_array($path)) {
-			$path = $this->cache->get('category.newspath');
-			if (!is_array($path)) $path = array();
-		}
-
-		if (!isset($path[$news_id])) {
-			$max_level = 10;
-
-			$sql = "SELECT CONCAT_WS('_'";
-			for ($i = $max_level-1; $i >= 0; --$i) {
-				$sql .= ",t$i.news_id";
-			}
-			$sql .= ") AS blid FROM " . DB_PREFIX . "news t0";
-			for ($i = 1; $i < $max_level; ++$i) {
-				$sql .= " LEFT JOIN " . DB_PREFIX . "news t$i ON (t$i.news_id = t" . ($i-1) . ".parent_id)";
-			}
-			$sql .= " WHERE t0.news_id = '" . $news_id . "'";
-
-			$query = $this->db->query($sql);
-
-			$path[$news_id] = $query->num_rows ? $query->row['blid'] : false;
-
-			$this->cache->set('category.newspath', $path);
-		}
-
-		return $path[$news_id];
-	}
-	
-	private function getPathByArticle($article_id) {
-		$article_id = (int)$article_id;
-		if ($article_id < 1) return false;
-
-
-		static $blid = null;
-		if (!is_array($blid)) {
-			$blid = $this->cache->get('article.seopath');
-			if (!is_array($blid)) $path = array();
-		}
-
-
-		if (!isset($blid[$article_id])) {
-			$query = $this->db->query("SELECT news_id FROM " . DB_PREFIX . "article_to_news WHERE article_id = '" . $article_id . "' ORDER BY main_news DESC LIMIT 1");
-
-			$blid[$article_id] = $this->getPathByNews($query->num_rows ? (int)$query->row['news_id'] : 0);
-
-		$this->cache->set('article.seopath', $blid);
-		}
-
-		return $blid[$article_id];
-	}
-	
 
 	private function validate() {
 		if (isset($this->request->get['route']) && $this->request->get['route'] == 'error/not_found') {
@@ -433,33 +321,20 @@ class ControllerCommonSeoPro extends Controller {
 		}
 
 		if (isset($this->request->server['HTTPS']) && (($this->request->server['HTTPS'] == 'on') || ($this->request->server['HTTPS'] == '1'))) {
-			$config_ssl = substr($this->config->get('config_ssl'), 0, $this->strpos_offset('/', $this->config->get('config_ssl'), 3) + 1);
-			$url = str_replace('&amp;', '&', $config_ssl . ltrim($this->request->server['REQUEST_URI'], '/'));
+			$url = str_replace('&amp;', '&', $this->config->get('config_ssl') . ltrim($this->request->server['REQUEST_URI'], '/'));
 			$seo = str_replace('&amp;', '&', $this->url->link($this->request->get['route'], $this->getQueryString(array('route')), 'SSL'));
 		} else {
-			$config_url = substr($this->config->get('config_url'), 0, $this->strpos_offset('/', $this->config->get('config_url'), 3) + 1);
-			$url = str_replace('&amp;', '&', $config_url . ltrim($this->request->server['REQUEST_URI'], '/'));
+			$url = str_replace('&amp;', '&',
+				substr($this->config->get('config_url'), 0, strpos($this->config->get('config_url'), '/', 10)) // leave only domain
+				. $this->request->server['REQUEST_URI']);
 			$seo = str_replace('&amp;', '&', $this->url->link($this->request->get['route'], $this->getQueryString(array('route')), 'NONSSL'));
 		}
 
 		if (rawurldecode($url) != rawurldecode($seo)) {
+
 			header($this->request->server['SERVER_PROTOCOL'] . ' 301 Moved Permanently');
 
 			$this->response->redirect($seo);
-		}
-	}
-
-	private function strpos_offset($needle, $haystack, $occurrence) {
-		// explode the haystack
-		$arr = explode($needle, $haystack);
-		// check the needle is not out of bounds
-		switch($occurrence) {
-			case $occurrence == 0:
-				return false;
-			case $occurrence > max(array_keys($arr)):
-				return false;
-			default:
-				return strlen(implode($needle, array_slice($arr, 0, $occurrence)));
 		}
 	}
 
@@ -468,7 +343,10 @@ class ControllerCommonSeoPro extends Controller {
 			$exclude = array();
 			}
 
-		return urldecode(http_build_query(array_diff_key($this->request->get, array_flip($exclude))));
+		return urldecode(
+			http_build_query(
+				array_diff_key($this->request->get, array_flip($exclude))
+				)
+			);
 		}
 	}
-?>
