@@ -1,50 +1,27 @@
-# OpenCart
+# OCSHOP.CMS 2.0
 
+## Описание
 
-## Overview
+OCSHOP.CMS  является  готовым коробочным решением интернет торговли. Вы просто устанавливаете, выбираете шаблон, добавляете товары, и вы готовы, принимать заказы. OCSHOP.CMS имеет встроенную систему  управления заказами, платежные шлюзы и способы доставки.
 
-OpenCart is a free open source ecommerce platform for online merchants. OpenCart provides a professional and reliable foundation from which to build a successful online store.
+## Изменения
 
-## Reporting a bug
+## Локализация
+
+1. Добавлен русский язык
+
+## SEO
+
+1. Для страниц Категорий \ Производителей \ Товаров \ Статей \ Блога
+	- Добавлены:
+	- HTML — тег Title;
+	- HTML — тег H1;
+	- Мета — тег Keywords;
+	- Мета — тег Описание (description);
+	- Рекомендации по заполнению http://ocshop.info/meta-tags-title/;
 	
-Please read the instructions below before you create a bug report.
- 
- 1. Use [Google](http://www.google.com) to search for your issue.
- 2. Search the [OpenCart forum](http://forum.opencart.com/viewforum.php?f=161), ask the community if they have seen the bug or know how to fix it.
- 3. Check all open and closed issues on the [GitHub bug tracker](https://github.com/opencart/opencart/issues).
- 4. If your bug is related to the OpenCart core code then please create a bug report on GitHub.
+2. Устраненены дубли в Категориях \ Производителей \ Товарах \ Статьях \ Главной странице;
 
-**Important!**
-- If your bug report is not related to the core code (such as a 3rd party module or your server configuration) then the issue will be closed without a reason. You must use the forum or a commercial partner to resolve a 3rd party code issue.
-- If you would like to report a serious security bug please PM an OpenCart moderator on the forum
-
-## Making a suggestion
-
-Please do not create a bug report if you think something needs improving / adding (such as features or changes to code standards etc).
-
-We welcome public suggestions on our [User Voice site](http://opencart.uservoice.com). 
-
-## How to contribute
-
-Fork the repository, edit and [submit a pull request](https://github.com/opencart/opencart/wiki/Creating-a-pull-request).
-
-Please be very clear on your commit messages and pull request, empty pull request messages will be rejected without reason.
-
-Your code should standards should match the [OpenCart coding standards](https://github.com/opencart/opencart/wiki/Coding-standards).
-
-## How to install
-
-Please read the installation instructions included in the repository.
-
-## License
-
-[GNU General Public License version 3 (GPLv3)](https://github.com/opencart/opencart/blob/master/license.txt)
-
-## Links
-
-- [OpenCart homepage](http://www.opencart.com/)
-- [OpenCart forums](http://forum.opencart.com/)
-- [OpenCart blog](http://www.opencart.com/index.php?route=feature/blog)
-- [How to documents](http://docs.opencart.com/display/opencart/OpenCart+1.5+Home)
-- [Newsletter](http://newsletter.opencart.com/h/r/B660EBBE4980C85C)
-- [User Voice suggestions](http://opencart.uservoice.com)
+Читайте нас в Блоге: http://ocshop.info
+Форум поддержки: http://forum.ocshop.info
+Демо: http://2.ocshop.net
