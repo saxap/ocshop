@@ -195,6 +195,7 @@ class ControllerCatalogCategory extends Controller {
 				'category_id' => $result['category_id'],
 				'name'        => $result['name'],
 				'sort_order'  => $result['sort_order'],
+				'noindex'  	  => $result['noindex'],
 				'edit'        => $this->url->link('catalog/category/edit', 'token=' . $this->session->data['token'] . '&category_id=' . $result['category_id'] . $url, 'SSL'),
 				'delete'      => $this->url->link('catalog/category/delete', 'token=' . $this->session->data['token'] . '&category_id=' . $result['category_id'] . $url, 'SSL')
 			);
@@ -208,6 +209,7 @@ class ControllerCatalogCategory extends Controller {
 
 		$data['column_name'] = $this->language->get('column_name');
 		$data['column_sort_order'] = $this->language->get('column_sort_order');
+		$data['column_noindex'] = $this->language->get('column_noindex');
 		$data['column_action'] = $this->language->get('column_action');
 
 		$data['button_insert'] = $this->language->get('button_insert');
@@ -249,6 +251,7 @@ class ControllerCatalogCategory extends Controller {
 
 		$data['sort_name'] = $this->url->link('catalog/category', 'token=' . $this->session->data['token'] . '&sort=name' . $url, 'SSL');
 		$data['sort_sort_order'] = $this->url->link('catalog/category', 'token=' . $this->session->data['token'] . '&sort=sort_order' . $url, 'SSL');
+		$data['sort_noindex'] = $this->url->link('catalog/category', 'token=' . $this->session->data['token'] . '&sort=noindex' . $url, 'SSL');
 
 		$url = '';
 
@@ -304,12 +307,14 @@ class ControllerCatalogCategory extends Controller {
 		$data['entry_column'] = $this->language->get('entry_column');
 		$data['entry_sort_order'] = $this->language->get('entry_sort_order');
 		$data['entry_status'] = $this->language->get('entry_status');
+		$data['entry_noindex'] = $this->language->get('entry_noindex');
 		$data['entry_layout'] = $this->language->get('entry_layout');
 
 		$data['help_filter'] = $this->language->get('help_filter');
 		$data['help_keyword'] = $this->language->get('help_keyword');
 		$data['help_top'] = $this->language->get('help_top');
 		$data['help_column'] = $this->language->get('help_column');
+		$data['help_noindex'] = $this->language->get('help_noindex');
 
 		$data['button_save'] = $this->language->get('button_save');
 		$data['button_cancel'] = $this->language->get('button_cancel');
@@ -509,6 +514,14 @@ class ControllerCatalogCategory extends Controller {
 			$data['status'] = $category_info['status'];
 		} else {
 			$data['status'] = 1;
+		}
+		
+		if (isset($this->request->post['noindex'])) {
+			$data['noindex'] = $this->request->post['noindex'];
+		} elseif (!empty($category_info)) {
+			$data['noindex'] = $category_info['noindex'];
+		} else {
+			$data['noindex'] = 1;
 		}
 
 		if (isset($this->request->post['category_layout'])) {

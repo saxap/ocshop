@@ -22,6 +22,7 @@ $_['column_image']           = 'Изображения';
 $_['column_price']           = 'Цена на сайте';
 $_['column_quantity']        = 'Количество';
 $_['column_status']          = 'Статус';
+$_['column_noindex']         = 'Индекс';
 $_['column_action']          = 'Действие';
 
 // Entry
@@ -71,6 +72,7 @@ $_['entry_option']           = 'Опция';
 $_['entry_option_value']     = 'Значение опции';
 $_['entry_required']         = 'Необходимо';
 $_['entry_status']           = 'Статус';
+$_['entry_noindex']          = 'Индексация';
 $_['entry_sort_order']       = 'Порядок сортировки';
 $_['entry_category']         = 'Показывать в категориях';
 $_['entry_main_category']    = 'Главная категория';
@@ -99,6 +101,7 @@ $_['help_filter']            = '(Автозаполнение)';
 $_['help_download']          = '(Автозаполнение)';
 $_['help_related']           = '(Автозаполнение)';
 $_['help_tag']          	 = 'теги разделяются запятой';
+$_['help_noindex']           = 'индексация в поисковых системах Google, Yandex, Bing и других';
 
 // Error
 $_['error_warning']          = 'Внимательно проверьте форму на ошибки!';

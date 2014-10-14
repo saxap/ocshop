@@ -176,6 +176,7 @@ class ControllerCatalogManufacturer extends Controller {
 				'manufacturer_id' => $result['manufacturer_id'],
 				'name'            => $result['name'],
 				'sort_order'      => $result['sort_order'],
+				'noindex'  	  	  => $result['noindex'],
 				'edit'            => $this->url->link('catalog/manufacturer/edit', 'token=' . $this->session->data['token'] . '&manufacturer_id=' . $result['manufacturer_id'] . $url, 'SSL')
 			);
 		}
@@ -188,6 +189,7 @@ class ControllerCatalogManufacturer extends Controller {
 
 		$data['column_name'] = $this->language->get('column_name');
 		$data['column_sort_order'] = $this->language->get('column_sort_order');
+		$data['column_noindex'] = $this->language->get('column_noindex');
 		$data['column_action'] = $this->language->get('column_action');
 
 		$data['button_insert'] = $this->language->get('button_insert');
@@ -228,6 +230,7 @@ class ControllerCatalogManufacturer extends Controller {
 
 		$data['sort_name'] = $this->url->link('catalog/manufacturer', 'token=' . $this->session->data['token'] . '&sort=name' . $url, 'SSL');
 		$data['sort_sort_order'] = $this->url->link('catalog/manufacturer', 'token=' . $this->session->data['token'] . '&sort=sort_order' . $url, 'SSL');
+		$data['sort_noindex'] = $this->url->link('catalog/manufacturer', 'token=' . $this->session->data['token'] . '&sort=noindex' . $url, 'SSL');
 
 		$url = '';
 
@@ -279,9 +282,11 @@ class ControllerCatalogManufacturer extends Controller {
 		$data['entry_keyword'] = $this->language->get('entry_keyword');
 		$data['entry_image'] = $this->language->get('entry_image');
 		$data['entry_sort_order'] = $this->language->get('entry_sort_order');
+		$data['entry_noindex'] = $this->language->get('entry_noindex');
 		$data['entry_customer_group'] = $this->language->get('entry_customer_group');
 
 		$data['help_keyword'] = $this->language->get('help_keyword');
+		$data['help_noindex'] = $this->language->get('help_noindex');
 
 		$data['button_save'] = $this->language->get('button_save');
 		$data['button_cancel'] = $this->language->get('button_cancel');
@@ -418,6 +423,14 @@ class ControllerCatalogManufacturer extends Controller {
 		}
 
 		$data['placeholder'] = $this->model_tool_image->resize('no_image.png', 100, 100);
+		
+		if (isset($this->request->post['noindex'])) {
+			$data['noindex'] = $this->request->post['noindex'];
+		} elseif (!empty($manufacturer_info)) {
+			$data['noindex'] = $manufacturer_info['noindex'];
+		} else {
+			$data['noindex'] = 1;
+		}
 
 		if (isset($this->request->post['sort_order'])) {
 			$data['sort_order'] = $this->request->post['sort_order'];

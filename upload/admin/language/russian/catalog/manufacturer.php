@@ -14,6 +14,7 @@ $_['text_amount']        = 'Фиксированная сумма';
 // Column
 $_['column_name']        = 'Название';
 $_['column_sort_order']  = 'Порядок сортировки';
+$_['column_noindex']     = 'Индексация';
 $_['column_action']      = 'Действие';
 
 // Entry
@@ -26,11 +27,13 @@ $_['entry_meta_description'] = 'Мета-тег Description';
 $_['entry_store']        	 = 'Магазины';
 $_['entry_keyword']      	 = 'SEO URL';
 $_['entry_image']        	 = 'Изображение';
+$_['entry_noindex']          = 'Индексация';
 $_['entry_sort_order']   	 = 'Порядок сортировки';
 $_['entry_type']         	 = 'Тип';
 
 // Help
 $_['help_keyword']       = 'Должно быть уникальным на всю систему и без пробелов';
+$_['help_noindex']       = 'индексация в поисковых системах Google, Yandex, Bing и других';
 
 // Error
 $_['error_warning']      = 'Внимательно проверьте форму на ошибки!';

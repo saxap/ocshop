@@ -14,6 +14,7 @@ $_['text_amount']        = 'Fixed Amount';
 // Column
 $_['column_name']        = 'Manufacturer Name';
 $_['column_sort_order']  = 'Sort Order';
+$_['column_noindex']         = 'Index';
 $_['column_action']      = 'Action';
 
 // Entry
@@ -27,10 +28,12 @@ $_['entry_store']            = 'Stores';
 $_['entry_keyword']    	     = 'SEO Keyword';
 $_['entry_image']    	     = 'Image';
 $_['entry_sort_order']  	 = 'Sort Order';
+$_['entry_noindex']          = 'Index';
 $_['entry_type']        	 = 'Type';
 
 // Help
 $_['help_keyword']       = 'Do not use spaces, instead replace spaces with - and make sure the keyword is globally unique.';
+$_['help_noindex']           = 'indexing in search engines Google, Yandex, Bing and other';
 
 // Error
 $_['error_warning']          = 'Warning: Please check the form carefully for errors!';

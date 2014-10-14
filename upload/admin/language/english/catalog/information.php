@@ -12,6 +12,7 @@ $_['text_default']           = 'Default';
 // Column
 $_['column_title']           = 'Information Title';
 $_['column_sort_order']	     = 'Sort Order';
+$_['column_noindex']         = 'Index';
 $_['column_action']          = 'Action';
 
 // Entry
@@ -25,12 +26,14 @@ $_['entry_meta_description'] = 'Meta Tag Description';
 $_['entry_keyword']          = 'SEO Keyword';
 $_['entry_bottom']           = 'Bottom';
 $_['entry_status']           = 'Status';
+$_['entry_noindex']          = 'Index';
 $_['entry_sort_order']       = 'Sort Order';
 $_['entry_layout']           = 'Layout Override';
 
 // Help
 $_['help_keyword']           = 'Do not use spaces, instead replace spaces with - and make sure the keyword is globally unique.';
 $_['help_bottom']            = 'Display in the bottom footer.';
+$_['help_noindex']           = 'indexing in search engines Google, Yandex, Bing and other';
 
 // Error
 $_['error_warning']          = 'Warning: Please check the form carefully for errors!';

@@ -22,6 +22,7 @@ $_['column_image']           = 'Image';
 $_['column_price']           = 'Price';
 $_['column_quantity']        = 'Quantity';
 $_['column_status']          = 'Status';
+$_['column_noindex']         = 'Index';
 $_['column_action']          = 'Action';
 
 // Entry
@@ -71,6 +72,7 @@ $_['entry_option']           = 'Option';
 $_['entry_option_value']     = 'Option Value';
 $_['entry_required']         = 'Required';
 $_['entry_status']           = 'Status';
+$_['entry_noindex']          = 'Index';
 $_['entry_sort_order']       = 'Sort Order';
 $_['entry_category']         = 'Categories';
 $_['entry_main_category']    = 'Main Category';
@@ -99,6 +101,7 @@ $_['help_filter']            = '(Autocomplete)';
 $_['help_download']          = '(Autocomplete)';
 $_['help_related']           = '(Autocomplete)';
 $_['help_tag']          	 = 'comma separated';
+$_['help_noindex']           = 'indexing in search engines Google, Yandex, Bing and other';
 
 // Error
 $_['error_warning']          = 'Warning: Please check the form carefully for errors!';
