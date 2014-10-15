@@ -55,10 +55,6 @@
     		<div class="pagination"><?php echo $pagination;?></div>
     		<div class="buttons" align="right"><a class="button" href="<?php echo $write_url;?>" title="<?php echo $write;?>"><span><?php echo $write;?></span></a></div>
     	<?php }?>
-
-    	<?php if (isset($showall_url)) { ?>
-    		<div class="buttons" align="right"><a class="button" href="<?php echo $write_url;?>" title="<?php echo $write;?>"><span><?php echo $write;?></span></a> &nbsp;<a class="button" href="<?php echo $showall_url;?>" title="<?php echo $showall;?>"><span><?php echo $showall;?></span></a></div>
-    	<?php }?>
     <?php } ?>
   </div>
   <div class="bottom">
@@ -67,30 +63,4 @@
     <div class="center"></div>
   </div>
 </div>
-<style>
-.testimonials #filter {
-	border-bottom: 1px solid #ddd;
-    margin-bottom: 15px;
-    overflow: hidden;
-}
-
-.testimonials #filter > span:hover, .testimonials #filter > span.active {
-    background: none repeat scroll 0 0 #eee;
-}
-.testimonials #filter > span {
-    border: 1px solid #ddd;
-	border-bottom: none;
-    float: left;
-    margin-right: -1px;
-}
-
-.testimonials #filter > span a {
-    text-decoration: none;
-    display: block;
-    padding: 8px 16px;
-}
-.testimonials #filter .button {
-    float: right;
-}
-</style>
 <?php echo $footer; ?> 

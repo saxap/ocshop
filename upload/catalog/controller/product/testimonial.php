@@ -27,33 +27,33 @@ class ControllerProducttestimonial extends Controller {
 		
 		$this->data['active'] = 'all';
 		
+		$this->data['single'] = 1;
+		
+		$testimonial_total = 1;
+		
+		$testimonial_total = $this->model_catalog_testimonial->getTotalTestimonials();
+		$this->data['total'] = $testimonial_total;
+		
+		if (!isset($this->request->get['testimonial_id']) ){
+			$this->data['total_good'] = $this->model_catalog_testimonial->getTotalTestimonials('good');
+			$this->data['total_bad'] = $this->model_catalog_testimonial->getTotalTestimonials('bad');
+			$this->data['single'] = 0;
+		}
+		
 		if (isset($this->request->get['filter'])) {
 				$url .= '&filter=' . $this->request->get['filter'];
 				if ($this->request->get['filter'] == 'good') {
 					$this->data['active'] = 'good';
+					$testimonial_total = $this->data['total_good'];
 				} elseif ($this->request->get['filter'] == 'bad') {
 					$this->data['active'] = 'bad';
+					$testimonial_total = $this->data['total_bad'];
 				};
 				
 				$filter = $this->request->get['filter'];
 				
 		}
 		
-		$this->data['single'] = 1;
-		$testimonial_total = 1;
-		
-		if (!isset($this->request->get['testimonial_id']) ){
-		$testimonial_total = $this->model_catalog_testimonial->getTotalTestimonials($filter);
-		$this->data['total'] = $testimonial_total;
-		$this->data['total_good'] = $this->model_catalog_testimonial->getTotalTestimonials('good');
-		$this->data['total_bad'] = $this->model_catalog_testimonial->getTotalTestimonials('bad');
-		$this->data['single'] = 0;
-		}
-
-		
-		$testimonial_total = $this->model_catalog_testimonial->getTotalTestimonials();
-			
-		//if ($testimonial_total) {
 
 	  		$this->document->SetTitle ($this->language->get('heading_title'));
 
@@ -98,15 +98,12 @@ class ControllerProducttestimonial extends Controller {
 			foreach ($results as $result) {
 				
 				$this->data['testimonials'][] = array(
-					'name'		=> $result['name'],
+					'name'			=> $result['name'],
 					'title'    		=> $result['title'],
 					'rating'		=> $result['rating'],
 					'description'	=> $result['description'],
-					'city'		=> $result['city'],
-					'date_added'	=> date("H:i:s m-d-Y", strtotime($result['date_added'])) //$result['date_added']
-
-
-
+					'city'			=> $result['city'],
+					'date_added'	=> date("H:i:s m-d-Y", strtotime($result['date_added'])) 
 				);
 			}
 			
@@ -146,39 +143,8 @@ class ControllerProducttestimonial extends Controller {
 				'common/header'
 			);		
 			
-	  		$this->response->setOutput($this->render(TRUE), $this->config->get('config_compression'));
-/*
-    	} else {
+	  		$this->response->setOutput($this->render());
 
-				
-	  		$this->document->SetTitle ( $this->language->get('text_error'));
-			
-      		$this->data['heading_title'] = $this->language->get('text_error');
-
-      		$this->data['text_error'] = $this->language->get('text_error');
-
-      		$this->data['button_continue'] = $this->language->get('button_continue');
-
-	    		$this->data['continue'] = $this->url->link('common/home', '', 'SSL');
-
-			if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/error/not_found.tpl')) {
-				$this->template = $this->config->get('config_template') . '/template/error/not_found.tpl';
-			} else {
-				$this->template = 'default/template/error/not_found.tpl';
-			}
-			
-			$this->children = array(
-				'common/column_left',
-				'common/column_right',
-				'common/content_top',
-				'common/content_bottom',
-				'common/footer',
-				'common/header'
-			);
-		
-	  		$this->response->setOutput($this->render(TRUE), $this->config->get('config_compression'));
-    	}
-*/
   	}
 }
 ?>
