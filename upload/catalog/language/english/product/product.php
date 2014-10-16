@@ -56,6 +56,15 @@ $_['tab_related']       = 'Similar';
 // Buttons
 $_['button_edit_product']    = 'Edit product';
 
+//review mail
+$_['text_message']        	= '<strong>New review is pending approval.</strong><br><br>';
+$_['text_poduct']       	= 'Poduct: ';
+$_['text_reviewer']      	= '<br><br>Reviewed left: ';
+$_['text_rating'] 			= '<br>Rating: ';
+$_['text_login']       		= 'Login to Review';
+$_['text_text']       		= '<br>Review text: ';
+$_['text_subject']       	= 'You got a review on this product';
+
 // Error
 $_['error_name']        = 'Warning: Review Name must be between 3 and 25 characters!';
 $_['error_text']        = 'Warning: Review Text must be between 25 and 1000 characters!';

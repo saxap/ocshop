@@ -47,6 +47,15 @@ $_['tab_blog_related']  = 'Статьи';
 // Buttons
 $_['button_edit_product']    = 'Редактировать товар';
 
+//review mail
+$_['text_message']        	= '<strong>Новый отзыв ожидает одобрения.</strong><br><br>';
+$_['text_poduct']       	= 'Товар: ';
+$_['text_reviewer']      	= '<br><br>Отзыв оставил: ';
+$_['text_rating'] 			= '<br>Оценка: ';
+$_['text_login']       		= 'Перейти в админ-панель';
+$_['text_text']       		= '<br>Текст отзыва: ';
+$_['text_subject']       	= 'Вы получили отзыв о товаре';
+
 // Error
 $_['error_name']        = 'Имя должно быть от 3 до 25 символов!';
 $_['error_text']        = 'Текст отзыва должен быть от 25 до 1000 символов!';

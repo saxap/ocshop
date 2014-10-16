@@ -823,12 +823,15 @@ class ControllerProductProduct extends Controller {
 	}
 
 	public function write() {
+	
+    	$this->load->model('catalog/review');
+	
+		$this->load->model('catalog/product');
+		
 		$this->language->load('product/product');
-
-		$this->load->model('catalog/review');
-
+		
 		$json = array();
-
+		
 		if ($this->request->server['REQUEST_METHOD'] == 'POST') {
 			if ((utf8_strlen($this->request->post['name']) < 3) || (utf8_strlen($this->request->post['name']) > 25)) {
 				$json['error'] = $this->language->get('error_name');
@@ -847,8 +850,27 @@ class ControllerProductProduct extends Controller {
 			}
 
 			if (!isset($json['error'])) {
+			
+				$product_info = $this->model_catalog_product->getProduct($this->request->get['product_id']);
+			    $message = $this->language->get('text_message');
+				$message.= $this->language->get('text_poduct'). strip_tags($product_info['name']).'<br>';
+				$message.= $this->language->get('text_reviewer').strip_tags($this->request->post['name']).'<br>';
+				$message.= $this->language->get('text_rating'). strip_tags($this->request->post['rating']).'<br><br>';
+				$message.= $this->language->get('text_text') . '<br>';
+				$message.= strip_tags($this->request->post['text']) . '<br>';
+				
+				$message.='<a href="'.html_entity_decode(HTTP_SERVER . 'admin/index.php').'">'.$this->language->get('text_login').'</a>';
+				$this->log->write(HTTP_SERVER . '/admin/index.php');
 				$this->model_catalog_review->addReview($this->request->get['product_id'], $this->request->post);
-
+				
+				$mail = new Mail($this->config->get('config_mail_protocol'), $this->config->get('config_smtp_host'), $this->config->get('config_smtp_username'), html_entity_decode($this->config->get('config_smtp_password')), $this->config->get('config_smtp_port'), $this->config->get('config_smtp_timeout'));
+				$mail->setTo(array($this->config->get('config_email')));
+				$mail->setFrom($this->config->get('config_email'));
+				$mail->setSender($this->config->get('config_name'));
+				$mail->setSubject($this->language->get('text_subject'));
+				$mail->setHtml($message);
+				$mail->send();
+			
 				$json['success'] = $this->language->get('text_success');
 			}
 		}
