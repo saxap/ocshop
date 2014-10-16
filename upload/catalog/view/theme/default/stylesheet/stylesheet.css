@@ -752,6 +752,7 @@ input[type="submit"].button.button-mini {
 	margin-right: auto;
 }
 .htabs {
+	clear: left;
 	height: 30px;
 	line-height: 16px;
 	border-bottom: 1px solid #DDDDDD;
@@ -1202,9 +1203,8 @@ ul.box-filter > li ul {
 }
 /* Product */
 .product-info {
-	overflow: auto;
-	margin-bottom: 20px;
 	overflow: visible;
+	margin-bottom: 20px;
 }
 .product-info > .left {
 	float: left;
