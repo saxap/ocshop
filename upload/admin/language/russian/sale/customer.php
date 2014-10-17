@@ -11,7 +11,6 @@ $_['text_default']          = 'По умолчанию';
 $_['text_balance']          = 'Баланс';
 $_['text_add_ban_ip']       = 'Добавить IP';
 $_['text_remove_ban_ip']    = 'Удалить IP';
-$_['text_login']            = 'Войти в магазин как Клиент';
 
 // Column
 $_['column_name']           = 'Имя клиента';

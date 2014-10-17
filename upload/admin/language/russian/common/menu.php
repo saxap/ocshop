@@ -1,7 +1,6 @@
 <?php
 // Text
 $_['text_affiliate']                   = 'Партнерская программа';
-$_['text_affiliate_activity']          = 'Активность партнера';
 $_['text_api']                         = 'API';
 $_['text_attribute']                   = 'Атрибуты';
 $_['text_attribute_group']             = 'Группа атрибутов';
@@ -55,7 +54,9 @@ $_['text_report_customer_online']      = 'Клиенты Online';
 $_['text_report_customer_order']       = 'Заказы';
 $_['text_report_customer_reward']      = 'Бонусы';
 $_['text_report_customer_credit']      = 'Кредиты';
-$_['text_report_affiliate_commission'] = 'Комиссия';
+$_['text_report_affiliate']            = 'Партнерская программа';
+$_['text_report_commission']           = 'Комиссия';
+$_['text_report_affiliate_activity']   = 'Активность партнера';
 $_['text_review']                      = 'Отзывы';
 $_['text_return']                      = 'Возвраты';
 $_['text_return_action']               = 'Операции возврата';
