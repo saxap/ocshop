@@ -98,7 +98,7 @@ $_['button_payment']                = 'Применить оплату';
 $_['button_coupon']                 = 'Применить купон';
 $_['button_voucher']                = 'Применить сертификат';
 $_['button_reward']                 = 'Применить бонусные баллы';
-
+$_['button_currency']               = 'Обновить курс валют';
 
 // Tab
 $_['tab_address']                   = 'Адрес';
