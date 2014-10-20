@@ -1,12 +1,12 @@
 <?php
 // Heading
-$_['heading_title']			  = 'Moneybookers';
+$_['heading_title']			  = 'Skrill';
 
 // Text
 $_['text_payment']			  = 'Оплата';
 $_['text_success']			  = 'Настройки успешно изменены';
 $_['text_edit']               = 'Редактирование';
-$_['text_moneybookers']		  = '<a onclick="window.open(\'https://www.moneybookers.com/partners/?p=OpenCart\');"><img src="view/image/payment/moneybookers.png" alt="Moneybookers" title="Moneybookers" style="border: 1px solid #EEEEEE;" /></a>';
+$_['text_Skrill']		      = '<a onclick="window.open(\'https://www.moneybookers.com/partners/?p=OpenCart\');"><img src="view/image/payment/moneybookers.png" alt="Moneybookers" title="Moneybookers" style="border: 1px solid #EEEEEE;" /></a>';
 
 // Entry
 $_['entry_email']			  = 'E-Mail';
@@ -27,4 +27,3 @@ $_['help_total']			  = 'Минимальная сумма заказа. Ниже
 // Error
 $_['error_permission']		  = 'У Вас нет прав для управления данным модулем!';
 $_['error_email']			  = 'Необходимо ввести E-Mail!';
-
