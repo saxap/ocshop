@@ -1404,7 +1404,8 @@ INSERT INTO `oc_extension` (`extension_id`, `type`, `code`) VALUES
 (398, 'total', 'voucher'),
 (407, 'payment', 'free_checkout'),
 (427, 'module', 'featured'),
-(419, 'module', 'slideshow');
+(419, 'module', 'slideshow'),
+(428, 'module', 'product_tab');
 
 -- --------------------------------------------------------
 
@@ -1649,15 +1650,15 @@ CREATE TABLE IF NOT EXISTS `oc_layout_module` (
 --
 
 INSERT INTO `oc_layout_module` (`layout_module_id`, `layout_id`, `code`, `position`, `sort_order`) VALUES
-(14, 1, 'featured.0', 'content_top', 1),
+(22, 1, 'slideshow.0', 'content_top', 0),
 (2, 4, 'carousel.0', 'content_top', 0),
 (3, 4, 'banner.0', 'content_top', 1),
 (19, 3, 'slideshow.pol3h8iif8j2lnmi', 'column_left', 1),
-(13, 1, 'slideshow.0', 'content_top', 0),
 (8, 6, 'account', 'column_right', 0),
 (20, 5, 'category', 'column_left', 2),
-(15, 1, 'carousel.0', 'content_bottom', 0),
-(18, 3, 'category', 'column_left', 0);
+(21, 1, 'product_tab.su1iymqgxe', 'content_top', 1),
+(18, 3, 'category', 'column_left', 0),
+(23, 1, 'carousel.0', 'content_bottom', 0);
 
 -- --------------------------------------------------------
 
@@ -3280,7 +3281,10 @@ INSERT INTO `oc_setting` (`setting_id`, `store_id`, `group`, `key`, `value`, `se
 (392, 0, 'config', 'config_error_display', '1', 0),
 (393, 0, 'config', 'config_error_log', '1', 0),
 (394, 0, 'config', 'config_error_filename', 'error.log', 0),
-(395, 0, 'config', 'config_google_analytics', '', 0);
+(395, 0, 'config', 'config_google_analytics', '', 0),
+(396, 0, 'product_tab', 'product_tab_module', 'a:1:{s:10:"su1iymqgxe";a:3:{s:5:"limit";s:1:"8";s:5:"width";s:3:"200";s:6:"height";s:3:"200";}}', 1),
+(397, 0, 'product_tab', 'product_tab_status', '1', 0);
+
 
 -- --------------------------------------------------------
 
