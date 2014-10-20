@@ -26,6 +26,7 @@ class ControllerCommonMenu extends Controller {
 		$data['text_paypal_search'] = $this->language->get('text_paypal_search');
 		$data['text_design'] = $this->language->get('text_design');
 		$data['text_download'] = $this->language->get('text_download');
+		$data['text_seomanager'] = $this->language->get('text_seomanager');
 		$data['text_error_log'] = $this->language->get('text_error_log');
 		$data['text_extension'] = $this->language->get('text_extension');
 		$data['text_feed'] = $this->language->get('text_feed');
@@ -122,6 +123,7 @@ class ControllerCommonMenu extends Controller {
 		$data['customer_ban_ip'] = $this->url->link('sale/customer_ban_ip', 'token=' . $this->session->data['token'], 'SSL');
 		$data['custom_field'] = $this->url->link('sale/custom_field', 'token=' . $this->session->data['token'], 'SSL');
 		$data['download'] = $this->url->link('catalog/download', 'token=' . $this->session->data['token'], 'SSL');
+		$data['seomanager'] = $this->url->link('tool/seomanager', 'token=' . $this->session->data['token'], 'SSL');
 		$data['error_log'] = $this->url->link('tool/error_log', 'token=' . $this->session->data['token'], 'SSL');
 		$data['feed'] = $this->url->link('extension/feed', 'token=' . $this->session->data['token'], 'SSL');
 		$data['filter'] = $this->url->link('catalog/filter', 'token=' . $this->session->data['token'], 'SSL');

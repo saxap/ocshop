@@ -18,6 +18,7 @@ $_['text_custom_field']                = 'Custom Fields';
 $_['text_dashboard']                   = 'Dashboard';
 $_['text_design']                      = 'Design';
 $_['text_download']                    = 'Downloads';
+$_['text_seomanager'] 				   = 'SEO Manager';
 $_['text_error_log']                   = 'Error Logs';
 $_['text_extension']                   = 'Extensions';
 $_['text_feed']                        = 'Feeds';

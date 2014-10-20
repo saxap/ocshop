@@ -18,6 +18,7 @@ $_['text_custom_field']                = 'Настраиваемые поля';
 $_['text_dashboard']                   = 'Панель состояния';
 $_['text_design']                      = 'Дизайн';
 $_['text_download']                    = 'Загрузки';
+$_['text_seomanager'] 				   = 'SEO Менеджер';
 $_['text_error_log']                   = 'Журнал ошибок';
 $_['text_extension']                   = 'Модули';
 $_['text_feed']                        = 'Каналы продвижения';
