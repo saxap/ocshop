@@ -53,6 +53,7 @@ class ControllerAccountLogin extends Controller {
 		$this->load->language('account/login');
 
 		$this->document->setTitle($this->language->get('heading_title'));
+		$this->document->setRobots('noindex,follow');
 
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate()) {
 			unset($this->session->data['guest']);
@@ -104,6 +105,8 @@ class ControllerAccountLogin extends Controller {
 		);
 
 		$data['heading_title'] = $this->language->get('heading_title');
+		
+		$this->document->setRobots('noindex,follow');
 
 		$data['text_new_customer'] = $this->language->get('text_new_customer');
 		$data['text_register'] = $this->language->get('text_register');

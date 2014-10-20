@@ -10,6 +10,7 @@ class ControllerAccountRegister extends Controller {
 		$this->load->language('account/register');
 
 		$this->document->setTitle($this->language->get('heading_title'));
+		$this->document->setRobots('noindex,follow');
 
 		$this->document->addScript('catalog/view/javascript/jquery/datetimepicker/moment.js');
 		$this->document->addScript('catalog/view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.js');
@@ -58,6 +59,8 @@ class ControllerAccountRegister extends Controller {
 		);
 
 		$data['heading_title'] = $this->language->get('heading_title');
+		
+		$this->document->setRobots('noindex,follow');
 
 		$data['text_account_already'] = sprintf($this->language->get('text_account_already'), $this->url->link('account/login', '', 'SSL'));
 		$data['text_your_details'] = $this->language->get('text_your_details');

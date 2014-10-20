@@ -10,6 +10,7 @@ class ControllerAffiliateRegister extends Controller {
 		$this->load->language('affiliate/register');
 
 		$this->document->setTitle($this->language->get('heading_title'));
+		$this->document->setRobots('noindex,follow');
 
 		$this->load->model('affiliate/affiliate');
 
@@ -52,6 +53,8 @@ class ControllerAffiliateRegister extends Controller {
 		);
 
 		$data['heading_title'] = $this->language->get('heading_title');
+		
+		$this->document->setRobots('noindex,follow');
 
 		$data['text_select'] = $this->language->get('text_select');
 		$data['text_none'] = $this->language->get('text_none');

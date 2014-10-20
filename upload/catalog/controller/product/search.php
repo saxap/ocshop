@@ -43,7 +43,6 @@ class ControllerProductSearch extends Controller {
 
 		if (isset($this->request->get['sort'])) {
 			$sort = $this->request->get['sort'];
-			$this->document->setRobots('noindex,follow');
 		} else {
 			$sort = 'p.sort_order';
 		}
@@ -56,14 +55,12 @@ class ControllerProductSearch extends Controller {
 
 		if (isset($this->request->get['page'])) {
 			$page = $this->request->get['page'];
-			$this->document->setRobots('noindex,follow');
 		} else {
 			$page = 1;
 		}
 
 		if (isset($this->request->get['limit'])) {
 			$limit = $this->request->get['limit'];
-			$this->document->setRobots('noindex,follow');
 		} else {
 			$limit = $this->config->get('config_product_limit');
 		}
@@ -75,6 +72,8 @@ class ControllerProductSearch extends Controller {
 		} else {
 			$this->document->setTitle($this->language->get('heading_title'));
 		}
+		
+		$this->document->setRobots('noindex,follow');
 
 		$data['breadcrumbs'] = array();
 
@@ -131,6 +130,8 @@ class ControllerProductSearch extends Controller {
 		} else {
 			$data['heading_title'] = $this->language->get('heading_title');
 		}
+		
+		$this->document->setRobots('noindex,follow');
 
 		$data['text_empty'] = $this->language->get('text_empty');
 		$data['text_search'] = $this->language->get('text_search');
