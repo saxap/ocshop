@@ -414,7 +414,8 @@ INSERT INTO `oc_banner_image_description` (`banner_image_id`, `language_id`, `ba
 -- Table structure for table `oc_benefit`
 --
 
-CREATE TABLE IF NOT EXISTS `oc_benefit` (
+DROP TABLE IF EXISTS `oc_benefit`;
+CREATE TABLE `oc_benefit` (
   `benefit_id` int(11) NOT NULL AUTO_INCREMENT,
   `link` varchar(255) NOT NULL,
   `status` tinyint(1) NOT NULL,
@@ -441,12 +442,13 @@ INSERT INTO `oc_benefit` (`benefit_id`, `link`, `status`, `type`, `image`, `name
 -- Table structure for table `oc_benefit_description`
 --
 
-CREATE TABLE IF NOT EXISTS `oc_benefit_description` (
+DROP TABLE IF EXISTS `oc_benefit_description`;
+CREATE TABLE `oc_benefit_description` (
   `benefit_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
   `description` text NOT NULL,
-  UNIQUE KEY `benefit_id` (`benefit_id`,`language_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`benefit_id`,`language_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `oc_benefit_description`
@@ -470,7 +472,8 @@ INSERT INTO `oc_benefit_description` (`benefit_id`, `language_id`, `description`
 -- Table structure for table `oc_product_to_benefit`
 --
 
-CREATE TABLE IF NOT EXISTS `oc_product_to_benefit` (
+DROP TABLE IF EXISTS `oc_product_to_benefit`;
+CREATE TABLE `oc_product_to_benefit` (
   `product_id` int(11) NOT NULL,
   `benefit_id` int(11) NOT NULL,
   KEY `product_id` (`product_id`),
@@ -799,7 +802,7 @@ DROP TABLE IF EXISTS `oc_category_option_description`;
 CREATE TABLE `oc_category_option_description` (
   `option_id` int(10) NOT NULL,
   `language_id` int(10) NOT NULL,
-  `name` varchar(127) COLLATE utf8_bin NOT NULL,
+  `name` varchar(127) NOT NULL COLLATE utf8_bin,
   PRIMARY KEY (`option_id`,`language_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
@@ -922,7 +925,7 @@ DROP TABLE IF EXISTS `oc_coolfilter_group_description`;
 CREATE TABLE `oc_coolfilter_group_description` (
   `coolfilter_group_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
-  `name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `name` varchar(64) NOT NULL COLLATE utf8_bin,
   PRIMARY KEY (`coolfilter_group_id`,`language_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
@@ -1023,7 +1026,7 @@ INSERT INTO `oc_coolfilter_group_to_category` (`coolfilter_group_id`, `category_
 DROP TABLE IF EXISTS `oc_type_option`;
 CREATE TABLE `oc_type_option` (
   `option_id` int(11) NOT NULL,
-  `type_index` varchar(250) COLLATE utf8_bin NOT NULL,
+  `type_index` varchar(250) NOT NULL COLLATE utf8_bin,
   PRIMARY KEY (`type_index`,`option_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
@@ -1046,7 +1049,7 @@ INSERT INTO `oc_type_option` (`option_id`, `type_index`) VALUES
 DROP TABLE IF EXISTS `oc_style_option`;
 CREATE TABLE `oc_style_option` (
   `option_id` int(11) NOT NULL,
-  `style_id` varchar(250) COLLATE utf8_bin NOT NULL,
+  `style_id` varchar(250) NOT NULL COLLATE utf8_bin,
   PRIMARY KEY (`style_id`,`option_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
@@ -3211,7 +3214,7 @@ CREATE TABLE `oc_product_to_layout` (
 --
 
 DROP TABLE IF EXISTS `oc_product_to_sticker`;
-CREATE TABLE IF NOT EXISTS `oc_product_to_sticker` (
+CREATE TABLE `oc_product_to_sticker` (
   `product_id` int(11) NOT NULL,
   `sticker_id` int(11) NOT NULL,
   `position` tinyint(1) NOT NULL,
@@ -3649,7 +3652,7 @@ INSERT INTO `oc_setting` (`setting_id`, `store_id`, `group`, `key`, `value`, `se
 --
 
 DROP TABLE IF EXISTS `oc_sticker`;
-CREATE TABLE IF NOT EXISTS `oc_sticker` (
+CREATE TABLE `oc_sticker` (
   `sticker_id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(64) NOT NULL,
   `status` tinyint(1) NOT NULL,
@@ -3818,7 +3821,7 @@ INSERT INTO `oc_tax_rule` (`tax_rule_id`, `tax_class_id`, `tax_rate_id`, `based`
 -- Table structure for table `oc_testimonial`
 --
 DROP TABLE IF EXISTS `oc_testimonial`;
-CREATE TABLE IF NOT EXISTS `oc_testimonial` (
+CREATE TABLE `oc_testimonial` (
   `testimonial_id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(64) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `city` varchar(64) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
@@ -3839,11 +3842,11 @@ CREATE TABLE IF NOT EXISTS `oc_testimonial` (
 -- Table structure for table `oc_testimonial_description`
 --
 DROP TABLE IF EXISTS `oc_testimonial_description`;
-CREATE TABLE IF NOT EXISTS `oc_testimonial_description` (
+CREATE TABLE `oc_testimonial_description` (
   `testimonial_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
-  `title` varchar(64) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
-  `description` text COLLATE utf8_unicode_ci NOT NULL,
+  `title` varchar(64) NOT NULL DEFAULT '' COLLATE utf8_unicode_ci,
+  `description` text NOT NULL COLLATE utf8_unicode_ci,
   PRIMARY KEY (`testimonial_id`,`language_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -4587,9 +4590,7 @@ CREATE TABLE `oc_article_description` (
   `seo_h1` varchar(255) NOT NULL,
   `tag` text NOT NULL,
   PRIMARY KEY (`article_id`,`language_id`),
-  KEY `name` (`name`),
-  FULLTEXT KEY `description` (`description`),
-  FULLTEXT KEY `tag` (`tag`)
+  KEY `name` (`name`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
