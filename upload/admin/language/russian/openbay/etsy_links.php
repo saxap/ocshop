@@ -9,6 +9,7 @@ $_['text_loading']              = 'Loading items';
 $_['text_new_link']             = 'Create new link';
 $_['text_current_links']        = 'Current links';
 $_['text_link_saved']           = 'Item has been linked';
+$_['text_no_links']           	= 'You have no products linked to Etsy items';
 
 // Columns
 $_['column_product']			= 'Product name';
@@ -31,4 +32,3 @@ $_['error_link_id']				= 'Link ID required';
 $_['error_link_exists']			= 'An active link already exists for this item';
 $_['error_etsy']				= 'Unable to link item, Etsy API response: ';
 $_['error_status']				= 'Status filter required';
-

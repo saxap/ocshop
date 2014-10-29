@@ -33,6 +33,7 @@ $_['text_variations_stock'] 			= 'stock';
 $_['text_min']                      	= 'Min';
 $_['text_max']                      	= 'Max';
 $_['text_option']                   	= 'Option';
+$_['text_list']              			= 'Product List';
 
 // Entry
 $_['entry_title'] 						= 'Title';
@@ -54,4 +55,3 @@ $_['button_ebay_bulk']              	= 'eBay bulk upload';
 
 // Error
 $_['error_select_items']            	= 'You must select at least 1 item to bulk list';
-

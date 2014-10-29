@@ -27,4 +27,3 @@ $_['button_load']                 	= 'Load';
 $_['error_empty_sku']        		= 'Amazon SKU can not be empty!';
 $_['error_empty_name']       		= 'Product name can not be empty!';
 $_['error_no_product_exists']       = 'Product does not exist. Please use auto complete values.';
-

@@ -31,4 +31,3 @@ $_['column_combination'] 			= "Combination";
 
 // Error
 $_['error_bulk_link_permission'] 	= 'Bulk linking is not allowed on your plan, please upgrade';
-

@@ -13,4 +13,3 @@ $_['text_heading_bulk_listing'] 	= 'Bulk listing';
 $_['text_heading_stock_updates'] 	= 'Stock updates';
 $_['text_heading_saved_listings'] 	= 'Saved listings';
 $_['text_heading_bulk_linking'] 	= 'Bulk linking';
-

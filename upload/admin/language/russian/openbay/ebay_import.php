@@ -23,6 +23,7 @@ $_['entry_import']						= 'Import eBay items';
 
 // Buttons
 $_['button_import']						= 'Import';
+$_['button_complete']					= 'Complete';
 
 // Help
 $_['help_import_item_advanced']        	= 'Will take up to 10 times longer to import items. Imports weights, sizes, ISBN and more if available';
@@ -34,4 +35,3 @@ $_['error_import']                   	= 'Failed to load';
 $_['error_maintenance']					= 'Your store is in maintenance mode. Importing will fail!';
 $_['error_ajax_load']					= 'Failed to connect to server';
 $_['error_validation']					= 'You need to register for your API token and enable the module.';
-

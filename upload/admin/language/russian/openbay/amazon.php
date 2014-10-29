@@ -1,6 +1,6 @@
 <?php
 // Heading
-$_['heading_title']         		= 'Amazon Europe';
+$_['heading_title']         		= 'Amazon EU';
 $_['text_openbay']					= 'OpenBay Pro';
 $_['text_dashboard']				= 'Amazon EU Dashboard';
 
@@ -13,4 +13,3 @@ $_['text_heading_bulk_listing'] 	= 'Bulk listing';
 $_['text_heading_stock_updates'] 	= 'Stock updates';
 $_['text_heading_saved_listings'] 	= 'Saved listings';
 $_['text_heading_bulk_linking'] 	= 'Bulk linking';
-

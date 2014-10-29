@@ -2,7 +2,7 @@
 // Heading
 $_['heading_title']					= 'Item links';
 $_['text_openbay']					= 'OpenBay Pro';
-$_['text_amazon']					= 'Amazon US';
+$_['text_amazon']					= 'Amazon EU';
 
 // Text
 $_['text_desc1']                    = 'Linking your items will allow for stock control on your Amazon listings.';
@@ -27,4 +27,3 @@ $_['button_load']                 	= 'Load';
 $_['error_empty_sku']        		= 'Amazon SKU can not be empty!';
 $_['error_empty_name']       		= 'Product name can not be empty!';
 $_['error_no_product_exists']       = 'Product does not exist. Please use auto complete values.';
-

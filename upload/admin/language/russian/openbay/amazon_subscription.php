@@ -33,4 +33,3 @@ $_['column_price']                    	= 'Price';
 // Buttons
 $_['button_change_plan']              	= 'Change plan';
 $_['button_register']                 	= 'Register';
-

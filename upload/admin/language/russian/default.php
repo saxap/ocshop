@@ -26,7 +26,6 @@ $_['text_loading']                  = 'Загрузка...';
 $_['text_no_results']               = 'Нет данных!';
 $_['text_confirm']                  = 'Данное действие необратимо. Вы уверены?';
 $_['text_home']                     = '<i class="fa fa-home fa-lg"></i>';
-$_['text_confirm']                  = 'Данное действие необратимо. Вы уверены?';
 
 // Button
 $_['button_insert']                 = 'Добавить';

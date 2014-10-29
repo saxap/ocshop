@@ -1,6 +1,6 @@
 <?php
 //Heading
-$_['text_page_title']               = 'Bulk listing';
+$_['heading_title']               	= 'New listings';
 $_['text_ebay']               		= 'eBay';
 $_['text_openbay']               	= 'Openbay Pro';
 
@@ -15,6 +15,7 @@ $_['text_catalog']                  = 'Select catalog';
 $_['text_catalog_search']           = 'Search catalog';
 $_['text_search_term']           	= 'Search term';
 $_['text_close']           			= 'Close';
+$_['text_bulk']           			= 'Create new listings in bulk';
 
 //Form options / text
 $_['text_pixels']                   = 'Pixels';
@@ -69,4 +70,3 @@ $_['text_error_no_product']         = 'There is no eligible products selected to
 $_['text_error_reverify']           = 'There was an error, you should edit and re-verify the items';
 $_['error_missing_settings']   = 'You cannot bulk list items until you syncronise your eBay settings';
 $_['text_error_no_selection']   	= 'You must select at least 1 item to list';
-

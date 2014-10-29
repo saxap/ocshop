@@ -50,6 +50,7 @@ $_['text_returns_costs']        		= 'Return Shipping costs';
 $_['text_returns_costs_b']      		= 'Buyer pays';
 $_['text_returns_costs_s']      		= 'Seller pays';
 $_['text_returns_restock']      		= 'Restocking Fee';
+$_['text_list']           				= 'Profile list';
 
 //Template profile
 $_['text_template_choose']      		= 'Default template';
@@ -68,6 +69,8 @@ $_['text_confirm_delete']       		= 'Are you sure you want to delete the profile
 $_['text_width']      					= 'Width';
 $_['text_height']      					= 'Height';
 $_['text_px']      						= 'px';
+$_['text_add']      					= 'Add profile';
+$_['text_edit']      					= 'Edit profile';
 
 //General profile
 $_['text_general_private']      		= 'List items as private auction';
@@ -96,4 +99,3 @@ $_['error_permission']        			= 'You do not have permission to edit profiles'
 $_['error_name']           				= 'You must enter a profile name';
 $_['error_no_template']          		= 'Template ID does not exist';
 $_['error_missing_settings'] 			= 'You cannot add,edit or delete profiles until you syncronise your eBay settings';
-

@@ -2,7 +2,7 @@
 // Heading
 $_['heading_title'] 				= 'Bulk Linking';
 $_['text_openbay'] 					= 'OpenBay Pro';
-$_['text_amazon'] 					= 'Amazon';
+$_['text_amazon'] 					= 'Amazon US';
 
 // Button
 $_['button_load'] 					= 'Load';
@@ -25,4 +25,3 @@ $_['column_combination'] 			= "Combination";
 
 // Error
 $_['error_bulk_link_permission'] 	= 'Bulk linking is not allowed on your plan, please upgrade';
-

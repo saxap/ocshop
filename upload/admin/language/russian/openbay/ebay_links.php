@@ -52,4 +52,3 @@ $_['column_allocated']         		= 'Allocated stock';
 $_['column_ebay_stock']        		= 'eBay stock';
 $_['column_stock_available']   		= 'Shop stock';
 $_['column_stock_reserve']   		= 'Reserve level';
-
