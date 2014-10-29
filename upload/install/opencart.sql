@@ -3445,7 +3445,9 @@ CREATE TABLE IF NOT EXISTS `oc_url_alias` (
   `query` varchar(255) NOT NULL,
   `keyword` varchar(255) NOT NULL,
   `seomanager` int(1) DEFAULT '0',
-  PRIMARY KEY (`url_alias_id`)
+  PRIMARY KEY (`url_alias_id`),
+  KEY `query` (`query`),
+  KEY `keyword` (`keyword`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
