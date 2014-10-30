@@ -9,7 +9,6 @@ $_['text_edit']        = 'Настройки модуля';
 
 // Entry
 $_['entry_banner']     = 'Баннер';
-$_['entry_limit']      = 'Лимит';
 $_['entry_scroll']     = 'Прокрутка';
 $_['entry_image']      = 'Изображение (Ширина x Высота)';
 $_['entry_width']      = 'Ширина';
