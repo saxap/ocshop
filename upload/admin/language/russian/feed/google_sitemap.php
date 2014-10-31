@@ -5,7 +5,6 @@ $_['heading_title']    = 'Google Sitemap';
 // Text
 $_['text_feed']        = 'Каналы продвижения';
 $_['text_success']     = 'Настройки модуля Google Sitemap обновлены!';
-$_['text_list']        = 'Google Sitemap';
 $_['text_edit']        = 'Настройки Google Sitemap';
 
 // Entry
