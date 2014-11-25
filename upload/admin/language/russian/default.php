@@ -28,7 +28,7 @@ $_['text_confirm']                  = 'Данное действие необр�
 $_['text_home']                     = '<i class="fa fa-home fa-lg"></i>';
 
 // Button
-$_['button_insert']                 = 'Добавить';
+$_['button_add']                 	= 'Добавить';
 $_['button_delete']                 = 'Удалить';
 $_['button_save']                   = 'Сохранить';
 $_['button_cancel']                 = 'Отменить';

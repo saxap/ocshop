@@ -35,6 +35,7 @@ $_['entry_telephone']       = 'Телефон';
 $_['entry_fax']             = 'Факс';
 $_['entry_newsletter']      = 'Подписка на новости';
 $_['entry_status']          = 'Статус';
+$_['entry_approved']        = 'Одобренные';
 $_['entry_safe']            = 'Безобасный';
 $_['entry_password']        = 'Пароль';
 $_['entry_confirm']         = 'Подтвердите пароль';
@@ -51,7 +52,6 @@ $_['entry_description']     = 'Описание';
 $_['entry_amount']          = 'Сумма';
 $_['entry_points']          = 'Баллы';
 $_['entry_name']            = 'Имя клиента';
-$_['entry_approved']        = 'Одобренные';
 $_['entry_ip']              = 'IP';
 $_['entry_date_added']      = 'Дата добавления';
 
