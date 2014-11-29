@@ -371,19 +371,19 @@ class ModelCatalogProduct extends Model {
 			$sql .= " AND p.model LIKE '" . $this->db->escape($data['filter_model']) . "%'";
 		}
 
-		if (!empty($data['filter_price'])) {
+		if (isset($data['filter_price']) && !is_null($data['filter_price'])) {
 			$sql .= " AND p.price LIKE '" . $this->db->escape($data['filter_price']) . "%'";
 		}
 
-		if (isset($data['filter_quantity']) && $data['filter_quantity'] !== null) {
+		if (isset($data['filter_quantity']) && !is_null($data['filter_quantity'])) {
 			$sql .= " AND p.quantity = '" . (int)$data['filter_quantity'] . "'";
 		}
 
-		if (isset($data['filter_status']) && $data['filter_status'] !== null) {
+		if (isset($data['filter_status']) && !is_null($data['filter_status'])) {
 			$sql .= " AND p.status = '" . (int)$data['filter_status'] . "'";
 		}
 		
-		if (isset($data['filter_noindex']) && $data['filter_noindex'] !== null) {
+		if (isset($data['filter_noindex']) && !is_null($data['filter_noindex'])) {
 			$sql .= " AND p.noindex = '" . (int)$data['filter_noindex'] . "'";
 		}
 
@@ -643,15 +643,15 @@ class ModelCatalogProduct extends Model {
 			$sql .= " AND p.model LIKE '" . $this->db->escape($data['filter_model']) . "%'";
 		}
 
-		if (!empty($data['filter_price'])) {
+		if (isset($data['filter_price']) && !is_null($data['filter_price'])) {
 			$sql .= " AND p.price LIKE '" . $this->db->escape($data['filter_price']) . "%'";
 		}
 
-		if (isset($data['filter_quantity']) && $data['filter_quantity'] !== null) {
+		if (isset($data['filter_quantity']) && !is_null($data['filter_quantity'])) {
 			$sql .= " AND p.quantity = '" . (int)$data['filter_quantity'] . "'";
 		}
 
-		if (isset($data['filter_status']) && $data['filter_status'] !== null) {
+		if (isset($data['filter_status']) && !is_null($data['filter_status'])) {
 			$sql .= " AND p.status = '" . (int)$data['filter_status'] . "'";
 		}
 		
