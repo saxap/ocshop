@@ -1,4 +1,4 @@
-# OCSHOP.CMS 2.0
+# OCSHOP.CMS 2.0.1.0
 
 ## Описание
 
