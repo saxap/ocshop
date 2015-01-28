@@ -71,6 +71,20 @@
                 <?php } ?>
               </select>
             </div>
+          </div>          
+		  <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-status"><?php echo $featured_module; ?></label>
+            <div class="col-sm-10">
+              <select name="active_module" id="input-status" class="form-control">
+			    <?php foreach ($modules as $module) { ?>
+                <?php if ($active_module == $module['module_id']) { ?>
+				<option value="<?php echo $module['module_id']; ?>" selected="selected"><?php echo $module['name']; ?></option>
+                <?php } else { ?>
+                <option value="<?php echo $module['module_id']; ?>"><?php echo $module['name']; ?></option>
+				<?php } ?>
+				<?php } ?>
+              </select>
+            </div>
           </div>
         </form>
       </div>
