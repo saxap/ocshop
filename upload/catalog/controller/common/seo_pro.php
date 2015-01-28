@@ -42,9 +42,9 @@ class ControllerCommonSeoPro extends Controller {
 		if (!isset($this->request->get['_route_'])) {
 			$this->validate();
 		} else {
-			$route = $this->request->get['_route_'];
+			$route_ = $this->request->get['_route_'];
 			unset($this->request->get['_route_']);
-			$parts = explode('/', trim(utf8_strtolower($route), '/'));
+			$parts = explode('/', trim(utf8_strtolower($route_), '/'));
 			list($last_part) = explode('.', array_pop($parts));
 			array_push($parts, $last_part);
 
@@ -89,9 +89,6 @@ class ControllerCommonSeoPro extends Controller {
 				$this->request->get['route'] = 'product/category';
 			} elseif (isset($this->request->get['manufacturer_id'])) {
 				$this->request->get['route'] = 'product/manufacturer/product';
-				if (VERSION > '1.5.3') { 
-					$this->request->get['route'] = 'product/manufacturer/info';
-				}
 			} elseif (isset($this->request->get['information_id'])) {
 				$this->request->get['route'] = 'information/information';
 			} elseif(isset($this->cache_data['queries'][$route_])) {
