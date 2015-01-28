@@ -34,9 +34,10 @@ class ControllerModuleProductTab extends Controller {
 		$data['entry_width'] = $this->language->get('entry_width');
 		$data['entry_height'] = $this->language->get('entry_height');
 		$data['entry_status'] = $this->language->get('entry_status');
+		$data['entry_status'] = $this->language->get('entry_status');
 
 		$data['button_save'] = $this->language->get('button_save');
-		$data['button_cancel'] = $this->language->get('button_cancel');
+		$data['featured_module'] = $this->language->get('featured_module');
 
 		if (isset($this->error['warning'])) {
 			$data['error_warning'] = $this->error['warning'];
@@ -129,6 +130,20 @@ class ControllerModuleProductTab extends Controller {
 		} else {
 			$data['height'] = 200;
 		}
+		
+		$data['modules'] = array();
+		$modules = $this->model_extension_module->getModulesByCode('featured');
+		$data['modules'] = $modules;
+		
+		
+		if (isset($this->request->post['active_module'])) {
+			$data['active_module'] = $this->request->post['active_module'];
+		} elseif (!empty($module_info)) {
+			$data['active_module'] = $module_info['active_module'];
+		} else {
+			$data['active_module'] = '';
+		}
+		
 				
 		if (isset($this->request->post['status'])) {
 			$data['status'] = $this->request->post['status'];

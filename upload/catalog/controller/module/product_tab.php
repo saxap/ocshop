@@ -194,8 +194,10 @@ class ControllerModuleProductTab extends Controller {
 
 		//Featured
 		$data['featured_products'] = array();
-
-		$products = explode(',', $this->config->get('featured_product'));
+		$products = array();
+			
+		$feautured_module_info = $this->model_extension_module->getModule($setting['active_module']);
+		$products = $feautured_module_info['product'];
 
 		if (empty($setting['limit'])) {
 			$setting['limit'] = 4;
