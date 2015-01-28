@@ -13,6 +13,7 @@ $_['entry_limit']      	  = 'Лимит';
 $_['entry_width']         = 'Ширина';
 $_['entry_height']        = 'Высота';
 $_['entry_status']        = 'Статус';
+$_['featured_module']     = 'Модуль рекомендуемых';
 
 // Error
 $_['error_permission'] = 'У Вас нет прав для управления данным модулем!';

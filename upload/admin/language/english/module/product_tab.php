@@ -13,6 +13,7 @@ $_['entry_limit']         = 'Limit';
 $_['entry_width']         = 'Width';
 $_['entry_height']        = 'Height';
 $_['entry_status']        = 'Status';
+$_['featured_module']     = 'Featured Module';
 
 // Error
 $_['error_permission']    = 'Warning: You do not have permission to modify Product Tab module!';
