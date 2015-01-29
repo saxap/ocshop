@@ -37,6 +37,7 @@ class ControllerModuleProductTab extends Controller {
 		$data['entry_status'] = $this->language->get('entry_status');
 
 		$data['button_save'] = $this->language->get('button_save');
+		$data['button_cancel'] = $this->language->get('button_cancel');
 		$data['featured_module'] = $this->language->get('featured_module');
 
 		if (isset($this->error['warning'])) {
