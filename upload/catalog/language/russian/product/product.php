@@ -38,7 +38,6 @@ $_['entry_review']                            = 'Ваш отзыв:';
 $_['entry_rating']                            = 'Оценка:';
 $_['entry_good']                              = 'Хорошо';
 $_['entry_bad']                               = 'Плохо';
-$_['entry_captcha']                           = 'Введите код, указанный на картинке:';
 
 // Tabs
 $_['tab_description']                         = 'Описание';
