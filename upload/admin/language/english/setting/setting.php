@@ -21,10 +21,8 @@ $_['text_mail']                        = 'Mail';
 $_['text_smtp']                        = 'SMTP';
 $_['text_seo_url'] 					   = 'Default';
 $_['text_seo_pro']					   = 'SeoPro';
-$_['text_analytics']                   = 'Google Analytics';
-$_['text_analytics']                   = 'Login to your <a href="http://www.google.com/analytics/" target="_blank"><u>Google Analytics</u></a> account and after creating your website profile copy and paste the analytics code into this field.';
-$_['text_captcha']                     = 'Google reCAPTCHA';
-$_['text_captcha']                     = 'Go to <a href="https://www.google.com/recaptcha/intro/index.html" target="_blank"><u>Google reCAPTCHA page</u></a> and register your website.';
+$_['text_google_analytics']            = 'Google Analytics';
+$_['text_google_captcha']              = 'Google reCAPTCHA';
 
 // Entry
 $_['entry_name']                       = 'Store Name';
@@ -125,9 +123,6 @@ $_['entry_secure']                     = 'Use SSL';
 $_['entry_shared']                     = 'Use Shared Sessions';
 $_['entry_robots']                     = 'Robots';
 $_['entry_seo_url']                    = 'Use SEO URLs';
-$_['entry_seo_url_type'] 			   = 'Type Friendly URL';
-$_['entry_seo_url_include_path'] 	   = 'Friendly URL goods categories';
-$_['entry_seo_url_postfix']			   = 'End Friendly URL';
 $_['entry_file_max_size']	           = 'Max File Size';
 $_['entry_file_ext_allowed']           = 'Allowed File Extensions';
 $_['entry_file_mime_allowed']          = 'Allowed File Mime Types';
@@ -141,6 +136,7 @@ $_['entry_error_filename']             = 'Error Log Filename';
 $_['entry_google_analytics']           = 'Google Analytics Code';
 $_['entry_google_captcha_public']      = 'Site key';
 $_['entry_google_captcha_secret']      = 'Secret key';
+$_['entry_status']                     = 'Status';
 
 // Help
 $_['help_geocode']                     = 'Please enter your store location geocode manually.';
@@ -208,6 +204,8 @@ $_['help_encryption']                  = 'Please provide a secret key that will 
 $_['help_compression']                 = 'GZIP for more efficient transfer to requesting clients. Compression level must be between 0 - 9.';
 $_['help_seo_url_include_path'] 	   = '/category/subcategory/product<br />(Only SeoPro)';
 $_['help_seo_url_postfix']			   = 'For example. html<br />(Only SeoPro)';
+$_['help_google_analytics']            = 'Login to your <a href="http://www.google.com/analytics/" target="_blank"><u>Google Analytics</u></a> account and after creating your website profile copy and paste the analytics code into this field.';
+$_['help_google_captcha']              = 'Go to <a href="https://www.google.com/recaptcha/intro/index.html" target="_blank"><u>Google reCAPTCHA page</u></a> and register your website.';
 
 // Error
 $_['error_warning']                    = 'Warning: Please check the form carefully for errors!';
