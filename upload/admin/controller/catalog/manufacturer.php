@@ -142,7 +142,7 @@ class ControllerCatalogManufacturer extends Controller {
 		if (isset($this->request->get['page'])) {
 			$url .= '&page=' . $this->request->get['page'];
 		}
-		
+
 		$data['breadcrumbs'] = array();
 
 		$data['breadcrumbs'][] = array(
@@ -154,7 +154,7 @@ class ControllerCatalogManufacturer extends Controller {
 			'text' => $this->language->get('heading_title'),
 			'href' => $this->url->link('catalog/manufacturer', 'token=' . $this->session->data['token'] . $url, 'SSL')
 		);
-		
+
 		$data['add'] = $this->url->link('catalog/manufacturer/add', 'token=' . $this->session->data['token'] . $url, 'SSL');
 		$data['delete'] = $this->url->link('catalog/manufacturer/delete', 'token=' . $this->session->data['token'] . $url, 'SSL');
 
@@ -182,7 +182,7 @@ class ControllerCatalogManufacturer extends Controller {
 		}
 
 		$data['heading_title'] = $this->language->get('heading_title');
-		
+
 		$data['text_list'] = $this->language->get('text_list');
 		$data['text_no_results'] = $this->language->get('text_no_results');
 		$data['text_confirm'] = $this->language->get('text_confirm');
@@ -264,7 +264,7 @@ class ControllerCatalogManufacturer extends Controller {
 
 	protected function getForm() {
 		$data['heading_title'] = $this->language->get('heading_title');
-		
+
 		$data['text_form'] = !isset($this->request->get['manufacturer_id']) ? $this->language->get('text_add') : $this->language->get('text_edit');
 		$data['text_enabled'] = $this->language->get('text_enabled');
 		$data['text_disabled'] = $this->language->get('text_disabled');
@@ -305,6 +305,7 @@ class ControllerCatalogManufacturer extends Controller {
 		} else {
 			$data['error_name'] = '';
 		}
+<<<<<<< HEAD
 		
 		if (isset($this->error['meta_title'])) {
 			$data['error_meta_title'] = $this->error['meta_title'];
@@ -317,13 +318,15 @@ class ControllerCatalogManufacturer extends Controller {
 		} else {
 			$data['error_meta_h1'] = array();
 		}
+=======
+>>>>>>> master
 
 		if (isset($this->error['keyword'])) {
 			$data['error_keyword'] = $this->error['keyword'];
 		} else {
 			$data['error_keyword'] = '';
 		}
-		
+
 		$url = '';
 
 		if (isset($this->request->get['sort'])) {
@@ -349,7 +352,7 @@ class ControllerCatalogManufacturer extends Controller {
 			'text' => $this->language->get('heading_title'),
 			'href' => $this->url->link('catalog/manufacturer', 'token=' . $this->session->data['token'] . $url, 'SSL')
 		);
-		
+
 		if (!isset($this->request->get['manufacturer_id'])) {
 			$data['action'] = $this->url->link('catalog/manufacturer/add', 'token=' . $this->session->data['token'] . $url, 'SSL');
 		} else {
@@ -486,7 +489,7 @@ class ControllerCatalogManufacturer extends Controller {
 				$this->error['keyword'] = sprintf($this->language->get('error_keyword'));
 			}
 		}
-		
+
 		return !$this->error;
 	}
 

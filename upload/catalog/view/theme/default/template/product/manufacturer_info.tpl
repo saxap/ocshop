@@ -65,7 +65,7 @@
         </div>
       </div>
       <br />
-      <div class="row">      
+      <div class="row">
         <?php foreach ($products as $product) { ?>
         <div class="product-layout product-list col-xs-12">
           <div class="product-thumb">
@@ -119,4 +119,4 @@
       <?php echo $content_bottom; ?></div>
     <?php echo $column_right; ?></div>
 </div>
-<?php echo $footer; ?> 
+<?php echo $footer; ?>
