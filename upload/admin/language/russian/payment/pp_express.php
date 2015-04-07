@@ -12,11 +12,17 @@ $_['text_clear']					= 'Очистить';
 $_['text_browse']					= 'Обзор';
 $_['text_image_manager']			= 'Обзор изображений';
 $_['text_ipn']						= 'IPN url';
+$_['text_paypal_join']              = 'Sign up for PayPal - save your settings first as this page will be refreshed';
+$_['text_paypal_join_sandbox']      = 'Sign up for PayPal Sandbox - save your settings first as this page will be refreshed';
+
 
 // Entry
 $_['entry_username']				= 'API Username';
 $_['entry_password']				= 'API Password';
 $_['entry_signature']				= 'API Signature';
+$_['entry_sandbox_username']		= 'API Sandbox Username';
+$_['entry_sandbox_password']		= 'API Sandbox Password';
+$_['entry_sandbox_signature']		= 'API Sandbox Signature';
 $_['entry_test']					= 'Тестовый режим (Sandbox) Mode';
 $_['entry_method']					= 'Метод транзакции';
 $_['entry_geo_zone']				= 'Географическая зона';
@@ -62,6 +68,10 @@ $_['error_permission']				= 'У Вас нет прав для управлени
 $_['error_username']				= 'Необходимо заполнить API Username!';
 $_['error_password']				= 'Необходимо заполнить API Password!';
 $_['error_signature']				= 'Необходимо заполнить API Signature!';
+$_['error_sandbox_username']	 	= 'API Sandbox Username Required!';
+$_['error_sandbox_password']		= 'API Sandbox Password Required!';
+$_['error_sandbox_signature']		= 'API Sandbox Signature Required!';
 $_['error_data']					= 'Ошибка запроса';
 $_['error_timeout']					= 'Время ожидания запроса окончено';
-
+$_['error_api']						= 'Paypal Authorization Error';
+$_['error_api_sandbox']				= 'Paypal Sandbox Authorization Error';
