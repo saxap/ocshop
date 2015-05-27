@@ -241,6 +241,28 @@ $(document).ready(function(){
           <li><a href="http://forum.ocshop.info/" target="_blank"><?php echo $text_support; ?></a></li>
         </ul>
       </li>
+	  <li id="seo"><a class="top"><?php echo $text_seo; ?></a>
+        <ul>
+          <li><a class="parent"><?php echo $text_gogettop; ?></a>
+            <ul>
+              <li><a href="http://gogettop.ru/?ref=16605" target="_blank"><?php echo $text_gogettop; ?></a></li>
+              <li><a href="<?php echo $gogettop; ?>"><?php echo $text_gogettop_help; ?></a></li>
+            </ul>
+          </li>
+          <li><a class="parent"><?php echo $text_seopult; ?></a>
+            <ul>
+              <li><a href="http://seopult.ru/ref/f8924f1b27c4ffd6/aHR0cDovL3Nlb3B1bHQucnUvcmVnaXN0ZXIuaHRtbD9zPXRodG9w" target="_blank"><?php echo $text_seopult; ?></a></li>
+              <li><a href="<?php echo $seopult; ?>"><?php echo $text_seopult_help; ?></a></li>
+            </ul>
+          </li>
+          <li><a class="parent"><?php echo $text_blogun; ?></a>
+            <ul>
+              <li><a href="https://blogun.ru/unimpairedcedcdhg.html" target="_blank"><?php echo $text_blogun; ?></a></li>
+              <li><a href="<?php echo $blogun; ?>"><?php echo $text_blogun_help; ?></a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
     </ul>
     <ul class="right" style="display: none;">
 	<li id="store-login"><img src="view/image/lock.png" alt="" style="position: relative; top: 3px;" />&nbsp;<?php echo $logged; ?></li>

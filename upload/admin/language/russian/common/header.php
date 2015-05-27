@@ -112,4 +112,11 @@ $_['text_openbay_order_import']        = 'Импорт заказа';
 $_['text_paypal_manage']               = 'PayPal';
 $_['text_paypal_search']               = 'Поиск';
 $_['text_recurring_profile']           = 'Платежные профили';
+$_['text_seo'] 			   	   		   = 'SEO';
+$_['text_gogettop'] 			   	   = 'GogetTop';
+$_['text_gogettop_help']           	   = 'Инструкция GogetTop';
+$_['text_seopult']           	   	   = 'SeoPult';
+$_['text_seopult_help']           	   = 'Инструкция SeoPult';
+$_['text_blogun']           	   	   = 'Blogun';
+$_['text_blogun_help']           	   = 'Инструкция Blogun';
 ?>
