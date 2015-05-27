@@ -92,11 +92,7 @@ $_['button_uninstall']              = 'Деактивировать';
 $_['button_login']                  = 'Вход в магазин';
 $_['button_unlock']                 = 'Разблокировать счет';
 $_['button_link']                   = 'Ссылка';
-$_['button_shipping']               = 'Распечатать список доставки';
-$_['button_payment']                = 'Применить оплату';
-$_['button_coupon']                 = 'Применить купон';
-$_['button_voucher']                = 'Применить сертификат';
-$_['button_reward']                 = 'Применить бонусные баллы';
+$_['button_apply']                  = 'Применить';
 $_['button_currency']               = 'Обновить курс валют';
 
 // Tab
