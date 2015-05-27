@@ -1223,6 +1223,9 @@ class ControllerSettingSetting extends Controller {
 		} else {
 			$this->data['config_sms_copy'] = $this->config->get('config_sms_copy');
 		}
+		
+		$this->data['text_howtosms'] = $this->language->get('text_howtosms');
+		$this->data['howtosms'] = $this->url->link('setting/howtosms', 'token=' . $this->session->data['token'], 'SSL');
 
 		$this->template = 'setting/setting.tpl';
 		$this->children = array(

@@ -23,6 +23,7 @@ $_['text_mail']                    = 'Mail';
 $_['text_smtp']                    = 'SMTP';
 $_['text_seo_url']                 = 'Default';
 $_['text_seo_pro']                 = 'SeoPro';
+$_['text_howtosms']          	   = 'How to';
 
 // Entry
 $_['entry_name']                   = 'Store Name:';

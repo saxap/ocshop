@@ -959,7 +959,9 @@
                 <?php echo $text_yes; ?>
                 <input type="radio" name="config_sms_alert" value="0" checked="checked" />
                 <?php echo $text_no; ?>
-                <?php } ?></td>
+                <?php } ?>
+				&nbsp;&nbsp;&nbsp;<a target="_blank" href="<?php echo $howtosms; ?>"><?php echo $text_howtosms; ?></a> <a target="_blank" href="http://smsc.ru/?ppocshop">smsc.ru</a>
+				</td>
             </tr>
             <tr>
               <td><?php echo $entry_sms_gatename; ?></td>

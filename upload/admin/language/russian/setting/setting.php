@@ -23,6 +23,7 @@ $_['text_mail']                  = 'Mail';
 $_['text_smtp']                  = 'SMTP';
 $_['text_seo_url']               = 'По умолчанию';
 $_['text_seo_pro']               = 'SeoPro';
+$_['text_howtosms']          	 = 'Инструкция настройки';
 
 // Entry
 $_['entry_name']                   = 'Название магазина:';
