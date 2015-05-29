@@ -1,7 +1,6 @@
 User-agent: *
 Disallow: /*route=checkout/
 Disallow: /index.php?route=product/product*&manufacturer_id=
-Disallow: /admin
 Disallow: /catalog
 Disallow: /download
 Disallow: /system
@@ -19,7 +18,6 @@ Disallow: /*&tracking=
 User-agent: Yandex
 Disallow: /*route=checkout/
 Disallow: /index.php?route=product/product*&manufacturer_id=
-Disallow: /admin
 Disallow: /catalog
 Disallow: /download
 Disallow: /system
