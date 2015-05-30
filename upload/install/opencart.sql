@@ -929,7 +929,7 @@ INSERT INTO `oc_country` (`country_id`, `name`, `iso_code_2`, `iso_code_3`, `add
 (223, 'United States', 'US', 'USA', '{firstname} {lastname}\r\n{company}\r\n{address_1}\r\n{address_2}\r\n{city}, {zone} {postcode}\r\n{country}', 0, 1),
 (224, 'United States Minor Outlying Islands', 'UM', 'UMI', '', 0, 1),
 (225, 'Uruguay', 'UY', 'URY', '', 0, 1),
-(226, 'Узбекистан', 'UZ', 'UZB', '', 0, 1);
+(226, 'Узбекистан', 'UZ', 'UZB', '', 0, 1),
 (227, 'Vanuatu', 'VU', 'VUT', '', 0, 1),
 (228, 'Vatican City State (Holy See)', 'VA', 'VAT', '', 0, 1),
 (229, 'Venezuela', 'VE', 'VEN', '', 0, 1),
