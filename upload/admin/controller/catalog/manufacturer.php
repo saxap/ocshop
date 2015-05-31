@@ -305,7 +305,6 @@ class ControllerCatalogManufacturer extends Controller {
 		} else {
 			$data['error_name'] = '';
 		}
-<<<<<<< HEAD
 		
 		if (isset($this->error['meta_title'])) {
 			$data['error_meta_title'] = $this->error['meta_title'];
@@ -318,8 +317,6 @@ class ControllerCatalogManufacturer extends Controller {
 		} else {
 			$data['error_meta_h1'] = array();
 		}
-=======
->>>>>>> master
 
 		if (isset($this->error['keyword'])) {
 			$data['error_keyword'] = $this->error['keyword'];
