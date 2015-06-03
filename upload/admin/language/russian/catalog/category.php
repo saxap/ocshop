@@ -8,6 +8,7 @@ $_['text_list']              = 'Категории';
 $_['text_add']      	     = 'Добавить';
 $_['text_edit']     	     = 'Редактирование';
 $_['text_default']           = 'Основной магазин';
+$_['text_category_total']    = 'Всего категорий: ';
 
 // Column
 $_['column_name']            = 'Категории';
