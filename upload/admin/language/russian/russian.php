@@ -41,6 +41,7 @@ $_['button_disable']                = 'Выключить';
 $_['button_filter']                 = 'Фильтр';
 $_['button_send']                   = 'Отправить';
 $_['button_edit']                   = 'Редактировать';
+$_['button_shop']                   = 'Посмотреть';
 $_['button_copy']                   = 'Копировать';
 $_['button_back']                   = 'Назад';
 $_['button_remove']                 = 'Удалить';
