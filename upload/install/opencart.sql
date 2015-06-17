@@ -1402,10 +1402,13 @@ INSERT INTO `oc_extension` (`extension_id`, `type`, `code`) VALUES
 (408, 'module', 'account'),
 (393, 'total', 'reward'),
 (398, 'total', 'voucher'),
-(407, 'payment', 'free_checkout'),
-(427, 'module', 'featured'),
-(419, 'module', 'slideshow'),
-(428, 'module', 'product_tab');
+(399, 'payment', 'free_checkout'),
+(400, 'module', 'featured'),
+(401, 'module', 'slideshow'),
+(402, 'module', 'product_tab'),
+(403, 'module', 'blog_category'),
+(404, 'module', 'blog_featured'),
+(405, 'module', 'blog_latest');
 
 -- --------------------------------------------------------
 
@@ -1661,7 +1664,17 @@ INSERT INTO `oc_layout_module` (`layout_module_id`, `layout_id`, `code`, `positi
 (66, 1, 'slideshow.27', 'content_top', 1),
 (72, 3, 'category', 'column_left', 1),
 (73, 3, 'banner.30', 'column_left', 2),
-(74, 1, 'product_tab.33', 'content_top', 2);
+(74, 1, 'product_tab.33', 'content_top', 2),
+(83, 14, 'blog_latest.35', 'content_bottom', 2),
+(82, 14, 'blog_category', 'column_left', 0),
+(81, 14, 'blog_featured.34', 'column_left', 1),
+(84, 2, 'blog_featured.34', 'content_bottom', 0),
+(85, 15, 'blog_category', 'column_left', 0),
+(86, 15, 'blog_featured.34', 'column_left', 1),
+(87, 15, 'blog_latest.35', 'content_bottom', 0),
+(88, 16, 'blog_category', 'column_left', 0),
+(89, 16, 'blog_featured.34', 'column_left', 1),
+(90, 16, 'blog_latest.35', 'column_left', 2);
 
 -- --------------------------------------------------------
 
@@ -1694,7 +1707,10 @@ INSERT INTO `oc_layout_route` (`layout_route_id`, `layout_id`, `store_id`, `rout
 (34, 4, 0, ''),
 (45, 5, 0, 'product/manufacturer'),
 (52, 12, 0, 'product/compare'),
-(53, 13, 0, 'product/search');
+(53, 13, 0, 'product/search'),
+(58, 14, 0, 'blog/category'),
+(60, 15, 0, 'blog/latest'),
+(61, 16, 0, 'blog/article');
 
 -- --------------------------------------------------------
 
@@ -1903,7 +1919,9 @@ INSERT INTO `oc_module` (`module_id`, `name`, `code`, `setting`) VALUES
 (29, 'Home Page', 'carousel', 'a:5:{s:4:"name";s:20:"Carousel - Home Page";s:9:"banner_id";s:1:"8";s:5:"width";s:3:"130";s:6:"height";s:3:"100";s:6:"status";s:1:"1";}'),
 (28, 'Home Page', 'featured', 'a:6:{s:4:"name";s:20:"Featured - Home Page";s:7:"product";a:4:{i:0;s:2:"43";i:1;s:2:"40";i:2;s:2:"42";i:3;s:2:"30";}s:5:"limit";s:1:"4";s:5:"width";s:3:"200";s:6:"height";s:3:"200";s:6:"status";s:1:"1";}'),
 (33, 'Home Page', 'product_tab', 'a:6:{s:4:"name";s:9:"Home Page";s:5:"limit";s:1:"8";s:5:"width";s:3:"200";s:6:"height";s:3:"200";s:6:"status";s:1:"1";s:13:"active_module";s:2:"28";}'),
-(27, 'Home Page', 'slideshow', 'a:5:{s:4:"name";s:21:"Slideshow - Home Page";s:9:"banner_id";s:1:"7";s:5:"width";s:4:"1140";s:6:"height";s:3:"380";s:6:"status";s:1:"1";}');
+(27, 'Home Page', 'slideshow', 'a:5:{s:4:"name";s:21:"Slideshow - Home Page";s:9:"banner_id";s:1:"7";s:5:"width";s:4:"1140";s:6:"height";s:3:"380";s:6:"status";s:1:"1";}'),
+(34, 'Рекомендуемые статьи в категории', 'blog_featured', 'a:6:{s:4:"name";s:61:"Рекомендуемые статьи в категории";s:7:"article";a:2:{i:0;s:3:"123";i:1;s:3:"120";}s:5:"limit";s:1:"5";s:5:"width";s:3:"200";s:6:"height";s:3:"200";s:6:"status";s:1:"1";}'),
+(35, 'Последние Статьи в категории', 'blog_latest', 'a:5:{s:4:"name";s:53:"Последние Статьи в категории";s:5:"limit";s:1:"5";s:5:"width";s:3:"200";s:6:"height";s:3:"200";s:6:"status";s:1:"1";}');
 
 -- --------------------------------------------------------
 
@@ -3478,6 +3496,23 @@ INSERT INTO `oc_url_alias` (`url_alias_id`, `query`, `keyword`, `seomanager`) VA
 (900, 'product/manufacturer', 'brands', 1),
 (901, 'product/special', 'specials', 1);
 
+(1397, 0, 'configblog', 'configblog_image_related_height', '200', 0),
+(1396, 0, 'configblog', 'configblog_image_related_width', '200', 0),
+(1395, 0, 'configblog', 'configblog_image_article_height', '150', 0),
+(1394, 0, 'configblog', 'configblog_image_article_width', '150', 0),
+(1393, 0, 'configblog', 'configblog_image_category_height', '50', 0),
+(1392, 0, 'configblog', 'configblog_image_category_width', '50', 0),
+(1391, 0, 'configblog', 'configblog_review_mail', '1', 0),
+(1390, 0, 'configblog', 'configblog_review_guest', '1', 0),
+(1389, 0, 'configblog', 'configblog_review_status', '1', 0),
+(1388, 0, 'configblog', 'configblog_article_download', '1', 0),
+(1387, 0, 'configblog', 'configblog_blog_menu', '1', 0),
+(1386, 0, 'configblog', 'configblog_limit_admin', '20', 0),
+(811, 0, 'blog_category', 'blog_category_status', '1', 0),
+(1385, 0, 'configblog', 'configblog_article_description_length', '200', 0),
+(1384, 0, 'configblog', 'configblog_article_limit', '20', 0),
+(1383, 0, 'configblog', 'configblog_article_count', '1', 0),
+
 -- --------------------------------------------------------
 
 --
@@ -3519,7 +3554,7 @@ CREATE TABLE IF NOT EXISTS `oc_user_group` (
 --
 
 INSERT INTO `oc_user_group` (`user_group_id`, `name`, `permission`) VALUES
-(1, 'Administrator', 'a:2:{s:6:"access";a:187:{i:0;s:17:"catalog/attribute";i:1;s:23:"catalog/attribute_group";i:2;s:16:"catalog/category";i:3;s:16:"catalog/download";i:4;s:14:"catalog/filter";i:5;s:19:"catalog/information";i:6;s:20:"catalog/manufacturer";i:7;s:14:"catalog/option";i:8;s:15:"catalog/product";i:9;s:17:"catalog/recurring";i:10;s:14:"catalog/review";i:11;s:18:"common/column_left";i:12;s:18:"common/filemanager";i:13;s:11:"common/menu";i:14;s:14:"common/profile";i:15;s:12:"common/stats";i:16;s:13:"design/banner";i:17;s:13:"design/layout";i:18;s:14:"extension/feed";i:19;s:15:"extension/fraud";i:20;s:19:"extension/installer";i:21;s:22:"extension/modification";i:22;s:16:"extension/module";i:23;s:17:"extension/openbay";i:24;s:17:"extension/payment";i:25;s:18:"extension/shipping";i:26;s:15:"extension/total";i:27;s:16:"feed/google_base";i:28;s:19:"feed/google_sitemap";i:29;s:15:"feed/openbaypro";i:30;s:18:"fraud/fraudlabspro";i:31;s:13:"fraud/maxmind";i:32;s:12:"howto/blogun";i:33;s:14:"howto/gogettop";i:34;s:13:"howto/seopult";i:35;s:20:"localisation/country";i:36;s:21:"localisation/currency";i:37;s:21:"localisation/geo_zone";i:38;s:21:"localisation/language";i:39;s:25:"localisation/length_class";i:40;s:21:"localisation/location";i:41;s:25:"localisation/order_status";i:42;s:26:"localisation/return_action";i:43;s:26:"localisation/return_reason";i:44;s:26:"localisation/return_status";i:45;s:25:"localisation/stock_status";i:46;s:22:"localisation/tax_class";i:47;s:21:"localisation/tax_rate";i:48;s:25:"localisation/weight_class";i:49;s:17:"localisation/zone";i:50;s:19:"marketing/affiliate";i:51;s:17:"marketing/contact";i:52;s:16:"marketing/coupon";i:53;s:19:"marketing/marketing";i:54;s:14:"module/account";i:55;s:16:"module/affiliate";i:56;s:20:"module/amazon_button";i:57;s:19:"module/amazon_login";i:58;s:17:"module/amazon_pay";i:59;s:13:"module/banner";i:60;s:17:"module/bestseller";i:61;s:15:"module/carousel";i:62;s:15:"module/category";i:63;s:19:"module/ebay_listing";i:64;s:15:"module/featured";i:65;s:13:"module/filter";i:66;s:22:"module/google_hangouts";i:67;s:11:"module/html";i:68;s:18:"module/information";i:69;s:13:"module/latest";i:70;s:16:"module/pp_button";i:71;s:15:"module/pp_login";i:72;s:18:"module/product_tab";i:73;s:16:"module/slideshow";i:74;s:14:"module/special";i:75;s:12:"module/store";i:76;s:14:"openbay/amazon";i:77;s:22:"openbay/amazon_listing";i:78;s:22:"openbay/amazon_product";i:79;s:16:"openbay/amazonus";i:80;s:24:"openbay/amazonus_listing";i:81;s:24:"openbay/amazonus_product";i:82;s:12:"openbay/ebay";i:83;s:20:"openbay/ebay_profile";i:84;s:21:"openbay/ebay_template";i:85;s:12:"openbay/etsy";i:86;s:20:"openbay/etsy_product";i:87;s:21:"openbay/etsy_shipping";i:88;s:17:"openbay/etsy_shop";i:89;s:23:"payment/amazon_checkout";i:90;s:24:"payment/amazon_login_pay";i:91;s:24:"payment/authorizenet_aim";i:92;s:24:"payment/authorizenet_sim";i:93;s:21:"payment/bank_transfer";i:94;s:22:"payment/bluepay_hosted";i:95;s:24:"payment/bluepay_redirect";i:96;s:14:"payment/cheque";i:97;s:11:"payment/cod";i:98;s:17:"payment/firstdata";i:99;s:24:"payment/firstdata_remote";i:100;s:21:"payment/free_checkout";i:101;s:14:"payment/g2apay";i:102;s:17:"payment/globalpay";i:103;s:24:"payment/globalpay_remote";i:104;s:22:"payment/klarna_account";i:105;s:22:"payment/klarna_invoice";i:106;s:14:"payment/liqpay";i:107;s:14:"payment/nochex";i:108;s:15:"payment/paymate";i:109;s:16:"payment/paypoint";i:110;s:13:"payment/payza";i:111;s:26:"payment/perpetual_payments";i:112;s:18:"payment/pp_express";i:113;s:18:"payment/pp_payflow";i:114;s:25:"payment/pp_payflow_iframe";i:115;s:14:"payment/pp_pro";i:116;s:21:"payment/pp_pro_iframe";i:117;s:19:"payment/pp_standard";i:118;s:14:"payment/realex";i:119;s:21:"payment/realex_remote";i:120;s:22:"payment/sagepay_direct";i:121;s:22:"payment/sagepay_server";i:122;s:18:"payment/sagepay_us";i:123;s:24:"payment/securetrading_pp";i:124;s:24:"payment/securetrading_ws";i:125;s:14:"payment/skrill";i:126;s:19:"payment/twocheckout";i:127;s:28:"payment/web_payment_software";i:128;s:16:"payment/worldpay";i:129;s:16:"report/affiliate";i:130;s:25:"report/affiliate_activity";i:131;s:22:"report/affiliate_login";i:132;s:24:"report/customer_activity";i:133;s:22:"report/customer_credit";i:134;s:21:"report/customer_login";i:135;s:22:"report/customer_online";i:136;s:21:"report/customer_order";i:137;s:22:"report/customer_reward";i:138;s:16:"report/marketing";i:139;s:24:"report/product_purchased";i:140;s:21:"report/product_viewed";i:141;s:18:"report/sale_coupon";i:142;s:17:"report/sale_order";i:143;s:18:"report/sale_return";i:144;s:20:"report/sale_shipping";i:145;s:15:"report/sale_tax";i:146;s:17:"sale/custom_field";i:147;s:13:"sale/customer";i:148;s:20:"sale/customer_ban_ip";i:149;s:19:"sale/customer_group";i:150;s:10:"sale/order";i:151;s:14:"sale/recurring";i:152;s:11:"sale/return";i:153;s:12:"sale/voucher";i:154;s:18:"sale/voucher_theme";i:155;s:15:"setting/setting";i:156;s:13:"setting/store";i:157;s:16:"shipping/auspost";i:158;s:17:"shipping/citylink";i:159;s:14:"shipping/fedex";i:160;s:13:"shipping/flat";i:161;s:13:"shipping/free";i:162;s:13:"shipping/item";i:163;s:23:"shipping/parcelforce_48";i:164;s:15:"shipping/pickup";i:165;s:19:"shipping/royal_mail";i:166;s:12:"shipping/ups";i:167;s:13:"shipping/usps";i:168;s:15:"shipping/weight";i:169;s:11:"tool/backup";i:170;s:14:"tool/error_log";i:171;s:15:"tool/seomanager";i:172;s:11:"tool/upload";i:173;s:12:"total/coupon";i:174;s:12:"total/credit";i:175;s:14:"total/handling";i:176;s:16:"total/klarna_fee";i:177;s:19:"total/low_order_fee";i:178;s:12:"total/reward";i:179;s:14:"total/shipping";i:180;s:15:"total/sub_total";i:181;s:9:"total/tax";i:182;s:11:"total/total";i:183;s:13:"total/voucher";i:184;s:8:"user/api";i:185;s:9:"user/user";i:186;s:20:"user/user_permission";}s:6:"modify";a:187:{i:0;s:17:"catalog/attribute";i:1;s:23:"catalog/attribute_group";i:2;s:16:"catalog/category";i:3;s:16:"catalog/download";i:4;s:14:"catalog/filter";i:5;s:19:"catalog/information";i:6;s:20:"catalog/manufacturer";i:7;s:14:"catalog/option";i:8;s:15:"catalog/product";i:9;s:17:"catalog/recurring";i:10;s:14:"catalog/review";i:11;s:18:"common/column_left";i:12;s:18:"common/filemanager";i:13;s:11:"common/menu";i:14;s:14:"common/profile";i:15;s:12:"common/stats";i:16;s:13:"design/banner";i:17;s:13:"design/layout";i:18;s:14:"extension/feed";i:19;s:15:"extension/fraud";i:20;s:19:"extension/installer";i:21;s:22:"extension/modification";i:22;s:16:"extension/module";i:23;s:17:"extension/openbay";i:24;s:17:"extension/payment";i:25;s:18:"extension/shipping";i:26;s:15:"extension/total";i:27;s:16:"feed/google_base";i:28;s:19:"feed/google_sitemap";i:29;s:15:"feed/openbaypro";i:30;s:18:"fraud/fraudlabspro";i:31;s:13:"fraud/maxmind";i:32;s:12:"howto/blogun";i:33;s:14:"howto/gogettop";i:34;s:13:"howto/seopult";i:35;s:20:"localisation/country";i:36;s:21:"localisation/currency";i:37;s:21:"localisation/geo_zone";i:38;s:21:"localisation/language";i:39;s:25:"localisation/length_class";i:40;s:21:"localisation/location";i:41;s:25:"localisation/order_status";i:42;s:26:"localisation/return_action";i:43;s:26:"localisation/return_reason";i:44;s:26:"localisation/return_status";i:45;s:25:"localisation/stock_status";i:46;s:22:"localisation/tax_class";i:47;s:21:"localisation/tax_rate";i:48;s:25:"localisation/weight_class";i:49;s:17:"localisation/zone";i:50;s:19:"marketing/affiliate";i:51;s:17:"marketing/contact";i:52;s:16:"marketing/coupon";i:53;s:19:"marketing/marketing";i:54;s:14:"module/account";i:55;s:16:"module/affiliate";i:56;s:20:"module/amazon_button";i:57;s:19:"module/amazon_login";i:58;s:17:"module/amazon_pay";i:59;s:13:"module/banner";i:60;s:17:"module/bestseller";i:61;s:15:"module/carousel";i:62;s:15:"module/category";i:63;s:19:"module/ebay_listing";i:64;s:15:"module/featured";i:65;s:13:"module/filter";i:66;s:22:"module/google_hangouts";i:67;s:11:"module/html";i:68;s:18:"module/information";i:69;s:13:"module/latest";i:70;s:16:"module/pp_button";i:71;s:15:"module/pp_login";i:72;s:18:"module/product_tab";i:73;s:16:"module/slideshow";i:74;s:14:"module/special";i:75;s:12:"module/store";i:76;s:14:"openbay/amazon";i:77;s:22:"openbay/amazon_listing";i:78;s:22:"openbay/amazon_product";i:79;s:16:"openbay/amazonus";i:80;s:24:"openbay/amazonus_listing";i:81;s:24:"openbay/amazonus_product";i:82;s:12:"openbay/ebay";i:83;s:20:"openbay/ebay_profile";i:84;s:21:"openbay/ebay_template";i:85;s:12:"openbay/etsy";i:86;s:20:"openbay/etsy_product";i:87;s:21:"openbay/etsy_shipping";i:88;s:17:"openbay/etsy_shop";i:89;s:23:"payment/amazon_checkout";i:90;s:24:"payment/amazon_login_pay";i:91;s:24:"payment/authorizenet_aim";i:92;s:24:"payment/authorizenet_sim";i:93;s:21:"payment/bank_transfer";i:94;s:22:"payment/bluepay_hosted";i:95;s:24:"payment/bluepay_redirect";i:96;s:14:"payment/cheque";i:97;s:11:"payment/cod";i:98;s:17:"payment/firstdata";i:99;s:24:"payment/firstdata_remote";i:100;s:21:"payment/free_checkout";i:101;s:14:"payment/g2apay";i:102;s:17:"payment/globalpay";i:103;s:24:"payment/globalpay_remote";i:104;s:22:"payment/klarna_account";i:105;s:22:"payment/klarna_invoice";i:106;s:14:"payment/liqpay";i:107;s:14:"payment/nochex";i:108;s:15:"payment/paymate";i:109;s:16:"payment/paypoint";i:110;s:13:"payment/payza";i:111;s:26:"payment/perpetual_payments";i:112;s:18:"payment/pp_express";i:113;s:18:"payment/pp_payflow";i:114;s:25:"payment/pp_payflow_iframe";i:115;s:14:"payment/pp_pro";i:116;s:21:"payment/pp_pro_iframe";i:117;s:19:"payment/pp_standard";i:118;s:14:"payment/realex";i:119;s:21:"payment/realex_remote";i:120;s:22:"payment/sagepay_direct";i:121;s:22:"payment/sagepay_server";i:122;s:18:"payment/sagepay_us";i:123;s:24:"payment/securetrading_pp";i:124;s:24:"payment/securetrading_ws";i:125;s:14:"payment/skrill";i:126;s:19:"payment/twocheckout";i:127;s:28:"payment/web_payment_software";i:128;s:16:"payment/worldpay";i:129;s:16:"report/affiliate";i:130;s:25:"report/affiliate_activity";i:131;s:22:"report/affiliate_login";i:132;s:24:"report/customer_activity";i:133;s:22:"report/customer_credit";i:134;s:21:"report/customer_login";i:135;s:22:"report/customer_online";i:136;s:21:"report/customer_order";i:137;s:22:"report/customer_reward";i:138;s:16:"report/marketing";i:139;s:24:"report/product_purchased";i:140;s:21:"report/product_viewed";i:141;s:18:"report/sale_coupon";i:142;s:17:"report/sale_order";i:143;s:18:"report/sale_return";i:144;s:20:"report/sale_shipping";i:145;s:15:"report/sale_tax";i:146;s:17:"sale/custom_field";i:147;s:13:"sale/customer";i:148;s:20:"sale/customer_ban_ip";i:149;s:19:"sale/customer_group";i:150;s:10:"sale/order";i:151;s:14:"sale/recurring";i:152;s:11:"sale/return";i:153;s:12:"sale/voucher";i:154;s:18:"sale/voucher_theme";i:155;s:15:"setting/setting";i:156;s:13:"setting/store";i:157;s:16:"shipping/auspost";i:158;s:17:"shipping/citylink";i:159;s:14:"shipping/fedex";i:160;s:13:"shipping/flat";i:161;s:13:"shipping/free";i:162;s:13:"shipping/item";i:163;s:23:"shipping/parcelforce_48";i:164;s:15:"shipping/pickup";i:165;s:19:"shipping/royal_mail";i:166;s:12:"shipping/ups";i:167;s:13:"shipping/usps";i:168;s:15:"shipping/weight";i:169;s:11:"tool/backup";i:170;s:14:"tool/error_log";i:171;s:15:"tool/seomanager";i:172;s:11:"tool/upload";i:173;s:12:"total/coupon";i:174;s:12:"total/credit";i:175;s:14:"total/handling";i:176;s:16:"total/klarna_fee";i:177;s:19:"total/low_order_fee";i:178;s:12:"total/reward";i:179;s:14:"total/shipping";i:180;s:15:"total/sub_total";i:181;s:9:"total/tax";i:182;s:11:"total/total";i:183;s:13:"total/voucher";i:184;s:8:"user/api";i:185;s:9:"user/user";i:186;s:20:"user/user_permission";}}'),
+(1, 'Administrator', 'a:2:{s:6:"access";a:197:{i:0;s:12:"blog/article";i:1;s:17:"blog/blog_setting";i:2;s:13:"blog/category";i:3;s:11:"blog/review";i:4;s:12:"blog/setting";i:5;s:17:"catalog/attribute";i:6;s:23:"catalog/attribute_group";i:7;s:16:"catalog/category";i:8;s:16:"catalog/download";i:9;s:14:"catalog/filter";i:10;s:19:"catalog/information";i:11;s:20:"catalog/manufacturer";i:12;s:14:"catalog/option";i:13;s:15:"catalog/product";i:14;s:17:"catalog/recurring";i:15;s:14:"catalog/review";i:16;s:18:"common/column_left";i:17;s:18:"common/filemanager";i:18;s:11:"common/menu";i:19;s:14:"common/profile";i:20;s:12:"common/stats";i:21;s:13:"design/banner";i:22;s:13:"design/layout";i:23;s:14:"extension/feed";i:24;s:15:"extension/fraud";i:25;s:19:"extension/installer";i:26;s:22:"extension/modification";i:27;s:16:"extension/module";i:28;s:17:"extension/openbay";i:29;s:17:"extension/payment";i:30;s:18:"extension/shipping";i:31;s:15:"extension/total";i:32;s:16:"feed/google_base";i:33;s:19:"feed/google_sitemap";i:34;s:15:"feed/openbaypro";i:35;s:18:"feed/yandex_market";i:36;s:18:"fraud/fraudlabspro";i:37;s:13:"fraud/maxmind";i:38;s:12:"howto/blogun";i:39;s:14:"howto/gogettop";i:40;s:13:"howto/seopult";i:41;s:20:"localisation/country";i:42;s:21:"localisation/currency";i:43;s:21:"localisation/geo_zone";i:44;s:21:"localisation/language";i:45;s:25:"localisation/length_class";i:46;s:21:"localisation/location";i:47;s:25:"localisation/order_status";i:48;s:26:"localisation/return_action";i:49;s:26:"localisation/return_reason";i:50;s:26:"localisation/return_status";i:51;s:25:"localisation/stock_status";i:52;s:22:"localisation/tax_class";i:53;s:21:"localisation/tax_rate";i:54;s:25:"localisation/weight_class";i:55;s:17:"localisation/zone";i:56;s:19:"marketing/affiliate";i:57;s:17:"marketing/contact";i:58;s:16:"marketing/coupon";i:59;s:19:"marketing/marketing";i:60;s:14:"module/account";i:61;s:16:"module/affiliate";i:62;s:20:"module/amazon_button";i:63;s:19:"module/amazon_login";i:64;s:17:"module/amazon_pay";i:65;s:13:"module/banner";i:66;s:17:"module/bestseller";i:67;s:15:"module/carousel";i:68;s:15:"module/category";i:69;s:19:"module/ebay_listing";i:70;s:15:"module/featured";i:71;s:13:"module/filter";i:72;s:22:"module/google_hangouts";i:73;s:11:"module/html";i:74;s:18:"module/information";i:75;s:13:"module/latest";i:76;s:16:"module/pp_button";i:77;s:15:"module/pp_login";i:78;s:18:"module/product_tab";i:79;s:16:"module/slideshow";i:80;s:14:"module/special";i:81;s:12:"module/store";i:82;s:14:"openbay/amazon";i:83;s:22:"openbay/amazon_listing";i:84;s:22:"openbay/amazon_product";i:85;s:16:"openbay/amazonus";i:86;s:24:"openbay/amazonus_listing";i:87;s:24:"openbay/amazonus_product";i:88;s:12:"openbay/ebay";i:89;s:20:"openbay/ebay_profile";i:90;s:21:"openbay/ebay_template";i:91;s:12:"openbay/etsy";i:92;s:20:"openbay/etsy_product";i:93;s:21:"openbay/etsy_shipping";i:94;s:17:"openbay/etsy_shop";i:95;s:23:"payment/amazon_checkout";i:96;s:24:"payment/amazon_login_pay";i:97;s:24:"payment/authorizenet_aim";i:98;s:24:"payment/authorizenet_sim";i:99;s:21:"payment/bank_transfer";i:100;s:22:"payment/bluepay_hosted";i:101;s:24:"payment/bluepay_redirect";i:102;s:14:"payment/cheque";i:103;s:11:"payment/cod";i:104;s:17:"payment/firstdata";i:105;s:24:"payment/firstdata_remote";i:106;s:21:"payment/free_checkout";i:107;s:14:"payment/g2apay";i:108;s:17:"payment/globalpay";i:109;s:24:"payment/globalpay_remote";i:110;s:22:"payment/klarna_account";i:111;s:22:"payment/klarna_invoice";i:112;s:14:"payment/liqpay";i:113;s:14:"payment/nochex";i:114;s:15:"payment/paymate";i:115;s:16:"payment/paypoint";i:116;s:13:"payment/payza";i:117;s:26:"payment/perpetual_payments";i:118;s:18:"payment/pp_express";i:119;s:18:"payment/pp_payflow";i:120;s:25:"payment/pp_payflow_iframe";i:121;s:14:"payment/pp_pro";i:122;s:21:"payment/pp_pro_iframe";i:123;s:19:"payment/pp_standard";i:124;s:14:"payment/realex";i:125;s:21:"payment/realex_remote";i:126;s:22:"payment/sagepay_direct";i:127;s:22:"payment/sagepay_server";i:128;s:18:"payment/sagepay_us";i:129;s:24:"payment/securetrading_pp";i:130;s:24:"payment/securetrading_ws";i:131;s:14:"payment/skrill";i:132;s:19:"payment/twocheckout";i:133;s:28:"payment/web_payment_software";i:134;s:16:"payment/worldpay";i:135;s:16:"report/affiliate";i:136;s:25:"report/affiliate_activity";i:137;s:22:"report/affiliate_login";i:138;s:24:"report/customer_activity";i:139;s:22:"report/customer_credit";i:140;s:21:"report/customer_login";i:141;s:22:"report/customer_online";i:142;s:21:"report/customer_order";i:143;s:22:"report/customer_reward";i:144;s:16:"report/marketing";i:145;s:24:"report/product_purchased";i:146;s:21:"report/product_viewed";i:147;s:18:"report/sale_coupon";i:148;s:17:"report/sale_order";i:149;s:18:"report/sale_return";i:150;s:20:"report/sale_shipping";i:151;s:15:"report/sale_tax";i:152;s:17:"sale/custom_field";i:153;s:13:"sale/customer";i:154;s:20:"sale/customer_ban_ip";i:155;s:19:"sale/customer_group";i:156;s:10:"sale/order";i:157;s:14:"sale/recurring";i:158;s:11:"sale/return";i:159;s:12:"sale/voucher";i:160;s:18:"sale/voucher_theme";i:161;s:15:"setting/setting";i:162;s:13:"setting/store";i:163;s:16:"shipping/auspost";i:164;s:17:"shipping/citylink";i:165;s:14:"shipping/fedex";i:166;s:13:"shipping/flat";i:167;s:13:"shipping/free";i:168;s:13:"shipping/item";i:169;s:23:"shipping/parcelforce_48";i:170;s:15:"shipping/pickup";i:171;s:19:"shipping/royal_mail";i:172;s:12:"shipping/ups";i:173;s:13:"shipping/usps";i:174;s:15:"shipping/weight";i:175;s:11:"tool/backup";i:176;s:14:"tool/error_log";i:177;s:15:"tool/seomanager";i:178;s:11:"tool/upload";i:179;s:12:"total/coupon";i:180;s:12:"total/credit";i:181;s:14:"total/handling";i:182;s:16:"total/klarna_fee";i:183;s:19:"total/low_order_fee";i:184;s:12:"total/reward";i:185;s:14:"total/shipping";i:186;s:15:"total/sub_total";i:187;s:9:"total/tax";i:188;s:11:"total/total";i:189;s:13:"total/voucher";i:190;s:8:"user/api";i:191;s:9:"user/user";i:192;s:20:"user/user_permission";i:193;s:20:"module/blog_category";i:194;s:20:"module/blog_featured";i:195;s:18:"module/blog_latest";i:196;s:13:"module/filter";}s:6:"modify";a:197:{i:0;s:12:"blog/article";i:1;s:17:"blog/blog_setting";i:2;s:13:"blog/category";i:3;s:11:"blog/review";i:4;s:12:"blog/setting";i:5;s:17:"catalog/attribute";i:6;s:23:"catalog/attribute_group";i:7;s:16:"catalog/category";i:8;s:16:"catalog/download";i:9;s:14:"catalog/filter";i:10;s:19:"catalog/information";i:11;s:20:"catalog/manufacturer";i:12;s:14:"catalog/option";i:13;s:15:"catalog/product";i:14;s:17:"catalog/recurring";i:15;s:14:"catalog/review";i:16;s:18:"common/column_left";i:17;s:18:"common/filemanager";i:18;s:11:"common/menu";i:19;s:14:"common/profile";i:20;s:12:"common/stats";i:21;s:13:"design/banner";i:22;s:13:"design/layout";i:23;s:14:"extension/feed";i:24;s:15:"extension/fraud";i:25;s:19:"extension/installer";i:26;s:22:"extension/modification";i:27;s:16:"extension/module";i:28;s:17:"extension/openbay";i:29;s:17:"extension/payment";i:30;s:18:"extension/shipping";i:31;s:15:"extension/total";i:32;s:16:"feed/google_base";i:33;s:19:"feed/google_sitemap";i:34;s:15:"feed/openbaypro";i:35;s:18:"feed/yandex_market";i:36;s:18:"fraud/fraudlabspro";i:37;s:13:"fraud/maxmind";i:38;s:12:"howto/blogun";i:39;s:14:"howto/gogettop";i:40;s:13:"howto/seopult";i:41;s:20:"localisation/country";i:42;s:21:"localisation/currency";i:43;s:21:"localisation/geo_zone";i:44;s:21:"localisation/language";i:45;s:25:"localisation/length_class";i:46;s:21:"localisation/location";i:47;s:25:"localisation/order_status";i:48;s:26:"localisation/return_action";i:49;s:26:"localisation/return_reason";i:50;s:26:"localisation/return_status";i:51;s:25:"localisation/stock_status";i:52;s:22:"localisation/tax_class";i:53;s:21:"localisation/tax_rate";i:54;s:25:"localisation/weight_class";i:55;s:17:"localisation/zone";i:56;s:19:"marketing/affiliate";i:57;s:17:"marketing/contact";i:58;s:16:"marketing/coupon";i:59;s:19:"marketing/marketing";i:60;s:14:"module/account";i:61;s:16:"module/affiliate";i:62;s:20:"module/amazon_button";i:63;s:19:"module/amazon_login";i:64;s:17:"module/amazon_pay";i:65;s:13:"module/banner";i:66;s:17:"module/bestseller";i:67;s:15:"module/carousel";i:68;s:15:"module/category";i:69;s:19:"module/ebay_listing";i:70;s:15:"module/featured";i:71;s:13:"module/filter";i:72;s:22:"module/google_hangouts";i:73;s:11:"module/html";i:74;s:18:"module/information";i:75;s:13:"module/latest";i:76;s:16:"module/pp_button";i:77;s:15:"module/pp_login";i:78;s:18:"module/product_tab";i:79;s:16:"module/slideshow";i:80;s:14:"module/special";i:81;s:12:"module/store";i:82;s:14:"openbay/amazon";i:83;s:22:"openbay/amazon_listing";i:84;s:22:"openbay/amazon_product";i:85;s:16:"openbay/amazonus";i:86;s:24:"openbay/amazonus_listing";i:87;s:24:"openbay/amazonus_product";i:88;s:12:"openbay/ebay";i:89;s:20:"openbay/ebay_profile";i:90;s:21:"openbay/ebay_template";i:91;s:12:"openbay/etsy";i:92;s:20:"openbay/etsy_product";i:93;s:21:"openbay/etsy_shipping";i:94;s:17:"openbay/etsy_shop";i:95;s:23:"payment/amazon_checkout";i:96;s:24:"payment/amazon_login_pay";i:97;s:24:"payment/authorizenet_aim";i:98;s:24:"payment/authorizenet_sim";i:99;s:21:"payment/bank_transfer";i:100;s:22:"payment/bluepay_hosted";i:101;s:24:"payment/bluepay_redirect";i:102;s:14:"payment/cheque";i:103;s:11:"payment/cod";i:104;s:17:"payment/firstdata";i:105;s:24:"payment/firstdata_remote";i:106;s:21:"payment/free_checkout";i:107;s:14:"payment/g2apay";i:108;s:17:"payment/globalpay";i:109;s:24:"payment/globalpay_remote";i:110;s:22:"payment/klarna_account";i:111;s:22:"payment/klarna_invoice";i:112;s:14:"payment/liqpay";i:113;s:14:"payment/nochex";i:114;s:15:"payment/paymate";i:115;s:16:"payment/paypoint";i:116;s:13:"payment/payza";i:117;s:26:"payment/perpetual_payments";i:118;s:18:"payment/pp_express";i:119;s:18:"payment/pp_payflow";i:120;s:25:"payment/pp_payflow_iframe";i:121;s:14:"payment/pp_pro";i:122;s:21:"payment/pp_pro_iframe";i:123;s:19:"payment/pp_standard";i:124;s:14:"payment/realex";i:125;s:21:"payment/realex_remote";i:126;s:22:"payment/sagepay_direct";i:127;s:22:"payment/sagepay_server";i:128;s:18:"payment/sagepay_us";i:129;s:24:"payment/securetrading_pp";i:130;s:24:"payment/securetrading_ws";i:131;s:14:"payment/skrill";i:132;s:19:"payment/twocheckout";i:133;s:28:"payment/web_payment_software";i:134;s:16:"payment/worldpay";i:135;s:16:"report/affiliate";i:136;s:25:"report/affiliate_activity";i:137;s:22:"report/affiliate_login";i:138;s:24:"report/customer_activity";i:139;s:22:"report/customer_credit";i:140;s:21:"report/customer_login";i:141;s:22:"report/customer_online";i:142;s:21:"report/customer_order";i:143;s:22:"report/customer_reward";i:144;s:16:"report/marketing";i:145;s:24:"report/product_purchased";i:146;s:21:"report/product_viewed";i:147;s:18:"report/sale_coupon";i:148;s:17:"report/sale_order";i:149;s:18:"report/sale_return";i:150;s:20:"report/sale_shipping";i:151;s:15:"report/sale_tax";i:152;s:17:"sale/custom_field";i:153;s:13:"sale/customer";i:154;s:20:"sale/customer_ban_ip";i:155;s:19:"sale/customer_group";i:156;s:10:"sale/order";i:157;s:14:"sale/recurring";i:158;s:11:"sale/return";i:159;s:12:"sale/voucher";i:160;s:18:"sale/voucher_theme";i:161;s:15:"setting/setting";i:162;s:13:"setting/store";i:163;s:16:"shipping/auspost";i:164;s:17:"shipping/citylink";i:165;s:14:"shipping/fedex";i:166;s:13:"shipping/flat";i:167;s:13:"shipping/free";i:168;s:13:"shipping/item";i:169;s:23:"shipping/parcelforce_48";i:170;s:15:"shipping/pickup";i:171;s:19:"shipping/royal_mail";i:172;s:12:"shipping/ups";i:173;s:13:"shipping/usps";i:174;s:15:"shipping/weight";i:175;s:11:"tool/backup";i:176;s:14:"tool/error_log";i:177;s:15:"tool/seomanager";i:178;s:11:"tool/upload";i:179;s:12:"total/coupon";i:180;s:12:"total/credit";i:181;s:14:"total/handling";i:182;s:16:"total/klarna_fee";i:183;s:19:"total/low_order_fee";i:184;s:12:"total/reward";i:185;s:14:"total/shipping";i:186;s:15:"total/sub_total";i:187;s:9:"total/tax";i:188;s:11:"total/total";i:189;s:13:"total/voucher";i:190;s:8:"user/api";i:191;s:9:"user/user";i:192;s:20:"user/user_permission";i:193;s:20:"module/blog_category";i:194;s:20:"module/blog_featured";i:195;s:18:"module/blog_latest";i:196;s:13:"module/filter";}}'),
 (10, 'Demonstration', '');
 
 -- --------------------------------------------------------
@@ -7900,3 +7935,395 @@ INSERT INTO `oc_zone_to_geo_zone` (`zone_to_geo_zone_id`, `country_id`, `zone_id
 (107, 222, 3954, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (108, 222, 3955, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (109, 222, 3972, 3, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Database: `blog`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oc_blog_category`
+--
+
+DROP TABLE IF EXISTS `oc_blog_category`;
+CREATE TABLE `oc_blog_category` (
+  `blog_category_id` int(11) NOT NULL AUTO_INCREMENT,
+  `image` varchar(255) DEFAULT NULL,
+  `parent_id` int(11) NOT NULL DEFAULT '0',
+  `top` tinyint(1) NOT NULL,
+  `column` int(3) NOT NULL,
+  `sort_order` int(3) NOT NULL DEFAULT '0',
+  `status` tinyint(1) NOT NULL,
+  `noindex` tinyint(1) NOT NULL DEFAULT '1',
+  `date_added` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `date_modified` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`blog_category_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=69 ;
+
+--
+-- Dumping data for table `oc_blog_category`
+--
+
+INSERT INTO `oc_blog_category` (`blog_category_id`, `image`, `parent_id`, `top`, `column`, `sort_order`, `status`, `noindex`, `date_added`, `date_modified`) VALUES
+(69, 'data/demo/apple_cinema_30.jpg', 0, 0, 0, 0, 1, 1, '2014-04-08 03:56:26', '2014-04-08 04:00:30'),
+(70, 'data/demo/nikon_d300_1.jpg', 0, 1, 0, 0, 1, 1, '2014-04-08 03:58:55', '2014-04-08 03:58:55');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oc_blog_category_description`
+--
+
+DROP TABLE IF EXISTS `oc_blog_category_description`;
+CREATE TABLE `oc_blog_category_description` (
+  `blog_category_id` int(11) NOT NULL,
+  `language_id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL DEFAULT '',
+  `description` text NOT NULL,
+  `meta_description` varchar(255) NOT NULL,
+  `meta_keyword` varchar(255) NOT NULL,
+  `meta_title` varchar(255) NOT NULL,
+  `meta_h1` varchar(255) NOT NULL,
+  PRIMARY KEY (`blog_category_id`,`language_id`),
+  KEY `name` (`name`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `oc_blog_category_description`
+--
+
+INSERT INTO `oc_blog_category_description` (`blog_category_id`, `language_id`, `name`, `description`, `meta_description`, `meta_keyword`, `meta_title`, `meta_h1`) VALUES
+(69, 1, 'Новости', '', '', '', '', ''),
+(70, 1, 'Фото Обзоры', '', '', '', '', ''),
+(70, 2, 'Photos Reviews', '', '', '', '', ''),
+(69, 2, 'News', '', '', '', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oc_blog_category_to_layout`
+--
+
+DROP TABLE IF EXISTS `oc_blog_category_to_layout`;
+CREATE TABLE `oc_blog_category_to_layout` (
+  `blog_category_id` int(11) NOT NULL,
+  `store_id` int(11) NOT NULL,
+  `layout_id` int(11) NOT NULL,
+  PRIMARY KEY (`blog_category_id`,`store_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oc_blog_category_to_store`
+--
+
+DROP TABLE IF EXISTS `oc_blog_category_to_store`;
+CREATE TABLE `oc_blog_category_to_store` (
+  `blog_category_id` int(11) NOT NULL,
+  `store_id` int(11) NOT NULL,
+  PRIMARY KEY (`blog_category_id`,`store_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `oc_blog_category_to_store`
+--
+
+INSERT INTO `oc_blog_category_to_store` (`blog_category_id`, `store_id`) VALUES
+(69, 0),
+(70, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oc_article_to_blog_category`
+--
+
+DROP TABLE IF EXISTS `oc_article_to_blog_category`;
+CREATE TABLE `oc_article_to_blog_category` (
+  `article_id` int(11) NOT NULL,
+  `blog_category_id` int(11) NOT NULL,
+  `main_blog_category` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`article_id`,`blog_category_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `oc_article_to_blog_category`
+--
+
+INSERT INTO `oc_article_to_blog_category` (`article_id`, `blog_category_id`, `main_blog_category`) VALUES
+(120, 69, 1),
+(123, 70, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oc_blog_category_path`
+--
+
+CREATE TABLE IF NOT EXISTS `oc_blog_category_path` (
+  `blog_category_id` int(11) NOT NULL,
+  `path_id` int(11) NOT NULL,
+  `level` int(11) NOT NULL,
+  PRIMARY KEY (`blog_category_id`,`path_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `oc_blog_category_path`
+--
+
+INSERT INTO `oc_blog_category_path` (`blog_category_id`, `path_id`, `level`) VALUES
+(69, 69, 0),
+(71, 71, 1),
+(71, 69, 0),
+(70, 70, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oc_review_article`
+--
+
+DROP TABLE IF EXISTS `oc_review_article`;
+CREATE TABLE `oc_review_article` (
+  `review_article_id` int(11) NOT NULL AUTO_INCREMENT,
+  `article_id` int(11) NOT NULL,
+  `customer_id` int(11) NOT NULL,
+  `author` varchar(64) NOT NULL DEFAULT '',
+  `text` text NOT NULL,
+  `rating` int(1) NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '0',
+  `date_added` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `date_modified` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`review_article_id`),
+  KEY `article_id` (`article_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
+
+--
+-- Dumping data for table `oc_review_article`
+--
+
+INSERT INTO `oc_review_article` (`review_article_id`, `article_id`, `customer_id`, `author`, `text`, `rating`, `status`, `date_added`, `date_modified`) VALUES
+(11, 123, 0, 'Василий Покупайкин', 'Спасибо за отличный фото обзор, обязательно в ближайшее время приобрету себе такую тушку и напишу дополнение к Вашей статье.', 5, 1, '2014-04-08 05:59:25', '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oc_article`
+--
+
+DROP TABLE IF EXISTS `oc_article`;
+CREATE TABLE `oc_article` (
+  `article_id` int(11) NOT NULL AUTO_INCREMENT,
+  `image` varchar(255) DEFAULT NULL,
+  `date_available` date NOT NULL,
+  `sort_order` int(11) NOT NULL DEFAULT '0',
+  `article_review` tinyint(1) NOT NULL DEFAULT '0',
+  `status` tinyint(1) NOT NULL DEFAULT '0',
+  `noindex` tinyint(1) NOT NULL DEFAULT '0',
+  `date_added` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `date_modified` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `viewed` int(5) NOT NULL DEFAULT '0',
+  `gstatus` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`article_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=120 ;
+
+--
+-- Dumping data for table `oc_article`
+--
+
+INSERT INTO `oc_article` (`article_id`, `image`, `date_available`, `sort_order`, `article_review`, `status`, `noindex`, `date_added`, `date_modified`, `viewed`, `gstatus`) VALUES
+(120, 'data/logo.png', '0000-00-00', 1, 1, 1, 1, '2014-04-08 04:26:00', '0000-00-00 00:00:00', 2, 0),
+(123, 'data/logo.png', '0000-00-00', 1, 1, 1, 1, '2014-03-31 06:55:15', '2014-04-08 05:37:36', 132, 1);
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oc_article_description`
+--
+
+DROP TABLE IF EXISTS `oc_article_description`;
+CREATE TABLE `oc_article_description` (
+  `article_id` int(11) NOT NULL,
+  `language_id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `description` text NOT NULL,
+  `meta_description` varchar(255) NOT NULL,
+  `meta_keyword` varchar(255) NOT NULL,
+  `meta_title` varchar(255) NOT NULL,
+  `meta_h1` varchar(255) NOT NULL,
+  `tag` text NOT NULL,
+  PRIMARY KEY (`article_id`,`language_id`),
+  KEY `name` (`name`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `oc_article_description`
+--
+
+INSERT INTO `oc_article_description` (`article_id`, `language_id`, `name`, `description`, `meta_description`, `meta_keyword`, `meta_title`, `meta_h1`, `tag`) VALUES
+(120, 1, 'CMS для интернет магазинов OCSHOP.CMS v1.5.6.3', '&lt;p&gt;Рады представить Вашему вниманию OCSHOP.CMS v1.5.6.3 основанную на OpenCart v1.5.6.3&lt;/p&gt;\r\n', 'CMS для интернет магазинов OCSHOP.CMS v1.5.6.3 это бесплатный функциональный движок для создания качественных продающих магазинов.', 'cms, opencart, ocshop', 'CMS для интернет магазинов OCSHOP.CMS v1.5.6.3 - Скачать', 'CMS для интернет магазинов OCSHOP.CMS v1.5.6.3', ''),
+(120, 2, 'CMS for online stores OCSHOP.CMS v1.5.6.3', '&lt;p&gt;&lt;span class=&quot;long_text&quot; id=&quot;result_box&quot; lang=&quot;en&quot;&gt;&lt;span class=&quot;hps&quot;&gt;Are pleased to announce&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;OCSHOP.CMS v1.5.6.3&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;based on&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;OpenCart v1.5.6.3&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;\r\n', 'CMS for online stores OCSHOP.CMS v1.5.6.3 is a free functional engine to create high-quality shops selling.', 'cms, opencart, ocshop', 'CMS for online stores OCSHOP.CMS v1.5.6.3 - Download', 'CMS for online stores OCSHOP.CMS v1.5.6.3', ''),
+(123, 1, 'Фото Обзор Первый', '&lt;p&gt;Это первый фото обзор тут можно написать много какого то текста который описывает фото обзор и говорит что и как и почему для чего :-) Это первый фото обзор тут можно написать много какого то текста который описывает фото обзор и говорит что и как и почему для чего :-) Это первый фото обзор тут можно написать много какого то текста который описывает фото обзор и говорит что и как и почему для чего :-) Это первый фото обзор тут можно написать много какого то текста который описывает фото обзор и говорит что и как и почему для чего :-) Это первый фото обзор тут можно написать много какого то текста который описывает фото обзор и говорит что и как и почему для чего :-) Это первый фото обзор тут можно написать много какого то текста который описывает фото обзор и говорит что и как и почему для чего :-) Это первый фото обзор тут можно написать много какого то текста который описывает фото обзор и говорит что и как и почему для чего :-) Это первый фото обзор тут можно написать много какого то текста который описывает фото обзор и говорит что и как и почему для чего :-) Это первый фото обзор тут можно написать много какого то текста который описывает фото обзор и говорит что и как и почему для чего :-)&lt;/p&gt;\r\n', 'Фото Обзор Первый', 'Фото Обзор Первый', 'Фото Обзор Первый', 'Фото Обзор Первый', ''),
+(123, 2, 'First Photo Overview', '&lt;p&gt;&lt;span id=&quot;result_box&quot; lang=&quot;en&quot;&gt;&lt;span class=&quot;hps&quot;&gt;This is the first&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;review of the&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;photos&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;here&lt;/span&gt;&lt;span&gt;, you can write&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;a lot of&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;what that&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;that describes the&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;photo&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;review and&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;says&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;what and how&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;and why&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;what&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;:-) This is the first&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;review of the&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;photos&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;here&lt;/span&gt;&lt;span&gt;, you can write&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;a lot of&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;what that&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;that describes the&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;photo&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;review and&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;says&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;what and how&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;and why&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;what&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;:-) This is the first&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;review of the&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;photos&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;here&lt;/span&gt;&lt;span&gt;, you can write&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;a lot of&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;what that&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;that describes the&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;photo&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;review and&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;says&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;what and how&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;and why&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;what&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;:-) This is the first&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;review of the&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;photos&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;here&lt;/span&gt;&lt;span&gt;, you can write&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;a lot of&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;what that&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;that describes the&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;photo&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;review and&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;says&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;what and how&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;and why&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;what&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;:-) This is the first&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;review of the&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;photos&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;here&lt;/span&gt;&lt;span&gt;, you can write&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;a lot of&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;what that&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;that describes the&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;photo&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;review and&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;says&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;what and how&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;and why&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;what&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;:-) This is the first&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;review of the&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;photos&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;here&lt;/span&gt;&lt;span&gt;, you can write&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;a lot of&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;what that&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;that describes the&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;photo&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;review and&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;says&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;what and how&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;and why&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;what&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;:-) This is the first&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;review of the&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;photos&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;here&lt;/span&gt;&lt;span&gt;, you can write&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;a lot of&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;what that&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;that describes the&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;photo&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;review and&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;says&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;what and how&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;and why&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;what&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;:-) This is the first&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;review of the&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;photos&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;here&lt;/span&gt;&lt;span&gt;, you can write&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;a lot of&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;what that&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;that describes the&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;photo&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;review and&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;says&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;what and how&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;and why&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;what&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;:-) This is the first&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;review of the&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;photos&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;here&lt;/span&gt;&lt;span&gt;, you can write&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;a lot of&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;what that&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;that describes the&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;photo&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;review and&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;says&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;what and how&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;and why&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;what&lt;/span&gt; &lt;span class=&quot;hps&quot;&gt;:-)&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;\r\n', 'First Photo Overview', 'First Photo Overview', 'First Photo Overview', 'First Photo Overview', '');
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oc_article_image`
+--
+
+DROP TABLE IF EXISTS `oc_article_image`;
+CREATE TABLE `oc_article_image` (
+  `article_image_id` int(11) NOT NULL AUTO_INCREMENT,
+  `article_id` int(11) NOT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `sort_order` int(3) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`article_image_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3981 ;
+
+--
+-- Dumping data for table `oc_article_image`
+--
+
+INSERT INTO `oc_article_image` (`article_image_id`, `article_id`, `image`, `sort_order`) VALUES
+(4104, 123, 'data/demo/nikon_d300_3.jpg', 6),
+(4103, 123, 'data/demo/canon_eos_5d_1.jpg', 1),
+(4102, 123, 'data/demo/nikon_d300_1.jpg', 4),
+(4101, 123, 'data/demo/nikon_d300_2.jpg', 5),
+(4100, 123, 'data/demo/nikon_d300_4.jpg', 7),
+(4099, 123, 'data/demo/canon_eos_5d_2.jpg', 2),
+(4097, 123, 'data/demo/nikon_d300_5.jpg', 8),
+(4098, 123, 'data/demo/canon_eos_5d_3.jpg', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oc_article_related`
+--
+
+DROP TABLE IF EXISTS `oc_article_related`;
+CREATE TABLE `oc_article_related` (
+  `article_id` int(11) NOT NULL,
+  `related_id` int(11) NOT NULL,
+  PRIMARY KEY (`article_id`,`related_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `oc_article_related`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oc_article_related_mn`
+--
+
+DROP TABLE IF EXISTS `oc_article_related_mn`;
+CREATE TABLE `oc_article_related_mn` (
+  `article_id` int(11) NOT NULL,
+  `manufacturer_id` int(11) NOT NULL,
+  PRIMARY KEY (`article_id`,`manufacturer_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `oc_article_related_mn`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oc_article_related_product`
+--
+
+DROP TABLE IF EXISTS `oc_article_related_product`;
+CREATE TABLE `oc_article_related_product` (
+  `article_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  PRIMARY KEY (`article_id`,`product_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `oc_article_related_product`
+--
+
+INSERT INTO `oc_article_related_product` (`article_id`, `product_id`) VALUES
+(30, 123),
+(31, 123),
+(43, 123),
+(45, 123),
+(123, 30),
+(123, 31),
+(123, 43),
+(123, 45);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oc_article_related_wb`
+--
+
+DROP TABLE IF EXISTS `oc_article_related_wb`;
+CREATE TABLE `oc_article_related_wb` (
+  `article_id` int(11) NOT NULL,
+  `category_id` int(11) NOT NULL,
+  PRIMARY KEY (`article_id`,`category_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `oc_article_related_wb`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oc_article_to_download`
+--
+
+DROP TABLE IF EXISTS `oc_article_to_download`;
+CREATE TABLE `oc_article_to_download` (
+  `article_id` int(11) NOT NULL,
+  `download_id` int(11) NOT NULL,
+  PRIMARY KEY (`article_id`,`download_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oc_article_to_layout`
+--
+
+DROP TABLE IF EXISTS `oc_article_to_layout`;
+CREATE TABLE `oc_article_to_layout` (
+  `article_id` int(11) NOT NULL,
+  `store_id` int(11) NOT NULL,
+  `layout_id` int(11) NOT NULL,
+  PRIMARY KEY (`article_id`,`store_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oc_article_to_store`
+--
+
+DROP TABLE IF EXISTS `oc_article_to_store`;
+CREATE TABLE `oc_article_to_store` (
+  `article_id` int(11) NOT NULL,
+  `store_id` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`article_id`,`store_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `oc_article_to_store`
+--
+
+INSERT INTO `oc_article_to_store` (`article_id`, `store_id`) VALUES
+(120, 0),
+(123, 0);
+
+-- --------------------------------------------------------

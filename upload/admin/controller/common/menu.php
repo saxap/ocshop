@@ -28,6 +28,13 @@ class ControllerCommonMenu extends Controller {
 		$data['text_download'] = $this->language->get('text_download');
 		$data['text_seomanager'] = $this->language->get('text_seomanager');
 		$data['text_error_log'] = $this->language->get('text_error_log');
+		//blog
+		$data['text_blog'] = $this->language->get('text_blog');
+		$data['text_blog_category'] = $this->language->get('text_blog_category');
+		$data['text_blog_article'] = $this->language->get('text_blog_article');
+		$data['text_blog_review'] = $this->language->get('text_blog_review');
+		$data['text_blog_setting'] = $this->language->get('text_blog_setting');
+		//end blog
 		$data['text_extension'] = $this->language->get('text_extension');
 		$data['text_feed'] = $this->language->get('text_feed');
 		$data['text_fraud'] = $this->language->get('text_fraud');
@@ -140,6 +147,12 @@ class ControllerCommonMenu extends Controller {
 		$data['fraud'] = $this->url->link('extension/fraud', 'token=' . $this->session->data['token'], 'SSL');
 		$data['geo_zone'] = $this->url->link('localisation/geo_zone', 'token=' . $this->session->data['token'], 'SSL');
 		$data['information'] = $this->url->link('catalog/information', 'token=' . $this->session->data['token'], 'SSL');
+		//blog
+		$data['blog_article'] = $this->url->link('blog/article', 'token=' . $this->session->data['token'], 'SSL');
+		$data['blog_category'] = $this->url->link('blog/category', 'token=' . $this->session->data['token'], 'SSL');
+		$data['blog_review'] = $this->url->link('blog/review', 'token=' . $this->session->data['token'], 'SSL');
+		$data['blog_setting'] = $this->url->link('blog/setting', 'token=' . $this->session->data['token'], 'SSL');
+		//blog
 		$data['installer'] = $this->url->link('extension/installer', 'token=' . $this->session->data['token'], 'SSL');
 		$data['language'] = $this->url->link('localisation/language', 'token=' . $this->session->data['token'], 'SSL');
 		$data['layout'] = $this->url->link('design/layout', 'token=' . $this->session->data['token'], 'SSL');

@@ -19,6 +19,14 @@
       <li><a href="<?php echo $information; ?>"><?php echo $text_information; ?></a></li>
     </ul>
   </li>
+  <li id="blog"><a class="parent"><i class="fa fa-book fa-fw"></i> <span><?php echo $text_blog; ?></span></a>
+    <ul>
+      <li><a href="<?php echo $blog_article; ?>"><?php echo $text_blog_article; ?></a></li>
+	  <li><a href="<?php echo $blog_category; ?>"><?php echo $text_blog_category; ?></a></li>
+      <li><a href="<?php echo $blog_review; ?>"><?php echo $text_blog_review; ?></a></li>
+      <li><a href="<?php echo $blog_setting; ?>"><?php echo $text_blog_setting; ?></a></li>
+	</ul>
+  </li>
   <li id="extension"><a class="parent"><i class="fa fa-puzzle-piece fa-fw"></i> <span><?php echo $text_extension; ?></span></a>
     <ul>
       <li><a href="<?php echo $installer; ?>"><?php echo $text_installer; ?></a></li>

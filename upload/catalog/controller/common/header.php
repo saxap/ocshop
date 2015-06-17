@@ -126,6 +126,11 @@ class ControllerCommonHeader extends Controller {
 
 		$data['language'] = $this->load->controller('common/language');
 		$data['currency'] = $this->load->controller('common/currency');
+		if ($this->config->get('configblog_blog_menu')) {
+			$data['menu'] = $this->load->controller('blog/menu');
+		} else {
+			$data['menu'] = '';
+		}
 		$data['search'] = $this->load->controller('common/search');
 		$data['cart'] = $this->load->controller('common/cart');
 
