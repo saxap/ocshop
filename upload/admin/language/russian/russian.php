@@ -98,6 +98,7 @@ $_['button_currency']               = 'Обновить курс валют';
 
 // Tab
 $_['tab_address']                   = 'Адрес';
+$_['tab_additional']                = 'Дополнительные';
 $_['tab_admin']                     = 'Администратор';
 $_['tab_attribute']                 = 'Атрибуты';
 $_['tab_customer']                  = 'Клиент';
@@ -106,7 +107,6 @@ $_['tab_design']                    = 'Дизайн';
 $_['tab_discount']                  = 'Скидка';
 $_['tab_general']                   = 'Основное';
 $_['tab_history']                   = 'История';
-$_['tab_fraud']                     = 'Fraud';
 $_['tab_ftp']                       = 'FTP';
 $_['tab_ip']                        = 'IP адрес';
 $_['tab_links']                     = 'Связи';
@@ -119,7 +119,6 @@ $_['tab_special']                   = 'Акция';
 $_['tab_local']                     = 'Локализация';
 $_['tab_mail']                      = 'Почта';
 $_['tab_module']                    = 'Модули';
-$_['tab_order']                     = 'Информация';
 $_['tab_payment']                   = 'Оплата';
 $_['tab_product']                   = 'Товары';
 $_['tab_reward']                    = 'Бонусы';

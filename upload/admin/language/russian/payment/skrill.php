@@ -6,7 +6,7 @@ $_['heading_title']			  = 'Skrill';
 $_['text_payment']			  = 'Оплата';
 $_['text_success']			  = 'Настройки успешно изменены';
 $_['text_edit']               = 'Редактирование';
-$_['text_Skrill']		      = '<a onclick="window.open(\'https://www.moneybookers.com/partners/?p=OpenCart\');"><img src="view/image/payment/moneybookers.png" alt="Moneybookers" title="Moneybookers" style="border: 1px solid #EEEEEE;" /></a>';
+$_['text_skrill']	     	  = '<a href="https://www.moneybookers.com/partners/?p=OpenCart" target="_blank"><img src="view/image/payment/skrill.png" alt="Skrill" title="Skrill" style="border: 1px solid #EEEEEE;" /></a>';
 
 // Entry
 $_['entry_email']			  = 'E-Mail';

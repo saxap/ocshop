@@ -5,7 +5,6 @@ $_['heading_title']    = 'Google Base';
 // Text
 $_['text_feed']        = 'Каналы продвижения';
 $_['text_success']     = 'Настройки модуля Google Base обновлены!';
-$_['text_list']        = 'Google Base';
 $_['text_edit']        = 'Настройки Google Base';
 
 // Entry

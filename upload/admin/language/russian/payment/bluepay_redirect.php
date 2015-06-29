@@ -34,7 +34,7 @@ $_['text_confirm_rebate']			= 'Are you sure you want to rebate the payment?';
 
 // Entry
 $_['entry_vendor']					= 'Account ID';
-$_['entry_secret_key']				= "Secret Key";
+$_['entry_secret_key']				= 'Secret Key';
 $_['entry_test']					= 'Test Mode';
 $_['entry_transaction']				= 'Transaction Method';
 $_['entry_total']					= 'Total';
@@ -61,4 +61,3 @@ $_['btn_void']						= 'Void';
 $_['error_permission']				= 'Warning: You do not have permission to modify payment BluePay!';
 $_['error_account_id']				= 'Account ID Required!';
 $_['error_secret_key']				= 'Secret Key Required!';
-

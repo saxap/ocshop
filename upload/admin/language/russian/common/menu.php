@@ -23,6 +23,7 @@ $_['text_error_log']                   = 'Журнал ошибок';
 $_['text_extension']                   = 'Модули';
 $_['text_feed']                        = 'Каналы продвижения';
 $_['text_filter']                      = 'Фильтры';
+$_['text_fraud']                       = 'Антифрод';
 $_['text_geo_zone']                    = 'Географические зоны';
 $_['text_information']                 = 'Статьи';
 $_['text_installer']                   = 'Установка расширений';
