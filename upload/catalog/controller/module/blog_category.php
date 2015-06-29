@@ -49,8 +49,7 @@ class ControllerModuleBlogCategory extends Controller {
 			}
 
 			$filter_data = array(
-				'filter_blog_category_id'  => $category['blog_category_id'],
-				'filter_sub_category' => true
+				'filter_blog_category_id'  => $category['blog_category_id']
 			);
 
 			$data['categories'][] = array(

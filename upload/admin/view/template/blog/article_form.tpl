@@ -170,8 +170,8 @@
                   <input type="text" name="category" value="" placeholder="<?php echo $entry_category; ?>" id="input-category" class="form-control" />
                   <div id="article-category" class="well well-sm" style="height: 150px; overflow: auto;">
                     <?php foreach ($article_categories as $article_category) { ?>
-                    <div id="article-category<?php echo $article_category['category_id']; ?>"><i class="fa fa-minus-circle"></i> <?php echo $article_category['name']; ?>
-                      <input type="hidden" name="article_category[]" value="<?php echo $article_category['category_id']; ?>" />
+                    <div id="article-category<?php echo $article_category['blog_category_id']; ?>"><i class="fa fa-minus-circle"></i> <?php echo $article_category['name']; ?>
+                      <input type="hidden" name="article_category[]" value="<?php echo $article_category['blog_category_id']; ?>" />
                     </div>
                     <?php } ?>
                   </div>
@@ -311,7 +311,7 @@ $('input[name=\'category\']').autocomplete({
 				response($.map(json, function(item) {
 					return {
 						label: item['name'],
-						value: item['category_id']
+						value: item['blog_category_id']
 					}
 				}));
 			}

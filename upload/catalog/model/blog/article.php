@@ -52,8 +52,8 @@ class ModelBlogArticle extends Model {
 		if (!$article_data) {
 			$sql = "SELECT p.article_id, (SELECT AVG(rating) AS total FROM " . DB_PREFIX . "review_article r1 WHERE r1.article_id = p.article_id AND r1.status = '1' GROUP BY r1.article_id) AS rating FROM " . DB_PREFIX . "article p LEFT JOIN " . DB_PREFIX . "article_description pd ON (p.article_id = pd.article_id) LEFT JOIN " . DB_PREFIX . "article_to_store p2s ON (p.article_id = p2s.article_id)"; 
 						
-			if (!empty($data['filter_news_id'])) {
-				$sql .= " LEFT JOIN " . DB_PREFIX . "article_to_news p2c ON (p.article_id = p2c.article_id)";			
+			if (!empty($data['filter_category_id'])) {
+				$sql .= " LEFT JOIN " . DB_PREFIX . "article_to_blog_category p2c ON (p.article_id = p2c.article_id)";			
 			}
 			
 			$sql .= " WHERE pd.language_id = '" . (int)$this->config->get('config_language_id') . "' AND p.status = '1' AND p.date_available <= NOW() AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "'"; 
@@ -108,23 +108,23 @@ class ModelBlogArticle extends Model {
 				}					
 			}
 			
-			if (!empty($data['filter_news_id'])) {
-				if (!empty($data['filter_sub_news'])) {
+			if (!empty($data['filter_category_id'])) {
+				if (!empty($data['filter_sub_category'])) {
 					$implode_data = array();
 					
-					$implode_data[] = (int)$data['filter_news_id'];
+					$implode_data[] = (int)$data['filter_category_id'];
 					
-					$this->load->model('blog/news');
+					$this->load->model('blog/category');
 					
-					$categories = $this->model_blog_news->getCategoriesByParentId($data['filter_news_id']);
+					$categories = $this->model_blog_category->getCategoriesByParentId($data['filter_category_id']);
 										
-					foreach ($categories as $news_id) {
-						$implode_data[] = (int)$news_id;
+					foreach ($categories as $blog_category_id) {
+						$implode_data[] = (int)$blog_category_id;
 					}
 								
-					$sql .= " AND p2c.news_id IN (" . implode(', ', $implode_data) . ")";			
+					$sql .= " AND p2c.blog_category_id IN (" . implode(', ', $implode_data) . ")";			
 				} else {
-					$sql .= " AND p2c.news_id = '" . (int)$data['filter_news_id'] . "'";
+					$sql .= " AND p2c.blog_category_id = '" . (int)$data['filter_category_id'] . "'";
 				}
 			}		
 					
@@ -295,7 +295,7 @@ public function getArticleRelated_by_manufacturer($manufacturer_id, $limit) {
 	}
 	
 	public function getCategories($article_id) {
-		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "article_to_news WHERE article_id = '" . (int)$article_id . "'");
+		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "article_to_blog_category WHERE article_id = '" . (int)$article_id . "'");
 		
 		return $query->rows;
 	}
@@ -329,8 +329,8 @@ public function getArticleRelated_by_manufacturer($manufacturer_id, $limit) {
 		if (!$article_data) {
 			$sql = "SELECT COUNT(DISTINCT p.article_id) AS total FROM " . DB_PREFIX . "article p LEFT JOIN " . DB_PREFIX . "article_description pd ON (p.article_id = pd.article_id) LEFT JOIN " . DB_PREFIX . "article_to_store p2s ON (p.article_id = p2s.article_id)";
 	
-			if (!empty($data['filter_news_id'])) {
-				$sql .= " LEFT JOIN " . DB_PREFIX . "article_to_news p2c ON (p.article_id = p2c.article_id)";			
+			if (!empty($data['filter_blog_category_id'])) {
+				$sql .= " LEFT JOIN " . DB_PREFIX . "article_to_blog_category p2c ON (p.article_id = p2c.article_id)";			
 			}
 						
 			$sql .= " WHERE pd.language_id = '" . (int)$this->config->get('config_language_id') . "' AND p.status = '1' AND p.date_available <= NOW() AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "'";
@@ -385,23 +385,23 @@ public function getArticleRelated_by_manufacturer($manufacturer_id, $limit) {
 				}				
 			}
 						
-			if (!empty($data['filter_news_id'])) {
-				if (!empty($data['filter_sub_news'])) {
+			if (!empty($data['filter_blog_category_id'])) {
+				if (!empty($data['filter_sub_category'])) {
 					$implode_data = array();
 					
-					$implode_data[] = (int)$data['filter_news_id'];
+					$implode_data[] = (int)$data['filter_blog_category_id'];
 					
-					$this->load->model('blog/news');
+					$this->load->model('blog/category');
 					
-					$categories = $this->model_blog_news->getCategoriesByParentId($data['filter_news_id']);
+					$categories = $this->model_blog_category->getCategoriesByParentId($data['filter_blog_category_id']);
 										
-					foreach ($categories as $news_id) {
-						$implode_data[] = (int)$news_id;
+					foreach ($categories as $blog_category_id) {
+						$implode_data[] = (int)$blog_category_id;
 					}
 								
-					$sql .= " AND p2c.news_id IN (" . implode(', ', $implode_data) . ")";			
+					$sql .= " AND p2c.blog_category_id IN (" . implode(', ', $implode_data) . ")";			
 				} else {
-					$sql .= " AND p2c.news_id = '" . (int)$data['filter_news_id'] . "'";
+					$sql .= " AND p2c.blog_category_id = '" . (int)$data['filter_blog_category_id'] . "'";
 				}
 			}		
 			

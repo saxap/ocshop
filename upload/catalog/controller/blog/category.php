@@ -13,13 +13,13 @@ class ControllerBlogCategory extends Controller {
 			$sort = $this->request->get['sort'];
 			$this->document->setRobots('noindex,follow');
 		} else {
-			$sort = 'p.sort_order';
+			$sort = 'p.date_added';
 		}
 
 		if (isset($this->request->get['order'])) {
 			$order = $this->request->get['order'];
 		} else {
-			$order = 'ASC';
+			$order = 'DESC';
 		}
 
 		if (isset($this->request->get['page'])) {
@@ -173,15 +173,19 @@ class ControllerBlogCategory extends Controller {
 			$data['articles'] = array();
 
 			$article_data = array(
+				'filter_category_id' => $blog_category_id,
 				'sort'               => $sort,
 				'order'              => $order,
 				'start'              => ($page - 1) * $limit,
 				'limit'              => $limit
 			);
-
+			
+			
 			$article_total = $this->model_blog_article->getTotalArticles($article_data);
 
 			$results = $this->model_blog_article->getArticles($article_data);
+			
+			
 
 			foreach ($results as $result) {
 				if ($result['image']) {
