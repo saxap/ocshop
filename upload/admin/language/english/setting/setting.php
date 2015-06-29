@@ -23,6 +23,7 @@ $_['text_seo_url'] 					   = 'Default';
 $_['text_seo_pro']					   = 'SeoPro';
 $_['text_google_analytics']            = 'Google Analytics';
 $_['text_google_captcha']              = 'Google reCAPTCHA';
+$_['text_howtosms']          	       = 'How to';
 
 // Entry
 $_['entry_name']                       = 'Store Name';
@@ -136,6 +137,14 @@ $_['entry_google_analytics']           = 'Google Analytics Code';
 $_['entry_google_captcha_public']      = 'Site key';
 $_['entry_google_captcha_secret']      = 'Secret key';
 $_['entry_status']                     = 'Status';
+$_['entry_sms_gatename']       		   = 'Сервис отправки SMS';
+$_['entry_sms_to']             		   = 'Номер телефона получателя';
+$_['entry_sms_from']           		   = 'Псевдоним отправителя';
+$_['entry_sms_message']        		   = 'Текст сообщения';
+$_['entry_sms_gate_username']  		   = 'Логин на SMS шлюз';
+$_['entry_sms_gate_password']  		   = 'Пароль на SMS шлюз';
+$_['entry_sms_alert']          		   = 'Включить SMS уведомления';
+$_['entry_sms_copy']           		   = 'Дополнительные номера';
 
 // Help
 $_['help_geocode']                     = 'Please enter your store location geocode manually.';
@@ -202,6 +211,10 @@ $_['help_seo_url_include_path'] 	   = '/category/subcategory/product<br />(Only 
 $_['help_seo_url_postfix']			   = 'For example. html<br />(Only SeoPro)';
 $_['help_google_analytics']            = 'Login to your <a href="http://www.google.com/analytics/" target="_blank"><u>Google Analytics</u></a> account and after creating your website profile copy and paste the analytics code into this field.';
 $_['help_google_captcha']              = 'Go to <a href="https://www.google.com/recaptcha/intro/index.html" target="_blank"><u>Google reCAPTCHA page</u></a> and register your website.';
+$_['help_sms_from']					   = 'Не более 11 символов, либо номер телефона до 15 цифр';
+$_['help_sms_to']					   = 'В международном формате, только цифры 7926xxxxxxx';
+$_['help_sms_copy']					   = 'Указывать через запятую, в международном формате, без разделителей 7926xxxxxxx';
+$_['help_sms_message']				   = 'Можно использовать теги:<br/>{ID} - номер заказа<br/>{DATE} - дата заказа<br/>{TIME} - время заказа<br/>{SUM} - сумма заказа<br/>{FIRST_NAME} - имя клиента<br/>{LAST_NAME} - фамилия клиента<br/>{PHONE} - телефон клиента';
 
 // Error
 $_['error_warning']                    = 'Warning: Please check the form carefully for errors!';

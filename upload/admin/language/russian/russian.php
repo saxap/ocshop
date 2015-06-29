@@ -132,6 +132,8 @@ $_['tab_online']                    = 'Кто в Online';
 $_['tab_activity']                  = 'Последняя активность';
 $_['tab_recurring']                 = 'Периодичность';
 $_['tab_action']                    = 'Действие';
+$_['tab_google']                    = 'Google';
+$_['tab_sms']                       = 'SMS';
 
 // Error
 $_['error_exception']               = 'Ошибка кода (%s): %s в %s на строке %s';

@@ -159,6 +159,19 @@ class ControllerSettingSetting extends Controller {
 		$data['entry_google_captcha_public'] = $this->language->get('entry_google_captcha_public');
 		$data['entry_google_captcha_secret'] = $this->language->get('entry_google_captcha_secret');
 		$data['entry_status'] = $this->language->get('entry_status');
+		$data['entry_sms_gatename'] = $this->language->get('entry_sms_gatename');
+		$data['entry_sms_to'] = $this->language->get('entry_sms_to');
+		$data['entry_sms_from'] = $this->language->get('entry_sms_from');
+		$data['entry_sms_message'] = $this->language->get('entry_sms_message');
+		$data['entry_sms_gate_username'] = $this->language->get('entry_sms_gate_username');
+		$data['entry_sms_gate_password'] = $this->language->get('entry_sms_gate_password');
+		$data['entry_sms_alert'] = $this->language->get('entry_sms_alert');
+		$data['entry_sms_copy'] = $this->language->get('entry_sms_copy');
+		
+		$data['help_sms_from'] = $this->language->get('help_sms_from');
+		$data['help_sms_to'] = $this->language->get('help_sms_to');
+		$data['help_sms_copy'] = $this->language->get('help_sms_copy');
+		$data['help_sms_message'] = $this->language->get('help_sms_message');
 
 		$data['help_geocode'] = $this->language->get('help_geocode');
 		$data['help_open'] = $this->language->get('help_open');
@@ -238,6 +251,15 @@ class ControllerSettingSetting extends Controller {
 		$data['tab_mail'] = $this->language->get('tab_mail');
 		$data['tab_server'] = $this->language->get('tab_server');
 		$data['tab_google'] = $this->language->get('tab_google');
+		$data['tab_sms'] = $this->language->get('tab_sms');
+		
+		$data['sms_gatenames'] = array();
+		
+		$files = glob(DIR_SYSTEM . 'smsgate/*.php');
+		
+		foreach ($files as $file) {
+			$data['sms_gatenames'][] =  basename($file, '.php');
+		}
 
 		if (isset($this->error['warning'])) {
 			$data['error_warning'] = $this->error['warning'];
@@ -1313,6 +1335,56 @@ class ControllerSettingSetting extends Controller {
 		} else {
 			$data['config_google_captcha_status'] = $this->config->get('config_google_captcha_status');
 		}
+		
+		if (isset($this->request->post['config_google_analytics'])) {
+			$data['config_google_analytics'] = $this->request->post['config_google_analytics']; 
+		} else {
+			$data['config_google_analytics'] = $this->config->get('config_google_analytics');
+		}
+		
+		if (isset($this->request->post['config_sms_gatename'])) {
+			$data['config_sms_gatename'] = $this->request->post['config_sms_gatename'];
+		} else {
+			$data['config_sms_gatename'] = $this->config->get('config_sms_gatename');
+		}
+		if (isset($this->request->post['config_sms_to'])) {
+			$data['config_sms_to'] = $this->request->post['config_sms_to'];
+		} else {
+			$data['config_sms_to'] = $this->config->get('config_sms_to');
+		}
+		if (isset($this->request->post['config_sms_from'])) {
+			$data['config_sms_from'] = $this->request->post['config_sms_from'];
+		} else {
+			$data['config_sms_from'] = $this->config->get('config_sms_from');
+		}
+		if (isset($this->request->post['config_sms_message'])) {
+			$data['config_sms_message'] = $this->request->post['config_sms_message'];
+		} else {
+			$data['config_sms_message'] = $this->config->get('config_sms_message');
+		}
+		if (isset($this->request->post['config_sms_gate_username'])) {
+			$data['config_sms_gate_username'] = $this->request->post['config_sms_gate_username'];
+		} else {
+			$data['config_sms_gate_username'] = $this->config->get('config_sms_gate_username');
+		}
+		if (isset($this->request->post['config_sms_gate_password'])) {
+			$data['config_sms_gate_password'] = $this->request->post['config_sms_gate_password'];
+		} else {
+			$data['config_sms_gate_password'] = $this->config->get('config_sms_gate_password');
+		}
+		if (isset($this->request->post['config_sms_alert'])) {
+			$data['config_sms_alert'] = $this->request->post['config_sms_alert'];
+		} else {
+			$data['config_sms_alert'] = $this->config->get('config_sms_alert');
+		}
+		if (isset($this->request->post['config_sms_copy'])) {
+			$data['config_sms_copy'] = $this->request->post['config_sms_copy'];
+		} else {
+			$data['config_sms_copy'] = $this->config->get('config_sms_copy');
+		}
+		
+		$data['text_howtosms'] = $this->language->get('text_howtosms');
+		$data['howtosms'] = $this->url->link('howto/howtosms', 'token=' . $this->session->data['token'], 'SSL');
 
 		$data['header'] = $this->load->controller('common/header');
 		$data['column_left'] = $this->load->controller('common/column_left');

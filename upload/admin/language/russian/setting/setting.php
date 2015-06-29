@@ -23,6 +23,7 @@ $_['text_seo_url']					   = 'По умолчанию';
 $_['text_seo_pro']					   = 'SeoPro';
 $_['text_google_analytics']            = 'Google Analytics';
 $_['text_google_captcha']              = 'Google reCAPTCHA';
+$_['text_howtosms']          	       = 'Инструкция настройки';
 
 // Entry
 $_['entry_name']                       = 'Название магазина';
@@ -122,7 +123,6 @@ $_['entry_seo_url']                    = 'Включить ЧПУ';
 $_['entry_seo_url_type'] 			   = 'Тип ЧПУ';
 $_['entry_seo_url_include_path']       = 'ЧПУ товаров с категориями';
 $_['entry_seo_url_postfix']			   = 'Окончание ЧПУ';
-
 $_['entry_file_max_size']	           = 'Максимальный размер файла';
 $_['entry_file_ext_allowed']           = 'Разрешенные типы файлов';
 $_['entry_file_mime_allowed']          = 'Разрешенные MIME типы';
@@ -137,6 +137,14 @@ $_['entry_google_analytics']           = 'Код Google Analytics';
 $_['entry_google_captcha_public']      = 'Сайт key';
 $_['entry_google_captcha_secret']      = 'Секрет key';
 $_['entry_status']                     = 'Статус';
+$_['entry_sms_gatename']       		   = 'Сервис отправки SMS';
+$_['entry_sms_to']             		   = 'Номер телефона получателя';
+$_['entry_sms_from']           		   = 'Псевдоним отправителя';
+$_['entry_sms_message']        		   = 'Текст сообщения';
+$_['entry_sms_gate_username']  		   = 'Логин на SMS шлюз';
+$_['entry_sms_gate_password']  		   = 'Пароль на SMS шлюз';
+$_['entry_sms_alert']          		   = 'Включить SMS уведомления';
+$_['entry_sms_copy']           		   = 'Дополнительные номера';
 
 // Help
 $_['help_geocode']                     = 'Пожалуйста, введите ваше местонахождение как GeoCode.';
@@ -203,6 +211,10 @@ $_['help_encryption']                  = 'Ключ, который будет и
 $_['help_compression']                 = 'GZIP для более эффективной передачи данных http запросов. Уровень сжатия должен быть между 0 - 9';
 $_['help_google_analytics']            = 'Войдите в Ваш <a href="http://www.google.com/analytics/" target="_blank"><u>Google Analytics аккаунт</u></a> и после настройки добавьте сюда код выданный Google Analytics.';
 $_['help_google_captcha']              = 'Перейдите <a href="https://www.google.com/recaptcha/intro/index.html" target="_blank"><u>Google reCAPTCHA page</u></a> и зарегистрируйте свой сайт.';
+$_['help_sms_from']					   = 'Не более 11 символов, либо номер телефона до 15 цифр';
+$_['help_sms_to']					   = 'В международном формате, только цифры 7926xxxxxxx';
+$_['help_sms_copy']					   = 'Указывать через запятую, в международном формате, без разделителей 7926xxxxxxx';
+$_['help_sms_message']				   = 'Можно использовать теги:<br/>{ID} - номер заказа<br/>{DATE} - дата заказа<br/>{TIME} - время заказа<br/>{SUM} - сумма заказа<br/>{FIRST_NAME} - имя клиента<br/>{LAST_NAME} - фамилия клиента<br/>{PHONE} - телефон клиента';
 
 // Error
 $_['error_warning']                    = 'Ошибка! Проверьте форму на наличие ошибок!';
