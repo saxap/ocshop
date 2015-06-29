@@ -36,6 +36,13 @@ $_['text_invoice']                            = 'Счет';
 
 $_['text_payment_address']     				  = 'Адрес оплаты';
 $_['text_shipping_address']    				  = 'Адрес доставки';
+
+$_['text_account_custom_field']  			  = 'Пользовательские Поля';
+
+$_['text_payment_custom_field']  			  = 'Адрес оплаты Пользовательские Поля';
+$_['text_shipping_custom_field'] 			  = 'Адрес доставки Пользовательские Поля';
+$_['text_browser']               			  = 'Просмотр';
+
 $_['text_shipping_method']     				  = 'Способ доставки:';
 $_['text_payment_method']      				  = 'Способ оплаты:';
 $_['text_missing']                            = 'Пропавшие заказы';
