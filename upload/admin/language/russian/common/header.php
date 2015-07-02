@@ -21,3 +21,10 @@ $_['text_homepage']        = 'Блог ';
 $_['text_support']         = 'Форум поддержки';
 $_['text_documentation']   = 'Документация';
 $_['text_logout']          = 'Выход';
+
+$_['text_new']  		   = 'Добавить';
+$_['text_new_category']    = 'Категорию';
+$_['text_new_customer']    = 'Пользователя';
+$_['text_new_download']    = 'Загрузку';
+$_['text_new_manufacturer']= 'Производителя';
+$_['text_new_product']     = 'Товар';

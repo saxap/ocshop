@@ -40,6 +40,13 @@ class ControllerCommonHeader extends Controller {
 		$data['text_support'] = $this->language->get('text_support');
 		$data['text_logged'] = sprintf($this->language->get('text_logged'), $this->user->getUserName());
 		$data['text_logout'] = $this->language->get('text_logout');
+		
+		$data['text_new'] = $this->language->get('text_new');
+		$data['text_new_category'] = $this->language->get('text_new_category');
+		$data['text_new_customer'] = $this->language->get('text_new_customer');
+		$data['text_new_download'] = $this->language->get('text_new_download');
+		$data['text_new_manufacturer'] = $this->language->get('text_new_manufacturer');
+		$data['text_new_product'] = $this->language->get('text_new_product');
 
 		if (!isset($this->request->get['token']) || !isset($this->session->data['token']) || ($this->request->get['token'] != $this->session->data['token'])) {
 			$data['logged'] = '';
@@ -51,6 +58,13 @@ class ControllerCommonHeader extends Controller {
 			$data['home'] = $this->url->link('common/dashboard', 'token=' . $this->session->data['token'], 'SSL');
 			$data['logout'] = $this->url->link('common/logout', 'token=' . $this->session->data['token'], 'SSL');
 
+			// News Added Menu
+			$data['new_category'] = $this->url->link('catalog/category/add', 'token=' . $this->session->data['token'], 'SSL');
+			$data['new_customer'] = $this->url->link('sale/customer/add', 'token=' . $this->session->data['token'], 'SSL');
+			$data['new_download'] = $this->url->link('catalog/download/add', 'token=' . $this->session->data['token'], 'SSL');
+			$data['new_manufacturer'] = $this->url->link('catalog/manufacturer/add', 'token=' . $this->session->data['token'], 'SSL');
+			$data['new_product'] = $this->url->link('catalog/product/add', 'token=' . $this->session->data['token'], 'SSL');
+			
 			// Orders
 			$this->load->model('sale/order');
 
