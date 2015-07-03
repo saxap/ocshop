@@ -22,6 +22,7 @@ $_['text_support']         = 'Форум поддержки';
 $_['text_documentation']   = 'Документация';
 $_['text_logout']          = 'Выход';
 
+$_['text_search_options']  = 'Опции поиска';
 $_['text_new']  		   = 'Добавить';
 $_['text_new_category']    = 'Категорию';
 $_['text_new_customer']    = 'Пользователя';

@@ -53,6 +53,9 @@
       </ul>
     </li> 
   </ul>
+  <div id="ocshop-search-div" class="col-sm-3 col-md-3 pull-left">
+    <?php echo $search; ?>
+  </div>
   <ul class="nav pull-right">
     <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"><span class="label label-danger pull-left"><?php echo $alerts; ?></span> <i class="fa fa-bell fa-lg"></i></a>
       <ul class="dropdown-menu dropdown-menu-right alerts-dropdown">

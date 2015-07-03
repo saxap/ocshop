@@ -41,6 +41,7 @@ class ControllerCommonHeader extends Controller {
 		$data['text_logged'] = sprintf($this->language->get('text_logged'), $this->user->getUserName());
 		$data['text_logout'] = $this->language->get('text_logout');
 		
+		$data['text_search_options'] = $this->language->get('text_search_options');
 		$data['text_new'] = $this->language->get('text_new');
 		$data['text_new_category'] = $this->language->get('text_new_category');
 		$data['text_new_customer'] = $this->language->get('text_new_customer');
@@ -146,6 +147,8 @@ class ControllerCommonHeader extends Controller {
 				);
 			}
 		}
+		
+		$data['search'] = $this->load->controller('search/search');
 
 		return $this->load->view('common/header.tpl', $data);
 	}
