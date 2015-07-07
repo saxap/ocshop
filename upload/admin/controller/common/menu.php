@@ -9,6 +9,7 @@ class ControllerCommonMenu extends Controller {
 		$data['text_attribute_group'] = $this->language->get('text_attribute_group');
 		$data['text_backup'] = $this->language->get('text_backup');
 		$data['text_banner'] = $this->language->get('text_banner');
+		$data['text_menu'] = $this->language->get('text_menu');
 		$data['text_catalog'] = $this->language->get('text_catalog');
 		$data['text_category'] = $this->language->get('text_category');
 		$data['text_confirm'] = $this->language->get('text_confirm');
@@ -129,6 +130,7 @@ class ControllerCommonMenu extends Controller {
 		$data['attribute_group'] = $this->url->link('catalog/attribute_group', 'token=' . $this->session->data['token'], 'SSL');
 		$data['backup'] = $this->url->link('tool/backup', 'token=' . $this->session->data['token'], 'SSL');
 		$data['banner'] = $this->url->link('design/banner', 'token=' . $this->session->data['token'], 'SSL');
+		$data['menu'] = $this->url->link('design/menu', 'token=' . $this->session->data['token'], 'SSL');
 		$data['category'] = $this->url->link('catalog/category', 'token=' . $this->session->data['token'], 'SSL');
 		$data['country'] = $this->url->link('localisation/country', 'token=' . $this->session->data['token'], 'SSL');
 		$data['contact'] = $this->url->link('marketing/contact', 'token=' . $this->session->data['token'], 'SSL');

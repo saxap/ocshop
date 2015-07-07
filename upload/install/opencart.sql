@@ -3271,7 +3271,8 @@ INSERT INTO `oc_setting` (`setting_id`, `store_id`, `code`, `key`, `value`, `ser
 (402, 0, 'configblog', 'configblog_limit_admin', '20', 0),
 (403, 0, 'configblog', 'configblog_article_description_length', '200', 0),
 (404, 0, 'configblog', 'configblog_article_limit', '20', 0),
-(405, 0, 'configblog', 'configblog_article_count', '1', 0);
+(405, 0, 'configblog', 'configblog_article_count', '1', 0),
+(406, 0, 'configmenu', 'configmenu_menu', '1', 0);
 
 -- --------------------------------------------------------
 
@@ -3559,7 +3560,7 @@ CREATE TABLE IF NOT EXISTS `oc_user_group` (
 --
 
 INSERT INTO `oc_user_group` (`user_group_id`, `name`, `permission`) VALUES
-(1, 'Administrator', 'a:2:{s:6:"access";a:196:{i:0;s:12:"blog/article";i:1;s:13:"blog/category";i:2;s:11:"blog/review";i:3;s:12:"blog/setting";i:4;s:17:"catalog/attribute";i:5;s:23:"catalog/attribute_group";i:6;s:16:"catalog/category";i:7;s:16:"catalog/download";i:8;s:14:"catalog/filter";i:9;s:19:"catalog/information";i:10;s:20:"catalog/manufacturer";i:11;s:14:"catalog/option";i:12;s:15:"catalog/product";i:13;s:17:"catalog/recurring";i:14;s:14:"catalog/review";i:15;s:18:"common/column_left";i:16;s:18:"common/filemanager";i:17;s:11:"common/menu";i:18;s:14:"common/profile";i:19;s:12:"common/stats";i:20;s:13:"design/banner";i:21;s:13:"design/layout";i:22;s:14:"extension/feed";i:23;s:15:"extension/fraud";i:24;s:19:"extension/installer";i:25;s:22:"extension/modification";i:26;s:16:"extension/module";i:27;s:17:"extension/openbay";i:28;s:17:"extension/payment";i:29;s:18:"extension/shipping";i:30;s:15:"extension/total";i:31;s:16:"feed/google_base";i:32;s:19:"feed/google_sitemap";i:33;s:15:"feed/openbaypro";i:34;s:18:"feed/yandex_market";i:35;s:18:"fraud/fraudlabspro";i:36;s:13:"fraud/maxmind";i:37;s:12:"howto/blogun";i:38;s:14:"howto/gogettop";i:39;s:14:"howto/howtosms";i:40;s:13:"howto/seopult";i:41;s:20:"localisation/country";i:42;s:21:"localisation/currency";i:43;s:21:"localisation/geo_zone";i:44;s:21:"localisation/language";i:45;s:25:"localisation/length_class";i:46;s:21:"localisation/location";i:47;s:25:"localisation/order_status";i:48;s:26:"localisation/return_action";i:49;s:26:"localisation/return_reason";i:50;s:26:"localisation/return_status";i:51;s:25:"localisation/stock_status";i:52;s:22:"localisation/tax_class";i:53;s:21:"localisation/tax_rate";i:54;s:25:"localisation/weight_class";i:55;s:17:"localisation/zone";i:56;s:19:"marketing/affiliate";i:57;s:17:"marketing/contact";i:58;s:16:"marketing/coupon";i:59;s:19:"marketing/marketing";i:60;s:14:"module/account";i:61;s:16:"module/affiliate";i:62;s:19:"module/amazon_login";i:63;s:17:"module/amazon_pay";i:64;s:13:"module/banner";i:65;s:17:"module/bestseller";i:66;s:20:"module/blog_category";i:67;s:20:"module/blog_featured";i:68;s:18:"module/blog_latest";i:69;s:15:"module/carousel";i:70;s:15:"module/category";i:71;s:19:"module/ebay_listing";i:72;s:15:"module/featured";i:73;s:13:"module/filter";i:74;s:22:"module/google_hangouts";i:75;s:11:"module/html";i:76;s:18:"module/information";i:77;s:13:"module/latest";i:78;s:16:"module/pp_button";i:79;s:15:"module/pp_login";i:80;s:18:"module/product_tab";i:81;s:16:"module/slideshow";i:82;s:14:"module/special";i:83;s:12:"module/store";i:84;s:14:"openbay/amazon";i:85;s:22:"openbay/amazon_listing";i:86;s:22:"openbay/amazon_product";i:87;s:16:"openbay/amazonus";i:88;s:24:"openbay/amazonus_listing";i:89;s:24:"openbay/amazonus_product";i:90;s:12:"openbay/ebay";i:91;s:20:"openbay/ebay_profile";i:92;s:21:"openbay/ebay_template";i:93;s:12:"openbay/etsy";i:94;s:20:"openbay/etsy_product";i:95;s:21:"openbay/etsy_shipping";i:96;s:17:"openbay/etsy_shop";i:97;s:23:"payment/amazon_checkout";i:98;s:24:"payment/amazon_login_pay";i:99;s:24:"payment/authorizenet_aim";i:100;s:24:"payment/authorizenet_sim";i:101;s:21:"payment/bank_transfer";i:102;s:22:"payment/bluepay_hosted";i:103;s:24:"payment/bluepay_redirect";i:104;s:14:"payment/cheque";i:105;s:11:"payment/cod";i:106;s:17:"payment/firstdata";i:107;s:24:"payment/firstdata_remote";i:108;s:21:"payment/free_checkout";i:109;s:14:"payment/g2apay";i:110;s:17:"payment/globalpay";i:111;s:24:"payment/globalpay_remote";i:112;s:22:"payment/klarna_account";i:113;s:22:"payment/klarna_invoice";i:114;s:14:"payment/liqpay";i:115;s:14:"payment/nochex";i:116;s:15:"payment/paymate";i:117;s:16:"payment/paypoint";i:118;s:13:"payment/payza";i:119;s:26:"payment/perpetual_payments";i:120;s:18:"payment/pp_express";i:121;s:18:"payment/pp_payflow";i:122;s:25:"payment/pp_payflow_iframe";i:123;s:14:"payment/pp_pro";i:124;s:21:"payment/pp_pro_iframe";i:125;s:19:"payment/pp_standard";i:126;s:14:"payment/realex";i:127;s:21:"payment/realex_remote";i:128;s:22:"payment/sagepay_direct";i:129;s:22:"payment/sagepay_server";i:130;s:18:"payment/sagepay_us";i:131;s:24:"payment/securetrading_pp";i:132;s:24:"payment/securetrading_ws";i:133;s:14:"payment/skrill";i:134;s:19:"payment/twocheckout";i:135;s:28:"payment/web_payment_software";i:136;s:16:"payment/worldpay";i:137;s:16:"report/affiliate";i:138;s:25:"report/affiliate_activity";i:139;s:22:"report/affiliate_login";i:140;s:24:"report/customer_activity";i:141;s:22:"report/customer_credit";i:142;s:21:"report/customer_login";i:143;s:22:"report/customer_online";i:144;s:21:"report/customer_order";i:145;s:22:"report/customer_reward";i:146;s:16:"report/marketing";i:147;s:24:"report/product_purchased";i:148;s:21:"report/product_viewed";i:149;s:18:"report/sale_coupon";i:150;s:17:"report/sale_order";i:151;s:18:"report/sale_return";i:152;s:20:"report/sale_shipping";i:153;s:15:"report/sale_tax";i:154;s:17:"sale/custom_field";i:155;s:13:"sale/customer";i:156;s:20:"sale/customer_ban_ip";i:157;s:19:"sale/customer_group";i:158;s:10:"sale/order";i:159;s:14:"sale/recurring";i:160;s:11:"sale/return";i:161;s:12:"sale/voucher";i:162;s:18:"sale/voucher_theme";i:163;s:13:"search/search";i:164;s:15:"setting/setting";i:165;s:13:"setting/store";i:166;s:16:"shipping/auspost";i:167;s:17:"shipping/citylink";i:168;s:14:"shipping/fedex";i:169;s:13:"shipping/flat";i:170;s:13:"shipping/free";i:171;s:13:"shipping/item";i:172;s:23:"shipping/parcelforce_48";i:173;s:15:"shipping/pickup";i:174;s:19:"shipping/royal_mail";i:175;s:12:"shipping/ups";i:176;s:13:"shipping/usps";i:177;s:15:"shipping/weight";i:178;s:11:"tool/backup";i:179;s:14:"tool/error_log";i:180;s:15:"tool/seomanager";i:181;s:11:"tool/upload";i:182;s:12:"total/coupon";i:183;s:12:"total/credit";i:184;s:14:"total/handling";i:185;s:16:"total/klarna_fee";i:186;s:19:"total/low_order_fee";i:187;s:12:"total/reward";i:188;s:14:"total/shipping";i:189;s:15:"total/sub_total";i:190;s:9:"total/tax";i:191;s:11:"total/total";i:192;s:13:"total/voucher";i:193;s:8:"user/api";i:194;s:9:"user/user";i:195;s:20:"user/user_permission";}s:6:"modify";a:196:{i:0;s:12:"blog/article";i:1;s:13:"blog/category";i:2;s:11:"blog/review";i:3;s:12:"blog/setting";i:4;s:17:"catalog/attribute";i:5;s:23:"catalog/attribute_group";i:6;s:16:"catalog/category";i:7;s:16:"catalog/download";i:8;s:14:"catalog/filter";i:9;s:19:"catalog/information";i:10;s:20:"catalog/manufacturer";i:11;s:14:"catalog/option";i:12;s:15:"catalog/product";i:13;s:17:"catalog/recurring";i:14;s:14:"catalog/review";i:15;s:18:"common/column_left";i:16;s:18:"common/filemanager";i:17;s:11:"common/menu";i:18;s:14:"common/profile";i:19;s:12:"common/stats";i:20;s:13:"design/banner";i:21;s:13:"design/layout";i:22;s:14:"extension/feed";i:23;s:15:"extension/fraud";i:24;s:19:"extension/installer";i:25;s:22:"extension/modification";i:26;s:16:"extension/module";i:27;s:17:"extension/openbay";i:28;s:17:"extension/payment";i:29;s:18:"extension/shipping";i:30;s:15:"extension/total";i:31;s:16:"feed/google_base";i:32;s:19:"feed/google_sitemap";i:33;s:15:"feed/openbaypro";i:34;s:18:"feed/yandex_market";i:35;s:18:"fraud/fraudlabspro";i:36;s:13:"fraud/maxmind";i:37;s:12:"howto/blogun";i:38;s:14:"howto/gogettop";i:39;s:14:"howto/howtosms";i:40;s:13:"howto/seopult";i:41;s:20:"localisation/country";i:42;s:21:"localisation/currency";i:43;s:21:"localisation/geo_zone";i:44;s:21:"localisation/language";i:45;s:25:"localisation/length_class";i:46;s:21:"localisation/location";i:47;s:25:"localisation/order_status";i:48;s:26:"localisation/return_action";i:49;s:26:"localisation/return_reason";i:50;s:26:"localisation/return_status";i:51;s:25:"localisation/stock_status";i:52;s:22:"localisation/tax_class";i:53;s:21:"localisation/tax_rate";i:54;s:25:"localisation/weight_class";i:55;s:17:"localisation/zone";i:56;s:19:"marketing/affiliate";i:57;s:17:"marketing/contact";i:58;s:16:"marketing/coupon";i:59;s:19:"marketing/marketing";i:60;s:14:"module/account";i:61;s:16:"module/affiliate";i:62;s:19:"module/amazon_login";i:63;s:17:"module/amazon_pay";i:64;s:13:"module/banner";i:65;s:17:"module/bestseller";i:66;s:20:"module/blog_category";i:67;s:20:"module/blog_featured";i:68;s:18:"module/blog_latest";i:69;s:15:"module/carousel";i:70;s:15:"module/category";i:71;s:19:"module/ebay_listing";i:72;s:15:"module/featured";i:73;s:13:"module/filter";i:74;s:22:"module/google_hangouts";i:75;s:11:"module/html";i:76;s:18:"module/information";i:77;s:13:"module/latest";i:78;s:16:"module/pp_button";i:79;s:15:"module/pp_login";i:80;s:18:"module/product_tab";i:81;s:16:"module/slideshow";i:82;s:14:"module/special";i:83;s:12:"module/store";i:84;s:14:"openbay/amazon";i:85;s:22:"openbay/amazon_listing";i:86;s:22:"openbay/amazon_product";i:87;s:16:"openbay/amazonus";i:88;s:24:"openbay/amazonus_listing";i:89;s:24:"openbay/amazonus_product";i:90;s:12:"openbay/ebay";i:91;s:20:"openbay/ebay_profile";i:92;s:21:"openbay/ebay_template";i:93;s:12:"openbay/etsy";i:94;s:20:"openbay/etsy_product";i:95;s:21:"openbay/etsy_shipping";i:96;s:17:"openbay/etsy_shop";i:97;s:23:"payment/amazon_checkout";i:98;s:24:"payment/amazon_login_pay";i:99;s:24:"payment/authorizenet_aim";i:100;s:24:"payment/authorizenet_sim";i:101;s:21:"payment/bank_transfer";i:102;s:22:"payment/bluepay_hosted";i:103;s:24:"payment/bluepay_redirect";i:104;s:14:"payment/cheque";i:105;s:11:"payment/cod";i:106;s:17:"payment/firstdata";i:107;s:24:"payment/firstdata_remote";i:108;s:21:"payment/free_checkout";i:109;s:14:"payment/g2apay";i:110;s:17:"payment/globalpay";i:111;s:24:"payment/globalpay_remote";i:112;s:22:"payment/klarna_account";i:113;s:22:"payment/klarna_invoice";i:114;s:14:"payment/liqpay";i:115;s:14:"payment/nochex";i:116;s:15:"payment/paymate";i:117;s:16:"payment/paypoint";i:118;s:13:"payment/payza";i:119;s:26:"payment/perpetual_payments";i:120;s:18:"payment/pp_express";i:121;s:18:"payment/pp_payflow";i:122;s:25:"payment/pp_payflow_iframe";i:123;s:14:"payment/pp_pro";i:124;s:21:"payment/pp_pro_iframe";i:125;s:19:"payment/pp_standard";i:126;s:14:"payment/realex";i:127;s:21:"payment/realex_remote";i:128;s:22:"payment/sagepay_direct";i:129;s:22:"payment/sagepay_server";i:130;s:18:"payment/sagepay_us";i:131;s:24:"payment/securetrading_pp";i:132;s:24:"payment/securetrading_ws";i:133;s:14:"payment/skrill";i:134;s:19:"payment/twocheckout";i:135;s:28:"payment/web_payment_software";i:136;s:16:"payment/worldpay";i:137;s:16:"report/affiliate";i:138;s:25:"report/affiliate_activity";i:139;s:22:"report/affiliate_login";i:140;s:24:"report/customer_activity";i:141;s:22:"report/customer_credit";i:142;s:21:"report/customer_login";i:143;s:22:"report/customer_online";i:144;s:21:"report/customer_order";i:145;s:22:"report/customer_reward";i:146;s:16:"report/marketing";i:147;s:24:"report/product_purchased";i:148;s:21:"report/product_viewed";i:149;s:18:"report/sale_coupon";i:150;s:17:"report/sale_order";i:151;s:18:"report/sale_return";i:152;s:20:"report/sale_shipping";i:153;s:15:"report/sale_tax";i:154;s:17:"sale/custom_field";i:155;s:13:"sale/customer";i:156;s:20:"sale/customer_ban_ip";i:157;s:19:"sale/customer_group";i:158;s:10:"sale/order";i:159;s:14:"sale/recurring";i:160;s:11:"sale/return";i:161;s:12:"sale/voucher";i:162;s:18:"sale/voucher_theme";i:163;s:13:"search/search";i:164;s:15:"setting/setting";i:165;s:13:"setting/store";i:166;s:16:"shipping/auspost";i:167;s:17:"shipping/citylink";i:168;s:14:"shipping/fedex";i:169;s:13:"shipping/flat";i:170;s:13:"shipping/free";i:171;s:13:"shipping/item";i:172;s:23:"shipping/parcelforce_48";i:173;s:15:"shipping/pickup";i:174;s:19:"shipping/royal_mail";i:175;s:12:"shipping/ups";i:176;s:13:"shipping/usps";i:177;s:15:"shipping/weight";i:178;s:11:"tool/backup";i:179;s:14:"tool/error_log";i:180;s:15:"tool/seomanager";i:181;s:11:"tool/upload";i:182;s:12:"total/coupon";i:183;s:12:"total/credit";i:184;s:14:"total/handling";i:185;s:16:"total/klarna_fee";i:186;s:19:"total/low_order_fee";i:187;s:12:"total/reward";i:188;s:14:"total/shipping";i:189;s:15:"total/sub_total";i:190;s:9:"total/tax";i:191;s:11:"total/total";i:192;s:13:"total/voucher";i:193;s:8:"user/api";i:194;s:9:"user/user";i:195;s:20:"user/user_permission";}}'),
+(1, 'Administrator', 'a:2:{s:6:"access";a:197:{i:0;s:12:"blog/article";i:1;s:13:"blog/category";i:2;s:11:"blog/review";i:3;s:12:"blog/setting";i:4;s:17:"catalog/attribute";i:5;s:23:"catalog/attribute_group";i:6;s:16:"catalog/category";i:7;s:16:"catalog/download";i:8;s:14:"catalog/filter";i:9;s:19:"catalog/information";i:10;s:20:"catalog/manufacturer";i:11;s:14:"catalog/option";i:12;s:15:"catalog/product";i:13;s:17:"catalog/recurring";i:14;s:14:"catalog/review";i:15;s:18:"common/column_left";i:16;s:18:"common/filemanager";i:17;s:11:"common/menu";i:18;s:14:"common/profile";i:19;s:12:"common/stats";i:20;s:13:"design/banner";i:21;s:13:"design/layout";i:22;s:11:"design/menu";i:23;s:14:"extension/feed";i:24;s:15:"extension/fraud";i:25;s:19:"extension/installer";i:26;s:22:"extension/modification";i:27;s:16:"extension/module";i:28;s:17:"extension/openbay";i:29;s:17:"extension/payment";i:30;s:18:"extension/shipping";i:31;s:15:"extension/total";i:32;s:16:"feed/google_base";i:33;s:19:"feed/google_sitemap";i:34;s:15:"feed/openbaypro";i:35;s:18:"feed/yandex_market";i:36;s:18:"fraud/fraudlabspro";i:37;s:13:"fraud/maxmind";i:38;s:12:"howto/blogun";i:39;s:14:"howto/gogettop";i:40;s:14:"howto/howtosms";i:41;s:13:"howto/seopult";i:42;s:20:"localisation/country";i:43;s:21:"localisation/currency";i:44;s:21:"localisation/geo_zone";i:45;s:21:"localisation/language";i:46;s:25:"localisation/length_class";i:47;s:21:"localisation/location";i:48;s:25:"localisation/order_status";i:49;s:26:"localisation/return_action";i:50;s:26:"localisation/return_reason";i:51;s:26:"localisation/return_status";i:52;s:25:"localisation/stock_status";i:53;s:22:"localisation/tax_class";i:54;s:21:"localisation/tax_rate";i:55;s:25:"localisation/weight_class";i:56;s:17:"localisation/zone";i:57;s:19:"marketing/affiliate";i:58;s:17:"marketing/contact";i:59;s:16:"marketing/coupon";i:60;s:19:"marketing/marketing";i:61;s:14:"module/account";i:62;s:16:"module/affiliate";i:63;s:19:"module/amazon_login";i:64;s:17:"module/amazon_pay";i:65;s:13:"module/banner";i:66;s:17:"module/bestseller";i:67;s:20:"module/blog_category";i:68;s:20:"module/blog_featured";i:69;s:18:"module/blog_latest";i:70;s:15:"module/carousel";i:71;s:15:"module/category";i:72;s:19:"module/ebay_listing";i:73;s:15:"module/featured";i:74;s:13:"module/filter";i:75;s:22:"module/google_hangouts";i:76;s:11:"module/html";i:77;s:18:"module/information";i:78;s:13:"module/latest";i:79;s:16:"module/pp_button";i:80;s:15:"module/pp_login";i:81;s:18:"module/product_tab";i:82;s:16:"module/slideshow";i:83;s:14:"module/special";i:84;s:12:"module/store";i:85;s:14:"openbay/amazon";i:86;s:22:"openbay/amazon_listing";i:87;s:22:"openbay/amazon_product";i:88;s:16:"openbay/amazonus";i:89;s:24:"openbay/amazonus_listing";i:90;s:24:"openbay/amazonus_product";i:91;s:12:"openbay/ebay";i:92;s:20:"openbay/ebay_profile";i:93;s:21:"openbay/ebay_template";i:94;s:12:"openbay/etsy";i:95;s:20:"openbay/etsy_product";i:96;s:21:"openbay/etsy_shipping";i:97;s:17:"openbay/etsy_shop";i:98;s:23:"payment/amazon_checkout";i:99;s:24:"payment/amazon_login_pay";i:100;s:24:"payment/authorizenet_aim";i:101;s:24:"payment/authorizenet_sim";i:102;s:21:"payment/bank_transfer";i:103;s:22:"payment/bluepay_hosted";i:104;s:24:"payment/bluepay_redirect";i:105;s:14:"payment/cheque";i:106;s:11:"payment/cod";i:107;s:17:"payment/firstdata";i:108;s:24:"payment/firstdata_remote";i:109;s:21:"payment/free_checkout";i:110;s:14:"payment/g2apay";i:111;s:17:"payment/globalpay";i:112;s:24:"payment/globalpay_remote";i:113;s:22:"payment/klarna_account";i:114;s:22:"payment/klarna_invoice";i:115;s:14:"payment/liqpay";i:116;s:14:"payment/nochex";i:117;s:15:"payment/paymate";i:118;s:16:"payment/paypoint";i:119;s:13:"payment/payza";i:120;s:26:"payment/perpetual_payments";i:121;s:18:"payment/pp_express";i:122;s:18:"payment/pp_payflow";i:123;s:25:"payment/pp_payflow_iframe";i:124;s:14:"payment/pp_pro";i:125;s:21:"payment/pp_pro_iframe";i:126;s:19:"payment/pp_standard";i:127;s:14:"payment/realex";i:128;s:21:"payment/realex_remote";i:129;s:22:"payment/sagepay_direct";i:130;s:22:"payment/sagepay_server";i:131;s:18:"payment/sagepay_us";i:132;s:24:"payment/securetrading_pp";i:133;s:24:"payment/securetrading_ws";i:134;s:14:"payment/skrill";i:135;s:19:"payment/twocheckout";i:136;s:28:"payment/web_payment_software";i:137;s:16:"payment/worldpay";i:138;s:16:"report/affiliate";i:139;s:25:"report/affiliate_activity";i:140;s:22:"report/affiliate_login";i:141;s:24:"report/customer_activity";i:142;s:22:"report/customer_credit";i:143;s:21:"report/customer_login";i:144;s:22:"report/customer_online";i:145;s:21:"report/customer_order";i:146;s:22:"report/customer_reward";i:147;s:16:"report/marketing";i:148;s:24:"report/product_purchased";i:149;s:21:"report/product_viewed";i:150;s:18:"report/sale_coupon";i:151;s:17:"report/sale_order";i:152;s:18:"report/sale_return";i:153;s:20:"report/sale_shipping";i:154;s:15:"report/sale_tax";i:155;s:17:"sale/custom_field";i:156;s:13:"sale/customer";i:157;s:20:"sale/customer_ban_ip";i:158;s:19:"sale/customer_group";i:159;s:10:"sale/order";i:160;s:14:"sale/recurring";i:161;s:11:"sale/return";i:162;s:12:"sale/voucher";i:163;s:18:"sale/voucher_theme";i:164;s:13:"search/search";i:165;s:15:"setting/setting";i:166;s:13:"setting/store";i:167;s:16:"shipping/auspost";i:168;s:17:"shipping/citylink";i:169;s:14:"shipping/fedex";i:170;s:13:"shipping/flat";i:171;s:13:"shipping/free";i:172;s:13:"shipping/item";i:173;s:23:"shipping/parcelforce_48";i:174;s:15:"shipping/pickup";i:175;s:19:"shipping/royal_mail";i:176;s:12:"shipping/ups";i:177;s:13:"shipping/usps";i:178;s:15:"shipping/weight";i:179;s:11:"tool/backup";i:180;s:14:"tool/error_log";i:181;s:15:"tool/seomanager";i:182;s:11:"tool/upload";i:183;s:12:"total/coupon";i:184;s:12:"total/credit";i:185;s:14:"total/handling";i:186;s:16:"total/klarna_fee";i:187;s:19:"total/low_order_fee";i:188;s:12:"total/reward";i:189;s:14:"total/shipping";i:190;s:15:"total/sub_total";i:191;s:9:"total/tax";i:192;s:11:"total/total";i:193;s:13:"total/voucher";i:194;s:8:"user/api";i:195;s:9:"user/user";i:196;s:20:"user/user_permission";}s:6:"modify";a:197:{i:0;s:12:"blog/article";i:1;s:13:"blog/category";i:2;s:11:"blog/review";i:3;s:12:"blog/setting";i:4;s:17:"catalog/attribute";i:5;s:23:"catalog/attribute_group";i:6;s:16:"catalog/category";i:7;s:16:"catalog/download";i:8;s:14:"catalog/filter";i:9;s:19:"catalog/information";i:10;s:20:"catalog/manufacturer";i:11;s:14:"catalog/option";i:12;s:15:"catalog/product";i:13;s:17:"catalog/recurring";i:14;s:14:"catalog/review";i:15;s:18:"common/column_left";i:16;s:18:"common/filemanager";i:17;s:11:"common/menu";i:18;s:14:"common/profile";i:19;s:12:"common/stats";i:20;s:13:"design/banner";i:21;s:13:"design/layout";i:22;s:11:"design/menu";i:23;s:14:"extension/feed";i:24;s:15:"extension/fraud";i:25;s:19:"extension/installer";i:26;s:22:"extension/modification";i:27;s:16:"extension/module";i:28;s:17:"extension/openbay";i:29;s:17:"extension/payment";i:30;s:18:"extension/shipping";i:31;s:15:"extension/total";i:32;s:16:"feed/google_base";i:33;s:19:"feed/google_sitemap";i:34;s:15:"feed/openbaypro";i:35;s:18:"feed/yandex_market";i:36;s:18:"fraud/fraudlabspro";i:37;s:13:"fraud/maxmind";i:38;s:12:"howto/blogun";i:39;s:14:"howto/gogettop";i:40;s:14:"howto/howtosms";i:41;s:13:"howto/seopult";i:42;s:20:"localisation/country";i:43;s:21:"localisation/currency";i:44;s:21:"localisation/geo_zone";i:45;s:21:"localisation/language";i:46;s:25:"localisation/length_class";i:47;s:21:"localisation/location";i:48;s:25:"localisation/order_status";i:49;s:26:"localisation/return_action";i:50;s:26:"localisation/return_reason";i:51;s:26:"localisation/return_status";i:52;s:25:"localisation/stock_status";i:53;s:22:"localisation/tax_class";i:54;s:21:"localisation/tax_rate";i:55;s:25:"localisation/weight_class";i:56;s:17:"localisation/zone";i:57;s:19:"marketing/affiliate";i:58;s:17:"marketing/contact";i:59;s:16:"marketing/coupon";i:60;s:19:"marketing/marketing";i:61;s:14:"module/account";i:62;s:16:"module/affiliate";i:63;s:19:"module/amazon_login";i:64;s:17:"module/amazon_pay";i:65;s:13:"module/banner";i:66;s:17:"module/bestseller";i:67;s:20:"module/blog_category";i:68;s:20:"module/blog_featured";i:69;s:18:"module/blog_latest";i:70;s:15:"module/carousel";i:71;s:15:"module/category";i:72;s:19:"module/ebay_listing";i:73;s:15:"module/featured";i:74;s:13:"module/filter";i:75;s:22:"module/google_hangouts";i:76;s:11:"module/html";i:77;s:18:"module/information";i:78;s:13:"module/latest";i:79;s:16:"module/pp_button";i:80;s:15:"module/pp_login";i:81;s:18:"module/product_tab";i:82;s:16:"module/slideshow";i:83;s:14:"module/special";i:84;s:12:"module/store";i:85;s:14:"openbay/amazon";i:86;s:22:"openbay/amazon_listing";i:87;s:22:"openbay/amazon_product";i:88;s:16:"openbay/amazonus";i:89;s:24:"openbay/amazonus_listing";i:90;s:24:"openbay/amazonus_product";i:91;s:12:"openbay/ebay";i:92;s:20:"openbay/ebay_profile";i:93;s:21:"openbay/ebay_template";i:94;s:12:"openbay/etsy";i:95;s:20:"openbay/etsy_product";i:96;s:21:"openbay/etsy_shipping";i:97;s:17:"openbay/etsy_shop";i:98;s:23:"payment/amazon_checkout";i:99;s:24:"payment/amazon_login_pay";i:100;s:24:"payment/authorizenet_aim";i:101;s:24:"payment/authorizenet_sim";i:102;s:21:"payment/bank_transfer";i:103;s:22:"payment/bluepay_hosted";i:104;s:24:"payment/bluepay_redirect";i:105;s:14:"payment/cheque";i:106;s:11:"payment/cod";i:107;s:17:"payment/firstdata";i:108;s:24:"payment/firstdata_remote";i:109;s:21:"payment/free_checkout";i:110;s:14:"payment/g2apay";i:111;s:17:"payment/globalpay";i:112;s:24:"payment/globalpay_remote";i:113;s:22:"payment/klarna_account";i:114;s:22:"payment/klarna_invoice";i:115;s:14:"payment/liqpay";i:116;s:14:"payment/nochex";i:117;s:15:"payment/paymate";i:118;s:16:"payment/paypoint";i:119;s:13:"payment/payza";i:120;s:26:"payment/perpetual_payments";i:121;s:18:"payment/pp_express";i:122;s:18:"payment/pp_payflow";i:123;s:25:"payment/pp_payflow_iframe";i:124;s:14:"payment/pp_pro";i:125;s:21:"payment/pp_pro_iframe";i:126;s:19:"payment/pp_standard";i:127;s:14:"payment/realex";i:128;s:21:"payment/realex_remote";i:129;s:22:"payment/sagepay_direct";i:130;s:22:"payment/sagepay_server";i:131;s:18:"payment/sagepay_us";i:132;s:24:"payment/securetrading_pp";i:133;s:24:"payment/securetrading_ws";i:134;s:14:"payment/skrill";i:135;s:19:"payment/twocheckout";i:136;s:28:"payment/web_payment_software";i:137;s:16:"payment/worldpay";i:138;s:16:"report/affiliate";i:139;s:25:"report/affiliate_activity";i:140;s:22:"report/affiliate_login";i:141;s:24:"report/customer_activity";i:142;s:22:"report/customer_credit";i:143;s:21:"report/customer_login";i:144;s:22:"report/customer_online";i:145;s:21:"report/customer_order";i:146;s:22:"report/customer_reward";i:147;s:16:"report/marketing";i:148;s:24:"report/product_purchased";i:149;s:21:"report/product_viewed";i:150;s:18:"report/sale_coupon";i:151;s:17:"report/sale_order";i:152;s:18:"report/sale_return";i:153;s:20:"report/sale_shipping";i:154;s:15:"report/sale_tax";i:155;s:17:"sale/custom_field";i:156;s:13:"sale/customer";i:157;s:20:"sale/customer_ban_ip";i:158;s:19:"sale/customer_group";i:159;s:10:"sale/order";i:160;s:14:"sale/recurring";i:161;s:11:"sale/return";i:162;s:12:"sale/voucher";i:163;s:18:"sale/voucher_theme";i:164;s:13:"search/search";i:165;s:15:"setting/setting";i:166;s:13:"setting/store";i:167;s:16:"shipping/auspost";i:168;s:17:"shipping/citylink";i:169;s:14:"shipping/fedex";i:170;s:13:"shipping/flat";i:171;s:13:"shipping/free";i:172;s:13:"shipping/item";i:173;s:23:"shipping/parcelforce_48";i:174;s:15:"shipping/pickup";i:175;s:19:"shipping/royal_mail";i:176;s:12:"shipping/ups";i:177;s:13:"shipping/usps";i:178;s:15:"shipping/weight";i:179;s:11:"tool/backup";i:180;s:14:"tool/error_log";i:181;s:15:"tool/seomanager";i:182;s:11:"tool/upload";i:183;s:12:"total/coupon";i:184;s:12:"total/credit";i:185;s:14:"total/handling";i:186;s:16:"total/klarna_fee";i:187;s:19:"total/low_order_fee";i:188;s:12:"total/reward";i:189;s:14:"total/shipping";i:190;s:15:"total/sub_total";i:191;s:9:"total/tax";i:192;s:11:"total/total";i:193;s:13:"total/voucher";i:194;s:8:"user/api";i:195;s:9:"user/user";i:196;s:20:"user/user_permission";}}'),
 (10, 'Demonstration', '');
 
 -- --------------------------------------------------------
@@ -8367,5 +8368,373 @@ INSERT INTO `oc_article_to_store` (`article_id`, `store_id`) VALUES
 (123, 0),
 (124, 0),
 (125, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oc_menu`
+--
+
+CREATE TABLE IF NOT EXISTS `oc_menu` (
+  `menu_id` int(11) NOT NULL AUTO_INCREMENT,
+  `sort_order` int(3) NOT NULL,
+  `columns` int(3) NOT NULL,
+  `menu_type` varchar(20) NOT NULL,
+  `status` int(3) NOT NULL,
+  PRIMARY KEY (`menu_id`)
+) DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data for table `oc_menu`
+--
+
+INSERT INTO `oc_menu` (`menu_id`, `sort_order`, `columns`, `menu_type`, `status`) VALUES
+(2, 2, 0, 'category', 1),
+(3, 3, 0, 'category', 1),
+(5, 4, 0, 'category', 1),
+(7, 7, 0, 'category', 1),
+(8, 8, 4, 'category', 1),
+(9, 1, 1, 'product', 1),
+(14, 9, 1, 'custom', 1),
+(17, 1, 1, 'manufacturer', 1),
+(24, 1, 1, 'category', 1),
+(30, 11, 1, 'information', 1),
+(31, 12, 1, 'custom', 1),
+(33, 6, 1, 'category', 1),
+(34, 6, 1, '', 1),
+(35, 1, 1, 'manufacturer', 1),
+(36, 1, 1, 'manufacturer', 1),
+(37, 1, 1, 'manufacturer', 1),
+(38, 1, 1, 'manufacturer', 1),
+(39, 1, 1, 'manufacturer', 1),
+(41, 1, 1, 'custom', 1),
+(44, 1, 1, 'custom', 1),
+(49, 1, 1, 'custom', 1),
+(51, 1, 1, 'custom', 1),
+(53, 10, 3, 'custom', 1),
+(62, 5, 1, 'category', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oc_menu_description`
+--
+
+CREATE TABLE IF NOT EXISTS `oc_menu_description` (
+  `menu_id` int(11) NOT NULL,
+  `name` varchar(64) NOT NULL,
+  `link` varchar(255) NOT NULL DEFAULT '',
+  `language_id` int(11) NOT NULL,
+  PRIMARY KEY (`menu_id`,`language_id`),
+  KEY `language_id` (`language_id`)
+) DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data for table `oc_menu_description`
+--
+
+INSERT INTO `oc_menu_description` (`menu_id`, `name`, `link`, `language_id`) VALUES
+(2, 'Ноутбуки', '18', 1),
+(2, 'Laptops', '', 2),
+(3, 'Компоненты', '25', 1),
+(3, 'Components', '', 2),
+(5, 'Дополнения', '59', 1),
+(5, 'Software', '', 2),
+(7, 'Камеры', '33', 1),
+(7, 'Cameras', '', 2),
+(8, 'MP3 Плееры', '34', 1),
+(8, 'MP3 Players', '', 2),
+(14, 'Акции', 'product/special', 1),
+(14, 'Special', 'product/special', 2),
+(24, 'Компьютеры', '20', 1),
+(24, 'Desktops', '20', 2),
+(26, 'PC', '', 1),
+(26, 'PC', '', 2),
+(30, 'О нас', '4', 1),
+(30, 'About Us', '4', 2),
+(31, 'Контакты', 'information/contact', 1),
+(31, 'Contact Us', 'information/contact', 2),
+(33, 'Телефоны', '24', 1),
+(33, 'Phones &amp; PDAs', '24', 2),
+(37, 'Apple', '8', 0),
+(38, 'Apple', '8', 0),
+(53, 'Производители', 'product/manufacturer', 1),
+(53, 'Brand', 'product/manufacturer', 2),
+(62, 'Планшеты', '57', 1),
+(62, 'Tablets', '57', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oc_menu_to_store`
+--
+
+CREATE TABLE IF NOT EXISTS `oc_menu_to_store` (
+  `menu_id` int(11) NOT NULL,
+  `store_id` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`menu_id`,`store_id`),
+  KEY `store_id` (`store_id`)
+) DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data for table `oc_menu_to_store`
+--
+
+INSERT INTO `oc_menu_to_store` (`menu_id`, `store_id`) VALUES
+(2, 0),
+(3, 0),
+(5, 0),
+(7, 0),
+(8, 0),
+(9, 0),
+(14, 0),
+(17, 0),
+(24, 0),
+(30, 0),
+(31, 0),
+(33, 0),
+(35, 0),
+(36, 0),
+(37, 0),
+(38, 0),
+(41, 0),
+(44, 0),
+(49, 0),
+(51, 0),
+(53, 0),
+(62, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oc_menu_child`
+--
+
+CREATE TABLE IF NOT EXISTS `oc_menu_child` (
+  `menu_child_id` int(11) NOT NULL AUTO_INCREMENT,
+  `menu_id` int(11) NOT NULL,
+  `sort_order` int(3) NOT NULL,
+  `menu_type` varchar(20) NOT NULL,
+  `status` int(3) NOT NULL,
+  PRIMARY KEY (`menu_child_id`),
+  KEY `menu_id` (`menu_id`)
+) DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data for table `oc_menu_child`
+--
+
+INSERT INTO `oc_menu_child` (`menu_child_id`, `menu_id`, `sort_order`, `menu_type`, `status`) VALUES
+(3, 2, 1, 'category', 1),
+(10, 8, 1, 'category', 1),
+(11, 8, 2, 'category', 1),
+(12, 8, 3, 'category', 1),
+(13, 8, 4, 'category', 1),
+(14, 8, 5, 'category', 1),
+(15, 8, 6, 'category', 1),
+(16, 8, 7, 'category', 1),
+(17, 8, 8, 'category', 1),
+(18, 8, 9, 'category', 1),
+(19, 8, 10, 'category', 1),
+(20, 8, 11, 'category', 1),
+(21, 8, 12, 'category', 1),
+(22, 8, 13, 'category', 1),
+(23, 8, 14, 'category', 1),
+(24, 8, 15, 'category', 1),
+(25, 8, 16, 'category', 1),
+(26, 8, 17, 'category', 1),
+(27, 8, 18, 'category', 1),
+(28, 3, 1, 'category', 1),
+(29, 3, 4, 'category', 1),
+(31, 3, 0, 'category', 1),
+(32, 3, 5, 'category', 1),
+(33, 3, 6, 'category', 1),
+(34, 14, 1, 'product', 1),
+(41, 24, 1, 'category', 1),
+(42, 24, 2, 'category', 1),
+(43, 24, 2, '', 1),
+(44, 2, 2, 'category', 1),
+(45, 3, 3, 'category', 1),
+(46, 3, 2, '', 1),
+(47, 14, 2, 'product', 1),
+(48, 14, 2, '', 1),
+(50, 14, 2, '', 1),
+(51, 14, 3, '', 1),
+(52, 14, 2, '', 1),
+(54, 5, 1, '', 1),
+(55, 53, 1, 'manufacturer', 1),
+(56, 53, 1, '', 1),
+(57, 53, 2, 'manufacturer', 1),
+(58, 53, 3, 'manufacturer', 1),
+(59, 53, 3, '', 1),
+(60, 53, 4, 'manufacturer', 1),
+(61, 53, 3, '', 1),
+(62, 53, 4, '', 1),
+(63, 53, 5, 'manufacturer', 1),
+(64, 53, 3, '', 1),
+(65, 53, 4, '', 1),
+(66, 53, 5, '', 1),
+(67, 53, 6, 'manufacturer', 1),
+(69, 53, 3, '', 1),
+(70, 53, 4, '', 1),
+(71, 53, 5, '', 1),
+(72, 53, 6, '', 1),
+(73, 53, 3, '', 1),
+(74, 53, 4, '', 1),
+(75, 53, 5, '', 1),
+(76, 53, 6, '', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oc_menu_child_description`
+--
+
+CREATE TABLE IF NOT EXISTS `oc_menu_child_description` (
+  `menu_child_id` int(11) NOT NULL,
+  `menu_id` int(11) NOT NULL,
+  `name` varchar(64) NOT NULL,
+  `link` varchar(255) NOT NULL DEFAULT '',
+  `language_id` int(11) NOT NULL,
+  PRIMARY KEY (`menu_child_id`,`language_id`),
+  KEY `menu_id` (`menu_id`),
+  KEY `language_id` (`language_id`)
+) DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data for table `oc_menu_child_description`
+--
+
+INSERT INTO `oc_menu_child_description` (`menu_child_id`, `menu_id`, `name`, `link`, `language_id`) VALUES
+(3, 2, 'Macs', '46', 1),
+(3, 2, 'Macs', '', 2),
+(10, 8, 'test 11', '43', 1),
+(10, 8, 'test 11', '', 2),
+(11, 8, 'test 12', '44', 1),
+(11, 8, 'test 12', '', 2),
+(12, 8, 'test 15', '47', 1),
+(12, 8, 'test 15', '', 2),
+(13, 8, 'test 16', '48', 1),
+(13, 8, 'test 16', '', 2),
+(14, 8, 'test 17', '49', 1),
+(14, 8, 'test 17', '', 2),
+(15, 8, 'test 18', '50', 1),
+(15, 8, 'test 18', '', 2),
+(16, 8, 'test 19', '51', 1),
+(16, 8, 'test 19', '', 2),
+(17, 8, 'test 20', '52', 1),
+(17, 8, 'test 20', '', 2),
+(18, 8, 'test 21', '53', 1),
+(18, 8, 'test 21', '', 2),
+(19, 8, 'test 22', '54', 1),
+(19, 8, 'test 22', '', 2),
+(20, 8, 'test 23', '55', 1),
+(20, 8, 'test 23', '', 2),
+(21, 8, 'test 24', '56', 1),
+(21, 8, 'test 24', '', 2),
+(22, 8, 'test 4', '38', 1),
+(22, 8, 'test 4', '', 2),
+(23, 8, 'test 5', '37', 1),
+(23, 8, 'test 5', '', 2),
+(24, 8, 'test 6', '39', 1),
+(24, 8, 'test 6', '', 2),
+(25, 8, 'test 7', '40', 1),
+(25, 8, 'test 7', '', 2),
+(26, 8, 'test 8', '41', 1),
+(26, 8, 'test 8', '', 2),
+(27, 8, 'test 9', '42', 1),
+(27, 8, 'test 9', '', 2),
+(28, 3, 'Веб-камеры', '32', 1),
+(28, 3, 'Web Cameras', '', 2),
+(29, 3, 'Мониторы', '28', 1),
+(29, 3, 'Monitors', '', 2),
+(32, 3, 'Принтеры', '30', 1),
+(32, 3, 'Printers', '', 2),
+(33, 3, 'Сканеры', '31', 1),
+(33, 3, 'Scanners', '', 2),
+(34, 14, 'Apple Cinema 30&quot;', '42', 1),
+(34, 14, 'Apple Cinema 30&quot;', '42', 2),
+(41, 24, 'Mac', '27', 1),
+(41, 24, 'Mac', '27', 2),
+(42, 24, 'PC', '26', 1),
+(42, 24, 'PC', '26', 2),
+(44, 2, 'Windows', '45', 1),
+(44, 2, 'Windows', '', 2),
+(45, 3, 'Мышки', '29', 1),
+(45, 3, 'Mice and Trackballs', '29', 2),
+(46, 3, 'Мышки', '', 1),
+(46, 3, 'Mice and Trackballs', '', 2),
+(47, 14, 'Canon EOS 5D', '30', 1),
+(47, 14, 'Canon EOS 5D', '30', 2),
+(53, 0, 'Телефоны и PDA', '24', 1),
+(53, 0, 'Phones &amp; PDAs', '24', 2),
+(55, 53, 'Apple', '8', 1),
+(55, 53, 'Apple', '8', 2),
+(57, 53, 'Canon', '9', 1),
+(57, 53, 'Canon', '9', 2),
+(58, 53, 'Hewlett-Packard', '7', 1),
+(58, 53, 'Hewlett-Packard', '7', 2),
+(60, 53, 'HTC', '5', 1),
+(60, 53, 'HTC', '5', 2),
+(63, 53, 'Palm', '6', 1),
+(63, 53, 'Palm', '6', 2),
+(67, 53, 'Sony', '10', 1),
+(67, 53, 'Sony', '10', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oc_menu_child_to_store`
+--
+
+CREATE TABLE IF NOT EXISTS `oc_menu_child_to_store` (
+  `menu_child_id` int(11) NOT NULL,
+  `store_id` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`menu_child_id`,`store_id`),
+  KEY `store_id` (`store_id`)
+) DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Dumping data for table `oc_menu_child_to_store`
+--
+
+INSERT INTO `oc_menu_child_to_store` (`menu_child_id`, `store_id`) VALUES
+(2, 0),
+(3, 0),
+(10, 0),
+(11, 0),
+(12, 0),
+(13, 0),
+(14, 0),
+(15, 0),
+(16, 0),
+(17, 0),
+(18, 0),
+(19, 0),
+(20, 0),
+(21, 0),
+(22, 0),
+(23, 0),
+(24, 0),
+(25, 0),
+(26, 0),
+(27, 0),
+(28, 0),
+(29, 0),
+(32, 0),
+(33, 0),
+(34, 0),
+(37, 0),
+(41, 0),
+(42, 0),
+(44, 0),
+(45, 0),
+(47, 0),
+(55, 0),
+(57, 0),
+(58, 0),
+(60, 0),
+(63, 0),
+(67, 0);
 
 -- --------------------------------------------------------

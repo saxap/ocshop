@@ -87,12 +87,51 @@ class ControllerCommonHeader extends Controller {
 		}
 
 		// Menu
+        $this->load->model('design/menu');
 		$this->load->model('catalog/category');
-
 		$this->load->model('catalog/product');
 
 		$data['categories'] = array();
+		
+		if ($this->config->get('configmenu_menu')) {
+		$menus = $this->model_design_menu->getMenus();
+        $menu_child = $this->model_design_menu->getChildMenus();
 
+        foreach($menus as $id => $menu) {
+			$children_data = array();
+        
+			foreach($menu_child as $child_id => $child_menu) {
+                if (($menu['menu_id'] != $child_menu['menu_id']) or !is_numeric($child_id)) {
+                    continue;
+                }
+
+                $child_name = '';
+
+                if (($menu['menu_type'] == 'category') and ($child_menu['menu_type'] == 'category')){
+                    $filter_data = array(
+                        'filter_category_id'  => $child_menu['link'],
+                        'filter_sub_category' => true
+                    );
+
+                    $child_name = ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_product->getTotalProducts($filter_data) . ')' : '');
+                }
+
+                $children_data[] = array(
+                    'name' => $child_menu['name'] . $child_name,
+                    'href' => $this->getMenuLink($menu, $child_menu)
+                );
+            }
+
+			$data['categories'][] = array(
+				'name'     => $menu['name'] ,
+				'children' => $children_data,
+				'column'   => $menu['columns'] ? $menu['columns'] : 1,
+				'href'     => $this->getMenuLink($menu)
+			);
+        }
+		
+		} else {
+		
 		$categories = $this->model_catalog_category->getCategories(0);
 
 		foreach ($categories as $category) {
@@ -122,6 +161,8 @@ class ControllerCommonHeader extends Controller {
 					'href'     => $this->url->link('product/category', 'path=' . $category['category_id'])
 				);
 			}
+		}
+		
 		}
 
 		$data['language'] = $this->load->controller('common/language');
@@ -156,5 +197,59 @@ class ControllerCommonHeader extends Controller {
 		} else {
 			return $this->load->view('default/template/common/header.tpl', $data);
 		}
+	}
+	
+	 
+	 public function getMenuLink($parent, $child = null) {
+		 if ($this->config->get('configmenu_menu')) {
+        $item = empty($child) ? $parent : $child;
+
+        switch ($item['menu_type']) {
+            case 'category':
+                $route = 'product/category';
+
+                if (!empty($child)) {
+                    $args = 'path=' . $parent['link'] . '_' . $item['link'];
+                } else {
+                    $args = 'path='.$item['link'];
+                }
+                break;
+            case 'product':
+                $route = 'product/product';
+                $args = 'product_id='.$item['link'];
+                break;
+            case 'manufacturer':
+                $route = 'product/manufacturer/info';
+                $args = 'manufacturer_id='.$item['link'];
+                break;
+            case 'information':
+                $route = 'information/information';
+                $args = 'information_id='.$item['link'];
+                break;
+            default:
+                $tmp = explode('&', str_replace('index.php?route=', '', $item['link']));
+
+                if (!empty($tmp)) {
+                    $route = $tmp[0];
+                    unset($tmp[0]);
+                    $args = (!empty($tmp)) ? implode('&', $tmp) : '';
+                }
+                else {
+                    $route = $item['link'];
+                    $args = '';
+                }
+
+                break;
+        }
+
+        $check = strpos($item['link'], 'http');
+        if ( $check !== false ) {
+			$link = $item['link'];
+        } else {
+            $link = $this->url->link($route, $args);
+        }
+
+        return $link;
+    }
 	}
 }

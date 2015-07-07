@@ -6,6 +6,7 @@ $_['text_attribute']                   = 'Атрибуты';
 $_['text_attribute_group']             = 'Группа атрибутов';
 $_['text_backup']                      = 'Бэкап / Восстановление';
 $_['text_banner']                      = 'Банеры';
+$_['text_menu']                        = 'Меню';
 $_['text_catalog']                     = 'Каталог';
 $_['text_category']                    = 'Категории';
 $_['text_country']                     = 'Страны';
