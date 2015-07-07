@@ -8,6 +8,11 @@ $_['text_add']      				   		  = 'Добавить';
 $_['text_edit']      						  = 'Редактирование';
 $_['text_order']               				  = 'Заказ (#%s)';
 $_['text_order_detail']                       = 'Подробно о заказе';
+$_['text_customer_detail']       			  = 'Реквизиты клиента';
+$_['text_option']                			  = 'Опции';
+$_['text_store']                 			  = 'Магазин';
+$_['text_customer']              		      = 'Клиент';
+$_['text_customer_group']        			  = 'Группа Клиентов';
 $_['text_order_id']                           = '№ Заказа';
 $_['text_invoice_no']                         = '№ Счета';
 $_['text_invoice_date']                       = 'Дата выписки счета';
@@ -19,30 +24,20 @@ $_['text_fax']                                = 'Факс';
 $_['text_website']                            = 'Сайт';
 $_['text_affiliate']                          = 'Партнер';
 $_['text_reward']                             = 'Бонусные баллы';
-$_['text_order_status']                       = 'Статус заказа';
-
 $_['text_comment']                            = 'Комментарий';
-$_['text_commission']                         = 'Комиссия';
-
-
 $_['text_ip']                                 = 'IP адрес';
 $_['text_forwarded_ip']                       = 'Переадресация IP';
 $_['text_user_agent']                         = 'User Agent';
 $_['text_accept_language']                    = 'Язык';
 $_['text_date_added']                         = 'Дата добавления';
 $_['text_date_modified']                      = 'Дата изменения';
-
 $_['text_invoice']                            = 'Счет';
-
 $_['text_payment_address']     				  = 'Адрес оплаты';
 $_['text_shipping_address']    				  = 'Адрес доставки';
-
 $_['text_account_custom_field']  			  = 'Пользовательские Поля';
-
 $_['text_payment_custom_field']  			  = 'Адрес оплаты Пользовательские Поля';
 $_['text_shipping_custom_field'] 			  = 'Адрес доставки Пользовательские Поля';
 $_['text_browser']               			  = 'Просмотр';
-
 $_['text_shipping_method']     				  = 'Способ доставки:';
 $_['text_payment_method']      				  = 'Способ оплаты:';
 $_['text_missing']                            = 'Пропавшие заказы';
@@ -64,7 +59,8 @@ $_['text_commission_removed']                 = 'Налог убран!';
 $_['text_restock']                            = 'Выполнено: Складские запасы обновлены!';
 $_['text_upload']                             = 'Файл успешно загружен!';
 $_['text_picklist']                           = 'Заметка';
-$_['text_history']                            = 'Добавить';
+$_['text_history']                            = 'История Заказов';
+$_['text_history_add']           			  = 'Добавить в Историю Заказа';
 
 // Column
 $_['column_order_id']                         = '№ Заказа';
