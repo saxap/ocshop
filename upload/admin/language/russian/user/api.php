@@ -19,6 +19,7 @@ $_['column_action']        = 'Действие';
 $_['entry_username']       = 'Имя';
 $_['entry_password']       = 'Пароль';
 $_['entry_status']         = 'Статус';
+$_['entry_ip']             = 'IP';
 
 // Error
 $_['error_permission']     = 'У Вас нет прав для управления модулем !';
