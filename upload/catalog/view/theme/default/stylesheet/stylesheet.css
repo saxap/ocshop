@@ -716,3 +716,9 @@ h2.price {
     background-image: none;
     background-color: #df5c39;
 }
+/*OCSHOP.CMS*/
+
+/*img category*/
+.imgcategory .product-thumb.transition > h4 {
+	padding-left: 10px;
+}
