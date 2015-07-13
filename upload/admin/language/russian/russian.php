@@ -116,6 +116,7 @@ $_['tab_option']                    = 'Опции';
 $_['tab_server']                    = 'Сервер';
 $_['tab_store']                     = 'Магазин';
 $_['tab_special']                   = 'Акция';
+$_['tab_session']                   = 'Сессия';
 $_['tab_local']                     = 'Локализация';
 $_['tab_mail']                      = 'Почта';
 $_['tab_module']                    = 'Модули';
