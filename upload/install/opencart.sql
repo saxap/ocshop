@@ -8438,7 +8438,6 @@ CREATE TABLE IF NOT EXISTS `oc_menu` (
 INSERT INTO `oc_menu` (`menu_id`, `sort_order`, `columns`, `menu_type`, `status`) VALUES
 (2, 2, 0, 'category', 1),
 (3, 3, 0, 'category', 1),
-(5, 4, 0, 'category', 1),
 (7, 7, 0, 'category', 1),
 (8, 8, 4, 'category', 1),
 (9, 1, 1, 'product', 1),
@@ -8448,7 +8447,6 @@ INSERT INTO `oc_menu` (`menu_id`, `sort_order`, `columns`, `menu_type`, `status`
 (30, 11, 1, 'information', 1),
 (31, 12, 1, 'custom', 1),
 (33, 6, 1, 'category', 1),
-(34, 6, 1, '', 1),
 (35, 1, 1, 'manufacturer', 1),
 (36, 1, 1, 'manufacturer', 1),
 (37, 1, 1, 'manufacturer', 1),
@@ -8459,7 +8457,8 @@ INSERT INTO `oc_menu` (`menu_id`, `sort_order`, `columns`, `menu_type`, `status`
 (49, 1, 1, 'custom', 1),
 (51, 1, 1, 'custom', 1),
 (53, 10, 3, 'custom', 1),
-(62, 5, 1, 'category', 1);
+(62, 5, 1, 'category', 1),
+(63, 4, 1, 'category', 1);
 
 -- --------------------------------------------------------
 
@@ -8482,15 +8481,13 @@ CREATE TABLE IF NOT EXISTS `oc_menu_description` (
 
 INSERT INTO `oc_menu_description` (`menu_id`, `name`, `link`, `language_id`) VALUES
 (2, 'Ноутбуки', '18', 1),
-(2, 'Laptops', '', 2),
+(2, 'Laptops', '18', 2),
 (3, 'Компоненты', '25', 1),
-(3, 'Components', '', 2),
-(5, 'Дополнения', '59', 1),
-(5, 'Software', '', 2),
+(3, 'Components', '25', 2),
 (7, 'Камеры', '33', 1),
-(7, 'Cameras', '', 2),
+(7, 'Cameras', '33', 2),
 (8, 'MP3 Плееры', '34', 1),
-(8, 'MP3 Players', '', 2),
+(8, 'MP3 Players', '34', 2),
 (14, 'Акции', 'product/special', 1),
 (14, 'Special', 'product/special', 2),
 (24, 'Компьютеры', '20', 1),
@@ -8508,7 +8505,9 @@ INSERT INTO `oc_menu_description` (`menu_id`, `name`, `link`, `language_id`) VAL
 (53, 'Производители', 'product/manufacturer', 1),
 (53, 'Brand', 'product/manufacturer', 2),
 (62, 'Планшеты', '57', 1),
-(62, 'Tablets', '57', 2);
+(62, 'Tablets', '57', 2),
+(63, 'Дополнения', '17', 1),
+(63, 'Software', '17', 2);
 
 -- --------------------------------------------------------
 
@@ -8530,7 +8529,6 @@ CREATE TABLE IF NOT EXISTS `oc_menu_to_store` (
 INSERT INTO `oc_menu_to_store` (`menu_id`, `store_id`) VALUES
 (2, 0),
 (3, 0),
-(5, 0),
 (7, 0),
 (8, 0),
 (9, 0),
@@ -8549,7 +8547,8 @@ INSERT INTO `oc_menu_to_store` (`menu_id`, `store_id`) VALUES
 (49, 0),
 (51, 0),
 (53, 0),
-(62, 0);
+(62, 0),
+(63, 0);
 
 -- --------------------------------------------------------
 
@@ -8572,7 +8571,6 @@ CREATE TABLE IF NOT EXISTS `oc_menu_child` (
 --
 
 INSERT INTO `oc_menu_child` (`menu_child_id`, `menu_id`, `sort_order`, `menu_type`, `status`) VALUES
-(3, 2, 1, 'category', 1),
 (10, 8, 1, 'category', 1),
 (11, 8, 2, 'category', 1),
 (12, 8, 3, 'category', 1),
@@ -8599,37 +8597,16 @@ INSERT INTO `oc_menu_child` (`menu_child_id`, `menu_id`, `sort_order`, `menu_typ
 (34, 14, 1, 'product', 1),
 (41, 24, 1, 'category', 1),
 (42, 24, 2, 'category', 1),
-(43, 24, 2, '', 1),
 (44, 2, 2, 'category', 1),
 (45, 3, 3, 'category', 1),
-(46, 3, 2, '', 1),
 (47, 14, 2, 'product', 1),
-(48, 14, 2, '', 1),
-(50, 14, 2, '', 1),
-(51, 14, 3, '', 1),
-(52, 14, 2, '', 1),
-(54, 5, 1, '', 1),
 (55, 53, 1, 'manufacturer', 1),
-(56, 53, 1, '', 1),
 (57, 53, 2, 'manufacturer', 1),
 (58, 53, 3, 'manufacturer', 1),
-(59, 53, 3, '', 1),
 (60, 53, 4, 'manufacturer', 1),
-(61, 53, 3, '', 1),
-(62, 53, 4, '', 1),
 (63, 53, 5, 'manufacturer', 1),
-(64, 53, 3, '', 1),
-(65, 53, 4, '', 1),
-(66, 53, 5, '', 1),
 (67, 53, 6, 'manufacturer', 1),
-(69, 53, 3, '', 1),
-(70, 53, 4, '', 1),
-(71, 53, 5, '', 1),
-(72, 53, 6, '', 1),
-(73, 53, 3, '', 1),
-(74, 53, 4, '', 1),
-(75, 53, 5, '', 1),
-(76, 53, 6, '', 1);
+(77, 2, 1, 'category', 1);
 
 -- --------------------------------------------------------
 
@@ -8653,52 +8630,50 @@ CREATE TABLE IF NOT EXISTS `oc_menu_child_description` (
 --
 
 INSERT INTO `oc_menu_child_description` (`menu_child_id`, `menu_id`, `name`, `link`, `language_id`) VALUES
-(3, 2, 'Macs', '46', 1),
-(3, 2, 'Macs', '', 2),
 (10, 8, 'test 11', '43', 1),
-(10, 8, 'test 11', '', 2),
+(10, 8, 'test 11', '43', 2),
 (11, 8, 'test 12', '44', 1),
-(11, 8, 'test 12', '', 2),
+(11, 8, 'test 12', '44', 2),
 (12, 8, 'test 15', '47', 1),
-(12, 8, 'test 15', '', 2),
+(12, 8, 'test 15', '47', 2),
 (13, 8, 'test 16', '48', 1),
-(13, 8, 'test 16', '', 2),
+(13, 8, 'test 16', '48', 2),
 (14, 8, 'test 17', '49', 1),
-(14, 8, 'test 17', '', 2),
+(14, 8, 'test 17', '49', 2),
 (15, 8, 'test 18', '50', 1),
-(15, 8, 'test 18', '', 2),
+(15, 8, 'test 18', '50', 2),
 (16, 8, 'test 19', '51', 1),
-(16, 8, 'test 19', '', 2),
+(16, 8, 'test 19', '51', 2),
 (17, 8, 'test 20', '52', 1),
-(17, 8, 'test 20', '', 2),
+(17, 8, 'test 20', '52', 2),
 (18, 8, 'test 21', '53', 1),
-(18, 8, 'test 21', '', 2),
+(18, 8, 'test 21', '53', 2),
 (19, 8, 'test 22', '54', 1),
-(19, 8, 'test 22', '', 2),
+(19, 8, 'test 22', '54', 2),
 (20, 8, 'test 23', '55', 1),
-(20, 8, 'test 23', '', 2),
+(20, 8, 'test 23', '55', 2),
 (21, 8, 'test 24', '56', 1),
-(21, 8, 'test 24', '', 2),
+(21, 8, 'test 24', '56', 2),
 (22, 8, 'test 4', '38', 1),
-(22, 8, 'test 4', '', 2),
+(22, 8, 'test 4', '38', 2),
 (23, 8, 'test 5', '37', 1),
-(23, 8, 'test 5', '', 2),
+(23, 8, 'test 5', '37', 2),
 (24, 8, 'test 6', '39', 1),
-(24, 8, 'test 6', '', 2),
+(24, 8, 'test 6', '39', 2),
 (25, 8, 'test 7', '40', 1),
-(25, 8, 'test 7', '', 2),
+(25, 8, 'test 7', '40', 2),
 (26, 8, 'test 8', '41', 1),
-(26, 8, 'test 8', '', 2),
+(26, 8, 'test 8', '41', 2),
 (27, 8, 'test 9', '42', 1),
-(27, 8, 'test 9', '', 2),
+(27, 8, 'test 9', '42', 2),
 (28, 3, 'Веб-камеры', '32', 1),
-(28, 3, 'Web Cameras', '', 2),
+(28, 3, 'Web Cameras', '32', 2),
 (29, 3, 'Мониторы', '28', 1),
-(29, 3, 'Monitors', '', 2),
+(29, 3, 'Monitors', '28', 2),
 (32, 3, 'Принтеры', '30', 1),
-(32, 3, 'Printers', '', 2),
+(32, 3, 'Printers', '30', 2),
 (33, 3, 'Сканеры', '31', 1),
-(33, 3, 'Scanners', '', 2),
+(33, 3, 'Scanners', '31', 2),
 (34, 14, 'Apple Cinema 30&quot;', '42', 1),
 (34, 14, 'Apple Cinema 30&quot;', '42', 2),
 (41, 24, 'Mac', '27', 1),
@@ -8706,11 +8681,9 @@ INSERT INTO `oc_menu_child_description` (`menu_child_id`, `menu_id`, `name`, `li
 (42, 24, 'PC', '26', 1),
 (42, 24, 'PC', '26', 2),
 (44, 2, 'Windows', '45', 1),
-(44, 2, 'Windows', '', 2),
+(44, 2, 'Windows', '45', 2),
 (45, 3, 'Мышки', '29', 1),
 (45, 3, 'Mice and Trackballs', '29', 2),
-(46, 3, 'Мышки', '', 1),
-(46, 3, 'Mice and Trackballs', '', 2),
 (47, 14, 'Canon EOS 5D', '30', 1),
 (47, 14, 'Canon EOS 5D', '30', 2),
 (53, 0, 'Телефоны и PDA', '24', 1),
@@ -8726,7 +8699,9 @@ INSERT INTO `oc_menu_child_description` (`menu_child_id`, `menu_id`, `name`, `li
 (63, 53, 'Palm', '6', 1),
 (63, 53, 'Palm', '6', 2),
 (67, 53, 'Sony', '10', 1),
-(67, 53, 'Sony', '10', 2);
+(67, 53, 'Sony', '10', 2),
+(77, 2, 'Macs', '46', 1),
+(77, 2, 'Macs', '46', 2);
 
 -- --------------------------------------------------------
 
@@ -8747,7 +8722,6 @@ CREATE TABLE IF NOT EXISTS `oc_menu_child_to_store` (
 
 INSERT INTO `oc_menu_child_to_store` (`menu_child_id`, `store_id`) VALUES
 (2, 0),
-(3, 0),
 (10, 0),
 (11, 0),
 (12, 0),
@@ -8782,6 +8756,7 @@ INSERT INTO `oc_menu_child_to_store` (`menu_child_id`, `store_id`) VALUES
 (58, 0),
 (60, 0),
 (63, 0),
-(67, 0);
+(67, 0),
+(77, 0);
 
 -- --------------------------------------------------------
