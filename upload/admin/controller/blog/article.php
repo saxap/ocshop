@@ -666,7 +666,7 @@ class ControllerBlogArticle extends Controller {
 
 			if ($category_info) {
 				$data['article_categories'][] = array(
-					'category_id' => $category_info['blog_category_id'],
+					'blog_category_id' => $category_info['blog_category_id'],
 					'name' => ($category_info['path']) ? $category_info['path'] . ' &gt; ' . $category_info['name'] : $category_info['name']
 				);
 			}
