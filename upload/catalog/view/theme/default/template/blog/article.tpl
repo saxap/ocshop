@@ -351,9 +351,6 @@ $('#button-review').on('click', function() {
     });
 });
 //--></script>
-<script src="catalog/view/javascript/jquery/magnific.js"></script>
-<script src="catalog/view/javascript/jquery/ui/jquery-ui-1.10.3.custom.min.js"></script>
-<script type="text/javascript" src="catalog/view/javascript/jquery/ui/jquery-ui-timepicker-addon.js"></script> 
 <script type="text/javascript"><!--
 $(document).ready(function() {
 
