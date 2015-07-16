@@ -782,6 +782,10 @@ select, input[type="text"], input[type="password"], input[type="datetime"], inpu
 	z-index: 999;
 }
 
+.alert {
+	overflow: auto;
+}
+
 /* Menu Fix For System -> Layout -> Banner */
 .collapse.in {
     display: block;
