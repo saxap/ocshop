@@ -48,6 +48,10 @@ class ControllerCommonHeader extends Controller {
 		$data['text_new_download'] = $this->language->get('text_new_download');
 		$data['text_new_manufacturer'] = $this->language->get('text_new_manufacturer');
 		$data['text_new_product'] = $this->language->get('text_new_product');
+		
+		$data['button_clearallcache'] = $this->language->get('button_clearallcache');
+		$data['button_clearcache'] = $this->language->get('button_clearcache');
+		$data['button_clearsystemcache'] = $this->language->get('button_clearsystemcache');
 
 		if (!isset($this->request->get['token']) || !isset($this->session->data['token']) || ($this->request->get['token'] != $this->session->data['token'])) {
 			$data['logged'] = '';
@@ -58,6 +62,11 @@ class ControllerCommonHeader extends Controller {
 
 			$data['home'] = $this->url->link('common/dashboard', 'token=' . $this->session->data['token'], 'SSL');
 			$data['logout'] = $this->url->link('common/logout', 'token=' . $this->session->data['token'], 'SSL');
+			
+			//CacheManager
+			$data['clearallcache'] = (HTTPS_SERVER . 'index.php?route=module/cachemanager/clearallcache&token=' . $this->session->data['token']);
+			$data['clearcache'] = (HTTPS_SERVER . 'index.php?route=module/cachemanager/clearcache&token=' . $this->session->data['token']);
+			$data['clearsystemcache'] = (HTTPS_SERVER . 'index.php?route=module/cachemanager/clearsystemcache&token=' . $this->session->data['token']);
 
 			// News Added Menu
 			$data['new_category'] = $this->url->link('catalog/category/add', 'token=' . $this->session->data['token'], 'SSL');

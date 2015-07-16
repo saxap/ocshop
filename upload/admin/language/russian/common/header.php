@@ -29,3 +29,7 @@ $_['text_new_customer']    = 'Пользователя';
 $_['text_new_download']    = 'Загрузку';
 $_['text_new_manufacturer']= 'Производителя';
 $_['text_new_product']     = 'Товар';
+
+$_['button_clearallcache']        = 'Удалить Весь Кэш';
+$_['button_clearcache']           = 'Удалить Кэш Изображений';
+$_['button_clearsystemcache']     = 'Удалить Системный Кэш';
