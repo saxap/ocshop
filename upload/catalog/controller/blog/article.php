@@ -21,14 +21,14 @@ class ControllerBlogArticle extends Controller {
 		$this->load->model('blog/category');	
 		
 		
-		if (isset($this->request->get['blid'])) {
-			$blid = '';
+		if (isset($this->request->get['blog_category_id'])) {
+			$blog_category_id = '';
 				
-			foreach (explode('_', $this->request->get['blid']) as $path_id) {
-				if (!$blid) {
-					$blid = $path_id;
+			foreach (explode('_', $this->request->get['blog_category_id']) as $path_id) {
+				if (!$blog_category_id) {
+					$blog_category_id = $path_id;
 				} else {
-					$blid .= '_' . $path_id;
+					$blog_category_id .= '_' . $path_id;
 				}
 				
 				$category_info = $this->model_blog_category->getCategory($path_id);
@@ -36,7 +36,7 @@ class ControllerBlogArticle extends Controller {
 				if ($category_info) {
 					$data['breadcrumbs'][] = array(
 						'text'      => $category_info['name'],
-						'href'      => $this->url->link('blog/category', 'blid=' . $blid)
+						'href'      => $this->url->link('blog/category', 'blog_category_id=' . $blog_category_id)
 					);
 				}
 			}
@@ -80,8 +80,8 @@ class ControllerBlogArticle extends Controller {
 		if ($article_info) {
 			$url = '';
 			
-			if (isset($this->request->get['blid'])) {
-				$url .= '&blid=' . $this->request->get['blid'];
+			if (isset($this->request->get['blog_category_id'])) {
+				$url .= '&blog_category_id=' . $this->request->get['blog_category_id'];
 			}	
 
 			if (isset($this->request->get['filter_name'])) {
@@ -317,8 +317,8 @@ class ControllerBlogArticle extends Controller {
 		} else {
 			$url = '';
 			
-			if (isset($this->request->get['blid'])) {
-				$url .= '&blid=' . $this->request->get['blid'];
+			if (isset($this->request->get['blog_category_id'])) {
+				$url .= '&blog_category_id=' . $this->request->get['blog_category_id'];
 			}		
 
 			if (isset($this->request->get['filter_name'])) {

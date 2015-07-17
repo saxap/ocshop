@@ -48,7 +48,7 @@ class ControllerBlogCategory extends Controller {
 			'href' => $this->url->link('blog/latest')
 		);
 
-		if (isset($this->request->get['blid'])) {
+		if (isset($this->request->get['blog_category_id'])) {
 			$url = '';
 
 			if (isset($this->request->get['sort'])) {
@@ -63,25 +63,25 @@ class ControllerBlogCategory extends Controller {
 				$url .= '&limit=' . $this->request->get['limit'];
 			}
 
-			$blid = '';
+			$blog_category_id = '';
 
-			$parts = explode('_', (string)$this->request->get['blid']);
+			$parts = explode('_', (string)$this->request->get['blog_category_id']);
 
 			$blog_category_id = (int)array_pop($parts);
 
-			foreach ($parts as $blid_id) {
-				if (!$blid) {
-					$blid = (int)$blid_id;
+			foreach ($parts as $blog_category_id_id) {
+				if (!$blog_category_id) {
+					$blog_category_id = (int)$blog_category_id_id;
 				} else {
-					$blid .= '_' . (int)$blid_id;
+					$blog_category_id .= '_' . (int)$blog_category_id_id;
 				}
 
-				$category_info = $this->model_blog_category->getCategory($blid_id);
+				$category_info = $this->model_blog_category->getCategory($blog_category_id_id);
 
 				if ($category_info) {
 					$data['breadcrumbs'][] = array(
 						'text' => $category_info['name'],
-						'href' => $this->url->link('blog/category', 'blid=' . $blid . $url)
+						'href' => $this->url->link('blog/category', 'blog_category_id=' . $blog_category_id . $url)
 					);
 				}
 			}
@@ -111,7 +111,7 @@ class ControllerBlogCategory extends Controller {
 			
 			$this->document->setDescription($category_info['meta_description']);
 			$this->document->setKeywords($category_info['meta_keyword']);
-			$this->document->addLink($this->url->link('blog/category', 'blid=' . $this->request->get['blid']), 'canonical');
+			$this->document->addLink($this->url->link('blog/category', 'blog_category_id=' . $this->request->get['blog_category_id']), 'canonical');
 
 			$data['text_refine'] = $this->language->get('text_refine');
 			$data['text_empty'] = $this->language->get('text_empty');
@@ -127,7 +127,7 @@ class ControllerBlogCategory extends Controller {
 			// Set the last category breadcrumb
 			$data['breadcrumbs'][] = array(
 				'text' => $category_info['name'],
-				'href' => $this->url->link('blog/category', 'blid=' . $this->request->get['blid'])
+				'href' => $this->url->link('blog/category', 'blog_category_id=' . $this->request->get['blog_category_id'])
 			);
 
 			if ($category_info['image']) {
@@ -166,7 +166,7 @@ class ControllerBlogCategory extends Controller {
 
 				$data['categories'][] = array(
 					'name'  => $result['name'] . ($this->config->get('configblog_article_count') ? ' (' . $this->model_blog_article->getTotalArticles($filter_data) . ')' : ''),
-					'href'  => $this->url->link('blog/category', 'blid=' . $this->request->get['blid'] . '_' . $result['blog_category_id'] . $url)
+					'href'  => $this->url->link('blog/category', 'blog_category_id=' . $this->request->get['blog_category_id'] . '_' . $result['blog_category_id'] . $url)
 				);
 			}
 
@@ -208,7 +208,7 @@ class ControllerBlogCategory extends Controller {
 					'date_added'  => date($this->language->get('date_format_short'), strtotime($result['date_added'])),
 					'viewed'      => $result['viewed'],
 					'rating'      => $result['rating'],
-					'href'        => $this->url->link('blog/article', 'blid=' . $this->request->get['blid'] . '&article_id=' . $result['article_id'] . $url)
+					'href'        => $this->url->link('blog/article', 'blog_category_id=' . $this->request->get['blog_category_id'] . '&article_id=' . $result['article_id'] . $url)
 				);
 			}
 
@@ -223,44 +223,44 @@ class ControllerBlogCategory extends Controller {
 			$data['sorts'][] = array(
 				'text'  => $this->language->get('text_default'),
 				'value' => 'p.sort_order-ASC',
-				'href'  => $this->url->link('blog/category', 'blid=' . $this->request->get['blid'] . '&sort=p.sort_order&order=ASC' . $url)
+				'href'  => $this->url->link('blog/category', 'blog_category_id=' . $this->request->get['blog_category_id'] . '&sort=p.sort_order&order=ASC' . $url)
 			);
 			
 			$data['sorts'][] = array(
 				'text'  => $this->language->get('text_name_asc'),
 				'value' => 'pd.name-ASC',
-				'href'  => $this->url->link('blog/category', 'blid=' . $this->request->get['blid'] . '&sort=pd.name&order=ASC' . $url)
+				'href'  => $this->url->link('blog/category', 'blog_category_id=' . $this->request->get['blog_category_id'] . '&sort=pd.name&order=ASC' . $url)
 			);
 
 			$data['sorts'][] = array(
 				'text'  => $this->language->get('text_name_desc'),
 				'value' => 'pd.name-DESC',
-				'href'  => $this->url->link('blog/category', 'blid=' . $this->request->get['blid'] . '&sort=pd.name&order=DESC' . $url)
+				'href'  => $this->url->link('blog/category', 'blog_category_id=' . $this->request->get['blog_category_id'] . '&sort=pd.name&order=DESC' . $url)
 			);
 
 			$data['sorts'][] = array(
 				'text'  => $this->language->get('text_date_asc'),
 				'value' => 'p.date_added-ASC',
-				'href'  => $this->url->link('blog/category', 'blid=' . $this->request->get['blid'] . '&sort=p.date_added&order=ASC' . $url)
+				'href'  => $this->url->link('blog/category', 'blog_category_id=' . $this->request->get['blog_category_id'] . '&sort=p.date_added&order=ASC' . $url)
 			); 
 
 			$data['sorts'][] = array(
 				'text'  => $this->language->get('text_date_desc'),
 				'value' => 'p.date_added-DESC',
-				'href'  => $this->url->link('blog/category', 'blid=' . $this->request->get['blid'] . '&sort=p.date_added&order=DESC' . $url)
+				'href'  => $this->url->link('blog/category', 'blog_category_id=' . $this->request->get['blog_category_id'] . '&sort=p.date_added&order=DESC' . $url)
 			); 
 			
 			if ($this->config->get('configblog_review_status')) {
 				$data['sorts'][] = array(
 					'text'  => $this->language->get('text_rating_desc'),
 					'value' => 'rating-DESC',
-					'href'  => $this->url->link('blog/category', 'blid=' . $this->request->get['blid'] . '&sort=rating&order=DESC' . $url)
+					'href'  => $this->url->link('blog/category', 'blog_category_id=' . $this->request->get['blog_category_id'] . '&sort=rating&order=DESC' . $url)
 				); 
 				
 				$data['sorts'][] = array(
 					'text'  => $this->language->get('text_rating_asc'),
 					'value' => 'rating-ASC',
-					'href'  => $this->url->link('blog/category', 'blid=' . $this->request->get['blid'] . '&sort=rating&order=ASC' . $url)
+					'href'  => $this->url->link('blog/category', 'blog_category_id=' . $this->request->get['blog_category_id'] . '&sort=rating&order=ASC' . $url)
 				);
 			}
 			
@@ -268,13 +268,13 @@ class ControllerBlogCategory extends Controller {
 			$data['sorts'][] = array(
 				'text'  => $this->language->get('text_viewed_asc'),
 				'value' => 'p.viewed-ASC',
-				'href'  => $this->url->link('blog/category', 'blid=' . $this->request->get['blid'] . '&sort=p.viewed&order=ASC' . $url)
+				'href'  => $this->url->link('blog/category', 'blog_category_id=' . $this->request->get['blog_category_id'] . '&sort=p.viewed&order=ASC' . $url)
 			); 
 
 			$data['sorts'][] = array(
 				'text'  => $this->language->get('text_viewed_desc'),
 				'value' => 'p.viewed-DESC',
-				'href'  => $this->url->link('blog/category', 'blid=' . $this->request->get['blid'] . '&sort=p.viewed&order=DESC' . $url)
+				'href'  => $this->url->link('blog/category', 'blog_category_id=' . $this->request->get['blog_category_id'] . '&sort=p.viewed&order=DESC' . $url)
 			); 
 			//ocshop sort viewed
 			
@@ -298,7 +298,7 @@ class ControllerBlogCategory extends Controller {
 				$data['limits'][] = array(
 					'text'  => $value,
 					'value' => $value,
-					'href'  => $this->url->link('blog/category', 'blid=' . $this->request->get['blid'] . $url . '&limit=' . $value)
+					'href'  => $this->url->link('blog/category', 'blog_category_id=' . $this->request->get['blog_category_id'] . $url . '&limit=' . $value)
 				);
 			}
 
@@ -320,7 +320,7 @@ class ControllerBlogCategory extends Controller {
 			$pagination->total = $article_total;
 			$pagination->page = $page;
 			$pagination->limit = $limit;
-			$pagination->url = $this->url->link('blog/category', 'blid=' . $this->request->get['blid'] . $url . '&page={page}');
+			$pagination->url = $this->url->link('blog/category', 'blog_category_id=' . $this->request->get['blog_category_id'] . $url . '&page={page}');
 
 			$data['pagination'] = $pagination->render();
 
@@ -347,8 +347,8 @@ class ControllerBlogCategory extends Controller {
 		} else {
 			$url = '';
 
-			if (isset($this->request->get['blid'])) {
-				$url .= '&blid=' . $this->request->get['blid'];
+			if (isset($this->request->get['blog_category_id'])) {
+				$url .= '&blog_category_id=' . $this->request->get['blog_category_id'];
 			}
 
 			if (isset($this->request->get['sort'])) {

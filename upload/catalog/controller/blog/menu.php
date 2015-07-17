@@ -33,7 +33,7 @@ class ControllerBlogMenu extends Controller {
 
 					$children_data[] = array(
 						'name'  => $child['name'] . ($this->config->get('configblog_article_count') ? ' (' . $this->model_blog_article->getTotalArticles($filter_data) . ')' : ''),
-						'href'  => $this->url->link('blog/category', 'blid=' . $category['blog_category_id'] . '_' . $child['blog_category_id'])
+						'href'  => $this->url->link('blog/category', 'blog_category_id=' . $category['blog_category_id'] . '_' . $child['blog_category_id'])
 					);
 				}
 
@@ -46,7 +46,7 @@ class ControllerBlogMenu extends Controller {
 					'name'     => $category['name'] . ($this->config->get('configblog_article_count') ? ' (' . $this->model_blog_article->getTotalArticles($filter_data) . ')' : ''),
 					'children' => $children_data,
 					'column'   => $category['column'] ? $category['column'] : 1,
-					'href'     => $this->url->link('blog/category', 'blid=' . $category['blog_category_id'])
+					'href'     => $this->url->link('blog/category', 'blog_category_id=' . $category['blog_category_id'])
 				);
 			}
 		}

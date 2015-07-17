@@ -5,8 +5,8 @@ class ControllerModuleBlogCategory extends Controller {
 
 		$data['heading_title'] = $this->language->get('heading_title');
 
-		if (isset($this->request->get['blid'])) {
-			$parts = explode('_', (string)$this->request->get['blid']);
+		if (isset($this->request->get['blog_category_id'])) {
+			$parts = explode('_', (string)$this->request->get['blog_category_id']);
 		} else {
 			$parts = array();
 		}
@@ -43,20 +43,20 @@ class ControllerModuleBlogCategory extends Controller {
 					$children_data[] = array(
 						'blog_category_id' => $child['blog_category_id'],
 						'name' => $child['name'] . ($this->config->get('configblog_article_count') ? ' (' . $this->model_blog_article->getTotalArticles($filter_data) . ')' : ''),
-						'href' => $this->url->link('blog/category', 'blid=' . $category['blog_category_id'] . '_' . $child['blog_category_id'])
+						'href' => $this->url->link('blog/category', 'blog_category_id=' . $category['blog_category_id'] . '_' . $child['blog_category_id'])
 					);
 				}
 			}
 
 			$filter_data = array(
-				'filter_blog_category_id'  => $category['blog_category_id']
+				'filter_blog_category_id'  => $category['blog_category_id'],
 			);
 
 			$data['categories'][] = array(
 				'blog_category_id' => $category['blog_category_id'],
 				'name'        => $category['name'] . ($this->config->get('configblog_article_count') ? ' (' . $this->model_blog_article->getTotalArticles($filter_data) . ')' : ''),
 				'children'    => $children_data,
-				'href'        => $this->url->link('blog/category', 'blid=' . $category['blog_category_id'])
+				'href'        => $this->url->link('blog/category', 'blog_category_id=' . $category['blog_category_id'])
 			);
 		}
 

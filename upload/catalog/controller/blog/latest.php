@@ -142,19 +142,19 @@ class ControllerBlogLatest extends Controller {
 			$data['sorts'][] = array(
 				'text'  => $this->language->get('text_default'),
 				'value' => 'p.sort_order-ASC',
-				'href'  => $this->url->link('blog/latest', 'blid=' . '&sort=p.sort_order&order=ASC' . $url)
+				'href'  => $this->url->link('blog/latest', 'blog_category_id=' . '&sort=p.sort_order&order=ASC' . $url)
 			);
 			
 			$data['sorts'][] = array(
 				'text'  => $this->language->get('text_name_asc'),
 				'value' => 'pd.name-ASC',
-				'href'  => $this->url->link('blog/latest', 'blid=' . '&sort=pd.name&order=ASC' . $url)
+				'href'  => $this->url->link('blog/latest', 'blog_category_id=' . '&sort=pd.name&order=ASC' . $url)
 			);
 
 			$data['sorts'][] = array(
 				'text'  => $this->language->get('text_name_desc'),
 				'value' => 'pd.name-DESC',
-				'href'  => $this->url->link('blog/latest', 'blid=' . '&sort=pd.name&order=DESC' . $url)
+				'href'  => $this->url->link('blog/latest', 'blog_category_id=' . '&sort=pd.name&order=DESC' . $url)
 			);
 
 			$data['sorts'][] = array(
