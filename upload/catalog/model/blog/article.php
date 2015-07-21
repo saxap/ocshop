@@ -6,7 +6,7 @@ class ModelBlogArticle extends Model {
 	
 	public function getArticle($article_id) {
 		if ($this->customer->isLogged()) {
-			$customer_group_id = $this->customer->getCustomerGroupId();
+			$customer_group_id = $this->customer->getGroupId();
 		} else {
 			$customer_group_id = $this->config->get('config_customer_group_id');
 		}	
@@ -40,7 +40,7 @@ class ModelBlogArticle extends Model {
 
 	public function getArticles($data = array()) {
 		if ($this->customer->isLogged()) {
-			$customer_group_id = $this->customer->getCustomerGroupId();
+			$customer_group_id = $this->customer->getGroupId();
 		} else {
 			$customer_group_id = $this->config->get('config_customer_group_id');
 		}	
@@ -184,7 +184,7 @@ class ModelBlogArticle extends Model {
 		
 	public function getLatestArticles($limit) {
 		if ($this->customer->isLogged()) {
-			$customer_group_id = $this->customer->getCustomerGroupId();
+			$customer_group_id = $this->customer->getGroupId();
 		} else {
 			$customer_group_id = $this->config->get('config_customer_group_id');
 		}	
@@ -317,7 +317,7 @@ public function getArticleRelated_by_manufacturer($manufacturer_id, $limit) {
 		
 	public function getTotalArticles($data = array()) {
 		if ($this->customer->isLogged()) {
-			$customer_group_id = $this->customer->getCustomerGroupId();
+			$customer_group_id = $this->customer->getGroupId();
 		} else {
 			$customer_group_id = $this->config->get('config_customer_group_id');
 		}	
