@@ -42,19 +42,19 @@ class SmsGate {
 	private $data = array();
 
 	public function __construct($options = array()) {
-		if (is_array($options)) $data = $options;
+		if (is_array($options)) $this->data = $options;
 	}
 
 	public function __set($key, $value) {
-		$data[$key] = $value;
+		$this->data[$key] = $value;
 	}
 
 	public function __get($key) {
-		return (isset($data[$key]) ? $data[$key] : NULL);
+		return (isset($this->data[$key]) ? $this->data[$key] : NULL);
 	}
 
 	public function has($key) {
-    	return isset($data[$key]);
+    	return isset($this->data[$key]);
   	}
 
 	public function send() { }
