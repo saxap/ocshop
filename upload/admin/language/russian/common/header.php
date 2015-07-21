@@ -4,7 +4,7 @@ $_['heading_title']        = 'Администрирование';
 
 // Text
 $_['text_order']           = 'Заказы';
-$_['text_order_status']    = 'Статусы заказов';
+$_['text_processing_status'] = 'Обработка';
 $_['text_complete_status'] = 'Завершено';
 $_['text_customer']        = 'Клиенты';
 $_['text_online']          = 'Клиенты Online';
