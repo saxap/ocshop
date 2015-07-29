@@ -1916,7 +1916,8 @@ INSERT INTO `oc_manufacturer` (`manufacturer_id`, `name`, `image`, `noindex`, `s
 -- Table structure for table `oc_manufacturer_description`
 --
 
-CREATE TABLE IF NOT EXISTS `oc_manufacturer_description` (
+DROP TABLE IF EXISTS `oc_manufacturer_description`;
+CREATE TABLE `oc_manufacturer_description` (
   `manufacturer_id` int(11) NOT NULL DEFAULT '0',
   `language_id` int(11) NOT NULL DEFAULT '0',
   `description` text NOT NULL,
@@ -8258,7 +8259,8 @@ INSERT INTO `oc_article_to_blog_category` (`article_id`, `blog_category_id`, `ma
 -- Table structure for table `oc_blog_category_path`
 --
 
-CREATE TABLE IF NOT EXISTS `oc_blog_category_path` (
+DROP TABLE IF EXISTS `oc_blog_category_path`;
+CREATE TABLE `oc_blog_category_path` (
   `blog_category_id` int(11) NOT NULL,
   `path_id` int(11) NOT NULL,
   `level` int(11) NOT NULL,
@@ -8545,7 +8547,8 @@ INSERT INTO `oc_article_to_store` (`article_id`, `store_id`) VALUES
 -- Table structure for table `oc_menu`
 --
 
-CREATE TABLE IF NOT EXISTS `oc_menu` (
+DROP TABLE IF EXISTS `oc_menu`;
+CREATE TABLE `oc_menu` (
   `menu_id` int(11) NOT NULL AUTO_INCREMENT,
   `sort_order` int(3) NOT NULL,
   `columns` int(3) NOT NULL,
@@ -8589,7 +8592,8 @@ INSERT INTO `oc_menu` (`menu_id`, `sort_order`, `columns`, `menu_type`, `status`
 -- Table structure for table `oc_menu_description`
 --
 
-CREATE TABLE IF NOT EXISTS `oc_menu_description` (
+DROP TABLE IF EXISTS `oc_menu_description`;
+CREATE TABLE `oc_menu_description` (
   `menu_id` int(11) NOT NULL,
   `name` varchar(64) NOT NULL,
   `link` varchar(255) NOT NULL DEFAULT '',
@@ -8638,7 +8642,8 @@ INSERT INTO `oc_menu_description` (`menu_id`, `name`, `link`, `language_id`) VAL
 -- Table structure for table `oc_menu_to_store`
 --
 
-CREATE TABLE IF NOT EXISTS `oc_menu_to_store` (
+DROP TABLE IF EXISTS `oc_menu_to_store`;
+CREATE TABLE `oc_menu_to_store` (
   `menu_id` int(11) NOT NULL,
   `store_id` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`menu_id`,`store_id`),
@@ -8679,7 +8684,8 @@ INSERT INTO `oc_menu_to_store` (`menu_id`, `store_id`) VALUES
 -- Table structure for table `oc_menu_child`
 --
 
-CREATE TABLE IF NOT EXISTS `oc_menu_child` (
+DROP TABLE IF EXISTS `oc_menu_child`;
+CREATE TABLE `oc_menu_child` (
   `menu_child_id` int(11) NOT NULL AUTO_INCREMENT,
   `menu_id` int(11) NOT NULL,
   `sort_order` int(3) NOT NULL,
@@ -8737,7 +8743,8 @@ INSERT INTO `oc_menu_child` (`menu_child_id`, `menu_id`, `sort_order`, `menu_typ
 -- Table structure for table `oc_menu_child_description`
 --
 
-CREATE TABLE IF NOT EXISTS `oc_menu_child_description` (
+DROP TABLE IF EXISTS `oc_menu_child_description`;
+CREATE TABLE `oc_menu_child_description` (
   `menu_child_id` int(11) NOT NULL,
   `menu_id` int(11) NOT NULL,
   `name` varchar(64) NOT NULL,
@@ -8832,7 +8839,8 @@ INSERT INTO `oc_menu_child_description` (`menu_child_id`, `menu_id`, `name`, `li
 -- Table structure for table `oc_menu_child_to_store`
 --
 
-CREATE TABLE IF NOT EXISTS `oc_menu_child_to_store` (
+DROP TABLE IF EXISTS `oc_menu_child_to_store`;
+CREATE TABLE `oc_menu_child_to_store` (
   `menu_child_id` int(11) NOT NULL,
   `store_id` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`menu_child_id`,`store_id`),
