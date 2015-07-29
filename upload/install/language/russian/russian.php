@@ -1,11 +1,11 @@
 <?php
 // Heading
 $_['heading_step_1']         = 'Лицензионное Соглашение';
-$_['heading_step_1_small']   = 'Прочтите пожалуйста условия лицензии OpenCart';
+$_['heading_step_1_small']   = 'Прочтите пожалуйста условия лицензии OCSHOP.CMS';
 $_['heading_step_2']         = 'Начало установки';
 $_['heading_step_2_small']   = 'Проверка соответствия сервера и доступности файлов для установки';
 $_['heading_step_3']         = 'Конфигурация';
-$_['heading_step_3_small']   = 'Подключение к базе данных и настройки администрирования сайта';
+$_['heading_step_3_small']   = 'Подключение к базе данных и настройки администрирования магазина';
 $_['heading_step_4']         = 'Установка завершена';
 $_['heading_step_4_small']   = 'Вы можете начать продажи!';
 $_['heading_maxmind']        = 'MaxMind';
@@ -24,8 +24,8 @@ $_['text_install_db']        = '3. У вас должна быть хотя бы
 $_['text_install_file']      = '4. Убедитесь, что перечисленные ниже файлы имеют разрешение на запись и соответствующее имя';
 $_['text_install_directory'] = '5. Убедитесь, что перечисленные ниже каталоги, а также все их подкаталоги и файлы в них имеют разрешение на запись.';
 $_['text_db_connection']     = '1. Укажите связь с базой данных.';
-$_['text_db_administration'] = '2. Укажите Логин, Пароль и E-Mail для администрирования Вашего сайта.';
-$_['text_congratulation']    = 'Поздравляем! Вы успешно установили OpenCart.';
+$_['text_db_administration'] = '2. Укажите Логин, Пароль и E-Mail для администрирования Вашего магазина.';
+$_['text_congratulation']    = 'Поздравляем! Вы успешно установили OCSHOP.CMS.';
 $_['text_setting']           = 'Настройки PHP';
 $_['text_current']           = 'Ваши текущие настройки';
 $_['text_required']          = 'Необходимые настройки';
@@ -54,29 +54,29 @@ $_['text_off']               = 'Выключено';
 $_['text_writable']          = 'Соответствует (Доступно для записи)';
 $_['text_unwritable']        = 'Не соответствует (Не доступно для записи';
 $_['text_missing']           = 'Файл отсутствует или не верное имя';
-$_['text_forget']            = 'Установочная директория (папка install) еще не удалена, не забудьте удалить!';
+$_['text_forget']            = 'Установочная папка до сих пор существует! Зайдите на FTP и удалите папку install';
 $_['text_shop']              = 'Перейти в свой Магазин';
 $_['text_login']             = 'Перейти в Административную панель';
 $_['text_project']           = 'Сайт проекта';
 $_['text_documentation']     = 'Документация';
 $_['text_support']           = 'Форум';
-$_['text_footer']            = 'Copyright © 2014 OpenCart - All rights reserved';
+$_['text_footer']            = 'Copyright © 2014 OCSHOP.CMS - All rights reserved';
 $_['text_loading']           = 'Loading modules...';
 $_['text_store']             = 'посетите магазин расширений и дополнений';
 $_['text_mail_list']         = 'Присоединитесь к списку рассылок';
-$_['text_mail_list_small']   = 'И Вы будете информированы о всех обновлениях и новостях OpenCart.';
+$_['text_mail_list_small']   = 'И Вы будете информированы о всех обновлениях и новостях OCSHOP.CMS.';
 $_['text_openbay']   		 = 'OpenBay Pro дает возможность связать магазин со сторонними рынками как eBay и Amazon....';
 $_['text_maxmind']   		 = 'MaxMind предоставляет продавцам способность определить опасные сделки быстро, снижая риск мошенничества и минимизирует время, проведенное, рассматривая заказы, давая счет риска к каждому...';
 $_['text_more_info']   		 = 'Подробнее';
-$_['text_facebook']   		 = 'Мы на Facebook';
-$_['text_facebook_info']     = 'Вам нравится OpenCart! Поделитесь!';
-$_['text_facebook_link']     = 'Посетите нашу страницу Facebook';
-$_['text_forum']    	 	 = 'Форумы сообщества';
-$_['text_forum_info']    	 = 'Получите помощь от других пользователей OpenCart';
-$_['text_forum_link']    	 = 'Посетите Форумы';
-$_['text_commercial']    	 = 'Коммерческая поддержка';
-$_['text_commercial_info']   = 'Услуги по развитию от партнеров OpenCart';
-$_['text_commercial_link']   = 'Посетите нашу страницу партнера';
+$_['text_facebook']   		 = 'Мы Вконтакте';
+$_['text_facebook_info']     = 'Вам нравится OCSHOP.CMS! Поделитесь!';
+$_['text_facebook_link']     = 'Посетите нашу страницу Вконтакте';
+$_['text_forum']    	 	 = 'Форум сообщества';
+$_['text_forum_info']    	 = 'Получите помощь от других пользователей OCSHOP.CMS';
+$_['text_forum_link']    	 = 'Посетите Форум';
+$_['text_commercial']    	 = 'Читайте нас в блоге';
+$_['text_commercial_info']   = 'Интернет Торговля и не Только';
+$_['text_commercial_link']   = 'Посетите наш блог';
 $_['text_view']   		     = 'View details';
 $_['text_download']   		 = 'Download';
 $_['text_downloads']   		 = 'Downloads';
@@ -104,22 +104,22 @@ $_['entry_risk']      		 = 'Risk score';
 $_['entry_fraud_status']     = 'Fraud Order Status';
 
 // Help
-$_['help_maxmind_risk']      = 'The higher the score the more likely the order is fraudulent. Set a score between 0 - 100.';
+$_['help_maxmind_risk']      = 'Выше оценка, скорее всего заказ мошеннический. Установите балл между 0 - 100.';
 $_['help_maxmind_fraud']     = 'Orders over your set score will be assigned this order status and will not be allowed to reach the complete status automatically.';
 
 // Error
-$_['error_key'] 			 = 'Maxmind licence key required';
-$_['error_score'] 			 = 'A score between 0 and 100 is accepted';
+$_['error_key'] 			 = 'Требуется Maxmind лицензионный ключ';
+$_['error_score'] 			 = 'Оценка между 0 и 100 принята';
 $_['error_db_hostname'] 	 = 'Укажите Хост БД!';
 $_['error_db_username'] 	 = 'Укажите Имя Пользователя!';
 $_['error_db_database']		 = 'Укажите Имя БД!';
 $_['error_db_port']		 	 = 'Требуется Порт базы данных!';
-$_['error_db_prefix'] 		 = 'DB Prefix can only contain lowercase characters in the a-z range, 0-9 and underscores';
-$_['error_db_connect'] 		 = 'Error: Could not connect to the database please make sure the database server, username and password is correct!';
+$_['error_db_prefix'] 		 = 'DB Префикс может содержать только маленькие буквы в диапазоне a-z, цифры 0-9 и подчеркивания';
+$_['error_db_connect'] 		 = 'Не удалось подключиться к базе данных, пожалуйста, убедитесь, что сервер базы данных, имя пользователя и пароль указанны верно!';
 $_['error_username'] 		 = 'Укажите Имя Пользователя!';
 $_['error_password'] 		 = 'Укажите Пароль!';
 $_['error_email'] 			 = 'Не верный E-Mail!';
-$_['error_config'] 			 = 'Error: Could not write to config.php please check you have set the correct permissions on: ';
+$_['error_config'] 			 = 'Не удалось записать в config.php, пожалуйста, проверьте права на запись должны быть 777: ';
 
 // Buttons
 $_['button_continue']        = 'ПРОДОЛЖИТЬ >>';
