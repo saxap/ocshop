@@ -135,6 +135,8 @@ $_['tab_recurring']                 = 'Периодичность';
 $_['tab_action']                    = 'Действие';
 $_['tab_google']                    = 'Google';
 $_['tab_sms']                       = 'SMS';
+$_['tab_extra_tab']          		= 'Доп Таб';
+$_['tab_module']          	 		= 'Таб';
 
 // Error
 $_['error_exception']               = 'Ошибка кода (%s): %s в %s на строке %s';
