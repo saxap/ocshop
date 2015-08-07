@@ -77,7 +77,7 @@ class ControllerCommonHeader extends Controller {
 
 			// News Added Menu
 			$data['new_category'] = $this->url->link('catalog/category/add', 'token=' . $this->session->data['token'], 'SSL');
-			$data['new_customer'] = $this->url->link('sale/customer/add', 'token=' . $this->session->data['token'], 'SSL');
+			$data['new_customer'] = $this->url->link('user/user/add', 'token=' . $this->session->data['token'], 'SSL');
 			$data['new_download'] = $this->url->link('catalog/download/add', 'token=' . $this->session->data['token'], 'SSL');
 			$data['new_manufacturer'] = $this->url->link('catalog/manufacturer/add', 'token=' . $this->session->data['token'], 'SSL');
 			$data['new_product'] = $this->url->link('catalog/product/add', 'token=' . $this->session->data['token'], 'SSL');
