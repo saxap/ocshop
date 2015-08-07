@@ -6,7 +6,7 @@
 // *	@source		See SOURCE.txt for source and other copyright.
 // *	@license	GNU General Public License version 3; see LICENSE.txt
 
-class ControllerCheckoutReward extends Controller {
+class ControllerTotalReward extends Controller {
 	public function index() {
 		$points = $this->customer->getRewardPoints();
 
@@ -35,10 +35,10 @@ class ControllerCheckoutReward extends Controller {
 				$data['reward'] = '';
 			}
 
-			if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/checkout/reward.tpl')) {
-				return $this->load->view($this->config->get('config_template') . '/template/checkout/reward.tpl', $data);
+			if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/total/reward.tpl')) {
+				return $this->load->view($this->config->get('config_template') . '/template/total/reward.tpl', $data);
 			} else {
-				return $this->load->view('default/template/checkout/reward.tpl', $data);
+				return $this->load->view('default/template/total/reward.tpl', $data);
 			}
 		}
 	}
