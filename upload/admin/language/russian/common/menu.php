@@ -14,7 +14,6 @@ $_['text_coupon']                      = 'Купоны';
 $_['text_currency']                    = 'Валюта';
 $_['text_customer']                    = 'Клиенты';
 $_['text_customer_group']              = 'Группа клиентов';
-$_['text_customer_ban_ip']             = 'Бан по IP';
 $_['text_custom_field']                = 'Настраиваемые поля';
 $_['text_dashboard']                   = 'Панель состояния';
 $_['text_design']                      = 'Дизайн';
