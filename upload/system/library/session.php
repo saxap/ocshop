@@ -37,7 +37,7 @@ class Session {
 		return session_id();
 	}
 
-	public function __destruct() {
-		//return session_destroy();
+	public function destroy() {
+		return session_destroy();
 	}
 }

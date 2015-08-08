@@ -7,6 +7,8 @@
 // *	@license	GNU General Public License version 3; see LICENSE.txt
 
 class ModelTotalVoucher extends Model {
+  
+  
 	public function getTotal(&$total_data, &$total, &$taxes) {
 		if (isset($this->session->data['voucher'])) {
 			$this->load->language('total/voucher');
