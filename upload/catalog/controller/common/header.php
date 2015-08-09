@@ -205,9 +205,8 @@ class ControllerCommonHeader extends Controller {
 			return $this->load->view('default/template/common/header.tpl', $data);
 		}
 	}
-	
-	 
-	 public function getMenuLink($parent, $child = null) {
+
+	public function getMenuLink($parent, $child = null) {
 		 if ($this->config->get('configmenu_menu')) {
         $item = empty($child) ? $parent : $child;
 
