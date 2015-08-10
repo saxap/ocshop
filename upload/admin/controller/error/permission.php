@@ -50,7 +50,7 @@ class ControllerErrorPermission extends Controller {
 			}
 
 			$ignore = array(
-				'common/dashboard',
+				'common/dashboard/*',
 				'common/login',
 				'common/logout',
 				'common/forgotten',
@@ -67,7 +67,7 @@ class ControllerErrorPermission extends Controller {
 				'dashboard/recent'
 			);
 
-			if (!in_array($route, $ignore) && !$this->user->hasPermission('access', $route)) {
+			if (!in_array($route, $ignore) && !$this->user->hasPermission('access', $this->request->get['route'])) {
 				return new Action('error/permission');
 			}
 		}
