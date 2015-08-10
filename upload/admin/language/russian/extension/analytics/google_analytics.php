@@ -1,0 +1,21 @@
+<?php
+// *	@copyright	OCSHOP.CMS \ ocshop.net 2011 - 2015.
+// *	@demo	http://ocshop.net
+// *	@blog	http://ocshop.info
+// *	@forum	http://forum.ocshop.info
+// *	@source		See SOURCE.txt for source and other copyright.
+// *	@license	GNU General Public License version 3; see LICENSE.txt
+
+$_['heading_title']    = 'Google Analytics';
+
+// Text
+$_['text_analytics']   = 'Analytics';
+$_['text_code']        = 'Войдите в Ваш <a href="http://www.google.com/analytics/" target="_blank"><u>Google Analytics</u></a> и после настройки добавьте сюда выданный код.';
+$_['text_edit']        = 'Настройки Google Analytics';
+
+// Entry
+$_['entry_code']       = 'Код Google Analytics';
+
+// Error
+$_['error_permission'] = 'У вас недостаточно прав для внесения изменений!';
+$_['error_code']	   = 'Необходим код Google Analytics!';

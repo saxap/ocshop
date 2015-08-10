@@ -28,8 +28,6 @@ $_['text_mail']                        = 'Почта';
 $_['text_smtp']                        = 'SMTP';
 $_['text_seo_url'] 					   = 'По умолчанию';
 $_['text_seo_pro']					   = 'SeoPro';
-$_['text_google_analytics']            = 'Google Analytics';
-$_['text_google_captcha']              = 'Google reCAPTCHA';
 $_['text_howtosms']          	       = 'Инструкция настройки';
 
 // Entry
@@ -141,9 +139,6 @@ $_['entry_compression']                = 'Уровень сжатия';
 $_['entry_error_display']              = 'Показывать ошибки';
 $_['entry_error_log']                  = 'Записывать ошибки';
 $_['entry_error_filename']             = 'Файл журнала ошибок';
-$_['entry_google_analytics']           = 'Код Google Analytics';
-$_['entry_google_captcha_public']      = 'Ключ сайта';
-$_['entry_google_captcha_secret']      = 'Секретный ключ';
 $_['entry_status']                     = 'Статус';
 $_['entry_sms_gatename']       		   = 'Сервис отправки SMS';
 $_['entry_sms_to']             		   = 'Номер телефона получателя';
@@ -218,8 +213,6 @@ $_['help_encryption']                  = 'Ключ, который будет и
 $_['help_compression']                 = 'GZIP используется для увеличения эффективности передачи запросов. Уровень сжатия должен быть между 0 - 9.';
 $_['help_seo_url_include_path'] 	   = '/category/subcategory/product<br />(только для SeoPro)';
 $_['help_seo_url_postfix'] 			   = 'Например .html<br />(только для SeoPro)';
-$_['help_google_analytics']            = 'Войдите в Ваш <a href="http://www.google.com/analytics/" target="_blank"><u>Google Analytics</u></a> и после настройки добавьте сюда выданный код.';
-$_['help_google_captcha']              = 'Перейдите <a href="https://www.google.com/recaptcha/intro/index.html" target="_blank"><u>Google reCAPTCHA</u></a> и зарегистрируйте свой магазин.';
 $_['help_sms_from']					   = 'Не более 11 символов, либо номер телефона до 15 цифр';
 $_['help_sms_to']					   = 'В международном формате, только цифры 7926xxxxxxx';
 $_['help_sms_copy']					   = 'Указывать через запятую, в международном формате, без разделителей 7926xxxxxxx';
