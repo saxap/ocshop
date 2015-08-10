@@ -10,6 +10,7 @@ class ControllerCommonMenu extends Controller {
 	public function index() {
 		$this->load->language('common/menu');
 
+		$data['text_analytics'] = $this->language->get('text_analytics');
 		$data['text_affiliate'] = $this->language->get('text_affiliate');
 		$data['text_api'] = $this->language->get('text_api');
 		$data['text_attribute'] = $this->language->get('text_attribute');
@@ -17,6 +18,7 @@ class ControllerCommonMenu extends Controller {
 		$data['text_backup'] = $this->language->get('text_backup');
 		$data['text_banner'] = $this->language->get('text_banner');
 		$data['text_menu'] = $this->language->get('text_menu');
+		$data['text_captcha'] = $this->language->get('text_captcha');
 		$data['text_catalog'] = $this->language->get('text_catalog');
 		$data['text_category'] = $this->language->get('text_category');
 		$data['text_confirm'] = $this->language->get('text_confirm');
@@ -129,6 +131,7 @@ class ControllerCommonMenu extends Controller {
 		$data['text_blogun'] = $this->language->get('text_blogun');
 		$data['text_blogun_help'] = $this->language->get('text_blogun_help');
 
+		$data['analytics'] = $this->url->link('extension/analytics', 'token=' . $this->session->data['token'], 'SSL');
 		$data['home'] = $this->url->link('common/dashboard', 'token=' . $this->session->data['token'], 'SSL');
 		$data['affiliate'] = $this->url->link('marketing/affiliate', 'token=' . $this->session->data['token'], 'SSL');
 		$data['api'] = $this->url->link('user/api', 'token=' . $this->session->data['token'], 'SSL');
@@ -137,6 +140,7 @@ class ControllerCommonMenu extends Controller {
 		$data['backup'] = $this->url->link('tool/backup', 'token=' . $this->session->data['token'], 'SSL');
 		$data['banner'] = $this->url->link('design/banner', 'token=' . $this->session->data['token'], 'SSL');
 		$data['menu'] = $this->url->link('design/menu', 'token=' . $this->session->data['token'], 'SSL');
+		$data['captcha'] = $this->url->link('extension/captcha', 'token=' . $this->session->data['token'], 'SSL');
 		$data['category'] = $this->url->link('catalog/category', 'token=' . $this->session->data['token'], 'SSL');
 		$data['country'] = $this->url->link('localisation/country', 'token=' . $this->session->data['token'], 'SSL');
 		$data['contact'] = $this->url->link('marketing/contact', 'token=' . $this->session->data['token'], 'SSL');

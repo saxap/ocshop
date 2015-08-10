@@ -7,6 +7,7 @@
 // *	@license	GNU General Public License version 3; see LICENSE.txt
 
 // Text
+$_['text_analytics']                   = 'Analytics';
 $_['text_affiliate']                   = 'Affiliates';
 $_['text_api']                         = 'API';
 $_['text_attribute']                   = 'Attributes';
@@ -14,6 +15,7 @@ $_['text_attribute_group']             = 'Attribute Groups';
 $_['text_backup']                      = 'Backup / Restore';
 $_['text_banner']                      = 'Banners';
 $_['text_menu']                        = 'Menus';
+$_['text_captcha']                     = 'Captcha';
 $_['text_catalog']                     = 'Catalog';
 $_['text_category']                    = 'Categories';
 $_['text_country']                     = 'Countries';
