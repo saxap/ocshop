@@ -7,7 +7,7 @@
 // *	@license	GNU General Public License version 3; see LICENSE.txt
 
 // Heading
-$_['heading_title']      = 'Банеры';
+$_['heading_title']      = 'Баннеры';
 
 // Text
 $_['text_success']       = 'Настройки успешно изменены!';
