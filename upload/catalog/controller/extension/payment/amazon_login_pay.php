@@ -278,7 +278,7 @@ class ControllerPaymentAmazonLoginPay extends Controller {
 		if (isset($this->session->data['coupon'])) {
 			$this->load->model('total/coupon');
 
-			$coupon = $this->model_checkout_coupon->getCoupon($this->session->data['coupon']);
+			$coupon = $this->model_total_coupon->getCoupon($this->session->data['coupon']);
 
 			if ($coupon) {
 				$order_data['coupon_id'] = $coupon['coupon_id'];
@@ -516,7 +516,7 @@ class ControllerPaymentAmazonLoginPay extends Controller {
 		}
 
 		if (isset($this->session->data['coupon'])) {
-			$coupon = $this->model_checkout_coupon->getCoupon($this->session->data['coupon']);
+			$coupon = $this->model_total_coupon->getCoupon($this->session->data['coupon']);
 		} else {
 			$coupon = array();
 		}
