@@ -63,7 +63,7 @@ class ControllerExtensionModification extends Controller {
 		if ($this->validate()) {
 			// Just before files are deleted, if config settings say maintenance mode is off then turn it on
 			$maintenance = $this->config->get('config_maintenance');
-			
+
 			$this->load->model('setting/setting');
 
 			$this->model_setting_setting->editSettingValue('config', 'config_maintenance', true);
@@ -156,7 +156,7 @@ class ControllerExtensionModification extends Controller {
 				foreach ($files as $file) {
 					$operations = $file->getElementsByTagName('operation');
 
-					$files = explode(',', $file->getAttribute('path'));
+					$files = explode('|', $file->getAttribute('path'));
 
 					foreach ($files as $file) {
 						$path = '';
