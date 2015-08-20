@@ -19,9 +19,9 @@ $_['text_for']         = '%s Подарочный сертификат для %s
 
 // Entry
 $_['entry_to_name']    = 'Имя получателя';
-$_['entry_to_email']   = 'Email Получателя';
+$_['entry_to_email']   = 'E-Mail Получателя';
 $_['entry_from_name']  = 'Ваше имя';
-$_['entry_from_email'] = 'Ваш E-mail';
+$_['entry_from_email'] = 'Ваш E-Mail';
 $_['entry_theme']      = 'Тема подарочного сертификата';
 $_['entry_message']    = 'Сообщение';
 $_['entry_amount']     = 'Итого';
