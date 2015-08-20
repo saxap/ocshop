@@ -10,6 +10,7 @@ $_['heading_title']    = 'Google Analytics';
 
 // Text
 $_['text_analytics']   = 'Analytics';
+$_['text_success']	   = 'Настройки успешно изменены!';
 $_['text_edit']        = 'Настройки Google Analytics';
 $_['text_signup']      = 'Войдите в Ваш <a href="http://www.google.com/analytics/" target="_blank"><u>Google Analytics</u></a> и после настройки добавьте сюда выданный код.';
 
