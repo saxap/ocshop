@@ -45,7 +45,7 @@ class ControllerCatalogAttribute extends Controller {
 				$url .= '&page=' . $this->request->get['page'];
 			}
 
-			$this->response->redirect($this->url->link('catalog.attribute', 'token=' . $this->session->data['token'] . $url, 'SSL'));
+			$this->response->redirect($this->url->link('catalog/attribute', 'token=' . $this->session->data['token'] . $url, 'SSL'));
 		}
 
 		$this->getForm();
@@ -77,7 +77,7 @@ class ControllerCatalogAttribute extends Controller {
 				$url .= '&page=' . $this->request->get['page'];
 			}
 
-			$this->response->redirect($this->url->link('catalog.attribute', 'token=' . $this->session->data['token'] . $url, 'SSL'));
+			$this->response->redirect($this->url->link('catalog/attribute', 'token=' . $this->session->data['token'] . $url, 'SSL'));
 		}
 
 		$this->getForm();
@@ -293,6 +293,12 @@ class ControllerCatalogAttribute extends Controller {
 			$data['error_name'] = array();
 		}
 
+		if (isset($this->error['attribute_group'])) {
+			$data['error_attribute_group'] = $this->error['attribute_group'];
+		} else {
+			$data['error_attribute_group'] = '';
+		}
+
 		$url = '';
 
 		if (isset($this->request->get['sort'])) {
@@ -373,6 +379,10 @@ class ControllerCatalogAttribute extends Controller {
 	protected function validateForm() {
 		if (!$this->user->hasPermission('modify', 'catalog/attribute')) {
 			$this->error['warning'] = $this->language->get('error_permission');
+		}
+
+		if (!$this->request->post['attribute_group_id']) {
+			$this->error['attribute_group'] = $this->language->get('error_attribute_group');
 		}
 
 		foreach ($this->request->post['attribute_description'] as $language_id => $value) {
