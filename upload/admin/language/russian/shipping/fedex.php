@@ -10,9 +10,9 @@
 $_['heading_title']                            = 'Fedex';
 
 // Text
-$_['text_shipping']                            = 'Доставка';
-$_['text_success']                             = 'Настройки успешно изменены!';
-$_['text_edit']                                = 'Редактирование';
+$_['text_shipping']                            = 'Shipping';
+$_['text_success']                             = 'Success: You have modified Fedex shipping!';
+$_['text_edit']                                = 'Edit Fedex Shipping';
 $_['text_europe_first_international_priority'] = 'Europe First International Priority';
 $_['text_fedex_1_day_freight']                 = 'Fedex 1 Day Freight';
 $_['text_fedex_2_day']                         = 'Fedex 2 Day';
@@ -51,27 +51,27 @@ $_['text_account_rate']                        = 'Account Rate';
 
 // Entry
 $_['entry_key']                                = 'Key';
-$_['entry_password']                           = 'Пароль';
-$_['entry_account']                            = 'Номер счета';
+$_['entry_password']                           = 'Password';
+$_['entry_account']                            = 'Account Number';
 $_['entry_meter']                              = 'Meter Number';
-$_['entry_postcode']                           = 'Почтовый индекс';
+$_['entry_postcode']                           = 'Post Code';
 $_['entry_test']                               = 'Test Mode';
 $_['entry_service']                            = 'Services';
 $_['entry_dimension']                          = 'Box Dimensions (L x W x H)';
-$_['entry_length_class']                       = 'Единица измерения длины';
-$_['entry_length']                             = 'Длина';
-$_['entry_width']                              = 'Ширина';
-$_['entry_height']                             = 'Высота';
+$_['entry_length_class']                       = 'Length Class';
+$_['entry_length']                             = 'Length';
+$_['entry_width']                              = 'Width';
+$_['entry_height']                             = 'Height';
 $_['entry_dropoff_type']                       = 'Drop Off Type';
 $_['entry_packaging_type']                     = 'Packaging Type';
 $_['entry_rate_type']                          = 'Rate Type';
 $_['entry_display_time']                       = 'Display Delivery Time';
 $_['entry_display_weight']                     = 'Display Delivery Weight';
-$_['entry_weight_class']                       = 'Единица измерения веса';
-$_['entry_tax_class']                          = 'Класс налога';
-$_['entry_geo_zone']                           = 'Географическая зона';
-$_['entry_status']                             = 'Статус';
-$_['entry_sort_order']                         = 'Порядок сортировки';
+$_['entry_weight_class']                       = 'Weight Class';
+$_['entry_tax_class']                          = 'Tax Class';
+$_['entry_geo_zone']                           = 'Geo Zone';
+$_['entry_status']                             = 'Status';
+$_['entry_sort_order']                         = 'Sort Order';
 
 // Help
 $_['help_length_class']                        = 'Set to inches or centimeters.';
@@ -80,7 +80,7 @@ $_['help_display_weight']                      = 'Do you want to display the shi
 $_['help_weight_class']                        = 'Set to kilograms or pounds.';
 
 // Error
-$_['error_permission']                         = 'У вас недостаточно прав для внесения изменений!';
+$_['error_permission']                         = 'Warning: You do not have permission to modify Fedex shipping!';
 $_['error_key']                                = 'Key required!';
 $_['error_password']                           = 'Password required!';
 $_['error_account']                            = 'Account required!';
