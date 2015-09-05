@@ -34,6 +34,10 @@ $_['text_smtp']                        = 'SMTP';
 $_['text_seo_url'] 					   = 'Default';
 $_['text_seo_pro']					   = 'SeoPro';
 $_['text_howtosms']          	       = 'How to';
+$_['text_general']                     = 'General';
+$_['text_security']                    = 'Security';
+$_['text_upload']                      = 'Uploads';
+$_['text_error']                       = 'Error Handling';
 
 // Entry
 $_['entry_name']                       = 'Store Name';
