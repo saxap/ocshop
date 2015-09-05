@@ -34,6 +34,10 @@ $_['text_smtp']                        = 'SMTP';
 $_['text_seo_url'] 					   = 'По умолчанию';
 $_['text_seo_pro']					   = 'SeoPro';
 $_['text_howtosms']          	       = 'Инструкция настройки';
+$_['text_general']                     = 'Общие';
+$_['text_security']                    = 'Безопасность';
+$_['text_upload']                      = 'Загрузки';
+$_['text_error']                       = 'Обработка ошибок';
 
 // Entry
 $_['entry_name']                       = 'Название магазина';
