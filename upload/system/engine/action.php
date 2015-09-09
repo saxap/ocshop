@@ -6,7 +6,7 @@
 // *	@source		See SOURCE.txt for source and other copyright.
 // *	@license	GNU General Public License version 3; see LICENSE.txt
 
-final class Action {
+class Action {
 	private $file;
 	private $class;
 	private $method;
