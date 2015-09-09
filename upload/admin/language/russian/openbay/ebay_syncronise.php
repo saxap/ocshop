@@ -7,12 +7,12 @@
 // *	@license	GNU General Public License version 3; see LICENSE.txt
 
 // Heading
-$_['heading_title']           	= 'Syncronise';
+$_['heading_title']           	= 'Synchronise';
 $_['text_openbay']              = 'OpenBay Pro';
 $_['text_ebay']                 = 'eBay';
 
 // Buttons
-$_['button_update']				= 'Обновить';
+$_['button_update']				= 'Update';
 
 // Entry
 $_['entry_sync_categories']     = 'Get eBay categories';

@@ -10,14 +10,14 @@
 $_['heading_title']        				= 'OpenBay Pro';
 
 // Buttons
-$_['button_retry']						= 'Повтор';
-$_['button_update']						= 'Обновить';
+$_['button_retry']						= 'Retry';
+$_['button_update']						= 'Update';
 $_['button_patch']						= 'Patch';
 $_['button_ftp_test']					= 'Test connection';
 $_['button_faq']						= 'View FAQ topic';
 
 // Tab
-$_['tab_setting']						= 'Настройки';
+$_['tab_setting']						= 'Settings';
 $_['tab_update']						= 'Software updates';
 $_['tab_update_v1']						= 'Easy updater';
 $_['tab_update_v2']						= 'Legacy updater';
@@ -25,10 +25,10 @@ $_['tab_patch']							= 'Patch';
 $_['tab_developer']						= 'Developer';
 
 // Text
-$_['text_dashboard']         			= 'Панель состояния';
+$_['text_dashboard']         			= 'Dashboard';
 $_['text_success']         				= 'Success: Settings have been saved';
-$_['text_products']          			= 'Товары';
-$_['text_orders']          				= 'Заказы';
+$_['text_products']          			= 'Items';
+$_['text_orders']          				= 'Orders';
 $_['text_manage']          				= 'Manage';
 $_['text_help']                     	= 'Help';
 $_['text_tutorials']                    = 'Tutorials';
@@ -68,8 +68,8 @@ $_['text_confirm_backup']				= 'Ensure that you have a full backup before contin
 
 // Column
 $_['column_name']          				= 'Plugin name';
-$_['column_status']        				= 'Статус';
-$_['column_action']        				= 'Действие';
+$_['column_status']        				= 'Status';
+$_['column_action']        				= 'Action';
 
 // Entry
 $_['entry_patch']            			= 'Manual update patch';
@@ -100,7 +100,7 @@ $_['error_failed']						= 'Failed to load, retry?';
 $_['error_tracking_id_format']			= 'Your tracking ID cannot contain the characters > or <';
 $_['error_tracking_courier']			= 'You must select a courier if you want to add a tracking ID';
 $_['error_tracking_custom']				= 'Please leave courier field empty if you want to use custom courier';
-$_['error_permission']					= 'У вас недостаточно прав для внесения изменений!';
+$_['error_permission']					= 'You do not have permission to modify the OpenBay Pro extension';
 $_['error_mkdir']						= 'PHP mkdir function is disabled, contact your host';
 $_['error_file_delete']					= 'Unable to remove these files, you should delete them manually';
 $_['error_mcrypt']            			= 'PHP function "mcrypt_encrypt" is not enabled. Contact your hosting provider.';
@@ -108,6 +108,7 @@ $_['error_mbstring']               		= 'PHP library "mb strings" is not enabled.
 $_['error_ftpconnect']             		= 'PHP FTP functions are not enabled. Contact your hosting provider.';
 $_['error_oc_version']             		= 'Your version of OpenCart is not tested to work with this module. You may experience problems.';
 $_['error_fopen']             			= 'PHP function "fopen" is disabled by your host - you will be unable to import images when importing products';
+$_['lang_error_vqmod']             		= 'Your vqmod folder contains older OpenBay Pro files - these need to be removed!';
 
 // Help
 $_['help_ftp_username']           		= 'Use the FTP username from your host';

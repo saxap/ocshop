@@ -12,10 +12,10 @@ $_['text_openbay']                      = 'OpenBay Pro';
 $_['text_ebay']                         = 'eBay';
 
 //Tabs
-$_['tab_returns']          				= 'Возврат товара';
-$_['tab_template']         				= 'Шаблон';
+$_['tab_returns']          				= 'Returns';
+$_['tab_template']         				= 'Template';
 $_['tab_gallery']          				= 'Gallery';
-$_['tab_settings']         				= 'Настройки';
+$_['tab_settings']         				= 'Settings';
 
 //Shipping Profile
 $_['text_shipping_dispatch_country']    = 'Shipping from country';
@@ -37,10 +37,15 @@ $_['text_shipping_type_int']           	= 'International shipping type';
 $_['text_shipping_flat']           		= 'Flat rate';
 $_['text_shipping_calculated']          = 'Calculated';
 $_['text_shipping_freight']          	= 'Freight';
-$_['text_shipping_handling']          	= 'Плата за обработку заказа';
+$_['text_shipping_handling']          	= 'Handling fee';
 $_['text_shipping_cod']           		= 'Cash on delivery fee';
 $_['text_shipping_handling_nat']    	= 'Handling fee (national)';
 $_['entry_shipping_handling_int']    	= 'Handling fee (international)';
+$_['entry_shipping_pickupdropoff']  	= 'Click and Collect';
+$_['entry_shipping_pickupinstore']  	= 'Available for In-Store Pickup';
+$_['entry_shipping_global_shipping']  	= 'Use eBay global shipping service';
+$_['entry_shipping_promotion_discount'] = 'Combined shipping discounts (national)';
+$_['entry_shipping_promotion_discount_international'] = 'Combined shipping discounts (international)';
 
 //Returns profile
 $_['text_returns_accept']       		= 'Returns accepted';
@@ -73,11 +78,11 @@ $_['text_image_all_template']   		= 'Add all images to template';
 $_['text_image_exclude_default']		= 'Exclude default image';
 $_['text_image_exclude_default_help']	= 'Only for bulk listing feature! Will not include the default product image in theme image list';
 $_['text_confirm_delete']       		= 'Are you sure you want to delete the profile?';
-$_['text_width']      					= 'Ширина';
-$_['text_height']      					= 'Высота';
+$_['text_width']      					= 'Width';
+$_['text_height']      					= 'Height';
 $_['text_px']      						= 'px';
-$_['text_add']      					= 'Добавить';
-$_['text_edit']      					= 'Редактирование';
+$_['text_add']      					= 'Add profile';
+$_['text_edit']      					= 'Edit profile';
 
 //General profile
 $_['text_general_private']      		= 'List items as private auction';
@@ -86,14 +91,14 @@ $_['text_general_price_help']   		= '0 is default, -10 will reduce by 10%, 10 wi
 
 //General profile options
 $_['text_profile_name']         		= 'Name';
-$_['text_profile_default']      		= 'По умолчанию';
-$_['text_profile_type']         		= 'Тип';
-$_['text_profile_desc']         		= 'Описание';
-$_['text_profile_action']       		= 'Действие';
+$_['text_profile_default']      		= 'Default';
+$_['text_profile_type']         		= 'Type';
+$_['text_profile_desc']         		= 'Description';
+$_['text_profile_action']       		= 'Action';
 
 // Profile types
-$_['text_type_shipping']       			= 'Доставка';
-$_['text_type_returns']       			= 'Возврат товара';
+$_['text_type_shipping']       			= 'Shipping';
+$_['text_type_returns']       			= 'Returns';
 $_['text_type_template']       			= 'Template &amp; gallery';
 $_['text_type_general']       			= 'General settings';
 
@@ -102,7 +107,11 @@ $_['text_added']                		= 'New profile has been added';
 $_['text_updated']              		= 'Profile has been updated';
 
 //Errors
-$_['error_permission']        			= 'У вас недостаточно прав для внесения изменений!';
+$_['error_permission']        			= 'You do not have permission to edit profiles';
 $_['error_name']           				= 'You must enter a profile name';
 $_['error_no_template']          		= 'Template ID does not exist';
 $_['error_missing_settings'] 			= 'You cannot add,edit or delete profiles until you syncronise your eBay settings';
+
+//Help
+$_['help_shipping_promotion_discount']  = 'Offer national buyers a discount on shipping if they buy multiple items. Discounts must have been setup in eBay to take effect.';
+$_['help_shipping_promotion_discount_international']  = 'Offer international buyers a discount on shipping if they buy multiple items. Discounts must have been setup in eBay to take effect.';

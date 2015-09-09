@@ -14,14 +14,14 @@ $_['text_openbay']               	= 'Openbay Pro';
 // Buttons
 $_['text_none']                     = 'None';
 $_['text_preview']                  = 'Preview';
-$_['text_add']                      = 'Добавить';
+$_['text_add']                      = 'Add';
 $_['text_preview_all']              = 'Verify all';
-$_['text_submit']                   = 'Применить';
+$_['text_submit']                   = 'Submit';
 $_['text_features']                 = 'Features';
 $_['text_catalog']                  = 'Select catalog';
 $_['text_catalog_search']           = 'Search catalog';
 $_['text_search_term']           	= 'Search term';
-$_['text_close']           			= 'Закрыть';
+$_['text_close']           			= 'Close';
 $_['text_bulk']           			= 'Create new listings in bulk';
 
 //Form options / text
@@ -37,16 +37,16 @@ $_['text_profile_generic']          = 'Generic profile';
 
 //Text
 $_['text_title']                    = 'Title';
-$_['text_price']                    = 'Цена';
-$_['text_stock']                    = 'Наличие';
-$_['text_search']                   = 'Поиск';
+$_['text_price']                    = 'Price';
+$_['text_stock']                    = 'Stock';
+$_['text_search']                   = 'Search';
 $_['text_loading']                  = 'Loading details';
 $_['text_preparing0']               = 'Preparing';
 $_['text_preparing1']               = 'of';
 $_['text_preparing2']               = 'elements';
 $_['entry_condition']                = 'Condition';
-$_['text_duration']                 = 'Продолжительность';
-$_['text_category']                 = 'Категории';
+$_['text_duration']                 = 'Duration';
+$_['text_category']                 = 'Category';
 $_['text_exists']                   = 'Some items are already listed on eBay so have been removed';
 $_['text_error_count']              = 'You have selected %s items, it may take a while to process your data';
 $_['text_verifying']                = 'Verifying items';
@@ -65,6 +65,11 @@ $_['text_loading_duration']         = 'Loading listing durations';
 $_['text_total_fee']         		= 'Total fees';
 $_['text_category_choose']         	= 'Find category';
 $_['text_suggested']         		= 'Suggested categories';
+$_['text_product_identifiers']    	= 'Product identifiers';
+$_['text_ean']    					= 'EAN';
+$_['text_upc']    					= 'UPC';
+$_['text_isbn']    					= 'ISBN';
+$_['text_identifier_not_required']  = 'Not required';
 
 //Errors
 $_['text_error_ship_profile']       = 'You need to have a default shipping profile set up';

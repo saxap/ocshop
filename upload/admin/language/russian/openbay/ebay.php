@@ -12,9 +12,9 @@ $_['text_openbay']					= 'OpenBay Pro';
 $_['text_dashboard']				= 'eBay Dashboard';
 
 // Text
-$_['text_success']         			= 'Настройки успешно изменены!';
-$_['text_heading_settings']         = 'Настройки';
-$_['text_heading_sync']             = 'Syncronise';
+$_['text_success']         			= 'You have saved your changes to the eBay extension';
+$_['text_heading_settings']         = 'Settings';
+$_['text_heading_sync']             = 'Synchronise';
 $_['text_heading_subscription']     = 'Change plan';
 $_['text_heading_usage']          	= 'Usage';
 $_['text_heading_links']            = 'Item links';
