@@ -53,8 +53,8 @@ $_['button_copy']                   = 'Копировать';
 $_['button_back']                   = 'Назад';
 $_['button_remove']                 = 'Удалить';
 $_['button_refresh']                = 'Обновить';
-$_['button_backup']                 = 'Бэкап';
-$_['button_restore']                = 'Восстановить';
+$_['button_export']                 = 'Экспорт';
+$_['button_import']                 = 'Импорт';
 $_['button_download']               = 'Скачать';
 $_['button_rebuild']                = 'Исправить';
 $_['button_upload']                 = 'Загрузить';
@@ -102,6 +102,7 @@ $_['button_unlock']                 = 'Разблокировать счет';
 $_['button_link']                   = 'Ссылка';
 $_['button_currency']               = 'Обновить курсы валют';
 $_['button_apply']                  = 'Применить';
+$_['button_category_add']           = 'Добавить категорию';
 
 // Tab
 $_['tab_address']                   = 'Адрес';
