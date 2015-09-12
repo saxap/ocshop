@@ -326,7 +326,7 @@ class ControllerAffiliateRegister extends Controller {
 		}
 
 		// Captcha
-		if ($this->config->get($this->config->get('config_captcha') . '_status') && in_array('register', $this->config->get('config_captcha_page'))) {
+		if ($this->config->get($this->config->get('config_captcha') . '_status') && in_array('register', (array)$this->config->get('config_captcha_page'))) {
 			$data['captcha'] = $this->load->controller('captcha/' . $this->config->get('config_captcha'), $this->error);
 		} else {
 			$data['captcha'] = '';
@@ -420,7 +420,7 @@ class ControllerAffiliateRegister extends Controller {
 		}
 
 		// Captcha
-		if ($this->config->get($this->config->get('config_captcha') . '_status') && in_array('register', $this->config->get('config_captcha_page'))) {
+		if ($this->config->get($this->config->get('config_captcha') . '_status') && in_array('register', (array)$this->config->get('config_captcha_page'))) {
 			$captcha = $this->load->controller('captcha/' . $this->config->get('config_captcha') . '/validate');
 
 			if ($captcha) {
