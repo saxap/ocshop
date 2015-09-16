@@ -482,7 +482,10 @@ $('#button-cart').on('click', function() {
 
 				$('#cart > ul').load('index.php?route=common/cart/info ul li');
 			}
-		}
+		},
+        error: function(xhr, ajaxOptions, thrownError) {
+            alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
 	});
 });
 //--></script>

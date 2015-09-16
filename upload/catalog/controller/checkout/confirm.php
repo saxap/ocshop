@@ -378,7 +378,7 @@ class ControllerCheckoutConfirm extends Controller {
 				}
 
 				$data['products'][] = array(
-					'key'        => $product['key'],
+					'cart_id'    => $product['cart_id'],
 					'product_id' => $product['product_id'],
 					'name'       => $product['name'],
 					'model'      => $product['model'],
