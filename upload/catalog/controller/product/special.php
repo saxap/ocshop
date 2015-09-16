@@ -35,7 +35,7 @@ class ControllerProductSpecial extends Controller {
 		}
 
 		if (isset($this->request->get['limit'])) {
-			$limit = $this->request->get['limit'];
+			$limit = (int)$this->request->get['limit'];
 			$this->document->setRobots('noindex,follow');
 		} else {
 			$limit = $this->config->get('config_product_limit');
