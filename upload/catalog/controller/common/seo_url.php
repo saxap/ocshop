@@ -15,7 +15,7 @@ class ControllerCommonSeoUrl extends Controller {
 
 		// Decode URL
 		if (isset($this->request->get['_route_'])) {
-			$parts = explode('/', $this->request->get['_route_']);
+			$parts = explode('.', $this->request->get['_route_']);
 
 			// remove any empty arrays from trailing
 			if (utf8_strlen(end($parts)) == 0) {
@@ -52,7 +52,7 @@ class ControllerCommonSeoUrl extends Controller {
 						$this->request->get['route'] = $query->row['query'];
 					}
 				} else {
-					$this->request->get['route'] = 'error/not_found';
+					$this->request->get['route'] = 'error.not_found';
 
 					break;
 				}
@@ -60,13 +60,13 @@ class ControllerCommonSeoUrl extends Controller {
 
 			if (!isset($this->request->get['route'])) {
 				if (isset($this->request->get['product_id'])) {
-					$this->request->get['route'] = 'product/product';
+					$this->request->get['route'] = 'product.product';
 				} elseif (isset($this->request->get['path'])) {
-					$this->request->get['route'] = 'product/category';
+					$this->request->get['route'] = 'product.category';
 				} elseif (isset($this->request->get['manufacturer_id'])) {
-					$this->request->get['route'] = 'product/manufacturer/info';
+					$this->request->get['route'] = 'product.manufacturer/info';
 				} elseif (isset($this->request->get['information_id'])) {
-					$this->request->get['route'] = 'information/information';
+					$this->request->get['route'] = 'information.information';
 				}
 			}
 
@@ -87,7 +87,7 @@ class ControllerCommonSeoUrl extends Controller {
 
 		foreach ($data as $key => $value) {
 			if (isset($data['route'])) {
-				if (($data['route'] == 'product/product' && $key == 'product_id') || (($data['route'] == 'product/manufacturer/info' || $data['route'] == 'product/product') && $key == 'manufacturer_id') || ($data['route'] == 'information/information' && $key == 'information_id')) {
+				if (($data['route'] == 'product.product' && $key == 'product_id') || (($data['route'] == 'product.manufacturer.info' || $data['route'] == 'product.product') && $key == 'manufacturer_id') || ($data['route'] == 'information.information' && $key == 'information_id')) {
 					$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "url_alias WHERE `query` = '" . $this->db->escape($key . '=' . (int)$value) . "'");
 
 					if ($query->num_rows && $query->row['keyword']) {
