@@ -27,7 +27,7 @@ class Url {
 			$url = $this->ssl;
 		}
 
-		$url .= 'index.php?route=' . str_replace('/', '.', $route);
+		$url .= 'index.php?route=' . $route;
 
 		if ($args) {
 			if (is_array($args)) {
