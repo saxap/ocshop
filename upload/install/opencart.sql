@@ -3928,7 +3928,7 @@ INSERT INTO `oc_weight_class_description` (`weight_class_id`, `language_id`, `ti
 (5, 1, 'Фунты', 'lb'),
 (6, 2, 'Pound', 'lb'),
 (7, 1, 'Унции', 'oz'),
-(6, 2, 'Ounce', 'oz');
+(7, 2, 'Ounce', 'oz');
 
 -- --------------------------------------------------------
 
