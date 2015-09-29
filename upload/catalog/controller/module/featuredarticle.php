@@ -4,7 +4,12 @@ class ControllerModuleFeaturedarticle extends Controller {
 		$this->language->load('module/featuredarticle');
 		$this->load->model('blog/article');
   		if (isset($this->request->get['path'])) {			$path = '';			$parts = explode('_', (string)$this->request->get['path']);			foreach ($parts as $path_id) {				if (!$path) {					$path = $path_id;				} else {					$path .= '_' . $path_id;				}				$category_info = $this->model_catalog_category->getCategory($path_id);			}					$category_id = array_pop($parts);						$results = $this->model_blog_article->getArticleRelated_by_category($category_id, $setting['limit']);		} else {			$category_id = 0;		}				//Manufacturer
-				if (isset($this->request->get['manufacturer_id'])) {			$manufacturer_id = $this->request->get['manufacturer_id'];						$results = $this->model_blog_article->getArticleRelated_by_manufacturer($manufacturer_id, $setting['limit']);		} else {			$manufacturer_id = 0;		} 				//Manufacturer      	$this->data['heading_title'] = $this->language->get('heading_title');		
+				if (isset($this->request->get['manufacturer_id'])) {			$manufacturer_id = $this->request->get['manufacturer_id'];						$results = $this->model_blog_article->getArticleRelated_by_manufacturer($manufacturer_id, $setting['limit']);		} else {			$manufacturer_id = 0;		} 				//Manufacturer      	$this->data['heading_title'] = $this->language->get('heading_title');
+		
+		$this->data['text_views'] = $this->language->get('text_views');
+
+		$this->data['button_more'] = $this->language->get('button_more');
+		
 		$this->load->model('blog/article');		
 		$this->load->model('tool/image');	
 

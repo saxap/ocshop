@@ -8,6 +8,10 @@ class ControllerModuleReviews extends Controller {
 		$this->load->model('tool/image');
 		
 		$this->load->model('module/reviews');
+		
+		$this->data['text_more'] = $this->language->get('text_more');
+		$this->data['button_wishlist'] = $this->language->get('button_wishlist');
+		$this->data['button_compare'] = $this->language->get('button_compare');
 
 		if (strlen($setting['header'][$this->config->get('config_language_id')]) > 0){
       		$this->data['header'] = $setting['header'][$this->config->get('config_language_id')];

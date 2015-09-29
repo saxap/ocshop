@@ -236,9 +236,11 @@ class ControllerProductProduct extends Controller {
 			$this->document->setDescription($product_info['meta_description']);
 			$this->document->setKeywords($product_info['meta_keyword']);
 			$this->document->addLink($this->url->link('product/product', 'product_id=' . $this->request->get['product_id']), 'canonical');
-			$this->document->addScript('catalog/view/javascript/jquery/tabs.js');
-			$this->document->addScript('catalog/view/javascript/jquery/colorbox/jquery.colorbox-min.js');
-			$this->document->addStyle('catalog/view/javascript/jquery/colorbox/colorbox.css');
+			$this->document->addScript('catalog/view/javascript/jquery/magnific/jquery.magnific-popup.min.js');
+			$this->document->addStyle('catalog/view/javascript/jquery/magnific/magnific-popup.css');
+			$this->document->addScript('catalog/view/javascript/jquery/datetimepicker/moment.js');
+			$this->document->addScript('catalog/view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.js');
+			$this->document->addStyle('catalog/view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.css');
 
 			$this->data['text_select'] = $this->language->get('text_select');
 			$this->data['text_manufacturer'] = $this->language->get('text_manufacturer');
@@ -464,6 +466,12 @@ class ControllerProductProduct extends Controller {
 				} else {
 					$special = false;
 				}
+				
+				if ($this->config->get('config_tax')) {
+				$tax = $this->currency->format((float)$result['special'] ? $result['special'] : $result['price']);
+				} else {
+				$tax = false;
+				}
 
 				if ($this->config->get('config_review_status')) {
 					$rating = (int)$result['rating'];
@@ -508,9 +516,11 @@ class ControllerProductProduct extends Controller {
 					'product_id' => $result['product_id'],
 					'thumb'   	 => $image,
 					'name'    	 => $result['name'],
+					'description' => utf8_substr(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8')), 0, 100) . '..',
 					'price'   	 => $price,
 					'special' 	 => $special,
 					'rating'     => $rating,
+					'tax'        => $tax,
 					'sticker'     => $stickers,
 					'benefits'    => $benefits,
 					'reviews'    => sprintf($this->language->get('text_reviews'), (int)$result['reviews']),
@@ -540,6 +550,12 @@ class ControllerProductProduct extends Controller {
 					$special = false;
 				}
 				
+				if ($this->config->get('config_tax')) {
+				$tax = $this->currency->format((float)$result['special'] ? $result['special'] : $result['price']);
+				} else {
+				$tax = false;
+				}
+				
 				if ($this->config->get('config_review_status')) {
 					$rating = (int)$result['rating'];
 				} else {
@@ -552,8 +568,10 @@ class ControllerProductProduct extends Controller {
 					'product_id' => $result['product_id'],
 					'thumb'   	 => $image,
 					'name'    	 => $result['name'],
+					'description' => utf8_substr(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8')), 0, 100) . '..',
 					'price'   	 => $price,
 					'special' 	 => $special,
+					'tax'        => $tax,
 					'rating'     => $rating,
 					'sticker'     => $stickers,
 					'reviews'    => sprintf($this->language->get('text_reviews'), (int)$result['reviews']),
@@ -563,6 +581,9 @@ class ControllerProductProduct extends Controller {
 			
 			$this->load->model('tool/image');
 			$this->data['articles'] = array();
+			
+			$this->data['button_more'] = $this->language->get('button_more');
+			$this->data['text_views'] = $this->language->get('text_views');
 			
 			$results = $this->model_catalog_product->getArticleRelated($this->request->get['product_id']);
 			
@@ -585,8 +606,10 @@ class ControllerProductProduct extends Controller {
 					'article_id' => $result['article_id'],
 					'thumb'   	 => $image,
 					'name'    	 => $result['name'],
-					'description' => utf8_substr(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8')), 0, 300) . '',
+					'description' => utf8_substr(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8')), 0, 100) . '',
 					'rating'     => $rating,
+					'date_added'  => date($this->language->get('date_format_short'), strtotime($result['date_added'])),
+					'viewed'      => $result['viewed'],
 					'reviews'    => sprintf($this->language->get('text_reviews'), (int)$result['reviews']),
 					'href'    	 => $this->url->link('blog/article', 'article_id=' . $result['article_id']),
 				);

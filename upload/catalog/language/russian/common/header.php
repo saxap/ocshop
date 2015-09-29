@@ -12,4 +12,8 @@ $_['text_blog']	    = 'Блог';
 $_['text_special']  = 'Акции';
 $_['text_latest']   = 'Новинки';
 $_['text_brands']   = 'Производители';
+//ocshop 2.0
+$_['text_category']       = 'Категории';
+$_['text_all']            = 'Смотреть Все';
+//ocshop 2/0
 ?>

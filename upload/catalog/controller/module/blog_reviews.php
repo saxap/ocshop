@@ -10,6 +10,8 @@ class ControllerModuleBlogReviews extends Controller {
 		$this->load->model('module/blog_reviews');
 		
 		$this->data['text_views'] = $this->language->get('text_views');
+		$this->data['button_more'] = $this->language->get('button_more');
+		
 		if (strlen($setting['header'][$this->config->get('config_language_id')]) > 0){
       		$this->data['header'] = $setting['header'][$this->config->get('config_language_id')];
 		} else {

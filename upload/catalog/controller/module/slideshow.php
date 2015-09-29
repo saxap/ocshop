@@ -6,13 +6,8 @@ class ControllerModuleSlideshow extends Controller {
 		$this->load->model('design/banner');
 		$this->load->model('tool/image');
 		
-		$this->document->addScript('catalog/view/javascript/jquery/nivo-slider/jquery.nivo.slider.pack.js');
-		
-		if (file_exists('catalog/view/theme/' . $this->config->get('config_template') . '/stylesheet/slideshow.css')) {
-			$this->document->addStyle('catalog/view/theme/' . $this->config->get('config_template') . '/stylesheet/slideshow.css');
-		} else {
-			$this->document->addStyle('catalog/view/theme/default/stylesheet/slideshow.css');
-		}
+		$this->document->addStyle('catalog/view/javascript/jquery/owl-carousel/owl.carousel.css');
+		$this->document->addScript('catalog/view/javascript/jquery/owl-carousel/owl.carousel.min.js');
 		
 		$this->data['width'] = $setting['width'];
 		$this->data['height'] = $setting['height'];
@@ -21,7 +16,7 @@ class ControllerModuleSlideshow extends Controller {
 		
 		if (isset($setting['banner_id'])) {
 			$results = $this->model_design_banner->getBanner($setting['banner_id']);
-
+			  
 			foreach ($results as $result) {
 				if (file_exists(DIR_IMAGE . $result['image'])) {
 					$this->data['banners'][] = array(

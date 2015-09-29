@@ -5,6 +5,7 @@ class ControllerModuleBlogMostViewed extends Controller {
  
       	$this->data['heading_title'] = $this->language->get('heading_title');
 		$this->data['text_views'] = $this->language->get('text_views');
+		$this->data['button_more'] = $this->language->get('button_more');
 		
 		$this->load->model('blog/article');
 		

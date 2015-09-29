@@ -128,6 +128,7 @@ class ControllerBlogArticle extends Controller {
 			$this->data['text_note'] = $this->language->get('text_note');
 			$this->data['text_share'] = $this->language->get('text_share');
 			$this->data['text_wait'] = $this->language->get('text_wait');
+			$this->data['text_tax'] = $this->language->get('text_tax');
 			$this->data['button_cart'] = $this->language->get('button_cart');
 			$this->data['button_wishlist'] = $this->language->get('button_wishlist');
 			$this->data['button_compare'] = $this->language->get('button_compare');
@@ -235,6 +236,12 @@ class ControllerBlogArticle extends Controller {
 					$special = false;
 				}
 				
+				if ($this->config->get('config_tax')) {
+				$tax = $this->currency->format((float)$result['special'] ? $result['special'] : $result['price']);
+				} else {
+				$tax = false;
+				}
+				
 				if ($this->config->get('config_review_status')) {
 					$rating = (int)$result['rating'];
 				} else {
@@ -247,9 +254,11 @@ class ControllerBlogArticle extends Controller {
 					'product_id' => $result['product_id'],
 					'thumb'   	 => $image,
 					'name'    	 => $result['name'],
+					'description' => utf8_substr(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8')), 0, 100) . '..',
 					'price'   	 => $price,
 					'special' 	 => $special,
 					'rating'     => $rating,
+					'tax'        => $tax,
 					'sticker'     => $stickers,
 					'reviews'    => sprintf($this->language->get('text_reviews'), (int)$result['reviews']),
 					'href'    	 => $this->url->link('product/product', 'product_id=' . $result['product_id']),

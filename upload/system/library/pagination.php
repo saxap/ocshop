@@ -3,14 +3,14 @@ class Pagination {
 	public $total = 0;
 	public $page = 1;
 	public $limit = 20;
-	public $num_links = 10;
+	public $num_links = 7;
 	public $url = '';
 	public $text = 'Showing {start} to {end} of {total} ({pages} Pages)';
 	public $text_first = '|&lt;';
 	public $text_last = '&gt;|';
 	public $text_next = '&gt;';
 	public $text_prev = '&lt;';
-	public $style_links = 'links';
+	public $style_links = 'btn-group';
 	public $style_results = 'results';
 
 	public function render() {
@@ -34,7 +34,7 @@ class Pagination {
 		$output = '';
 		
 		if ($page > 1) {
-			$output .= ' <a href="' . str_replace('{page}', 1, $this->url) . '">' . $this->text_first . '</a> <a href="' . str_replace('{page}', $page - 1, $this->url) . '">' . $this->text_prev . '</a> ';
+			$output .= ' <a class="btn" href="' . str_replace('{page}', 1, $this->url) . '">' . $this->text_first . '</a> <a class="btn" href="' . str_replace('{page}', $page - 1, $this->url) . '">' . $this->text_prev . '</a> ';
 		}
 
 		if ($num_pages > 1) {
@@ -57,24 +57,24 @@ class Pagination {
 			}
 
 			if ($start > 1) {
-				$output .= ' .... ';
+				//$output .= ' .... ';
 			}
 
 			for ($i = $start; $i <= $end; $i++) {
 				if ($page == $i) {
-					$output .= ' <b>' . $i . '</b> ';
+					$output .= ' <b class="btn active">' . $i . '</b> ';
 				} else {
-					$output .= ' <a href="' . str_replace('{page}', $i, $this->url) . '">' . $i . '</a> ';
+					$output .= ' <a class="btn" href="' . str_replace('{page}', $i, $this->url) . '">' . $i . '</a> ';
 				}	
 			}
 							
 			if ($end < $num_pages) {
-				$output .= ' .... ';
+				//$output .= ' .... ';
 			}
 		}
 		
 		if ($page < $num_pages) {
-			$output .= ' <a href="' . str_replace('{page}', $page + 1, $this->url) . '">' . $this->text_next . '</a> <a href="' . str_replace('{page}', $num_pages, $this->url) . '">' . $this->text_last . '</a> ';
+			$output .= ' <a class="btn" href="' . str_replace('{page}', $page + 1, $this->url) . '">' . $this->text_next . '</a> <a class="btn" href="' . str_replace('{page}', $num_pages, $this->url) . '">' . $this->text_last . '</a> ';
 		}
 		
 		$find = array(

@@ -65,6 +65,12 @@ class ControllerCommonHeader extends Controller {
 		$this->data['account'] = $this->url->link('account/account', '', 'SSL');
 		$this->data['shopping_cart'] = $this->url->link('checkout/cart');
 		$this->data['checkout'] = $this->url->link('checkout/checkout', '', 'SSL');
+		//ocshop 2.0
+		$this->data['text_category'] = $this->language->get('text_category');
+		$this->data['text_all'] = $this->language->get('text_all');
+		$this->data['telephone'] = $this->config->get('config_telephone');
+		$this->data['fax'] = $this->config->get('config_fax');
+		//ocshop 2.0
 		$this->data['blog'] = $this->url->link('blog/latest', '', 'SSL');
 		$this->data['special'] = $this->url->link('product/special');
 		$this->data['latest'] = $this->url->link('product/latest');
@@ -200,7 +206,9 @@ class ControllerCommonHeader extends Controller {
 		$this->children = array(
 			'module/language',
 			'module/currency',
-			'module/cart'
+			'module/cart',
+			'module/cart',
+			'module/search'
 		);
 
 		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/common/header.tpl')) {

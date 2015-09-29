@@ -9,14 +9,16 @@ $_['decimal_point']         = '.';
 $_['thousand_point']        = ',';
 
 // Text
-$_['text_home']             = '<i class="fa fa-home"></i>Home';
+$_['text_home']             = 'Home';
 $_['text_yes']              = 'Yes';
 $_['text_no']               = 'No';
 $_['text_none']             = ' --- None --- ';
 $_['text_select']           = ' --- Please Select --- ';
 $_['text_all_zones']        = 'All Zones';
 $_['text_pagination']       = 'Showing {start} to {end} of {total} ({pages} Pages)';
-$_['text_separator']        = ' &raquo; ';
+$_['text_separator']        = ' &rarr; ';
+$_['text_views'] 	    	= 'Views:';
+$_['text_more']  			= 'More';
 
 // Buttons
 $_['button_add_address']    = 'Add Address';
@@ -50,6 +52,7 @@ $_['button_voucher']        = 'Apply Voucher';
 $_['button_upload']         = 'Upload File';
 $_['button_reward']         = 'Apply Points';
 $_['button_quote']          = 'Get Quotes';
+$_['button_more']   		= 'more';
 
 // Error
 $_['error_upload_1']        = 'Warning: The uploaded file exceeds the upload_max_filesize directive in php.ini!';

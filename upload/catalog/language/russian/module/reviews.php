@@ -1,4 +1,5 @@
 <?php
 // Text
-$_['text_all_reviews']  = 'Все отзывы'; 
+$_['text_all_reviews']  = 'Смотреть все отзывы';
+$_['text_more']  = 'Подробнее';
 ?>

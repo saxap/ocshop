@@ -3,6 +3,11 @@ class ControllerProductReviews extends Controller {
 	public function index() { 
     	$this->language->load('product/reviews');
 		
+		$this->data['text_more'] = $this->language->get('text_more');
+		$this->data['button_wishlist'] = $this->language->get('button_wishlist');
+		$this->data['button_compare'] = $this->language->get('button_compare');
+		$this->data['button_continue'] = $this->language->get('button_continue');
+		
 		$this->load->model('catalog/product');
 
 		$this->load->model('catalog/reviews');
@@ -103,6 +108,8 @@ class ControllerProductReviews extends Controller {
 		$pagination->url = $this->url->link('product/reviews', '&page={page}');
 			
 		$this->data['pagination'] = $pagination->render();
+		
+		$this->data['continue'] = $this->url->link('common/home');
 			
 		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/product/reviews.tpl')) {
 			$this->template = $this->config->get('config_template') . '/template/product/reviews.tpl';

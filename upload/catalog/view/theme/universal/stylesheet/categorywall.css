@@ -1,0 +1,126 @@
+.box-categorywall .categorywall {
+	display: inline-block;
+	float: left;
+	margin-left: 0px;
+	margin-right: 0px;
+	vertical-align: top;
+	text-align: left;
+}
+.box-categorywall img {
+	padding: 3px;
+	border: 1px solid #E7E7E7;
+}
+.box-categorywall .module_heading {
+	text-align:left;
+	margin: 0;
+}
+.box-categorywall .module_heading a {
+	
+	color: ##38B0E3;
+	text-decoration: none;
+}
+.box-categorywall ul {
+	list-style: none;
+	margin: 0px;
+	padding: 0;
+	text-align: left;
+
+}
+.box-categorywall ul li {
+	padding-top: 2px;
+}
+.box-categorywall ul a {
+	text-decoration: none;
+	color: ##38B0E3;
+}
+.box-categorywall .active {
+	text-decoration: underline;
+}
+.box-categorywall ul a:hover {
+	text-decoration: underline;
+}
+.box-categorywall > ul > li {
+    float: left;
+	padding: 8px 28px 8px 0px;
+}
+.box-categorywall > ul > li + li {
+
+}
+.box-categorywall > ul > li > a {
+	text-decoration: none;
+	color: #333;
+}
+.box-categorywall > ul > li ul {
+	display: block;
+}
+.box-categorywall > ul > li a.active {
+	font-weight: bold;
+	font-size:12px;
+}
+.box-categorywall > ul > li a.active + ul {
+	display: block;
+}
+.box-categorywall > ul > li ul > li {
+	padding: 5px 5px 0px 10px;
+}
+.box-categorywall > ul > li ul > li > a {
+	text-decoration: none;
+	display: block;
+}
+.box-categorywall > ul > li ul > li > a.active {
+	font-weight: bold;
+}
+.box-categorywall > ul > li ul > li ul > li a.active {
+	font-weight: bold;
+	color: #06bcc3;
+}
+.box-categorywall > ul > li ul > li ul > li a.active + ul {
+	display: block;
+}
+.categorywall .product-thumb .caption {
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    text-align: center;
+}
+.covers .categorywall  {
+text-align: left;
+overflow: hidden;
+position: relative;
+}
+.box-categorywall .col-sm-9,
+.box-categorywall .col-lg-3,
+.box-categorywall .col-sm-6,
+.box-categorywall .col-lg-3  {
+	min-width: 50%;
+}
+.covers img {
+border: 0;
+margin: 0;
+padding: 0;
+}
+.captions  {
+margin-top: 3px;
+float: left;
+position: absolute;
+height: 200px;
+width: 100%;
+margin: 0;
+padding: 0;
+}
+.captions  ul  {
+padding:10px;
+width: 80%;
+}
+.captions  .module_heading{ 
+margin-left:15px;
+margin-top:5px;
+}
+.captions  ul a{ 
+color:#888;
+}
+.semigrey {
+background:#f2f6f9;
+opacity: .9;
+filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=90);
+}
