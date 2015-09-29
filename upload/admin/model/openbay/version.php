@@ -8,6 +8,6 @@
 
 class ModelOpenbayVersion extends Model {
 	public function version() {
-		return (int)2918;
+		return (int)2936;
 	}
 }
