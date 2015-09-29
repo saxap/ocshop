@@ -87,12 +87,6 @@
       <?php } ?>
     </ul>
   </li>
-  <li id="design"><a class="parent"><i class="fa fa-television fa-fw"></i> <span><?php echo $text_design; ?></span></a>
-    <ul>
-      <li><a href="<?php echo $layout; ?>"><?php echo $text_layout; ?></a></li>
-      <li><a href="<?php echo $banner; ?>"><?php echo $text_banner; ?></a></li>
-    </ul>
-  </li>
   <li id="sale"><a class="parent"><i class="fa fa-shopping-cart fa-fw"></i> <span><?php echo $text_sale; ?></span></a>
     <ul>
       <li><a href="<?php echo $order; ?>"><?php echo $text_order; ?></a></li>
