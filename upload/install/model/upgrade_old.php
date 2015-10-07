@@ -1,4 +1,11 @@
 <?php
+// *	@copyright	OCSHOP.CMS \ ocshop.net 2011 - 2015.
+// *	@demo	http://ocshop.net
+// *	@blog	http://ocshop.info
+// *	@forum	http://forum.ocshop.info
+// *	@source		See SOURCE.txt for source and other copyright.
+// *	@license	GNU General Public License version 3; see LICENSE.txt
+
 class ModelUpgrade extends Model {
 	public function mysql() {
 		// Upgrade script to opgrade opencart to the latest version.
@@ -25,7 +32,7 @@ class ModelUpgrade extends Model {
 			$line = str_replace("CREATE TABLE `oc_", "CREATE TABLE `" . DB_PREFIX, $line);
 
 			// If line begins with create table we want to start recording
-			if (substr($line, 0, 10) == 'DROP TABLE' || substr($line, 0, 12) == 'CREATE TABLE') {
+			if (substr($line, 0, 12) == 'CREATE TABLE') {
 				$status = true;
 			}
 
@@ -122,7 +129,7 @@ class ModelUpgrade extends Model {
 			}
 
 			// Get Table Name
-			preg_match_all('#create\s*table\s*`(\w[\w\d]*)`#i', $sql, $table);
+			preg_match_all('#create\s*table\s*if\s*not\s*exists\s*`(\w[\w\d]*)`#i', $sql, $table);
 
 			if (isset($table[1][0])) {
 				$table_new_data[] = array(
@@ -361,17 +368,6 @@ class ModelUpgrade extends Model {
 				$this->db->query("UPDATE `" . DB_PREFIX . "setting` SET `value` = '" . $this->db->escape(json_encode($value)) . "' WHERE `setting_id` = '" . (int)$result['setting_id'] . "'");
 			}
 		}
-		
-		//  Change any serialized values to json values and restore in the DB
-		$query = $this->db->query("SELECT * FROM `" . DB_PREFIX . "module`");
-
-		foreach ($query->rows as $result) {
-			if ($result['setting']) {
-				$value = unserialize($result['setting']);
-
-				$this->db->query("UPDATE `" . DB_PREFIX . "module` SET `setting` = '" . $this->db->escape(json_encode($value)) . "' WHERE `module_id` = '" . (int)$result['module_id'] . "'");
-			}
-		}		
 
 		// Customer
 		$query = $this->db->query("SELECT * FROM `" . DB_PREFIX . "customer`");
