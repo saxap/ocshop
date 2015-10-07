@@ -21,4 +21,4 @@ $_['text_account']      = 'Личный кабинет';
 $_['text_order']        = 'История заказа';
 $_['text_wishlist']     = 'Закладки';
 $_['text_newsletter']   = 'Рассылка';
-$_['text_powered']      = 'Работает на <a href="http://ocshop.info">OCSHOP.CMS</a><br /> %s &copy; %s';
+$_['text_powered']      = 'Работает на <a href="http://forum.ocshop.info">OCSHOP.CMS</a><br /> %s &copy; %s';
