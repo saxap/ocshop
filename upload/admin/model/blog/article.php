@@ -217,7 +217,7 @@ class ModelBlogArticle extends Model {
 		$this->db->query("DELETE FROM " . DB_PREFIX . "article_to_download WHERE article_id = '" . (int)$article_id . "'");
 		$this->db->query("DELETE FROM " . DB_PREFIX . "article_to_layout WHERE article_id = '" . (int)$article_id . "'");
 		$this->db->query("DELETE FROM " . DB_PREFIX . "article_to_store WHERE article_id = '" . (int)$article_id . "'");
-		$this->db->query("DELETE FROM " . DB_PREFIX . "review WHERE article_id = '" . (int)$article_id . "'");
+		$this->db->query("DELETE FROM " . DB_PREFIX . "review_article WHERE article_id = '" . (int)$article_id . "'");
 		$this->db->query("DELETE FROM " . DB_PREFIX . "url_alias WHERE query = 'article_id=" . (int)$article_id . "'");
 
 		$this->cache->delete('article');

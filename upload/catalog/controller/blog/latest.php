@@ -97,7 +97,7 @@ class ControllerBlogLatest extends Controller {
 			
 		$data['configblog_review_status'] = $this->config->get('configblog_review_status');
 
-		$article_data['articles'] = array();
+		$data['articles'] = array();
 			
 			$article_data = array(
 				'sort'               => $sort,
@@ -250,6 +250,8 @@ class ControllerBlogLatest extends Controller {
 		$data['pagination'] = $pagination->render();
 		
 		$data['article_total'] = $article_total;
+		
+		$data['continue'] = $this->url->link('common/home');
 
 		$data['sort'] = $sort;
 		$data['order'] = $order;
