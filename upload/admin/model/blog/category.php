@@ -165,7 +165,6 @@ class ModelBlogCategory extends Model {
 
 		$this->db->query("DELETE FROM " . DB_PREFIX . "blog_category WHERE blog_category_id = '" . (int)$blog_category_id . "'");
 		$this->db->query("DELETE FROM " . DB_PREFIX . "blog_category_description WHERE blog_category_id = '" . (int)$blog_category_id . "'");
-		$this->db->query("DELETE FROM " . DB_PREFIX . "blog_category_filter WHERE blog_category_id = '" . (int)$blog_category_id . "'");
 		$this->db->query("DELETE FROM " . DB_PREFIX . "blog_category_to_store WHERE blog_category_id = '" . (int)$blog_category_id . "'");
 		$this->db->query("DELETE FROM " . DB_PREFIX . "blog_category_to_layout WHERE blog_category_id = '" . (int)$blog_category_id . "'");
 		$this->db->query("DELETE FROM " . DB_PREFIX . "article_to_blog_category WHERE blog_category_id = '" . (int)$blog_category_id . "'");
