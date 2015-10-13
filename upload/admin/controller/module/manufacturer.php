@@ -10,7 +10,7 @@ class ControllerModuleManufacturer extends Controller {
 	private $error = array();
 
 	public function index() {
-		$this->load->language('module/manufacturer');
+		$this->language->load('module/manufacturer');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 

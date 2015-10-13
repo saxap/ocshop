@@ -8,7 +8,7 @@
 
 class ControllerModuleProductTab extends Controller {
 	public function index($setting) {
-		$this->load->language('module/product_tab');
+		$this->language->load('module/product_tab');
 
 		$data['heading_title'] = $this->language->get('heading_title');
 		

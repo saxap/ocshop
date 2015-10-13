@@ -15,7 +15,7 @@ class ModelBlogReview extends Model {
 		$review_id = $this->db->getLastId();
 
 		if ($this->config->get('configblog_review_mail')) {
-			$this->load->language('blog/mail/review');
+			$this->language->load('blog/mail/review');
 			$this->load->model('blog/article');
 			
 			$article_info = $this->model_blog_article->getArticle($article_id);

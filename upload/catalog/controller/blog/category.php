@@ -8,7 +8,7 @@
 
 class ControllerBlogCategory extends Controller {
 	public function index() {
-		$this->load->language('blog/category');
+		$this->language->load('blog/category');
 
 		$this->load->model('blog/category');
 

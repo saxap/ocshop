@@ -12,7 +12,7 @@ class ControllerBlogCategory extends Controller {
 	private $path = array();
 
 	public function index() {
-		$this->load->language('blog/category');
+		$this->language->load('blog/category');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -22,7 +22,7 @@ class ControllerBlogCategory extends Controller {
 	}
 
 	public function add() {
-		$this->load->language('blog/category');
+		$this->language->load('blog/category');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -54,7 +54,7 @@ class ControllerBlogCategory extends Controller {
 	}
 
 	public function edit() {
-		$this->load->language('blog/category');
+		$this->language->load('blog/category');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -86,7 +86,7 @@ class ControllerBlogCategory extends Controller {
 	}
 
 	public function delete() {
-		$this->load->language('blog/category');
+		$this->language->load('blog/category');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -120,7 +120,7 @@ class ControllerBlogCategory extends Controller {
 	}
 
 	public function repair() {
-		$this->load->language('blog/category');
+		$this->language->load('blog/category');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 

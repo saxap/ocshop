@@ -9,7 +9,7 @@
 class ControllerBlogMenu extends Controller {
 	public function index() {
 
-		$this->load->language('blog/menu');
+		$this->language->load('blog/menu');
 
 		$data['text_blog'] = $this->language->get('text_blog');
 		$data['text_all'] = $this->language->get('text_all');

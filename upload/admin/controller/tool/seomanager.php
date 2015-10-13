@@ -10,7 +10,7 @@ class ControllerToolSeoManager extends Controller {
         private $error = array();
 
         public function index() {
-                $this->load->language('tool/seomanager');
+                $this->language->load('tool/seomanager');
 
                 $this->document->setTitle($this->language->get('heading_title'));
 
@@ -20,7 +20,7 @@ class ControllerToolSeoManager extends Controller {
         }
 
         public function update() {
-                $this->load->language('tool/seomanager');
+                $this->language->load('tool/seomanager');
                 $this->document->setTitle($this->language->get('heading_title'));
                 $this->load->model('tool/seomanager');
 
@@ -46,7 +46,7 @@ class ControllerToolSeoManager extends Controller {
         }
         
         public function clear() {
-    		$this->load->language('tool/seomanager');
+    		$this->language->load('tool/seomanager');
                 $url = '';
 
                 if (isset($this->request->get['sort'])) {
@@ -67,7 +67,7 @@ class ControllerToolSeoManager extends Controller {
         }
 
         public function delete() {
-                $this->load->language('tool/seomanager');
+                $this->language->load('tool/seomanager');
                 $this->load->model('tool/seomanager');
                 $url = '';
 

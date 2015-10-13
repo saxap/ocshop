@@ -477,7 +477,7 @@ class ControllerBlogArticle extends Controller {
 	}
 	
 	public function write() {
-		$this->load->language('blog/article');
+		$this->language->load('blog/article');
 
 		$json = array();
 

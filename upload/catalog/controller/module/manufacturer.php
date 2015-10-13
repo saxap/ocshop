@@ -8,7 +8,7 @@
 
 class ControllerModuleMAnufacturer extends Controller {
 	public function index($setting) {
-		$this->load->language('module/manufacturer');
+		$this->language->load('module/manufacturer');
 
 		$data['heading_title'] = $this->language->get('heading_title');
 

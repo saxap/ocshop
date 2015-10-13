@@ -10,7 +10,7 @@ class ControllerHowtoSeopult extends Controller {
 	private $error = array();
 
 	public function index() {
-		$this->load->language('howto/seopult');
+		$this->language->load('howto/seopult');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 

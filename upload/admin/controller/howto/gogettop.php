@@ -10,7 +10,7 @@ class ControllerHowtoGogettop extends Controller {
 	private $error = array();
 
 	public function index() {
-		$this->load->language('howto/gogettop');
+		$this->language->load('howto/gogettop');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 

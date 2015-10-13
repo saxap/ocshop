@@ -11,7 +11,7 @@ class ControllerFeedYandexMarket extends Controller {
 	private $error = array();
 
 	public function index() {
-		$this->load->language('feed/yandex_market');
+		$this->language->load('feed/yandex_market');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
