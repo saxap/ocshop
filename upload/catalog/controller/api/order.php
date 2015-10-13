@@ -101,6 +101,8 @@ class ControllerApiOrder extends Controller {
 			}
 
 			if (!$json) {
+				$json['success'] = $this->language->get('text_success');
+				
 				$order_data = array();
 
 				// Store Details
@@ -348,8 +350,6 @@ class ControllerApiOrder extends Controller {
 				}
 
 				$this->model_checkout_order->addOrderHistory($json['order_id'], $order_status_id);
-
-				$json['success'] = $this->language->get('text_success');
 			}
 		}
 
@@ -468,6 +468,8 @@ class ControllerApiOrder extends Controller {
 				}
 
 				if (!$json) {
+					$json['success'] = $this->language->get('text_success');
+					
 					$order_data = array();
 
 					// Store Details
@@ -681,8 +683,6 @@ class ControllerApiOrder extends Controller {
 					}
 
 					$this->model_checkout_order->addOrderHistory($order_id, $order_status_id);
-
-					$json['success'] = $this->language->get('text_success');
 				}
 			} else {
 				$json['error'] = $this->language->get('error_not_found');
