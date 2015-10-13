@@ -8,7 +8,7 @@
 
 class ControllerApiVoucher extends Controller {
 	public function index() {
-		$this->load->language('api/voucher');
+		$this->language->load('api/voucher');
 
 		// Delete past voucher in case there is an error
 		unset($this->session->data['voucher']);
@@ -18,7 +18,7 @@ class ControllerApiVoucher extends Controller {
 		if (!isset($this->session->data['api_id'])) {
 			$json['error'] = $this->language->get('error_permission');
 		} else {
-			$this->load->model('total/coupon');
+			$this->load->model('total/voucher');
 
 			if (isset($this->request->post['voucher'])) {
 				$voucher = $this->request->post['voucher'];
@@ -49,7 +49,7 @@ class ControllerApiVoucher extends Controller {
 	}
 
 	public function add() {
-		$this->load->language('api/voucher');
+		$this->language->load('api/voucher');
 
 		$json = array();
 

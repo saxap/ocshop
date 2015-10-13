@@ -8,7 +8,7 @@
 
 class ControllerDashboardCustomer extends Controller {
 	public function index() {
-		$this->load->language('dashboard/customer');
+		$this->language->load('dashboard/customer');
 
 		$data['heading_title'] = $this->language->get('heading_title');
 

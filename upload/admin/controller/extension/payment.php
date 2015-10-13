@@ -10,7 +10,7 @@ class ControllerExtensionPayment extends Controller {
 	private $error = array();
 
 	public function index() {
-		$this->load->language('extension/payment');
+		$this->language->load('extension/payment');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -20,7 +20,7 @@ class ControllerExtensionPayment extends Controller {
 	}
 
 	public function install() {
-		$this->load->language('extension/payment');
+		$this->language->load('extension/payment');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -46,7 +46,7 @@ class ControllerExtensionPayment extends Controller {
 	}
 
 	public function uninstall() {
-		$this->load->language('extension/payment');
+		$this->language->load('extension/payment');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -132,7 +132,7 @@ class ControllerExtensionPayment extends Controller {
 			foreach ($files as $file) {
 				$extension = basename($file, '.php');
 
-				$this->load->language('payment/' . $extension);
+				$this->language->load('payment/' . $extension);
 
 				$text_link = $this->language->get('text_' . $extension);
 

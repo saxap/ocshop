@@ -8,7 +8,7 @@
 
 class ControllerProductSearch extends Controller {
 	public function index() {
-		$this->load->language('product/search');
+		$this->language->load('product/search');
 
 		$this->load->model('catalog/category');
 

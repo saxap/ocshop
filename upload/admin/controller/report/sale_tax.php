@@ -8,7 +8,7 @@
 
 class ControllerReportSaleTax extends Controller {
 	public function index() {
-		$this->load->language('report/sale_tax');
+		$this->language->load('report/sale_tax');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 

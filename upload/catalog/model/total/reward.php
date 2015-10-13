@@ -9,7 +9,7 @@
 class ModelTotalReward extends Model {
 	public function getTotal(&$total_data, &$total, &$taxes) {
 		if ($this->config->get('credit_status') && isset($this->session->data['reward'])) {
-			$this->load->language('total/reward');
+			$this->language->load('total/reward');
 
 			$points = $this->customer->getRewardPoints();
 
@@ -59,7 +59,7 @@ class ModelTotalReward extends Model {
 	}
 
 	public function confirm($order_info, $order_total) {
-		$this->load->language('total/reward');
+		$this->language->load('total/reward');
 
 		$points = 0;
 

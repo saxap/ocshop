@@ -8,7 +8,7 @@
 
 class ControllerPaymentSagepayDirect extends Controller {
 	public function index() {
-		$this->load->language('payment/sagepay_direct');
+		$this->language->load('payment/sagepay_direct');
 
 		$data['text_credit_card'] = $this->language->get('text_credit_card');
 		$data['text_loading'] = $this->language->get('text_loading');
@@ -131,7 +131,7 @@ class ControllerPaymentSagepayDirect extends Controller {
 	}
 
 	public function send() {
-		$this->load->language('payment/sagepay_direct');
+		$this->language->load('payment/sagepay_direct');
 		$this->load->model('checkout/order');
 		$this->load->model('payment/sagepay_direct');
 
@@ -329,7 +329,7 @@ class ControllerPaymentSagepayDirect extends Controller {
 	public function callback() {
 		$this->load->model('payment/sagepay_direct');
 
-		$this->load->language('payment/sagepay_direct');
+		$this->language->load('payment/sagepay_direct');
 
 		$this->load->model('checkout/order');
 

@@ -8,7 +8,7 @@
 
 class ControllerCheckoutPaymentMethod extends Controller {
 	public function index() {
-		$this->load->language('checkout/checkout');
+		$this->language->load('checkout/checkout');
 
 		if (isset($this->session->data['payment_address'])) {
 			// Totals
@@ -134,7 +134,7 @@ class ControllerCheckoutPaymentMethod extends Controller {
 	}
 
 	public function save() {
-		$this->load->language('checkout/checkout');
+		$this->language->load('checkout/checkout');
 
 		$json = array();
 

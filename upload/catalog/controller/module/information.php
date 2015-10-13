@@ -8,7 +8,7 @@
 
 class ControllerModuleInformation extends Controller {
 	public function index() {
-		$this->load->language('module/information');
+		$this->language->load('module/information');
 
 		$data['heading_title'] = $this->language->get('heading_title');
 

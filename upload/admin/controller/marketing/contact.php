@@ -10,7 +10,7 @@ class ControllerMarketingContact extends Controller {
 	private $error = array();
 
 	public function index() {
-		$this->load->language('marketing/contact');
+		$this->language->load('marketing/contact');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -74,7 +74,7 @@ class ControllerMarketingContact extends Controller {
 	}
 
 	public function send() {
-		$this->load->language('marketing/contact');
+		$this->language->load('marketing/contact');
 
 		$json = array();
 

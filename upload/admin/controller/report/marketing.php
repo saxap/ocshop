@@ -8,7 +8,7 @@
 
 class ControllerReportMarketing extends Controller {
 	public function index() {
-		$this->load->language('report/marketing');
+		$this->language->load('report/marketing');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 

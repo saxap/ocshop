@@ -8,7 +8,7 @@
 
 class ControllerDashboardActivity extends Controller {
 	public function index() {
-		$this->load->language('dashboard/activity');
+		$this->language->load('dashboard/activity');
 
 		$data['heading_title'] = $this->language->get('heading_title');
 

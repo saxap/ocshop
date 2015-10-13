@@ -11,7 +11,7 @@ class ControllerPaymentKlarnaAccount extends Controller {
 	private $pclasses = array();
 
 	public function index() {
-		$this->load->language('payment/klarna_account');
+		$this->language->load('payment/klarna_account');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -357,7 +357,7 @@ class ControllerPaymentKlarnaAccount extends Controller {
 	}
 
 	public function clear() {
-		$this->load->language('payment/klarna_account');
+		$this->language->load('payment/klarna_account');
 
 		$file = DIR_LOGS . 'klarna_account.log';
 

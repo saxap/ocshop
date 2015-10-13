@@ -10,7 +10,7 @@ class ControllerOpenbayEbayTemplate extends Controller {
 	private $error = array();
 
 	public function listAll() {
-		$data = $this->load->language('openbay/ebay_template');
+		$data = $this->language->load('openbay/ebay_template');
 
 		$this->load->model('openbay/ebay_template');
 
@@ -67,7 +67,7 @@ class ControllerOpenbayEbayTemplate extends Controller {
 	}
 
 	public function add() {
-		$data = $this->load->language('openbay/ebay_template');
+		$data = $this->language->load('openbay/ebay_template');
 
 		$this->load->model('openbay/ebay_template');
 
@@ -87,7 +87,7 @@ class ControllerOpenbayEbayTemplate extends Controller {
 	}
 
 	public function delete() {
-		$this->load->language('openbay/ebay_template');
+		$this->language->load('openbay/ebay_template');
 		$this->load->model('openbay/ebay_template');
 
 		if (!$this->user->hasPermission('modify', 'openbay/ebay_template')) {
@@ -103,7 +103,7 @@ class ControllerOpenbayEbayTemplate extends Controller {
 	}
 
 	public function edit() {
-		$data = $this->load->language('openbay/ebay_template');
+		$data = $this->language->load('openbay/ebay_template');
 
 		$this->load->model('openbay/ebay_template');
 

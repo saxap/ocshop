@@ -8,7 +8,7 @@
 
 class ControllerCommonLanguage extends Controller {
 	public function index() {
-		$this->load->language('common/language');
+		$this->language->load('common/language');
 
 		$data['text_language'] = $this->language->get('text_language');
 

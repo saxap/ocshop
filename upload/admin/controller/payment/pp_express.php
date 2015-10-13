@@ -10,7 +10,7 @@ class ControllerPaymentPPExpress extends Controller {
 	private $error = array();
 
 	public function index() {
-		$this->load->language('payment/pp_express');
+		$this->language->load('payment/pp_express');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -433,7 +433,7 @@ class ControllerPaymentPPExpress extends Controller {
 
 	public function live() {
 		if (isset($this->request->get['merchantId'])) {
-			$this->load->language('payment/pp_express');
+			$this->language->load('payment/pp_express');
 
 			$this->load->model('payment/pp_express');
 			$this->load->model('setting/setting');
@@ -459,7 +459,7 @@ class ControllerPaymentPPExpress extends Controller {
 
 	public function sandbox() {
 		if (isset($this->request->get['merchantId'])) {
-			$this->load->language('payment/pp_express');
+			$this->language->load('payment/pp_express');
 
 			$this->load->model('payment/pp_express');
 			$this->load->model('setting/setting');
@@ -485,7 +485,7 @@ class ControllerPaymentPPExpress extends Controller {
 
 	public function resend() {
 		$this->load->model('payment/pp_express');
-		$this->load->language('payment/pp_express');
+		$this->language->load('payment/pp_express');
 
 		$json = array();
 
@@ -551,7 +551,7 @@ class ControllerPaymentPPExpress extends Controller {
 	}
 
 	public function capture() {
-		$this->load->language('payment/pp_express');
+		$this->language->load('payment/pp_express');
 		/**
 		 * used to capture authorised payments
 		 *
@@ -725,7 +725,7 @@ class ControllerPaymentPPExpress extends Controller {
 
 	public function refund() {
 
-		$this->load->language('payment/pp_express_refund');
+		$this->language->load('payment/pp_express_refund');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -802,7 +802,7 @@ class ControllerPaymentPPExpress extends Controller {
 		if (isset($this->request->post['transaction_id']) && isset($this->request->post['refund_full'])) {
 
 			$this->load->model('payment/pp_express');
-			$this->load->language('payment/pp_express_refund');
+			$this->language->load('payment/pp_express_refund');
 
 			if ($this->request->post['refund_full'] == 0 && $this->request->post['amount'] == 0) {
 				$this->session->data['error'] = $this->language->get('error_partial_amt');
@@ -895,7 +895,7 @@ class ControllerPaymentPPExpress extends Controller {
 	public function order() {
 		if ($this->config->get('pp_express_status')) {
 			$this->load->model('payment/pp_express');
-			$this->load->language('payment/pp_express_order');
+			$this->language->load('payment/pp_express_order');
 
 			$paypal_order = $this->model_payment_pp_express->getOrder($this->request->get['order_id']);
 
@@ -954,7 +954,7 @@ class ControllerPaymentPPExpress extends Controller {
 	}
 
 	public function search() {
-		$this->load->language('payment/pp_express_search');
+		$this->language->load('payment/pp_express_search');
 		$this->load->model('payment/pp_express');
 
 		$this->document->setTitle($this->language->get('heading_title'));
@@ -1161,7 +1161,7 @@ class ControllerPaymentPPExpress extends Controller {
 
 	public function viewTransaction() {
 		$this->load->model('payment/pp_express');
-		$this->load->language('payment/pp_express_view');
+		$this->language->load('payment/pp_express_view');
 
 		$data['transaction'] = $this->model_payment_pp_express->getTransaction($this->request->get['transaction_id']);
 		$data['lines'] = $this->formatRows($data['transaction']);

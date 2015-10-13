@@ -52,7 +52,7 @@ class ControllerCatalogRecurring extends Controller {
 	}
 
 	public function edit() {
-		$this->load->language('catalog/recurring');
+		$this->language->load('catalog/recurring');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -84,7 +84,7 @@ class ControllerCatalogRecurring extends Controller {
 	}
 
 	public function delete() {
-		$this->load->language('catalog/recurring');
+		$this->language->load('catalog/recurring');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -118,7 +118,7 @@ class ControllerCatalogRecurring extends Controller {
 	}
 
 	public function copy() {
-		$this->load->language('catalog/recurring');
+		$this->language->load('catalog/recurring');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 

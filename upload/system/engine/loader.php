@@ -55,7 +55,7 @@ final class Loader {
 	}
 
 	public function model($model, $data = array()) {
-		// $this->event->trigger('pre.model.' . str_replace('/', '.', (string)$model), $data);
+		// $this->event->trigger('pre/model/' . str_replace('/', '.', (string)$model), $data);
 
 		$model = str_replace('../', '', (string)$model);
 
@@ -71,7 +71,7 @@ final class Loader {
 			exit();
 		}
 
-		// $this->event->trigger('post.model.' . str_replace('/', '.', (string)$model), $output);
+		// $this->event->trigger('post/model/' . str_replace('/', '.', (string)$model), $output);
 	}
 
 	public function view($template, $data = array()) {
@@ -94,7 +94,7 @@ final class Loader {
 			exit();
 		}
 
-		// $this->event->trigger('post.view.' . str_replace('/', '.', $template), $output);
+		// $this->event->trigger('post/view/' . $template, $output);
 
 		return $output;
 	}

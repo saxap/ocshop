@@ -8,7 +8,7 @@
 
 class ControllerCommonCurrency extends Controller {
 	public function index() {
-		$this->load->language('common/currency');
+		$this->language->load('common/currency');
 
 		$data['text_currency'] = $this->language->get('text_currency');
 

@@ -14,7 +14,7 @@ class ControllerAccountAccount extends Controller {
 			$this->response->redirect($this->url->link('account/login', '', 'SSL'));
 		}
 
-		$this->load->language('account/account');
+		$this->language->load('account/account');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 		$this->document->setRobots('noindex,follow');

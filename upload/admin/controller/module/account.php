@@ -10,7 +10,7 @@ class ControllerModuleAccount extends Controller {
 	private $error = array();
 
 	public function index() {
-		$this->load->language('module/account');
+		$this->language->load('module/account');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 

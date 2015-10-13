@@ -10,7 +10,7 @@ class ControllerExtensionModification extends Controller {
 	private $error = array();
 
 	public function index() {
-		$this->load->language('extension/modification');
+		$this->language->load('extension/modification');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -20,7 +20,7 @@ class ControllerExtensionModification extends Controller {
 	}
 
 	public function delete() {
-		$this->load->language('extension/modification');
+		$this->language->load('extension/modification');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -54,7 +54,7 @@ class ControllerExtensionModification extends Controller {
 	}
 
 	public function refresh() {
-		$this->load->language('extension/modification');
+		$this->language->load('extension/modification');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -441,7 +441,7 @@ class ControllerExtensionModification extends Controller {
 	}
 
 	public function clear() {
-		$this->load->language('extension/modification');
+		$this->language->load('extension/modification');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -508,7 +508,7 @@ class ControllerExtensionModification extends Controller {
 	}
 
 	public function enable() {
-		$this->load->language('extension/modification');
+		$this->language->load('extension/modification');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -540,7 +540,7 @@ class ControllerExtensionModification extends Controller {
 	}
 
 	public function disable() {
-		$this->load->language('extension/modification');
+		$this->language->load('extension/modification');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -572,7 +572,7 @@ class ControllerExtensionModification extends Controller {
 	}
 
 	public function clearlog() {
-		$this->load->language('extension/modification');
+		$this->language->load('extension/modification');
 
 		if ($this->validate()) {
 			$handle = fopen(DIR_LOGS . 'ocmod.log', 'w+');

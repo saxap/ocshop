@@ -10,7 +10,7 @@ class ControllerLocalisationGeoZone extends Controller {
 	private $error = array();
 
 	public function index() {
-		$this->load->language('localisation/geo_zone');
+		$this->language->load('localisation/geo_zone');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -20,7 +20,7 @@ class ControllerLocalisationGeoZone extends Controller {
 	}
 
 	public function add() {
-		$this->load->language('localisation/geo_zone');
+		$this->language->load('localisation/geo_zone');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -52,7 +52,7 @@ class ControllerLocalisationGeoZone extends Controller {
 	}
 
 	public function edit() {
-		$this->load->language('localisation/geo_zone');
+		$this->language->load('localisation/geo_zone');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -84,7 +84,7 @@ class ControllerLocalisationGeoZone extends Controller {
 	}
 
 	public function delete() {
-		$this->load->language('localisation/geo_zone');
+		$this->language->load('localisation/geo_zone');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
