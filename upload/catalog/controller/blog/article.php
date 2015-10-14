@@ -130,7 +130,7 @@ class ControllerBlogArticle extends Controller {
 			
 			$data['text_select'] = $this->language->get('text_select');
 			$data['text_write'] = $this->language->get('text_write');
-			$data['text_login'] = sprintf($this->language->get('text_login'), $this->url->link('account/login', '', 'SSL'), $this->url->link('account/register', '', 'SSL'));
+			$data['text_login'] = sprintf($this->language->get('text_login'), $this->url->link('account/login', '', true), $this->url->link('account/register', '', true));
 			$data['text_loading'] = $this->language->get('text_loading');
 			$data['text_note'] = $this->language->get('text_note');
 			$data['text_share'] = $this->language->get('text_share');

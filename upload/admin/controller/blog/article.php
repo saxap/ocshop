@@ -57,7 +57,7 @@ class ControllerBlogArticle extends Controller {
 				$url .= '&page=' . $this->request->get['page'];
 			}
 
-			$this->response->redirect($this->url->link('blog/article', 'token=' . $this->session->data['token'] . $url, 'SSL'));
+			$this->response->redirect($this->url->link('blog/article', 'token=' . $this->session->data['token'] . $url, true));
 		}
 
 		$this->getForm();
@@ -101,7 +101,7 @@ class ControllerBlogArticle extends Controller {
 				$url .= '&page=' . $this->request->get['page'];
 			}
 
-			$this->response->redirect($this->url->link('blog/article', 'token=' . $this->session->data['token'] . $url, 'SSL'));
+			$this->response->redirect($this->url->link('blog/article', 'token=' . $this->session->data['token'] . $url, true));
 		}
 
 		$this->getForm();
@@ -147,7 +147,7 @@ class ControllerBlogArticle extends Controller {
 				$url .= '&page=' . $this->request->get['page'];
 			}
 
-			$this->response->redirect($this->url->link('blog/article', 'token=' . $this->session->data['token'] . $url, 'SSL'));
+			$this->response->redirect($this->url->link('blog/article', 'token=' . $this->session->data['token'] . $url, true));
 		}
 
 		$this->getList();
@@ -193,7 +193,7 @@ class ControllerBlogArticle extends Controller {
 				$url .= '&page=' . $this->request->get['page'];
 			}
 
-			$this->response->redirect($this->url->link('blog/article', 'token=' . $this->session->data['token'] . $url, 'SSL'));
+			$this->response->redirect($this->url->link('blog/article', 'token=' . $this->session->data['token'] . $url, true));
 		}
 
 		$this->getList();
@@ -266,17 +266,17 @@ class ControllerBlogArticle extends Controller {
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_home'),
-			'href' => $this->url->link('common/dashboard', 'token=' . $this->session->data['token'], 'SSL')
+			'href' => $this->url->link('common/dashboard', 'token=' . $this->session->data['token'], true)
 		);
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('heading_title'),
-			'href' => $this->url->link('blog/article', 'token=' . $this->session->data['token'] . $url, 'SSL')
+			'href' => $this->url->link('blog/article', 'token=' . $this->session->data['token'] . $url, true)
 		);
 
-		$data['add'] = $this->url->link('blog/article/add', 'token=' . $this->session->data['token'] . $url, 'SSL');
-		$data['copy'] = $this->url->link('blog/article/copy', 'token=' . $this->session->data['token'] . $url, 'SSL');
-		$data['delete'] = $this->url->link('blog/article/delete', 'token=' . $this->session->data['token'] . $url, 'SSL');
+		$data['add'] = $this->url->link('blog/article/add', 'token=' . $this->session->data['token'] . $url, true);
+		$data['copy'] = $this->url->link('blog/article/copy', 'token=' . $this->session->data['token'] . $url, true);
+		$data['delete'] = $this->url->link('blog/article/delete', 'token=' . $this->session->data['token'] . $url, true);
 
 		$data['articles'] = array();
 
@@ -310,7 +310,7 @@ class ControllerBlogArticle extends Controller {
 				'status'     => ($result['status']) ? $this->language->get('text_enabled') : $this->language->get('text_disabled'),
 				'noindex'    => ($result['noindex']) ? $this->language->get('text_enabled') : $this->language->get('text_disabled'),
 				'href_shop'  => HTTP_CATALOG . 'index.php?route=blog/article&article_id=' . ($result['article_id']),
-				'edit'       => $this->url->link('blog/article/edit', 'token=' . $this->session->data['token'] . '&article_id=' . $result['article_id'] . $url, 'SSL')
+				'edit'       => $this->url->link('blog/article/edit', 'token=' . $this->session->data['token'] . '&article_id=' . $result['article_id'] . $url, true)
 			);
 		}
 
@@ -385,10 +385,10 @@ class ControllerBlogArticle extends Controller {
 			$url .= '&page=' . $this->request->get['page'];
 		}
 
-		$data['sort_name'] = $this->url->link('blog/article', 'token=' . $this->session->data['token'] . '&sort=pd.name' . $url, 'SSL');
-		$data['sort_status'] = $this->url->link('blog/article', 'token=' . $this->session->data['token'] . '&sort=p.status' . $url, 'SSL');
-		$data['sort_noindex'] = $this->url->link('blog/article', 'token=' . $this->session->data['token'] . '&sort=p.noindex' . $url, 'SSL');
-		$data['sort_order'] = $this->url->link('blog/article', 'token=' . $this->session->data['token'] . '&sort=p.sort_order' . $url, 'SSL');
+		$data['sort_name'] = $this->url->link('blog/article', 'token=' . $this->session->data['token'] . '&sort=pd.name' . $url, true);
+		$data['sort_status'] = $this->url->link('blog/article', 'token=' . $this->session->data['token'] . '&sort=p.status' . $url, true);
+		$data['sort_noindex'] = $this->url->link('blog/article', 'token=' . $this->session->data['token'] . '&sort=p.noindex' . $url, true);
+		$data['sort_order'] = $this->url->link('blog/article', 'token=' . $this->session->data['token'] . '&sort=p.sort_order' . $url, true);
 
 		$url = '';
 
@@ -416,7 +416,7 @@ class ControllerBlogArticle extends Controller {
 		$pagination->total = $article_total;
 		$pagination->page = $page;
 		$pagination->limit = $this->config->get('config_limit_admin');
-		$pagination->url = $this->url->link('blog/article', 'token=' . $this->session->data['token'] . $url . '&page={page}', 'SSL');
+		$pagination->url = $this->url->link('blog/article', 'token=' . $this->session->data['token'] . $url . '&page={page}', true);
 
 		$data['pagination'] = $pagination->render();
 
@@ -545,21 +545,21 @@ class ControllerBlogArticle extends Controller {
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_home'),
-			'href' => $this->url->link('common/dashboard', 'token=' . $this->session->data['token'], 'SSL')
+			'href' => $this->url->link('common/dashboard', 'token=' . $this->session->data['token'], true)
 		);
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('heading_title'),
-			'href' => $this->url->link('blog/article', 'token=' . $this->session->data['token'] . $url, 'SSL')
+			'href' => $this->url->link('blog/article', 'token=' . $this->session->data['token'] . $url, true)
 		);
 
 		if (!isset($this->request->get['article_id'])) {
-			$data['action'] = $this->url->link('blog/article/add', 'token=' . $this->session->data['token'] . $url, 'SSL');
+			$data['action'] = $this->url->link('blog/article/add', 'token=' . $this->session->data['token'] . $url, true);
 		} else {
-			$data['action'] = $this->url->link('blog/article/edit', 'token=' . $this->session->data['token'] . '&article_id=' . $this->request->get['article_id'] . $url, 'SSL');
+			$data['action'] = $this->url->link('blog/article/edit', 'token=' . $this->session->data['token'] . '&article_id=' . $this->request->get['article_id'] . $url, true);
 		}
 
-		$data['cancel'] = $this->url->link('blog/article', 'token=' . $this->session->data['token'] . $url, 'SSL');
+		$data['cancel'] = $this->url->link('blog/article', 'token=' . $this->session->data['token'] . $url, true);
 
 		if (isset($this->request->get['article_id']) && ($this->request->server['REQUEST_METHOD'] != 'POST')) {
 			$article_info = $this->model_blog_article->getArticle($this->request->get['article_id']);

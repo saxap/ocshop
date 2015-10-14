@@ -1423,7 +1423,7 @@ class ControllerSettingSetting extends Controller {
 		}
 		
 		$data['text_howtosms'] = $this->language->get('text_howtosms');
-		$data['howtosms'] = $this->url->link('howto/howtosms', 'token=' . $this->session->data['token'], 'SSL');
+		$data['howtosms'] = $this->url->link('howto/howtosms', 'token=' . $this->session->data['token'], true);
 
 		$data['header'] = $this->load->controller('common/header');
 		$data['column_left'] = $this->load->controller('common/column_left');

@@ -42,7 +42,7 @@ class ControllerToolSeoManager extends Controller {
                         $this->model_tool_seomanager->updateUrlAlias($this->request->post);
                         $this->session->data['success'] = $this->language->get('text_success');
                 }
-		$this->response->redirect($this->url->link('tool/seomanager', 'token=' . $this->session->data['token'] . $url, 'SSL'));
+		$this->response->redirect($this->url->link('tool/seomanager', 'token=' . $this->session->data['token'] . $url, true));
         }
         
         public function clear() {
@@ -63,7 +63,7 @@ class ControllerToolSeoManager extends Controller {
                 $this->cache->delete('seo_pro');
                 $this->cache->delete('seo_url');
                 $this->session->data['success'] = $this->language->get('text_success_clear');
-		$this->response->redirect($this->url->link('tool/seomanager', 'token=' . $this->session->data['token'] . $url, 'SSL'));
+		$this->response->redirect($this->url->link('tool/seomanager', 'token=' . $this->session->data['token'] . $url, true));
         }
 
         public function delete() {
@@ -90,7 +90,7 @@ class ControllerToolSeoManager extends Controller {
                         $this->session->data['success'] = $this->language->get('text_success');
                 }
 
-                $this->response->redirect($this->url->link('tool/seomanager', 'token=' . $this->session->data['token'] . $url, 'SSL'));
+                $this->response->redirect($this->url->link('tool/seomanager', 'token=' . $this->session->data['token'] . $url, true));
         }
 
         private function getList() {
@@ -130,18 +130,18 @@ class ControllerToolSeoManager extends Controller {
 
 				$data['breadcrumbs'][] = array(
 					'text' => $this->language->get('text_home'),
-					'href' => $this->url->link('common/dashboard', 'token=' . $this->session->data['token'], 'SSL')
+					'href' => $this->url->link('common/dashboard', 'token=' . $this->session->data['token'], true)
 				);
 
 				$data['breadcrumbs'][] = array(
 					'text' => $this->language->get('heading_title'),
-					'href' => $this->url->link('tool/seomanager', 'token=' . $this->session->data['token'] . $url, 'SSL')
+					'href' => $this->url->link('tool/seomanager', 'token=' . $this->session->data['token'] . $url, true)
 				);
 
-                $data['insert'] = $this->url->link('tool/seomanager/insert', 'token=' . $this->session->data['token'] . $url, 'SSL');
-                $data['delete'] = $this->url->link('tool/seomanager/delete', 'token=' . $this->session->data['token'] . $url, 'SSL');
-                $data['save'] = $this->url->link('tool/seomanager/update', 'token=' . $this->session->data['token'] . $url, 'SSL');
-                $data['clear'] = $this->url->link('tool/seomanager/clear', 'token=' . $this->session->data['token'] . $url, 'SSL');
+                $data['insert'] = $this->url->link('tool/seomanager/insert', 'token=' . $this->session->data['token'] . $url, true);
+                $data['delete'] = $this->url->link('tool/seomanager/delete', 'token=' . $this->session->data['token'] . $url, true);
+                $data['save'] = $this->url->link('tool/seomanager/update', 'token=' . $this->session->data['token'] . $url, true);
+                $data['clear'] = $this->url->link('tool/seomanager/clear', 'token=' . $this->session->data['token'] . $url, true);
 
                 $data['url_aliases'] = array();
 
@@ -211,16 +211,16 @@ class ControllerToolSeoManager extends Controller {
 
 				$data['breadcrumbs'][] = array(
 					'text' => $this->language->get('text_home'),
-					'href' => $this->url->link('common/dashboard', 'token=' . $this->session->data['token'], 'SSL')
+					'href' => $this->url->link('common/dashboard', 'token=' . $this->session->data['token'], true)
 				);
 
 				$data['breadcrumbs'][] = array(
 					'text' => $this->language->get('heading_title'),
-					'href' => $this->url->link('tool/seomanager', 'token=' . $this->session->data['token'] . $url, 'SSL')
+					'href' => $this->url->link('tool/seomanager', 'token=' . $this->session->data['token'] . $url, true)
 				);
 
-                $data['sort_query'] = $this->url->link('tool/seomanager', 'token=' . $this->session->data['token'] . '&sort=ua.query' . $url, 'SSL');
-                $data['sort_keyword'] = $this->url->link('tool/seomanager', 'token=' . $this->session->data['token'] . '&sort=ua.keyword' . $url, 'SSL');
+                $data['sort_query'] = $this->url->link('tool/seomanager', 'token=' . $this->session->data['token'] . '&sort=ua.query' . $url, true);
+                $data['sort_keyword'] = $this->url->link('tool/seomanager', 'token=' . $this->session->data['token'] . '&sort=ua.keyword' . $url, true);
 
                 $url = '';
 
@@ -237,7 +237,7 @@ class ControllerToolSeoManager extends Controller {
                 $pagination->page = $page;
                 $pagination->limit = $this->config->get('config_admin_limit');
                 $pagination->text = $this->language->get('text_pagination');
-                $pagination->url = $this->url->link('tool/seomanager', 'token=' . $this->session->data['token'] . $url . '&page={page}', 'SSL');
+                $pagination->url = $this->url->link('tool/seomanager', 'token=' . $this->session->data['token'] . $url . '&page={page}', true);
 
                 $data['pagination'] = $pagination->render();
 
