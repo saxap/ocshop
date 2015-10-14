@@ -32,14 +32,14 @@ $_['entry_meta_h1'] 	     = 'HTML Tag H1';
 $_['entry_meta_keyword'] 	 = 'Meta Tag Keywords';
 $_['entry_meta_description'] = 'Meta Tag Description';
 $_['entry_store']            = 'Stores';
-$_['entry_keyword']    	     = 'SEO Keyword';
+$_['entry_keyword']    	     = 'SEO URL';
 $_['entry_image']    	     = 'Image';
 $_['entry_sort_order']  	 = 'Sort Order';
 $_['entry_noindex']          = 'Index';
 $_['entry_type']        	 = 'Type';
 
 // Help
-$_['help_keyword']       = 'Do not use spaces, instead replace spaces with - and make sure the keyword is globally unique.';
+$_['help_keyword']       = 'Do not use spaces, instead replace spaces with - and make sure the SEO URL is globally unique.';
 $_['help_noindex']           = 'indexing in search engines Google, Yandex, Bing and other';
 
 // Error
@@ -49,4 +49,4 @@ $_['error_name']         = 'Manufacturer Name must be between 2 and 64 character
 $_['error_product']      = 'Warning: This manufacturer cannot be deleted as it is currently assigned to %s products!';
 $_['error_meta_title']   = 'Meta Title must be greater than 0 and less than 255 characters!';
 $_['error_meta_h1']	     = 'HTML Tag H1 must be greater than 0 and less than 255 characters!';
-$_['error_keyword']      = 'SEO keyword already in use!';
+$_['error_keyword']      = 'SEO URL already in use!';

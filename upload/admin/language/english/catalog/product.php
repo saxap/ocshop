@@ -118,5 +118,5 @@ $_['error_name']             = 'Product Name must be greater than 3 and less tha
 $_['error_meta_title']       = 'Meta Title must be greater than 0 and less than 255 characters!';
 $_['error_meta_h1'] 	     = 'HTML Tag H1 must be greater than 0 and less than 255 characters!';
 $_['error_model']            = 'Product Model must be greater than 1 and less than 64 characters!';
-$_['error_keyword']          = 'SEO keyword already in use!';
+$_['error_keyword']          = 'SEO URL already in use!';
 $_['error_tab']              = 'Please Fill the Product Tab Name!';

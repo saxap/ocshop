@@ -47,7 +47,7 @@ class ControllerCatalogCategory extends Controller {
 				$url .= '&page=' . $this->request->get['page'];
 			}
 
-			$this->response->redirect($this->url->link('catalog/category', 'token=' . $this->session->data['token'] . $url, 'SSL'));
+			$this->response->redirect($this->url->link('catalog/category', 'token=' . $this->session->data['token'] . $url, true));
 		}
 
 		$this->getForm();
@@ -79,7 +79,7 @@ class ControllerCatalogCategory extends Controller {
 				$url .= '&page=' . $this->request->get['page'];
 			}
 
-			$this->response->redirect($this->url->link('catalog/category', 'token=' . $this->session->data['token'] . $url, 'SSL'));
+			$this->response->redirect($this->url->link('catalog/category', 'token=' . $this->session->data['token'] . $url, true));
 		}
 
 		$this->getForm();
@@ -113,7 +113,7 @@ class ControllerCatalogCategory extends Controller {
 				$url .= '&page=' . $this->request->get['page'];
 			}
 
-			$this->response->redirect($this->url->link('catalog/category', 'token=' . $this->session->data['token'] . $url, 'SSL'));
+			$this->response->redirect($this->url->link('catalog/category', 'token=' . $this->session->data['token'] . $url, true));
 		}
 
 		$this->getList();
@@ -131,7 +131,7 @@ class ControllerCatalogCategory extends Controller {
 
 			$this->session->data['success'] = $this->language->get('text_success');
 
-			$this->response->redirect($this->url->link('catalog/category', 'token=' . $this->session->data['token'], 'SSL'));
+			$this->response->redirect($this->url->link('catalog/category', 'token=' . $this->session->data['token'], true));
 		}
 
 		$this->getList();
@@ -143,17 +143,17 @@ class ControllerCatalogCategory extends Controller {
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_home'),
-			'href' => $this->url->link('common/dashboard', 'token=' . $this->session->data['token'], 'SSL')
+			'href' => $this->url->link('common/dashboard', 'token=' . $this->session->data['token'], true)
 		);
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('heading_title'),
-			'href' => $this->url->link('catalog/category', 'token=' . $this->session->data['token'] . '&path=', 'SSL')
+			'href' => $this->url->link('catalog/category', 'token=' . $this->session->data['token'] . '&path=', true)
 		);
 
-		$data['add'] = $this->url->link('catalog/category/add', 'token=' . $this->session->data['token'], 'SSL');
-		$data['delete'] = $this->url->link('catalog/category/delete', 'token=' . $this->session->data['token'], 'SSL');
-		$data['repair'] = $this->url->link('catalog/category/repair', 'token=' . $this->session->data['token'], 'SSL');
+		$data['add'] = $this->url->link('catalog/category/add', 'token=' . $this->session->data['token'], true);
+		$data['delete'] = $this->url->link('catalog/category/delete', 'token=' . $this->session->data['token'], true);
+		$data['repair'] = $this->url->link('catalog/category/repair', 'token=' . $this->session->data['token'], true);
 
 		if (isset($this->request->get['path'])) {
 			if ($this->request->get['path'] != '') {
@@ -306,21 +306,21 @@ class ControllerCatalogCategory extends Controller {
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_home'),
-			'href' => $this->url->link('common/dashboard', 'token=' . $this->session->data['token'], 'SSL')
+			'href' => $this->url->link('common/dashboard', 'token=' . $this->session->data['token'], true)
 		);
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('heading_title'),
-			'href' => $this->url->link('catalog/category', 'token=' . $this->session->data['token'] . $url, 'SSL')
+			'href' => $this->url->link('catalog/category', 'token=' . $this->session->data['token'] . $url, true)
 		);
 
 		if (!isset($this->request->get['category_id'])) {
-			$data['action'] = $this->url->link('catalog/category/add', 'token=' . $this->session->data['token'] . $url, 'SSL');
+			$data['action'] = $this->url->link('catalog/category/add', 'token=' . $this->session->data['token'] . $url, true);
 		} else {
-			$data['action'] = $this->url->link('catalog/category/edit', 'token=' . $this->session->data['token'] . '&category_id=' . $this->request->get['category_id'] . $url, 'SSL');
+			$data['action'] = $this->url->link('catalog/category/edit', 'token=' . $this->session->data['token'] . '&category_id=' . $this->request->get['category_id'] . $url, true);
 		}
 
-		$data['cancel'] = $this->url->link('catalog/category', 'token=' . $this->session->data['token'] . $url, 'SSL');
+		$data['cancel'] = $this->url->link('catalog/category', 'token=' . $this->session->data['token'] . $url, true);
 
 		if (isset($this->request->get['category_id']) && ($this->request->server['REQUEST_METHOD'] != 'POST')) {
 			$category_info = $this->model_catalog_category->getCategory($this->request->get['category_id']);
@@ -509,12 +509,12 @@ class ControllerCatalogCategory extends Controller {
 			if ($url_alias_info && !isset($this->request->get['category_id'])) {
 				$this->error['keyword'] = sprintf($this->language->get('error_keyword'));
 			}
-
-			if ($this->error && !isset($this->error['warning'])) {
-				$this->error['warning'] = $this->language->get('error_warning');
-			}
 		}
-
+		
+		if ($this->error && !isset($this->error['warning'])) {
+			$this->error['warning'] = $this->language->get('error_warning');
+		}
+		
 		return !$this->error;
 	}
 
@@ -576,8 +576,8 @@ class ControllerCatalogCategory extends Controller {
 		static $href_category = null;
 		static $href_action = null;
 		if ($href_category === null) {
-			$href_category = $this->url->link('catalog/category', 'token=' . $this->session->data['token'] . '&path=', 'SSL');
-			$href_action = $this->url->link('catalog/category/update', 'token=' . $this->session->data['token'] . '&category_id=', 'SSL');
+			$href_category = $this->url->link('catalog/category', 'token=' . $this->session->data['token'] . '&path=', true);
+			$href_action = $this->url->link('catalog/category/update', 'token=' . $this->session->data['token'] . '&category_id=', true);
 		}
 		$results = $this->model_catalog_category->getCategoriesByParentId($parent_id);
 		foreach ($results as $result) {
@@ -604,7 +604,7 @@ class ControllerCatalogCategory extends Controller {
 				'name'        => $name,
 				'sort_order'  => $result['sort_order'],
 				'noindex'  	  => $result['noindex'],
-				'edit'        => $this->url->link('catalog/category/edit', 'token=' . $this->session->data['token'] . '&category_id=' . $result['category_id'], 'SSL'),
+				'edit'        => $this->url->link('catalog/category/edit', 'token=' . $this->session->data['token'] . '&category_id=' . $result['category_id'], true),
 				'selected'    => $selected,
 				'action'      => $action,
 				'href'        => $href,
