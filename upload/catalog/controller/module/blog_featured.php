@@ -64,7 +64,7 @@ class ControllerModuleBlogFeatured extends Controller {
 			if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/blog/module/featured.tpl')) {
 				return $this->load->view($this->config->get('config_template') . '/template/blog/module/featured.tpl', $data);
 			} else {
-				return $this->load->view('default/template/module/blog/featured.tpl', $data);
+				return $this->load->view('default/template/blog/module/featured.tpl', $data);
 			}
 		}
 	}
