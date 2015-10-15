@@ -6,6 +6,7 @@
 // *	@source		See SOURCE.txt for source and other copyright.
 // *	@license	GNU General Public License version 3; see LICENSE.txt
 
+use Cart\User;
 class ControllerCommonMaintenance extends Controller {
 	public function index() {
 		if ($this->config->get('config_maintenance')) {
