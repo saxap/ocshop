@@ -1,4 +1,5 @@
 <?php
+// *    sms-gate-library for Opencart > 2.1.x 
 // *	@copyright	OCSHOP.CMS \ ocshop.net 2011 - 2015.
 // *	@demo	http://ocshop.net
 // *	@blog	http://ocshop.info
@@ -20,7 +21,7 @@ final class Sms {
 		if (file_exists(DIR_SMSGATE . $gate . '.php')) {
 			require_once(DIR_SMSGATE . $gate . '.php');
 		} else {
-			trigger_error('Error: Could not load database file ' . $gate . '!');
+			trigger_error('Error: Could not load sms-gate Driver ' . $gate . '!');
 			exit();
 		}
 

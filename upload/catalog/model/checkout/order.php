@@ -268,6 +268,8 @@ class ModelCheckoutOrder extends Model {
 			'notify'		  => $notify
 		);
 
+	
+		
 		$this->event->trigger('pre.order.history.add', $event_data);
 
 		$order_info = $this->getOrder($order_id);
@@ -386,9 +388,11 @@ class ModelCheckoutOrder extends Model {
 			}
 
 			$this->cache->delete('product');
-
+			
+				
 			// If order status is 0 then becomes greater than 0 send main html email
 			if (!$order_info['order_status_id'] && $order_status_id) {
+				
 				// Check for any downloadable products
 				$download_status = false;
 
@@ -795,32 +799,38 @@ class ModelCheckoutOrder extends Model {
 							$mail->send();
 						}
 					}
-				}
+				}	
 				
+								
+			
 				// Send Admins SMS if configure
-	if ($this->config->get('config_sms_alert')) {
-				$options = array(
-					'to'       => $this->config->get('config_sms_to'),
-					'copy'     => $this->config->get('config_sms_copy'),
-					'from'     => $this->config->get('config_sms_from'),
-					'username' => $this->config->get('config_sms_gate_username'),
-					'password' => $this->config->get('config_sms_gate_password'),
-					'message'  => str_replace(array('{ID}', '{DATE}', '{TIME}', '{SUM}', '{FIRST_NAME}', '{LAST_NAME}', '{PHONE}'), 
-											  array($order_id, date('d.m.Y'), date('H:i'), floatval($order_info['total']), $order_info['firstname'], $order_info['lastname'], $order_info['telephone']), 
-											  $this->config->get('config_sms_message'))
-				);
+				if ($this->config->get('config_sms_alert')) {
 
-				$this->load->library('sms');
+					$options = array(
+						'to'       => $this->config->get('config_sms_to'),
+						'copy'     => $this->config->get('config_sms_copy'),
+						'from'     => $this->config->get('config_sms_from'),
+						'username' => $this->config->get('config_sms_gate_username'),
+						'password' => $this->config->get('config_sms_gate_password'),
+						'message'  => str_replace(array('{ID}', '{DATE}', '{TIME}', '{SUM}', '{FIRST_NAME}', '{LAST_NAME}', '{PHONE}'), 
+												  array($order_id, date('d.m.Y'), date('H:i'), floatval($order_info['total']), $order_info['firstname'], $order_info['lastname'], $order_info['telephone']), 
+												  $this->config->get('config_sms_message'))
+					);
+					
+					$sms = new Sms($this->config->get('config_sms_gatename'), $options);
+					
+					$sms->send();
+				}
 
-				$sms = new Sms($this->config->get('config_sms_gatename'), $options);
-				$sms->send();
-			}
-				
 				
 			}
+			
 
 			// If order status is not 0 then send update text email
 			if ($order_info['order_status_id'] && $order_status_id && $notify) {
+				
+				
+				
 				$language = new Language($order_info['language_directory']);
 				$language->load($order_info['language_directory']);
 				$language->load('mail/order');
@@ -864,6 +874,11 @@ class ModelCheckoutOrder extends Model {
 				$mail->setSubject(html_entity_decode($subject, ENT_QUOTES, 'UTF-8'));
 				$mail->setText($message);
 				$mail->send();
+				
+				
+				
+				
+				
 			}
 		}
 
