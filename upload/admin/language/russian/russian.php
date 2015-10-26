@@ -7,7 +7,7 @@
 // *	@license	GNU General Public License version 3; see LICENSE.txt
 
 // Locale
-$_['Код']                          = 'ru';
+$_['code']                          = 'ru';
 $_['direction']                     = 'ltr';
 $_['date_format_short']             = 'd.m.Y';
 $_['date_format_long']              = 'l, d F Y';
@@ -103,6 +103,7 @@ $_['button_link']                   = 'Ссылка';
 $_['button_currency']               = 'Обновить курсы валют';
 $_['button_apply']                  = 'Применить';
 $_['button_category_add']           = 'Добавить категорию';
+$_['button_order']                  = 'Просмотр заказа';
 
 // Tab
 $_['tab_address']                   = 'Адрес';
