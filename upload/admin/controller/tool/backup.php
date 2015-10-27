@@ -40,7 +40,7 @@ class ControllerToolBackup extends Controller {
 		$data['text_unselect_all'] = $this->language->get('text_unselect_all');
 
 		$data['entry_restore'] = $this->language->get('entry_restore');
-		$data['entry_backup'] = $this->language->get('entry_backup');
+		$data['entry_export'] = $this->language->get('entry_export');
 
 		$data['button_export'] = $this->language->get('button_export');
 		$data['button_import'] = $this->language->get('button_import');

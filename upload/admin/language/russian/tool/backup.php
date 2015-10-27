@@ -16,6 +16,7 @@ $_['text_list']        = 'Список загрузок';
 
 // Entry
 $_['entry_restore']    = 'Восcтановить базу данных';
+$_['entry_export']     = 'Экспорт';
 $_['entry_backup']     = 'Бэкап';
 
 // Error

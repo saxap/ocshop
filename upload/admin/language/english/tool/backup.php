@@ -16,6 +16,7 @@ $_['text_list']        = 'Upload List';
 
 // Entry
 $_['entry_restore']    = 'Restore Backup';
+$_['entry_export']     = 'Export';
 $_['entry_backup']     = 'Backup';
 
 // Error
