@@ -7,7 +7,7 @@
 // *	@license	GNU General Public License version 3; see LICENSE.txt
 
 // Locale
-$_['Код']                          = 'ru';
+$_['code']                          = 'ru';
 $_['direction']                     = 'ltr';
 $_['date_format_short']             = 'd.m.Y';
 $_['date_format_long']              = 'l, d F Y';
