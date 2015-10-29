@@ -31,8 +31,7 @@ class Event {
 	public function trigger($key, &$arg = array()) {
 		if (isset($this->data[$key])) {
 			foreach ($this->data[$key] as $event) {
-				$action = new Action($event['action'], $arg);
-				$event->execute($this->registry);
+				$event->execute($this->registry, $arg);
 			}
 		}
 	}
