@@ -8,7 +8,7 @@
 
 class ControllerReportCustomerCredit extends Controller {
 	public function index() {
-		$this->language->load('report/customer_credit');
+		$this->load->language('report/customer_credit');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 

@@ -16,7 +16,7 @@ class ControllerAccountOrder extends Controller {
 			$this->response->redirect($this->url->link('account/login', '', true));
 		}
 
-		$this->language->load('account/order');
+		$this->load->language('account/order');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -113,7 +113,7 @@ class ControllerAccountOrder extends Controller {
 	}
 
 	public function info() {
-		$this->language->load('account/order');
+		$this->load->language('account/order');
 
 		if (isset($this->request->get['order_id'])) {
 			$order_id = $this->request->get['order_id'];
@@ -440,7 +440,7 @@ class ControllerAccountOrder extends Controller {
 	}
 
 	public function reorder() {
-		$this->language->load('account/order');
+		$this->load->language('account/order');
 
 		if (isset($this->request->get['order_id'])) {
 			$order_id = $this->request->get['order_id'];

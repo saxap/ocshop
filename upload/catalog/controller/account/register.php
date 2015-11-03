@@ -14,7 +14,7 @@ class ControllerAccountRegister extends Controller {
 			$this->response->redirect($this->url->link('account/account', '', true));
 		}
 
-		$this->language->load('account/register');
+		$this->load->language('account/register');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 		$this->document->setRobots('noindex,follow');

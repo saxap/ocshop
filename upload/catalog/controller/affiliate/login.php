@@ -14,7 +14,7 @@ class ControllerAffiliateLogin extends Controller {
 			$this->response->redirect($this->url->link('affiliate/account', '', true));
 		}
 
-		$this->language->load('affiliate/login');
+		$this->load->language('affiliate/login');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 		$this->document->setRobots('noindex,follow');

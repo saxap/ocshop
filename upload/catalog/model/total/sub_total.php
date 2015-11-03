@@ -8,7 +8,7 @@
 
 class ModelTotalSubTotal extends Model {
 	public function getTotal(&$total_data, &$total, &$taxes) {
-		$this->language->load('total/sub_total');
+		$this->load->language('total/sub_total');
 
 		$sub_total = $this->cart->getSubTotal();
 

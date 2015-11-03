@@ -8,7 +8,7 @@
 
 class ControllerApiCustomer extends Controller {
 	public function index() {
-		$this->language->load('api/customer');
+		$this->load->language('api/customer');
 
 		// Delete past customer in case there is an error
 		unset($this->session->data['customer']);

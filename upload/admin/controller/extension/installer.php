@@ -10,7 +10,7 @@ class ControllerExtensionInstaller extends Controller {
 	private $error = array();
 
 	public function index() {
-		$this->language->load('extension/installer');
+		$this->load->language('extension/installer');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -58,7 +58,7 @@ class ControllerExtensionInstaller extends Controller {
 	}
 
 	public function upload() {
-		$this->language->load('extension/installer');
+		$this->load->language('extension/installer');
 
 		$json = array();
 
@@ -223,7 +223,7 @@ class ControllerExtensionInstaller extends Controller {
 	}
 
 	public function unzip() {
-		$this->language->load('extension/installer');
+		$this->load->language('extension/installer');
 
 		$json = array();
 
@@ -258,7 +258,7 @@ class ControllerExtensionInstaller extends Controller {
 	}
 
 	public function ftp() {
-		$this->language->load('extension/installer');
+		$this->load->language('extension/installer');
 
 		$json = array();
 
@@ -372,7 +372,7 @@ class ControllerExtensionInstaller extends Controller {
 	}
 
 	public function sql() {
-		$this->language->load('extension/installer');
+		$this->load->language('extension/installer');
 
 		$json = array();
 
@@ -417,7 +417,7 @@ class ControllerExtensionInstaller extends Controller {
 	}
 
 	public function xml() {
-		$this->language->load('extension/installer');
+		$this->load->language('extension/installer');
 
 		$json = array();
 
@@ -513,7 +513,7 @@ class ControllerExtensionInstaller extends Controller {
 	}
 
 	public function php() {
-		$this->language->load('extension/installer');
+		$this->load->language('extension/installer');
 
 		$json = array();
 
@@ -540,7 +540,7 @@ class ControllerExtensionInstaller extends Controller {
 	}
 
 	public function remove() {
-		$this->language->load('extension/installer');
+		$this->load->language('extension/installer');
 
 		$json = array();
 
@@ -597,7 +597,7 @@ class ControllerExtensionInstaller extends Controller {
 	}
 
 	public function clear() {
-		$this->language->load('extension/installer');
+		$this->load->language('extension/installer');
 
 		$json = array();
 

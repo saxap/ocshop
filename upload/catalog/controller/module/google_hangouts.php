@@ -8,7 +8,7 @@
 
 class ControllerModuleGoogleHangouts extends Controller {
 	public function index() {
-		$this->language->load('module/google_hangouts');
+		$this->load->language('module/google_hangouts');
 
 		$data['heading_title'] = $this->language->get('heading_title');
 

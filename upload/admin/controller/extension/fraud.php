@@ -10,7 +10,7 @@ class ControllerExtensionFraud extends Controller {
 	private $error = array();
 
 	public function index() {
-		$this->language->load('extension/fraud');
+		$this->load->language('extension/fraud');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -20,7 +20,7 @@ class ControllerExtensionFraud extends Controller {
 	}
 
 	public function install() {
-		$this->language->load('extension/fraud');
+		$this->load->language('extension/fraud');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -46,7 +46,7 @@ class ControllerExtensionFraud extends Controller {
 	}
 
 	public function uninstall() {
-		$this->language->load('extension/fraud');
+		$this->load->language('extension/fraud');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -127,7 +127,7 @@ class ControllerExtensionFraud extends Controller {
 			foreach ($files as $file) {
 				$extension = basename($file, '.php');
 
-				$this->language->load('fraud/' . $extension);
+				$this->load->language('fraud/' . $extension);
 
 				$data['extensions'][] = array(
 					'name'      => $this->language->get('heading_title'),

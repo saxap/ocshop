@@ -10,7 +10,7 @@ class ControllerUserApi extends Controller {
 	private $error = array();
 
 	public function index() {
-		$this->language->load('user/api');
+		$this->load->language('user/api');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -20,7 +20,7 @@ class ControllerUserApi extends Controller {
 	}
 
 	public function add() {
-		$this->language->load('user/api');
+		$this->load->language('user/api');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -52,7 +52,7 @@ class ControllerUserApi extends Controller {
 	}
 
 	public function edit() {
-		$this->language->load('user/api');
+		$this->load->language('user/api');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -84,7 +84,7 @@ class ControllerUserApi extends Controller {
 	}
 
 	public function delete() {
-		$this->language->load('user/api');
+		$this->load->language('user/api');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -440,7 +440,7 @@ class ControllerUserApi extends Controller {
 	}
 
 	public function addIp() {
-		$this->language->load('user/api');
+		$this->load->language('user/api');
 
 		$json = array();
 
@@ -459,7 +459,7 @@ class ControllerUserApi extends Controller {
 	}
 
 	public function deleteSession() {
-		$this->language->load('user/api');
+		$this->load->language('user/api');
 
 		$json = array();
 

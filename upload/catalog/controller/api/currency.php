@@ -8,7 +8,7 @@
 
 class ControllerApiCurrency extends Controller {
 	public function index() {
-		$this->language->load('api/currency');
+		$this->load->language('api/currency');
 
 		$json = array();
 

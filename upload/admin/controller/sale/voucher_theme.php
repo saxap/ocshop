@@ -10,7 +10,7 @@ class ControllerSaleVoucherTheme extends Controller {
 	private $error = array();
 
 	public function index() {
-		$this->language->load('sale/voucher_theme');
+		$this->load->language('sale/voucher_theme');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -20,7 +20,7 @@ class ControllerSaleVoucherTheme extends Controller {
 	}
 
 	public function add() {
-		$this->language->load('sale/voucher_theme');
+		$this->load->language('sale/voucher_theme');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -52,7 +52,7 @@ class ControllerSaleVoucherTheme extends Controller {
 	}
 
 	public function edit() {
-		$this->language->load('sale/voucher_theme');
+		$this->load->language('sale/voucher_theme');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -84,7 +84,7 @@ class ControllerSaleVoucherTheme extends Controller {
 	}
 
 	public function delete() {
-		$this->language->load('sale/voucher_theme');
+		$this->load->language('sale/voucher_theme');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 

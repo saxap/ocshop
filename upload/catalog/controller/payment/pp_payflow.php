@@ -8,7 +8,7 @@
 
 class ControllerPaymentPPPayflow extends Controller {
 	public function index() {
-		$this->language->load('payment/pp_payflow');
+		$this->load->language('payment/pp_payflow');
 
 		$data['text_credit_card'] = $this->language->get('text_credit_card');
 		$data['text_start_date'] = $this->language->get('text_start_date');
@@ -90,7 +90,7 @@ class ControllerPaymentPPPayflow extends Controller {
 	}
 
 	public function send() {
-		$this->language->load('payment/pp_payflow');
+		$this->load->language('payment/pp_payflow');
 
 		$this->load->model('checkout/order');
 

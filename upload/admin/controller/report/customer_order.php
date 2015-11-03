@@ -8,7 +8,7 @@
 
 class ControllerReportCustomerOrder extends Controller {
 	public function index() {
-		$this->language->load('report/customer_order');
+		$this->load->language('report/customer_order');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 

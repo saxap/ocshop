@@ -10,7 +10,7 @@ class ControllerCatalogProduct extends Controller {
 	private $error = array();
 
 	public function index() {
-		$this->language->load('catalog/product');
+		$this->load->language('catalog/product');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -20,7 +20,7 @@ class ControllerCatalogProduct extends Controller {
 	}
 
 	public function add() {
-		$this->language->load('catalog/product');
+		$this->load->language('catalog/product');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -76,7 +76,7 @@ class ControllerCatalogProduct extends Controller {
 	}
 
 	public function edit() {
-		$this->language->load('catalog/product');
+		$this->load->language('catalog/product');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -132,7 +132,7 @@ class ControllerCatalogProduct extends Controller {
 	}
 
 	public function delete() {
-		$this->language->load('catalog/product');
+		$this->load->language('catalog/product');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -190,7 +190,7 @@ class ControllerCatalogProduct extends Controller {
 	}
 
 	public function copy() {
-		$this->language->load('catalog/product');
+		$this->load->language('catalog/product');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 

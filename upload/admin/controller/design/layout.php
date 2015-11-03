@@ -10,7 +10,7 @@ class ControllerDesignLayout extends Controller {
 	private $error = array();
 
 	public function index() {
-		$this->language->load('design/layout');
+		$this->load->language('design/layout');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -20,7 +20,7 @@ class ControllerDesignLayout extends Controller {
 	}
 
 	public function add() {
-		$this->language->load('design/layout');
+		$this->load->language('design/layout');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -52,7 +52,7 @@ class ControllerDesignLayout extends Controller {
 	}
 
 	public function edit() {
-		$this->language->load('design/layout');
+		$this->load->language('design/layout');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -84,7 +84,7 @@ class ControllerDesignLayout extends Controller {
 	}
 
 	public function delete() {
-		$this->language->load('design/layout');
+		$this->load->language('design/layout');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -377,7 +377,7 @@ class ControllerDesignLayout extends Controller {
 
 		// Add all the modules which have multiple settings for each module
 		foreach ($extensions as $code) {
-			$this->language->load('module/' . $code);
+			$this->load->language('module/' . $code);
 
 			$module_data = array();
 

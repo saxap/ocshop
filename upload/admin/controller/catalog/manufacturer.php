@@ -10,7 +10,7 @@ class ControllerCatalogManufacturer extends Controller {
 	private $error = array();
 
 	public function index() {
-		$this->language->load('catalog/manufacturer');
+		$this->load->language('catalog/manufacturer');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -20,7 +20,7 @@ class ControllerCatalogManufacturer extends Controller {
 	}
 
 	public function add() {
-		$this->language->load('catalog/manufacturer');
+		$this->load->language('catalog/manufacturer');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -52,7 +52,7 @@ class ControllerCatalogManufacturer extends Controller {
 	}
 
 	public function edit() {
-		$this->language->load('catalog/manufacturer');
+		$this->load->language('catalog/manufacturer');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -84,7 +84,7 @@ class ControllerCatalogManufacturer extends Controller {
 	}
 
 	public function delete() {
-		$this->language->load('catalog/manufacturer');
+		$this->load->language('catalog/manufacturer');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 

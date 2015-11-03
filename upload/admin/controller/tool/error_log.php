@@ -10,7 +10,7 @@ class ControllerToolErrorLog extends Controller {
 	private $error = array();
 
 	public function index() {		
-		$this->language->load('tool/error_log');
+		$this->load->language('tool/error_log');
 		
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -107,7 +107,7 @@ class ControllerToolErrorLog extends Controller {
 	}
 	
 	public function clear() {
-		$this->language->load('tool/error_log');
+		$this->load->language('tool/error_log');
 
 		if (!$this->user->hasPermission('modify', 'tool/error_log')) {
 			$this->session->data['error'] = $this->language->get('error_permission');

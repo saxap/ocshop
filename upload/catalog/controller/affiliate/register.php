@@ -14,7 +14,7 @@ class ControllerAffiliateRegister extends Controller {
 			$this->response->redirect($this->url->link('affiliate/account', '', true));
 		}
 
-		$this->language->load('affiliate/register');
+		$this->load->language('affiliate/register');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 		$this->document->setRobots('noindex,follow');

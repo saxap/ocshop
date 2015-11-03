@@ -10,7 +10,7 @@ class ControllerExtensionShipping extends Controller {
 	private $error = array();
 
 	public function index() {
-		$this->language->load('extension/shipping');
+		$this->load->language('extension/shipping');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -20,7 +20,7 @@ class ControllerExtensionShipping extends Controller {
 	}
 
 	public function install() {
-		$this->language->load('extension/shipping');
+		$this->load->language('extension/shipping');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -46,7 +46,7 @@ class ControllerExtensionShipping extends Controller {
 	}
 
 	public function uninstall() {
-		$this->language->load('extension/shipping');
+		$this->load->language('extension/shipping');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -132,7 +132,7 @@ class ControllerExtensionShipping extends Controller {
 			foreach ($files as $file) {
 				$extension = basename($file, '.php');
 
-				$this->language->load('shipping/' . $extension);
+				$this->load->language('shipping/' . $extension);
 
 				$data['extensions'][] = array(
 					'name'       => $this->language->get('heading_title'),

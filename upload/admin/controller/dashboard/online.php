@@ -8,7 +8,7 @@
 
 class ControllerDashboardOnline extends Controller {
 	public function index() {
-		$this->language->load('dashboard/online');
+		$this->load->language('dashboard/online');
 
 		$data['heading_title'] = $this->language->get('heading_title');
 

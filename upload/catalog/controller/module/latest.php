@@ -8,7 +8,7 @@
 
 class ControllerModuleLatest extends Controller {
 	public function index($setting) {
-		$this->language->load('module/latest');
+		$this->load->language('module/latest');
 
 		$data['heading_title'] = $this->language->get('heading_title');
 

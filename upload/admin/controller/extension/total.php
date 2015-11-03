@@ -10,7 +10,7 @@ class ControllerExtensionTotal extends Controller {
 	private $error = array();
 
 	public function index() {
-		$this->language->load('extension/total');
+		$this->load->language('extension/total');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -20,7 +20,7 @@ class ControllerExtensionTotal extends Controller {
 	}
 
 	public function install() {
-		$this->language->load('extension/total');
+		$this->load->language('extension/total');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -45,7 +45,7 @@ class ControllerExtensionTotal extends Controller {
 	}
 
 	public function uninstall() {
-		$this->language->load('extension/total');
+		$this->load->language('extension/total');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -130,7 +130,7 @@ class ControllerExtensionTotal extends Controller {
 			foreach ($files as $file) {
 				$extension = basename($file, '.php');
 
-				$this->language->load('total/' . $extension);
+				$this->load->language('total/' . $extension);
 
 				$data['extensions'][] = array(
 					'name'       => $this->language->get('heading_title'),

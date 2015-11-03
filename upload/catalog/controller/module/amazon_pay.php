@@ -56,7 +56,7 @@ class ControllerModuleAmazonPay extends Controller {
 		$this->load->model('payment/amazon_login_pay');
 		$this->load->model('account/customer');
 		$this->load->model('account/customer_group');
-		$this->language->load('payment/amazon_login_pay');
+		$this->load->language('payment/amazon_login_pay');
 
 		unset($this->session->data['lpa']);
 		unset($this->session->data['access_token']);

@@ -8,7 +8,7 @@
 
 class ControllerDashboardChart extends Controller {
 	public function index() {
-		$this->language->load('dashboard/chart');
+		$this->load->language('dashboard/chart');
 
 		$data['heading_title'] = $this->language->get('heading_title');
 
@@ -24,7 +24,7 @@ class ControllerDashboardChart extends Controller {
 	}
 
 	public function chart() {
-		$this->language->load('dashboard/chart');
+		$this->load->language('dashboard/chart');
 
 		$json = array();
 

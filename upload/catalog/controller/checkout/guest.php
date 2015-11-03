@@ -8,7 +8,7 @@
 
 class ControllerCheckoutGuest extends Controller {
 	public function index() {
-		$this->language->load('checkout/checkout');
+		$this->load->language('checkout/checkout');
 
 		$data['text_select'] = $this->language->get('text_select');
 		$data['text_none'] = $this->language->get('text_none');
@@ -183,7 +183,7 @@ class ControllerCheckoutGuest extends Controller {
 	}
 
 	public function save() {
-		$this->language->load('checkout/checkout');
+		$this->load->language('checkout/checkout');
 
 		$json = array();
 

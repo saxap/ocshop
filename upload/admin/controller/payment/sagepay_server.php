@@ -11,7 +11,7 @@ class ControllerPaymentSagepayServer extends Controller {
 
 	public function index() {
 
-		$this->language->load('payment/sagepay_server');
+		$this->load->language('payment/sagepay_server');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -209,7 +209,7 @@ class ControllerPaymentSagepayServer extends Controller {
 			$sagepay_server_order = $this->model_payment_sagepay_server->getOrder($this->request->get['order_id']);
 
 			if (!empty($sagepay_server_order)) {
-				$this->language->load('payment/sagepay_server');
+				$this->load->language('payment/sagepay_server');
 
 				$sagepay_server_order['total_released'] = $this->model_payment_sagepay_server->getTotalReleased($sagepay_server_order['sagepay_server_order_id']);
 
@@ -249,7 +249,7 @@ class ControllerPaymentSagepayServer extends Controller {
 	}
 
 	public function void() {
-		$this->language->load('payment/sagepay_server');
+		$this->load->language('payment/sagepay_server');
 		$json = array();
 
 		if (isset($this->request->post['order_id']) && $this->request->post['order_id'] != '') {
@@ -284,7 +284,7 @@ class ControllerPaymentSagepayServer extends Controller {
 	}
 
 	public function release() {
-		$this->language->load('payment/sagepay_server');
+		$this->load->language('payment/sagepay_server');
 		$json = array();
 
 		if (isset($this->request->post['order_id']) && $this->request->post['order_id'] != '' && isset($this->request->post['amount']) && $this->request->post['amount'] > 0) {
@@ -330,7 +330,7 @@ class ControllerPaymentSagepayServer extends Controller {
 	}
 
 	public function rebate() {
-		$this->language->load('payment/sagepay_server');
+		$this->load->language('payment/sagepay_server');
 		$json = array();
 
 		if (isset($this->request->post['order_id']) && !empty($this->request->post['order_id'])) {

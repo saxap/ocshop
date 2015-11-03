@@ -8,7 +8,7 @@
 
 class ControllerApiShipping extends Controller {
 	public function address() {
-		$this->language->load('api/shipping');
+		$this->load->language('api/shipping');
 
 		// Delete old shipping address, shipping methods and method so not to cause any issues if there is an error
 		unset($this->session->data['shipping_address']);
@@ -151,7 +151,7 @@ class ControllerApiShipping extends Controller {
 	}
 
 	public function methods() {
-		$this->language->load('api/shipping');
+		$this->load->language('api/shipping');
 
 		// Delete past shipping methods and method just in case there is an error
 		unset($this->session->data['shipping_methods']);
@@ -221,7 +221,7 @@ class ControllerApiShipping extends Controller {
 	}
 
 	public function method() {
-		$this->language->load('api/shipping');
+		$this->load->language('api/shipping');
 
 		// Delete old shipping method so not to cause any issues if there is an error
 		unset($this->session->data['shipping_method']);

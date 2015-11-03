@@ -8,7 +8,7 @@
 
 class ControllerPaymentBluePayRedirect extends Controller {
 	public function index() {
-		$this->language->load('payment/bluepay_redirect');
+		$this->load->language('payment/bluepay_redirect');
 
 		$data['text_credit_card'] = $this->language->get('text_credit_card');
 		$data['text_loading'] = $this->language->get('text_loading');
@@ -78,7 +78,7 @@ class ControllerPaymentBluePayRedirect extends Controller {
 	}
 
 	public function send() {
-		$this->language->load('payment/bluepay_redirect');
+		$this->load->language('payment/bluepay_redirect');
 
 		$this->load->model('checkout/order');
 

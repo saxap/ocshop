@@ -10,7 +10,7 @@ class ControllerProductProduct extends Controller {
 	private $error = array();
 
 	public function index() {
-		$this->language->load('product/product');
+		$this->load->language('product/product');
 
 		$data['breadcrumbs'] = array();
 
@@ -594,7 +594,7 @@ class ControllerProductProduct extends Controller {
 	}
 
 	public function review() {
-		$this->language->load('product/product');
+		$this->load->language('product/product');
 
 		$this->load->model('catalog/review');
 
@@ -639,7 +639,7 @@ class ControllerProductProduct extends Controller {
 	}
 
 	public function write() {
-		$this->language->load('product/product');
+		$this->load->language('product/product');
 
 		$json = array();
 
@@ -679,7 +679,7 @@ class ControllerProductProduct extends Controller {
 	}
 
 	public function getRecurringDescription() {
-		$this->language->load('product/product');
+		$this->load->language('product/product');
 		$this->load->model('catalog/product');
 
 		if (isset($this->request->post['product_id'])) {

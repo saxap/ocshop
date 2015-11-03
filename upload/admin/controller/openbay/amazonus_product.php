@@ -8,8 +8,8 @@
 
 class ControllerOpenbayAmazonusProduct extends Controller{
 	public function index() {
-		$this->language->load('catalog/product');
-		$data = $this->language->load('openbay/amazonus_listing');
+		$this->load->language('catalog/product');
+		$data = $this->load->language('openbay/amazonus_listing');
 
 		$this->load->model('openbay/amazonus');
 		$this->load->model('catalog/product');
@@ -303,7 +303,7 @@ class ControllerOpenbayAmazonusProduct extends Controller{
 	}
 
 	private function uploadItems() {
-		$this->language->load('openbay/amazonus_listing');
+		$this->load->language('openbay/amazonus_listing');
 		$this->load->model('openbay/amazonus');
 		$logger = new Log('amazonus_product.log');
 

@@ -11,7 +11,7 @@ class ControllerPaymentPPProIframe extends Controller {
 		$this->load->model('checkout/order');
 		$this->load->model('payment/pp_pro_iframe');
 
-		$this->language->load('payment/pp_pro_iframe');
+		$this->load->language('payment/pp_pro_iframe');
 
 		if ($this->config->get('pp_pro_iframe_checkout_method') == 'redirect') {
 			$order_info = $this->model_checkout_order->getOrder($this->session->data['order_id']);
@@ -42,7 +42,7 @@ class ControllerPaymentPPProIframe extends Controller {
 	}
 
 	public function create() {
-		$this->language->load('payment/pp_pro_iframe');
+		$this->load->language('payment/pp_pro_iframe');
 		$this->load->model('checkout/order');
 		$this->load->model('payment/pp_pro_iframe');
 

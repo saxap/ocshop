@@ -8,7 +8,7 @@
 
 class ControllerApiCart extends Controller {
 	public function add() {
-		$this->language->load('api/cart');
+		$this->load->language('api/cart');
 
 		$json = array();
 
@@ -88,7 +88,7 @@ class ControllerApiCart extends Controller {
 	}
 
 	public function edit() {
-		$this->language->load('api/cart');
+		$this->load->language('api/cart');
 
 		$json = array();
 
@@ -118,7 +118,7 @@ class ControllerApiCart extends Controller {
 	}
 
 	public function remove() {
-		$this->language->load('api/cart');
+		$this->load->language('api/cart');
 
 		$json = array();
 
@@ -153,7 +153,7 @@ class ControllerApiCart extends Controller {
 	}
 
 	public function products() {
-		$this->language->load('api/cart');
+		$this->load->language('api/cart');
 
 		$json = array();
 

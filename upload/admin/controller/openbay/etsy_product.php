@@ -10,7 +10,7 @@ class ControllerOpenbayEtsyProduct extends Controller {
 	private $error;
 
 	public function create() {
-		$data = $this->language->load('openbay/etsy_create');
+		$data = $this->load->language('openbay/etsy_create');
 		$this->load->model('catalog/product');
 		$this->load->model('tool/image');
 
@@ -132,7 +132,7 @@ class ControllerOpenbayEtsyProduct extends Controller {
 	}
 
 	public function createSubmit() {
-		$this->language->load('openbay/etsy_create');
+		$this->load->language('openbay/etsy_create');
 		$this->load->model('openbay/etsy_product');
 
 		$data = $this->request->post;
@@ -207,7 +207,7 @@ class ControllerOpenbayEtsyProduct extends Controller {
 	}
 
 	public function edit() {
-		$data = $this->language->load('openbay/etsy_edit');
+		$data = $this->load->language('openbay/etsy_edit');
 		$this->load->model('openbay/etsy_product');
 		$this->load->model('tool/image');
 
@@ -265,7 +265,7 @@ class ControllerOpenbayEtsyProduct extends Controller {
 	}
 
 	public function editSubmit() {
-		$this->language->load('openbay/etsy_edit');
+		$this->load->language('openbay/etsy_edit');
 		$this->load->model('openbay/etsy_product');
 
 		$data = $this->request->post;
@@ -308,7 +308,7 @@ class ControllerOpenbayEtsyProduct extends Controller {
 	}
 
 	public function addImage() {
-		$this->language->load('openbay/etsy_create');
+		$this->load->language('openbay/etsy_create');
 
 		$data = $this->request->post;
 
@@ -361,7 +361,7 @@ class ControllerOpenbayEtsyProduct extends Controller {
 	}
 
 	public function addLink() {
-		$this->language->load('openbay/etsy_links');
+		$this->load->language('openbay/etsy_links');
 		$this->load->model('openbay/etsy_product');
 		$this->load->model('catalog/product');
 
@@ -421,7 +421,7 @@ class ControllerOpenbayEtsyProduct extends Controller {
 	}
 
 	public function deleteLink() {
-		$this->language->load('openbay/etsy_links');
+		$this->load->language('openbay/etsy_links');
 
 		$data = $this->request->post;
 
@@ -439,7 +439,7 @@ class ControllerOpenbayEtsyProduct extends Controller {
 	public function links() {
 		$this->load->model('openbay/etsy_product');
 
-		$data = $this->language->load('openbay/etsy_links');
+		$data = $this->load->language('openbay/etsy_links');
 
 		$data['cancel']   = $this->url->link('extension/openbay/items', 'token=' . $this->session->data['token'], true);
 
@@ -503,7 +503,7 @@ class ControllerOpenbayEtsyProduct extends Controller {
 	}
 
 	public function listings() {
-		$data = $this->language->load('openbay/etsy_listings');
+		$data = $this->load->language('openbay/etsy_listings');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 		$this->document->addScript('view/javascript/openbay/js/faq.js');
@@ -645,7 +645,7 @@ class ControllerOpenbayEtsyProduct extends Controller {
 	}
 
 	public function endListing() {
-		$this->language->load('openbay/etsy_links');
+		$this->load->language('openbay/etsy_links');
 
 		$data = $this->request->post;
 
@@ -672,7 +672,7 @@ class ControllerOpenbayEtsyProduct extends Controller {
 	}
 
 	public function deactivateListing() {
-		$this->language->load('openbay/etsy_links');
+		$this->load->language('openbay/etsy_links');
 
 		$data = $this->request->post;
 
@@ -699,7 +699,7 @@ class ControllerOpenbayEtsyProduct extends Controller {
 	}
 
 	public function activateListing() {
-		$this->language->load('openbay/etsy_links');
+		$this->load->language('openbay/etsy_links');
 
 		$data = $this->request->post;
 

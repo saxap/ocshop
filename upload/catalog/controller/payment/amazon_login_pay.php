@@ -8,7 +8,7 @@
 
 class ControllerPaymentAmazonLoginPay extends Controller {
 	public function address() {
-		$this->language->load('payment/amazon_login_pay');
+		$this->load->language('payment/amazon_login_pay');
 		$this->document->setTitle($this->language->get('heading_title'));
 
 		$this->load->model('payment/amazon_login_pay');
@@ -67,7 +67,7 @@ class ControllerPaymentAmazonLoginPay extends Controller {
 	}
 
 	public function paymentMethod() {
-		$this->language->load('payment/amazon_login_pay');
+		$this->load->language('payment/amazon_login_pay');
 		$this->document->setTitle($this->language->get('heading_title'));
 
 		$this->load->model('payment/amazon_login_pay');
@@ -118,8 +118,8 @@ class ControllerPaymentAmazonLoginPay extends Controller {
 	}
 
 	public function confirm() {
-		$this->language->load('payment/amazon_login_pay');
-		$this->language->load('checkout/checkout');
+		$this->load->language('payment/amazon_login_pay');
+		$this->load->language('checkout/checkout');
 		$this->document->setTitle($this->language->get('heading_title'));
 
 		$this->load->model('extension/extension');
@@ -503,7 +503,7 @@ class ControllerPaymentAmazonLoginPay extends Controller {
 	}
 
 	public function processOrder() {
-		$this->language->load('payment/amazon_login_pay');
+		$this->load->language('payment/amazon_login_pay');
 		$this->load->model('checkout/order');
 		$this->load->model('total/coupon');
 		$this->load->model('account/order');
@@ -605,7 +605,7 @@ class ControllerPaymentAmazonLoginPay extends Controller {
 	}
 
 	public function loginFailure() {
-		$this->language->load('payment/amazon_login_pay');
+		$this->load->language('payment/amazon_login_pay');
 		$this->document->setTitle($this->language->get('heading_title'));
 		$data['heading_title'] = $this->language->get('heading_title');
 
@@ -632,7 +632,7 @@ class ControllerPaymentAmazonLoginPay extends Controller {
 	}
 
 	public function shippingQuotes() {
-		$this->language->load('payment/amazon_login_pay');
+		$this->load->language('payment/amazon_login_pay');
 
 		$this->load->model('extension/extension');
 		$this->load->model('payment/amazon_login_pay');

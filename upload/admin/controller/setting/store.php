@@ -10,7 +10,7 @@ class ControllerSettingStore extends Controller {
 	private $error = array();
 
 	public function index() {
-		$this->language->load('setting/store');
+		$this->load->language('setting/store');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -20,7 +20,7 @@ class ControllerSettingStore extends Controller {
 	}
 
 	public function add() {
-		$this->language->load('setting/store');
+		$this->load->language('setting/store');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -42,7 +42,7 @@ class ControllerSettingStore extends Controller {
 	}
 
 	public function edit() {
-		$this->language->load('setting/store');
+		$this->load->language('setting/store');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -64,7 +64,7 @@ class ControllerSettingStore extends Controller {
 	}
 
 	public function delete() {
-		$this->language->load('setting/store');
+		$this->load->language('setting/store');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 

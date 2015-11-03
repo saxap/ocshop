@@ -8,7 +8,7 @@
 
 class ControllerCommonStats extends Controller {
 	public function index() {
-		$this->language->load('common/stats');
+		$this->load->language('common/stats');
 
 		$data['text_complete_status'] = $this->language->get('text_complete_status');
 		$data['text_processing_status'] = $this->language->get('text_processing_status');

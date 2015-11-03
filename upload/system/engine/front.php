@@ -38,7 +38,7 @@ final class Front {
 	}
 
 	private function execute($action) {
-		$result = $action->execute($this->registry);
+		$result = $action->execute($this->registry, $action->getArgs());
 
 		if (is_object($result)) {
 			$action = $result;

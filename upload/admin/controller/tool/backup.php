@@ -10,7 +10,7 @@ class ControllerToolBackup extends Controller {
 	private $error = array();
 
 	public function index() {
-		$this->language->load('tool/backup');
+		$this->load->language('tool/backup');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -89,7 +89,7 @@ class ControllerToolBackup extends Controller {
 	}
 
 	public function backup() {
-		$this->language->load('tool/backup');
+		$this->load->language('tool/backup');
 
 		if (!isset($this->request->post['backup'])) {
 			$this->session->data['error'] = $this->language->get('error_export');

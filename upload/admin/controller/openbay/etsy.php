@@ -8,7 +8,7 @@
 
 class ControllerOpenbayEtsy extends Controller {
 	public function install() {
-		$this->language->load('openbay/etsy');
+		$this->load->language('openbay/etsy');
 		$this->load->model('openbay/etsy');
 		$this->load->model('setting/setting');
 		$this->load->model('extension/extension');
@@ -34,7 +34,7 @@ class ControllerOpenbayEtsy extends Controller {
 	}
 
 	public function index() {
-		$data = $this->language->load('openbay/etsy');
+		$data = $this->load->language('openbay/etsy');
 
 		$this->document->setTitle($this->language->get('text_dashboard'));
 		$this->document->addScript('view/javascript/openbay/js/faq.js');
@@ -76,7 +76,7 @@ class ControllerOpenbayEtsy extends Controller {
 	}
 
 	public function settings() {
-		$data = $this->language->load('openbay/etsy_settings');
+		$data = $this->load->language('openbay/etsy_settings');
 
 		$this->load->model('setting/setting');
 		$this->load->model('openbay/etsy');
