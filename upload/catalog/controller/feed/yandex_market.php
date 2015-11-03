@@ -1,8 +1,6 @@
 <?php
-// *	@copyright	OCSHOP.CMS \ ocshop.net 2011 - 2015.
-// *	@demo	http://ocshop.net
-// *	@blog	http://ocshop.info
-// *	@forum	http://forum.ocshop.info
+// *	@copyright	OPENCART.PRO 2011 - 2015.
+// *	@forum	http://forum.opencart.pro
 // *	@source		See SOURCE.txt for source and other copyright.
 // *	@license	GNU General Public License version 3; see LICENSE.txt
 
@@ -35,7 +33,7 @@ class ControllerFeedYandexMarket extends Controller {
 			$this->setShop('company', $this->config->get('yandex_market_company'));
 			$this->setShop('url', HTTP_SERVER);
 			$this->setShop('phone', $this->config->get('config_telephone'));
-			$this->setShop('platform', 'OCSHOP');
+			$this->setShop('platform', 'OPENCART');
 			$this->setShop('version', VERSION);
 
 			// Валюты

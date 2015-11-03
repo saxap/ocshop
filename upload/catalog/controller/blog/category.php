@@ -1,8 +1,6 @@
 <?php
-// *	@copyright	OCSHOP.CMS \ ocshop.net 2011 - 2015.
-// *	@demo	http://ocshop.net
-// *	@blog	http://ocshop.info
-// *	@forum	http://forum.ocshop.info
+// *	@copyright	OPENCART.PRO 2011 - 2015.
+// *	@forum	http://forum.opencart.pro
 // *	@source		See SOURCE.txt for source and other copyright.
 // *	@license	GNU General Public License version 3; see LICENSE.txt
 
@@ -271,7 +269,7 @@ class ControllerBlogCategory extends Controller {
 				);
 			}
 			
-			//ocshop sort viewed
+			//opencart.pro sort viewed
 			$data['sorts'][] = array(
 				'text'  => $this->language->get('text_viewed_asc'),
 				'value' => 'p.viewed-ASC',
@@ -283,7 +281,7 @@ class ControllerBlogCategory extends Controller {
 				'value' => 'p.viewed-DESC',
 				'href'  => $this->url->link('blog/category', 'blog_category_id=' . $this->request->get['blog_category_id'] . '&sort=p.viewed&order=DESC' . $url)
 			); 
-			//ocshop sort viewed
+			//opencart.pro sort viewed
 			
 			$url = '';
 

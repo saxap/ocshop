@@ -1,8 +1,6 @@
 <?php
-// *	@copyright	OCSHOP.CMS \ ocshop.net 2011 - 2015.
-// *	@demo	http://ocshop.net
-// *	@blog	http://ocshop.info
-// *	@forum	http://forum.ocshop.info
+// *	@copyright	OPENCART.PRO 2011 - 2015.
+// *	@forum	http://forum.opencart.pro
 // *	@source		See SOURCE.txt for source and other copyright.
 // *	@license	GNU General Public License version 3; see LICENSE.txt
 
@@ -207,7 +205,7 @@ $_['help_return']                      = 'Требовать принятия п
 $_['help_return_status']               = 'Этот статус будет присвоен заказу после подтверждения операции возврата.';
 $_['help_captcha']                     = 'Защитный код использовать для регистрации, входа в систему, контакты и обзоры.';
 $_['help_icon']                        = 'Иконка должна быть PNG размером 16px x 16px.';
-$_['help_ftp_root']                    = 'Каталог, в который установлен OCSHOP; обычно \'public_html/\'.';
+$_['help_ftp_root']                    = 'Каталог, в который установлен OPENCART; обычно \'public_html/\'.';
 $_['help_mail_protocol']               = 'Выбирайте Mail, и только в случае, когда этот способ не работает &mdash; SMTP.';
 $_['help_mail_parameter']              = 'ОСТОРОЖНО. Не заполняйте поле, если не знаете, для чего оно. Когда используется Mail, здесь могут быть указаны дополнительные параметры для sendmail (напр. -femail@storeaddress.com).';
 $_['help_mail_smtp_hostname']          = 'Добавьте \'tls://\' префикс если требуется защищенное соединение. (прим.: \'tls://smtp.gmail.com\').';

@@ -1,8 +1,6 @@
 <?php
-// *	@copyright	OCSHOP.CMS \ ocshop.net 2011 - 2015.
-// *	@demo	http://ocshop.net
-// *	@blog	http://ocshop.info
-// *	@forum	http://forum.ocshop.info
+// *	@copyright	OPENCART.PRO 2011 - 2015.
+// *	@forum	http://forum.opencart.pro
 // *	@source		See SOURCE.txt for source and other copyright.
 // *	@license	GNU General Public License version 3; see LICENSE.txt
 
@@ -31,7 +29,7 @@ $_['help_category']           = 'Отметьте категории из кот
 $_['help_currency']           = 'Яндекс.Маркет принимает предложения в валюте RUR, RUB или UAH. Выберите валюту в которой будут передаваться предложения.';
 $_['help_in_stock']           = 'При остатке на складе 0';
 $_['help_out_of_stock']       = 'При остатке на складе 0';
-$_['help_yandex_market']      = 'Тема на <a target="_blank" href="http://forum.ocshop.info/index.php?/files/file/40-yandexmarket-20/">Форуме</a>';
+$_['help_yandex_market']      = 'Тема на <a target="_blank" href="http://forum.opencart.pro/index.php?/files/file/40-yandexmarket-20/">Форуме</a>';
 
 // Error
 $_['error_permission']   = 'У Вас нет прав для управления этим модулем!';

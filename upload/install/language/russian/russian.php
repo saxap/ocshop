@@ -1,14 +1,12 @@
 <?php
-// *	@copyright	OCSHOP.CMS \ ocshop.net 2011 - 2015.
-// *	@demo	http://ocshop.net
-// *	@blog	http://ocshop.info
-// *	@forum	http://forum.ocshop.info
+// *	@copyright	OPENCART.PRO 2011 - 2015.
+// *	@forum	http://forum.opencart.pro
 // *	@source		See SOURCE.txt for source and other copyright.
 // *	@license	GNU General Public License version 3; see LICENSE.txt
 
 // Heading
 $_['heading_step_1']         = 'Лицензионное Соглашение';
-$_['heading_step_1_small']   = 'Прочтите пожалуйста условия лицензии OCSHOP.CMS';
+$_['heading_step_1_small']   = 'Прочтите пожалуйста условия лицензии OPENCART.PRO';
 $_['heading_step_2']         = 'Начало установки';
 $_['heading_step_2_small']   = 'Проверка соответствия сервера и доступности файлов для установки';
 $_['heading_step_3']         = 'Конфигурация';
@@ -32,7 +30,7 @@ $_['text_install_file']      = '4. Убедитесь, что перечисле
 $_['text_install_directory'] = '5. Убедитесь, что перечисленные ниже каталоги, а также все их подкаталоги и файлы в них имеют разрешение на запись.';
 $_['text_db_connection']     = '1. Укажите связь с базой данных.';
 $_['text_db_administration'] = '2. Укажите Логин, Пароль и E-Mail для администрирования Вашего магазина.';
-$_['text_congratulation']    = 'Поздравляем! Вы успешно установили OCSHOP.CMS.';
+$_['text_congratulation']    = 'Поздравляем! Вы успешно установили OPENCART.PRO.';
 $_['text_setting']           = 'Настройки PHP';
 $_['text_current']           = 'Ваши текущие настройки';
 $_['text_required']          = 'Необходимые настройки';
@@ -67,19 +65,19 @@ $_['text_login']             = 'Перейти в Административну
 $_['text_project']           = 'Сайт проекта';
 $_['text_documentation']     = 'Документация';
 $_['text_support']           = 'Форум';
-$_['text_footer']            = 'Copyright © 2014 OCSHOP.CMS - All rights reserved';
+$_['text_footer']            = 'Copyright © 2014 OPENCART.PRO - All rights reserved';
 $_['text_loading']           = 'Loading modules...';
 $_['text_store']             = 'посетите магазин расширений и дополнений';
 $_['text_mail_list']         = 'Присоединитесь к списку рассылок';
-$_['text_mail_list_small']   = 'И Вы будете информированы о всех обновлениях и новостях OCSHOP.CMS.';
+$_['text_mail_list_small']   = 'И Вы будете информированы о всех обновлениях и новостях OPENCART.PRO.';
 $_['text_openbay']   		 = 'OpenBay Pro дает возможность связать магазин со сторонними рынками как eBay и Amazon....';
 $_['text_maxmind']   		 = 'MaxMind предоставляет продавцам способность определить опасные сделки быстро, снижая риск мошенничества и минимизирует время, проведенное, рассматривая заказы, давая счет риска к каждому...';
 $_['text_more_info']   		 = 'Подробнее';
 $_['text_facebook']   		 = 'Мы Вконтакте';
-$_['text_facebook_info']     = 'Вам нравится OCSHOP.CMS! Поделитесь!';
+$_['text_facebook_info']     = 'Вам нравится OPENCART.PRO! Поделитесь!';
 $_['text_facebook_link']     = 'Посетите нашу страницу Вконтакте';
 $_['text_forum']    	 	 = 'Форум сообщества';
-$_['text_forum_info']    	 = 'Получите помощь от других пользователей OCSHOP.CMS';
+$_['text_forum_info']    	 = 'Получите помощь от других пользователей OPENCART.PRO';
 $_['text_forum_link']    	 = 'Посетите Форум';
 $_['text_commercial']    	 = 'Читайте нас в блоге';
 $_['text_commercial_info']   = 'Интернет Торговля и не Только';

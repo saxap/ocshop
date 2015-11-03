@@ -53,7 +53,7 @@
       </ul>
     </li> 
   </ul>
-  <div id="ocshop-search-div" class="col-sm-3 col-md-3 pull-left">
+  <div id="ocpro-search-div" class="col-sm-3 col-md-3 pull-left">
     <?php echo $search; ?>
   </div>
   <ul class="nav pull-right">
@@ -91,9 +91,9 @@
         <?php } ?>
         <li class="divider"></li>
         <li class="dropdown-header"><?php echo $text_help; ?> <i class="fa fa-life-ring"></i></li>
-        <li><a href="http://ocshop.info/" target="_blank"><?php echo $text_homepage; ?></a></li>
-        <li><a href="http://ocshop.info/wiki/" target="_blank"><?php echo $text_documentation; ?></a></li>
-        <li><a href="http://forum.ocshop.info/" target="_blank"><?php echo $text_support; ?></a></li>
+        <li><a href="http://opencart.pro/blog/" target="_blank"><?php echo $text_homepage; ?></a></li>
+        <li><a href="http://opencart.pro/wiki/" target="_blank"><?php echo $text_documentation; ?></a></li>
+        <li><a href="http://forum.opencart.pro/" target="_blank"><?php echo $text_support; ?></a></li>
       </ul>
     </li>
     <li><a href="<?php echo $logout; ?>"><span class="hidden-xs hidden-sm hidden-md"><?php echo $text_logout; ?></span> <i class="fa fa-sign-out fa-lg"></i></a></li>

@@ -36,7 +36,7 @@
 	  <img src="view/image/howto/gogettop/gogettop_6.png" width="100%" />
 	  <p>После чего запускаем проект в разделе <strong>Проекты</strong>, так же тут отслеживаем статистику написания авторами статей в которых будут размещаться наши ссылки.</p>
 	  <img src="view/image/howto/gogettop/gogettop_11.png" width="100%" />
-	  <p>В том случае если у вас остались вопросы задавайте их на нашем <a href="http://forum.ocshop.info/index.php?/topic/1025-gogettopru/" target="_blank"><strong>форуме</strong></a>.</p>
+	  <p>В том случае если у вас остались вопросы задавайте их на нашем <a href="http://forum.opencart.pro/index.php?/topic/1025-gogettopru/" target="_blank"><strong>форуме</strong></a>.</p>
     </div>
   </div>
 </div>
