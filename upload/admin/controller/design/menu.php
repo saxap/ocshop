@@ -11,7 +11,7 @@ class ControllerDesignMenu extends Controller {
     private $error = array();
 
     public function index() {
-        $this->language->load('design/menu');
+        $this->load->language('design/menu');
         $this->document->setTitle($this->language->get('heading_title'));
 		
 		$this->load->model('setting/setting');
@@ -211,7 +211,7 @@ class ControllerDesignMenu extends Controller {
     }
 
     protected function addHtml($menu, $languages){
-        $this->language->load('design/menu');
+        $this->load->language('design/menu');
 
         $count = '0';
 
@@ -278,7 +278,7 @@ class ControllerDesignMenu extends Controller {
     }
 
     public function save() {
-        $this->language->load('design/menu');
+        $this->load->language('design/menu');
         $this->document->setTitle($this->language->get('heading_title'));
         $this->load->model('design/menu');
 
@@ -294,7 +294,7 @@ class ControllerDesignMenu extends Controller {
     }
 
     public function deleteMenu() {
-        $this->language->load('design/menu');
+        $this->load->language('design/menu');
         $this->document->setTitle($this->language->get('heading_title'));
         $this->load->model('design/menu');
 
@@ -319,7 +319,7 @@ class ControllerDesignMenu extends Controller {
     }
 
     public function deleteChildMenu() {
-        $this->language->load('design/menu');
+        $this->load->language('design/menu');
         $this->document->setTitle($this->language->get('heading_title'));
         $this->load->model('design/menu');
 
@@ -344,7 +344,7 @@ class ControllerDesignMenu extends Controller {
     }
 
 	public function enableMenu() {
-        $this->language->load('design/menu');
+        $this->load->language('design/menu');
 		$this->document->setTitle($this->language->get('heading_title'));
 		$this->load->model('design/menu');
         
@@ -363,7 +363,7 @@ class ControllerDesignMenu extends Controller {
 	}	
 
 	public function disableMenu() {
-        $this->language->load('design/menu');
+        $this->load->language('design/menu');
 		$this->document->setTitle($this->language->get('heading_title'));
 		$this->load->model('design/menu');
         
@@ -382,7 +382,7 @@ class ControllerDesignMenu extends Controller {
 	}	
 	
 	public function enableChildMenu() {
-        $this->language->load('design/menu');
+        $this->load->language('design/menu');
 		$this->document->setTitle($this->language->get('heading_title'));
 		$this->load->model('design/menu');
         
@@ -400,7 +400,7 @@ class ControllerDesignMenu extends Controller {
 	}	
 
 	public function disableChildMenu() {
-        $this->language->load('design/menu');
+        $this->load->language('design/menu');
 		$this->document->setTitle($this->language->get('heading_title'));
 		$this->load->model('design/menu');
         
@@ -418,7 +418,7 @@ class ControllerDesignMenu extends Controller {
 	}	
 
 	public function changeMenuPosition() {
-        $this->language->load('design/menu');
+        $this->load->language('design/menu');
 		$this->document->setTitle($this->language->get('heading_title'));
 		$this->load->model('design/menu');
         

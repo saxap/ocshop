@@ -12,7 +12,7 @@ class ControllerSearchSearch extends Controller {
 			return;
 		}
 	
-		$this->language->load('search/search');
+		$this->load->language('search/search');
 
         $data = array();
 		
@@ -33,9 +33,9 @@ class ControllerSearchSearch extends Controller {
 	}
 
     public function search(){
-        $this->language->load('search/search');
+        $this->load->language('search/search');
         
-		$this->language->load('search/search');
+		$this->load->language('search/search');
         $data['text_products'] = $this->language->get('text_products');
 		$data['text_categories'] = $this->language->get('text_categories');
 		$data['text_manufacturers'] = $this->language->get('text_manufacturers');

@@ -8,7 +8,7 @@
 
 class ControllerModuleBlogFeatured extends Controller {
 	public function index($setting) {
-		$this->language->load('blog/module/featured');
+		$this->load->language('blog/module/featured');
 
 		$data['heading_title'] = $this->language->get('heading_title');
 

@@ -8,7 +8,7 @@
 
 class ControllerModuleCategory4level extends Controller {
 	public function index() {
-		$this->language->load('module/category4level');
+		$this->load->language('module/category4level');
 
 		$data['heading_title'] = $this->language->get('heading_title');
 

@@ -10,7 +10,7 @@ class ControllerModulePopular extends Controller {
 	private $error = array(); 
 	
 public function index() {
-		$this->language->load('module/popular');
+		$this->load->language('module/popular');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 

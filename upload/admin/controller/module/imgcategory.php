@@ -10,7 +10,7 @@ class ControllerModuleImgcategory extends Controller {
 	private $error = array(); 
 	
 	public function index() {   
-		$this->language->load('module/imgcategory');
+		$this->load->language('module/imgcategory');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 

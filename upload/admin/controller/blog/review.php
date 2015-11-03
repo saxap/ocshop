@@ -10,7 +10,7 @@ class ControllerBlogReview extends Controller {
 	private $error = array();
 
 	public function index() {
-		$this->language->load('blog/review');
+		$this->load->language('blog/review');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -20,7 +20,7 @@ class ControllerBlogReview extends Controller {
 	}
 
 	public function add() {
-		$this->language->load('blog/review');
+		$this->load->language('blog/review');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -68,7 +68,7 @@ class ControllerBlogReview extends Controller {
 	}
 
 	public function edit() {
-		$this->language->load('blog/review');
+		$this->load->language('blog/review');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -116,7 +116,7 @@ class ControllerBlogReview extends Controller {
 	}
 
 	public function delete() {
-		$this->language->load('blog/review');
+		$this->load->language('blog/review');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 

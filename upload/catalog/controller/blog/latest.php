@@ -9,7 +9,7 @@
 class ControllerBlogLatest extends Controller { 	
 	public function index() { 
 	
-		$this->language->load('blog/latest');
+		$this->load->language('blog/latest');
 
 		$this->load->model('blog/article');
 

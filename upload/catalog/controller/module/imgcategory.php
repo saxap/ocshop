@@ -9,7 +9,7 @@
 class ControllerModuleImgcategory extends Controller {
 
 	public function index($setting) {
-		$this->language->load('module/imgcategory');
+		$this->load->language('module/imgcategory');
 
     	$data['heading_title'] = $this->language->get('heading_title');
 

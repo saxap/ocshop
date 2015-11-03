@@ -10,7 +10,7 @@ class ControllerBlogArticle extends Controller {
 	private $error = array(); 
 	
 	public function index() { 
-		$this->language->load('blog/article');
+		$this->load->language('blog/article');
 	
 		$data['breadcrumbs'] = array();
 
@@ -430,7 +430,7 @@ class ControllerBlogArticle extends Controller {
 	}
 	
 	public function review() {
-    	$this->language->load('blog/article');
+    	$this->load->language('blog/article');
 		
 		$this->load->model('blog/review');
 
@@ -477,7 +477,7 @@ class ControllerBlogArticle extends Controller {
 	}
 	
 	public function write() {
-		$this->language->load('blog/article');
+		$this->load->language('blog/article');
 
 		$json = array();
 

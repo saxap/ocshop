@@ -10,7 +10,7 @@ class ControllerModuleCachemanager extends Controller {
 	private $error = array();
 
 	public function index() {
-		$this->language->load('module/cachemanager');
+		$this->load->language('module/cachemanager');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -81,7 +81,7 @@ class ControllerModuleCachemanager extends Controller {
 	}
 
 	public function clearsystemcache() {
-		$this->language->load('module/cachemanager');
+		$this->load->language('module/cachemanager');
 		$files = glob(DIR_CACHE . 'cache.*');
 		foreach($files as $file){
 			$this->deldir($file);
@@ -93,7 +93,7 @@ class ControllerModuleCachemanager extends Controller {
 		}
         
 	public function clearcache() {
-		$this->language->load('module/cachemanager');
+		$this->load->language('module/cachemanager');
                 $imgfiles = glob(DIR_IMAGE . 'cache/*');
               foreach($imgfiles as $imgfile){
                      $this->deldir($imgfile);
@@ -104,7 +104,7 @@ class ControllerModuleCachemanager extends Controller {
 		}
 	
 	public function clearallcache() {
-		$this->language->load('module/cachemanager');
+		$this->load->language('module/cachemanager');
         $imgfiles = glob(DIR_IMAGE . 'cache/*');
              foreach($imgfiles as $imgfile){
                      $this->deldir($imgfile);

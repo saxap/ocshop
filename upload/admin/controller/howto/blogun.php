@@ -10,7 +10,7 @@ class ControllerHowtoBlogun extends Controller {
 	private $error = array();
 
 	public function index() {
-		$this->language->load('howto/blogun');
+		$this->load->language('howto/blogun');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 

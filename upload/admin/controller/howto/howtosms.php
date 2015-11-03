@@ -10,7 +10,7 @@ class ControllerHowtoHowtosms extends Controller {
 	private $error = array();
 
 	public function index() {		
-		$this->language->load('howto/howtosms');
+		$this->load->language('howto/howtosms');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 

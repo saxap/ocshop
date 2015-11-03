@@ -10,7 +10,7 @@ class ControllerBlogArticle extends Controller {
 	private $error = array();
 
 	public function index() {
-		$this->language->load('blog/article');
+		$this->load->language('blog/article');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -20,7 +20,7 @@ class ControllerBlogArticle extends Controller {
 	}
 
 	public function add() {
-		$this->language->load('blog/article');
+		$this->load->language('blog/article');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -64,7 +64,7 @@ class ControllerBlogArticle extends Controller {
 	}
 
 	public function edit() {
-		$this->language->load('blog/article');
+		$this->load->language('blog/article');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -108,7 +108,7 @@ class ControllerBlogArticle extends Controller {
 	}
 
 	public function delete() {
-		$this->language->load('blog/article');
+		$this->load->language('blog/article');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -154,7 +154,7 @@ class ControllerBlogArticle extends Controller {
 	}
 
 	public function copy() {
-		$this->language->load('blog/article');
+		$this->load->language('blog/article');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
