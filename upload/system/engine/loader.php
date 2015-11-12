@@ -12,9 +12,9 @@ final class Loader {
 	public function __construct($registry) {
 		$this->registry = $registry;
 	}
-
+	
 	public function controller($route, $data = array()) {
-		// $this->event->trigger('pre.controller.' . $route, $data);
+		//$this->registry->get('event')->trigger('controller/' . $route . '/before', $route, $data);
 
 		$parts = explode('/', str_replace('../', '', (string)$route));
 
@@ -32,8 +32,6 @@ final class Loader {
 			}
 		}
 
-		$controller = new $class($this->registry);
-
 		if (!isset($method)) {
 			$method = 'index';
 		}
@@ -43,19 +41,21 @@ final class Loader {
 			return false;
 		}
 
-		$output = '';
+		$controller = new $class($this->registry);
 
 		if (is_callable(array($controller, $method))) {
 			$output = call_user_func(array($controller, $method), $data);
+		} else {
+			$output = null;
 		}
 
-		// $this->event->trigger('post.controller.' . $route, $output);
-
+		//$this->registry->get('event')->trigger('controller/' . $route . '/after', $output);
+		
 		return $output;
 	}
 
 	public function model($model, $data = array()) {
-		// $this->event->trigger('pre/model/' . str_replace('/', '.', (string)$model), $data);
+		//$this->registry->get('event')->trigger('model/' . $model . '/before', $model, $data);
 
 		$model = str_replace('../', '', (string)$model);
 
@@ -64,37 +64,35 @@ final class Loader {
 
 		if (file_exists($file)) {
 			include_once($file);
+			
+			$object = new $class($this->registry);
+			
+			//$aspect = new Aspect($this->registry);
+			//$test = $aspect->factory($object);
+			
+			//$aspect->addListener('addOrderHistory', $this->registry->get('event'));
 
-			$this->registry->set('model_' . str_replace('/', '_', $model), new $class($this->registry));
+			$this->registry->set('model_' . str_replace('/', '_', $model), $object);
 		} else {
 			trigger_error('Error: Could not load model ' . $file . '!');
 			exit();
 		}
 
-		// $this->event->trigger('post/model/' . str_replace('/', '.', (string)$model), $output);
+		//$this->registry->get('event')->trigger('model/' . $model . '/after', $output);
 	}
 
-	public function view($template, $data = array()) {
-		 $this->event->beforeTrigger('view/' . str_replace('/', '.', $template) . '/before/', $data);
+	public function view($view, $data = array()) {
+		//$this->registry->get('event')->trigger('view/' . $view . '/before', $view, $data);
 
-		$file = DIR_TEMPLATE . $template;
-
-		if (file_exists($file)) {
-			extract($data);
-
-			ob_start();
-
-			require($file);
-
-			$output = ob_get_contents();
-
-			ob_end_clean();
-		} else {
-			trigger_error('Error: Could not load template ' . $file . '!');
-			exit();
+		$template = new Template('basic');
+		
+		foreach ($data as $key => $value) {
+			$template->set($key, $value);
 		}
+		
+		$output = $template->render($view);	
 
-		$this->event->afterTrigger('view/' . $template, $output);
+		//$this->registry->get('event')->trigger('view/' . $view . '/after', $output);
 
 		return $output;
 	}
@@ -111,10 +109,18 @@ final class Loader {
 	}
 
 	public function config($config) {
+		//$this->registry->get('event')->trigger('config/' . $config . '/before', $config);
+		
 		$this->registry->get('config')->load($config);
+		
+		//$this->registry->get('event')->trigger('config/' . $config . '/after');
 	}
 
 	public function language($language) {
-		return $this->registry->get('language')->load($language);
+		//$this->registry->get('event')->trigger('language/' . $language . '/before', $language);
+		
+		$this->registry->get('language')->load($language);
+		
+		//$this->registry->get('event')->trigger('language/' . $language . '/after');
 	}
 }

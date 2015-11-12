@@ -108,7 +108,7 @@ $_['help_category']          = '(Autocomplete)';
 $_['help_filter']            = '(Autocomplete)';
 $_['help_download']          = '(Autocomplete)';
 $_['help_related']           = '(Autocomplete)';
-$_['help_tag']          	 = 'comma separated';
+$_['help_tag']          	 = 'Comma separated';
 $_['help_noindex']           = 'indexing in search engines Google, Yandex, Bing and other';
 
 // Error

@@ -750,7 +750,7 @@ class ControllerApiOrder extends Controller {
 			$keys = array(
 				'order_status_id',
 				'notify',
-				'append',
+				'override',
 				'comment'
 			);
 
