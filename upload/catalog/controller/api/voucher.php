@@ -23,6 +23,8 @@ class ControllerApiVoucher extends Controller {
 			} else {
 				$voucher = '';
 			}
+			
+			$this->load->model('total/voucher');
 
 			$voucher_info = $this->model_total_voucher->getVoucher($voucher);
 
