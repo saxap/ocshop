@@ -181,6 +181,7 @@ class ControllerBlogCategory extends Controller {
 
 		$data['button_add'] = $this->language->get('button_add');
 		$data['button_edit'] = $this->language->get('button_edit');
+		$data['button_shop'] = $this->language->get('button_shop');
 		$data['button_delete'] = $this->language->get('button_delete');
 		$data['button_rebuild'] = $this->language->get('button_rebuild');
 
@@ -581,6 +582,7 @@ class ControllerBlogCategory extends Controller {
 				'selected'    => $selected,
 				'action'      => $action,
 				'href'        => $href,
+				'href_shop'   => HTTP_CATALOG . 'index.php?route=blog/category&blog_category_id=' . ($result['blog_category_id']),
 				'indent'      => $indent
 			);
 			if ($blog_category_id == $result['blog_category_id']) {
