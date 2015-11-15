@@ -576,6 +576,11 @@ class ControllerBlogArticle extends Controller {
 		} else {
 			$data['article_description'] = array();
 		}
+		
+		$language_id = $this->config->get('config_language_id');
+		if (isset($data['article_description'][$language_id]['name'])) {
+			$data['heading_title'] = $data['article_description'][$language_id]['name'];
+		}
 
 		if (isset($this->request->post['image'])) {
 			$data['image'] = $this->request->post['image'];
