@@ -1,12 +1,8 @@
 <div class="module_heading"><?php echo $heading_title; ?></div>
 <div class="row product-layout module">
-  <div class="<?php echo $container; ?>">
+  <div>
   <?php foreach ($products as $product) { ?>
-  <?php if (!$carousel) { ?>
   <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-  <?php }  else { ?>
-	<div class="col-xs-12">
-    <?php  } ?>
     <div class="product-thumb transition">
 	<div class="item">
       <div class="image"><?php echo $product['sticker']; ?><a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" class="img-responsive" /></a></div>
@@ -47,35 +43,4 @@
    </div>
   <?php } ?>
 </div>
-<?php if ($carousel) { ?>
-   <div class="moduleNavigation cont<?php echo $container; ?>">
-	  <a class="btn prev"></a>
-	  <a class="btn next"></a>
-  </div>
-  <?php } ?>
 </div>
-<?php if ($carousel) { ?>
-	<script>
-		$(document).ready(function() {
-		  var <?php echo $container; ?> = $(".<?php echo $container; ?>");
-		  parentcontainer = (((<?php echo $container; ?>).parent().parent().attr("id")));
-		  <?php echo $container; ?>.owlCarousel({
-			 // itemsMobile : false, // itemsMobile disabled - inherit from itemsTablet option
-			 // autoHeight :	true,
-			  navigation :	false,
-			  pagination :	false,
-			  scrollPerPage: false,
-			  itemsScaleUp : true,
-			  stopOnHover:	true,
-			  responsiveBaseWidth : $('#' + parentcontainer  ) //((<?php echo $container; ?>).parent().parent().attr("id")),
-		  });
-		  // Custom Navigation Events
-		  $(".cont<?php echo $container; ?> .next").click(function(){
-			<?php echo $container; ?>.trigger('owl.next');
-		  })
-		  $(".cont<?php echo $container; ?> .prev").click(function(){
-			<?php echo $container; ?>.trigger('owl.prev');
-		  })
-		});
-	</script>
-<?php } ?>
