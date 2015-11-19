@@ -183,6 +183,16 @@ class ModelBlogArticle extends Model {
 
 		$this->event->trigger('post.admin.article.edit', $article_id);
 	}
+	
+	public function editArticleStatus($article_id, $status) {
+        $this->db->query("UPDATE " . DB_PREFIX . "article SET status = '" . (int)$status . "', date_modified = NOW() WHERE article_id = '" . (int)$article_id . "'");
+        
+		$this->cache->delete('article');
+		
+		$this->event->trigger('post.admin.article.edit', $article_id);
+		
+		return $article_id;
+    }
 
 	public function copyArticle($article_id) {
 		$query = $this->db->query("SELECT DISTINCT * FROM " . DB_PREFIX . "article p LEFT JOIN " . DB_PREFIX . "article_description pd ON (p.article_id = pd.article_id) WHERE p.article_id = '" . (int)$article_id . "' AND pd.language_id = '" . (int)$this->config->get('config_language_id') . "'");

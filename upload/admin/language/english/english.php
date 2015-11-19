@@ -101,6 +101,8 @@ $_['button_link']                   = 'Link';
 $_['button_currency']               = 'Refresh Currency Values';
 $_['button_apply']                  = 'Apply';
 $_['button_category_add']           = 'Add Category';
+$_['button_enable']             	= 'Enable';
+$_['button_disable']       		    = 'Disable';
 
 // Tab
 $_['tab_address']                   = 'Address';

@@ -169,6 +169,14 @@ class ModelCatalogCategory extends Model {
 
 		$this->event->trigger('post.admin.category.edit', $category_id);
 	}
+	
+	public function editCategoryStatus($category_id, $status) {
+        $this->db->query("UPDATE " . DB_PREFIX . "category SET status = '" . (int)$status . "', date_modified = NOW() WHERE category_id = '" . (int)$category_id . "'");
+        
+		$this->cache->delete('category');
+		
+		$this->event->trigger('post.admin.category.edit', $category_id);
+    }
 
 	public function deleteCategory($category_id) {
 		$this->event->trigger('pre.admin.category.delete', $category_id);

@@ -82,6 +82,14 @@ class ModelCatalogInformation extends Model {
 
 		$this->event->trigger('post.admin.information.edit', $information_id);
 	}
+	
+	public function editInformationStatus($information_id, $status) {
+        $this->db->query("UPDATE " . DB_PREFIX . "information SET status = '" . (int)$status . "'WHERE information_id = '" . (int)$information_id . "'");
+        
+		$this->cache->delete('information');
+		
+		$this->event->trigger('post.admin.information.edit', $information_id);
+    }
 
 	public function deleteInformation($information_id) {
 		$this->event->trigger('pre.admin.information.delete', $information_id);

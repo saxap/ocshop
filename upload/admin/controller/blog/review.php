@@ -251,6 +251,9 @@ class ControllerBlogReview extends Controller {
 
 		$data['add'] = $this->url->link('blog/review/add', 'token=' . $this->session->data['token'] . $url, 'SSL');
 		$data['delete'] = $this->url->link('blog/review/delete', 'token=' . $this->session->data['token'] . $url, 'SSL');
+		
+		$data['enabled'] = $this->url->link('blog/review/enable', 'token=' . $this->session->data['token'] . $url, 'SSL');
+        $data['disabled'] = $this->url->link('blog/review/disable', 'token=' . $this->session->data['token'] . $url, 'SSL');
 
 		$data['reviews'] = array();
 
@@ -306,6 +309,9 @@ class ControllerBlogReview extends Controller {
 		$data['button_edit'] = $this->language->get('button_edit');
 		$data['button_delete'] = $this->language->get('button_delete');
 		$data['button_filter'] = $this->language->get('button_filter');
+		
+		$data['button_enable'] = $this->language->get('button_enable');
+        $data['button_disable'] = $this->language->get('button_disable');
 
 		$data['token'] = $this->session->data['token'];
 
@@ -582,6 +588,96 @@ class ControllerBlogReview extends Controller {
 
 		return !$this->error;
 	}
+	
+	public function enable() {
+        $this->load->language('blog/review');
+
+        $this->document->setTitle($this->language->get('heading_title'));
+
+        $this->load->model('blog/review');
+
+        if (isset($this->request->post['selected'])) {
+
+            foreach ($this->request->post['selected'] as $review_article_id) {
+                $data = array();
+
+                $result = $this->model_blog_review->getReview($review_article_id);
+
+                foreach ($result as $key => $value) {
+                    $data[$key] = $value;
+                }
+
+                $data['status'] = 1;
+
+                $this->model_blog_review->editReview($review_article_id, $data);
+            }
+
+            $this->session->data['success'] = $this->language->get('text_success');
+
+            $url = '';
+
+            if (isset($this->request->get['page'])) {
+                $url .= '&page=' . $this->request->get['page'];
+            }
+
+            if (isset($this->request->get['sort'])) {
+                $url .= '&sort=' . $this->request->get['sort'];
+            }
+
+            if (isset($this->request->get['order'])) {
+                $url .= '&order=' . $this->request->get['order'];
+            }
+
+            $this->response->redirect($this->url->link('blog/review', 'token=' . $this->session->data['token'] . $url, 'SSL'));
+        }
+
+        $this->getList();
+    }
+
+    public function disable() {
+        $this->load->language('blog/review');
+
+        $this->document->setTitle($this->language->get('heading_title'));
+
+        $this->load->model('blog/review');
+
+        if (isset($this->request->post['selected'])) {
+
+            foreach ($this->request->post['selected'] as $review_article_id) {
+                $data = array();
+
+                $result = $this->model_blog_review->getReview($review_article_id);
+
+                foreach ($result as $key => $value) {
+                    $data[$key] = $value;
+                }
+
+                $data['status'] = 0;
+
+                $this->model_blog_review->editReview($review_article_id, $data);
+            }
+
+            $this->session->data['success'] = $this->language->get('text_success');
+
+            $url = '';
+
+            if (isset($this->request->get['page'])) {
+                $url .= '&page=' . $this->request->get['page'];
+            }
+
+            if (isset($this->request->get['sort'])) {
+                $url .= '&sort=' . $this->request->get['sort'];
+            }
+
+            if (isset($this->request->get['order'])) {
+                $url .= '&order=' . $this->request->get['order'];
+            }
+
+            $this->response->redirect($this->url->link('blog/review', 'token=' . $this->session->data['token'] . $url, 'SSL'));
+        }
+
+        $this->getList();
+    }
 
 	protected function validateDelete() {
 		if (!$this->user->hasPermission('modify', 'blog/review')) {
