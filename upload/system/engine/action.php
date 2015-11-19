@@ -10,9 +10,8 @@ class Action {
 	private $file;
 	private $class;
 	private $method;
-	private $args = array();
 
-	public function __construct($route, $args = array()) {
+	public function __construct($route) {
 		$parts = explode('/', str_replace('../', '', (string)$route));
 
 		// Break apart the route
@@ -32,8 +31,6 @@ class Action {
 		if (!$this->method) {
 			$this->method = 'index';
 		}
-		
-		$this->args = $args;
 	}
 
 	public function execute($registry, $args = array()) {
@@ -50,7 +47,7 @@ class Action {
 			$controller = new $class($registry);
 
 			if (is_callable(array($controller, $this->method))) {
-				return call_user_func(array($controller, $this->method), $args);
+				return call_user_func_array(array($controller, $this->method), $args);
 			} else {
 				return false;
 			}
@@ -58,8 +55,4 @@ class Action {
 			return false;
 		}
 	}
-	
-	public function getArgs() {
-		return $this->args;
-	}	
 }

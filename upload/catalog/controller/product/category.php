@@ -399,11 +399,7 @@ class ControllerProductCategory extends Controller {
 			$data['footer'] = $this->load->controller('common/footer');
 			$data['header'] = $this->load->controller('common/header');
 
-			if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/product/category.tpl')) {
-				$this->response->setOutput($this->load->view($this->config->get('config_template') . '/template/product/category.tpl', $data));
-			} else {
-				$this->response->setOutput($this->load->view('default/template/product/category.tpl', $data));
-			}
+			$this->response->setOutput($this->load->view('product/category.tpl', $data));
 		} else {
 			$url = '';
 
@@ -455,11 +451,7 @@ class ControllerProductCategory extends Controller {
 			$data['footer'] = $this->load->controller('common/footer');
 			$data['header'] = $this->load->controller('common/header');
 
-			if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/error/not_found.tpl')) {
-				$this->response->setOutput($this->load->view($this->config->get('config_template') . '/template/error/not_found.tpl', $data));
-			} else {
-				$this->response->setOutput($this->load->view('default/template/error/not_found.tpl', $data));
-			}
+			$this->response->setOutput($this->load->view('error/not_found.tpl', $data));
 		}
 	}
 }

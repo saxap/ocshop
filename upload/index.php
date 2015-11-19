@@ -255,23 +255,28 @@ $registry->set('openbay', new Openbay($registry));
 $event = new Event($registry);
 $registry->set('event', $event);
 
-$query = $db->query("SELECT * FROM " . DB_PREFIX . "event");
+$query = $db->query("SELECT * FROM `" . DB_PREFIX . "event` WHERE `trigger` LIKE 'catalog/%'");
 
 foreach ($query->rows as $result) {
-	$event->register($result['trigger'], new Action($result['action']));
+	$event->register(substr($result['trigger'], strpos($result['trigger'], '/') + 1), new Action($result['action']));
 }
+
+//$event->register('contoller/*', new Action('common/maintenance'));
+//$event->register('contoller/*', new Action('common/seo_url'));
 
 // Front Controller
 $controller = new Front($registry);
 
 // Maintenance Mode
-$controller->addPreAction(new Action('common/maintenance'));
+//$controller->addPreAction('*', new Action('common/maintenance'));
 
 // SEO URL's
 if (!$seo_type = $config->get('config_seo_url_type')) {
 	$seo_type = 'seo_url';
 }
 $controller->addPreAction(new Action('common/' . $seo_type));
+
+//$controller->addPreAction('*', new Action('common/seo_url'));
 
 // Router
 if (isset($request->get['route'])) {

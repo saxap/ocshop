@@ -103,11 +103,7 @@ class ControllerAccountReturn extends Controller {
 		$data['footer'] = $this->load->controller('common/footer');
 		$data['header'] = $this->load->controller('common/header');
 
-		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/account/return_list.tpl')) {
-			$this->response->setOutput($this->load->view($this->config->get('config_template') . '/template/account/return_list.tpl', $data));
-		} else {
-			$this->response->setOutput($this->load->view('default/template/account/return_list.tpl', $data));
-		}
+		$this->response->setOutput($this->load->view('account/return_list.tpl', $data));
 	}
 
 	public function info() {
@@ -228,11 +224,7 @@ class ControllerAccountReturn extends Controller {
 			$data['footer'] = $this->load->controller('common/footer');
 			$data['header'] = $this->load->controller('common/header');
 
-			if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/account/return_info.tpl')) {
-				$this->response->setOutput($this->load->view($this->config->get('config_template') . '/template/account/return_info.tpl', $data));
-			} else {
-				$this->response->setOutput($this->load->view('default/template/account/return_info.tpl', $data));
-			}
+			$this->response->setOutput($this->load->view('account/return_info.tpl', $data));
 		} else {
 			$this->document->setTitle($this->language->get('text_return'));
 			
@@ -283,11 +275,7 @@ class ControllerAccountReturn extends Controller {
 			$data['footer'] = $this->load->controller('common/footer');
 			$data['header'] = $this->load->controller('common/header');
 
-			if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/error/not_found.tpl')) {
-				$this->response->setOutput($this->load->view($this->config->get('config_template') . '/template/error/not_found.tpl', $data));
-			} else {
-				$this->response->setOutput($this->load->view('default/template/error/not_found.tpl', $data));
-			}
+			$this->response->setOutput($this->load->view('error/not_found.tpl', $data));
 		}
 	}
 
@@ -567,11 +555,7 @@ class ControllerAccountReturn extends Controller {
 		$data['footer'] = $this->load->controller('common/footer');
 		$data['header'] = $this->load->controller('common/header');
 
-		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/account/return_form.tpl')) {
-			$this->response->setOutput($this->load->view($this->config->get('config_template') . '/template/account/return_form.tpl', $data));
-		} else {
-			$this->response->setOutput($this->load->view('default/template/account/return_form.tpl', $data));
-		}
+		$this->response->setOutput($this->load->view('account/return_form.tpl', $data));
 	}
 
 	protected function validate() {
@@ -664,10 +648,6 @@ class ControllerAccountReturn extends Controller {
 		$data['footer'] = $this->load->controller('common/footer');
 		$data['header'] = $this->load->controller('common/header');
 
-		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/common/success.tpl')) {
-			$this->response->setOutput($this->load->view($this->config->get('config_template') . '/template/common/success.tpl', $data));
-		} else {
-			$this->response->setOutput($this->load->view('default/template/common/success.tpl', $data));
-		}
+		$this->response->setOutput($this->load->view('common/success.tpl', $data));
 	}
 }

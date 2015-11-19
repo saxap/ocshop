@@ -8,8 +8,6 @@
 
 class ModelCatalogReview extends Model {
 	public function addReview($product_id, $data) {
-		$this->event->trigger('pre.review.add', $data);
-
 		$this->db->query("INSERT INTO " . DB_PREFIX . "review SET author = '" . $this->db->escape($data['name']) . "', customer_id = '" . (int)$this->customer->getId() . "', product_id = '" . (int)$product_id . "', text = '" . $this->db->escape($data['text']) . "', rating = '" . (int)$data['rating'] . "', date_added = NOW()");
 
 		$review_id = $this->db->getLastId();
@@ -55,8 +53,6 @@ class ModelCatalogReview extends Model {
 				}
 			}
 		}
-
-		$this->event->trigger('post.review.add', $review_id);
 	}
 
 	public function getReviewsByProductId($product_id, $start = 0, $limit = 20) {
