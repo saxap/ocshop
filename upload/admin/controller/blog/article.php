@@ -277,6 +277,9 @@ class ControllerBlogArticle extends Controller {
 		$data['add'] = $this->url->link('blog/article/add', 'token=' . $this->session->data['token'] . $url, true);
 		$data['copy'] = $this->url->link('blog/article/copy', 'token=' . $this->session->data['token'] . $url, true);
 		$data['delete'] = $this->url->link('blog/article/delete', 'token=' . $this->session->data['token'] . $url, true);
+		
+		$data['enabled'] = $this->url->link('blog/article/enable', 'token=' . $this->session->data['token'] . $url, 'SSL');
+        $data['disabled'] = $this->url->link('blog/article/disable', 'token=' . $this->session->data['token'] . $url, 'SSL');
 
 		$data['articles'] = array();
 
@@ -338,6 +341,9 @@ class ControllerBlogArticle extends Controller {
 		$data['button_shop'] = $this->language->get('button_shop');
 		$data['button_delete'] = $this->language->get('button_delete');
 		$data['button_filter'] = $this->language->get('button_filter');
+		
+		$data['button_enable'] = $this->language->get('button_enable');
+        $data['button_disable'] = $this->language->get('button_disable');
 
 		$data['token'] = $this->session->data['token'];
 
@@ -836,6 +842,76 @@ class ControllerBlogArticle extends Controller {
 
 		return !$this->error;
 	}
+	
+	public function enable() {
+        $this->load->language('blog/article');
+
+        $this->document->setTitle($this->language->get('heading_title'));
+
+        $this->load->model('blog/article');
+
+        if (isset($this->request->post['selected'])) {
+
+            foreach ($this->request->post['selected'] as $article_id) {
+                $this->model_blog_article->editArticleStatus($article_id, 1);
+            }
+
+            $this->session->data['success'] = $this->language->get('text_success');
+
+            $url = '';
+
+            if (isset($this->request->get['page'])) {
+                $url .= '&page=' . $this->request->get['page'];
+            }
+
+            if (isset($this->request->get['sort'])) {
+                $url .= '&sort=' . $this->request->get['sort'];
+            }
+
+            if (isset($this->request->get['order'])) {
+                $url .= '&order=' . $this->request->get['order'];
+            }
+
+            $this->response->redirect($this->url->link('blog/article', 'token=' . $this->session->data['token'] . $url, 'SSL'));
+        }
+
+        $this->getList();
+    }
+
+    public function disable() {
+        $this->load->language('blog/article');
+
+        $this->document->setTitle($this->language->get('heading_title'));
+
+        $this->load->model('blog/article');
+
+        if (isset($this->request->post['selected'])) {
+
+            foreach ($this->request->post['selected'] as $article_id) {
+                $this->model_blog_article->editArticleStatus($article_id, 0);
+            }
+
+            $this->session->data['success'] = $this->language->get('text_success');
+
+            $url = '';
+
+            if (isset($this->request->get['page'])) {
+                $url .= '&page=' . $this->request->get['page'];
+            }
+
+            if (isset($this->request->get['sort'])) {
+                $url .= '&sort=' . $this->request->get['sort'];
+            }
+
+            if (isset($this->request->get['order'])) {
+                $url .= '&order=' . $this->request->get['order'];
+            }
+
+            $this->response->redirect($this->url->link('blog/article', 'token=' . $this->session->data['token'] . $url, 'SSL'));
+        }
+
+        $this->getList();
+    }
 
 	protected function validateDelete() {
 		if (!$this->user->hasPermission('modify', 'blog/article')) {
