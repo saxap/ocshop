@@ -13,3 +13,4 @@ OCSHOP.CMS  был создан в соответствии с GNU GPLv3 и вк
 - Arastta							(С) 2015 Arastta Association.
 - Popular Products					(С)	Php Dev Zone
 - Product Extra Tabs				(C)	Pushap.Manik
+- X-Shipping						(C)	OpencartMart
