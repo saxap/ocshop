@@ -8,6 +8,24 @@ class ControllerCommonSeoPro extends Controller {
 	private $cache_data = null;
 	private $languages = array();
 	private $config_language;
+
+	// Добавлять нужные роуты для исключений здесь!
+	private $valide_routes = array(
+		'tracking',
+		'utm_source',
+		'utm_campaign',
+		'utm_medium',
+		'type',
+		'source',
+		'block',
+		'position',
+		'keyword',
+		'yclid',
+		'gclid'
+	);
+	
+
+	
 	public function __construct($registry) {
 		parent::__construct($registry);
 		$this->cache_data = $this->cache->get('seo_pro');
@@ -104,8 +122,7 @@ class ControllerCommonSeoPro extends Controller {
 			} elseif (isset($this->request->get['information_id'])) {
 				$this->request->get['route'] = 'information/information';
 			} elseif(isset($this->cache_data['queries'][$route_])) {
-					header($this->request->server['SERVER_PROTOCOL'] . ' 301 Moved Permanently');
-					$this->response->redirect($this->cache_data['queries'][$route_]);
+					$this->response->redirect($this->cache_data['queries'][$route_], '301 Moved Permanently');
 			} else {
 				if (isset($queries[$parts[0]])) {
 					$this->request->get['route'] = $queries[$parts[0]];
@@ -135,9 +152,13 @@ class ControllerCommonSeoPro extends Controller {
 						if (!$data['path']) return $link;
 					}
 					$data['product_id'] = $tmp['product_id'];
-					if (isset($tmp['tracking'])) {
-						$data['tracking'] = $tmp['tracking'];
+					// --- add valide routes
+					foreach($this->valide_routes as $valide_route) {
+						if (isset($tmp[$valide_route])) {
+							$data[$valide_route] = $tmp[$valide_route];
+						}
 					}
+					// --- add valide routes
 				}
 				break;
 			case 'product/category':
@@ -180,12 +201,22 @@ class ControllerCommonSeoPro extends Controller {
 		
 		// Убираем старый вариант формирования, добавляем формирование ссылки с портом
 		$link = $url_info['scheme'] . '://' . $url_info['host'] . (isset($url_info['port']) ? ':' . $url_info['port'] : '') . '/';
+
 		
 		// Полностью запрещаем common/home
-		$link .= (($route == 'common/home') ?  '' : 'index.php?route=' . $route);
-		if (count($data)) {
-			$link .= '&amp;' . urldecode(http_build_query($data, '', '&amp;'));
-		}
+		// Добавили  проверку доверенных роутов
+		if ($route == 'common/home') {
+				foreach ($data as $key => $value) {
+					if ((!in_array($key, $this->valide_routes)) || (empty($data[$key]))) {
+						unset($data[$key]);
+					};
+				}					
+			   $link .= (count($data) ? '?' . urldecode(http_build_query($data, '', '&amp;')) : '');		
+			} else {
+				$link .= 'index.php?route=' . $route . (count($data) ? '&amp;' . urldecode(http_build_query($data, '', '&amp;')) : '');			
+			}
+
+		
 		$queries = array();
 		foreach ($data as $key => $value) {
 			switch ($key) {
@@ -251,6 +282,7 @@ class ControllerCommonSeoPro extends Controller {
 		} else {
 			$seo_url = $this->config->get('config_url') . $seo_url;
 		}*/
+		
 		$seo_url = $url_info['scheme'] . '://' . $url_info['host'] . (isset($url_info['port']) ? ':' . $url_info['port'] : '') . '/' . $seo_url;
 		if (isset($postfix)) {
 			$seo_url .= trim($this->config->get('config_seo_url_postfix'));
@@ -364,7 +396,7 @@ class ControllerCommonSeoPro extends Controller {
 		}
 		if (isset($this->request->server['HTTPS']) && (($this->request->server['HTTPS'] == 'on') || ($this->request->server['HTTPS'] == '1'))) {
 			$url = str_replace('&amp;', '&', $this->config->get('config_ssl') . ltrim($this->request->server['REQUEST_URI'], '/'));
-			$seo = str_replace('&amp;', '&', $this->url->link($this->request->get['route'], $this->getQueryString(array('route')), true));
+			$seo = str_replace('&amp;', '&', $this->url->link($this->request->get['route'], $this->getQueryString(array('route')), 'SSL'));
 		} else {
 			$url = str_replace('&amp;', '&',
 				substr($this->config->get('config_url'), 0, strpos($this->config->get('config_url'), '/', 10)) // leave only domain
@@ -372,8 +404,7 @@ class ControllerCommonSeoPro extends Controller {
 			$seo = str_replace('&amp;', '&', $this->url->link($this->request->get['route'], $this->getQueryString(array('route')), 'NONSSL'));
 		}
 		if (rawurldecode($url) != rawurldecode($seo)) {
-			header($this->request->server['SERVER_PROTOCOL'] . ' 301 Moved Permanently');
-			$this->response->redirect($seo);
+			$this->response->redirect($seo, '301 Moved Permanently');
 		}
 	}
 	private function getQueryString($exclude = array()) {
