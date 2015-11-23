@@ -1,8 +1,6 @@
 <?php
-// *	@copyright	OCSHOP.CMS \ ocshop.net 2011 - 2015.
-// *	@demo	http://ocshop.net
-// *	@blog	http://ocshop.info
-// *	@forum	http://forum.ocshop.info
+// *	@copyright	OPENCART.PRO 2011 - 2015.
+// *	@forum	http://forum.opencart.pro
 // *	@source		See SOURCE.txt for source and other copyright.
 // *	@license	GNU General Public License version 3; see LICENSE.txt
 
@@ -16,7 +14,8 @@ $_['text_edit']        = 'Редактирование';
 
 // Entry
 $_['entry_status']     = 'Статус';
-$_['entry_data_feed']  = 'Адрес';
+$_['entry_data_feed']  = 'Адрес Google';
+$_['entry_data_yandex_feed']  = 'Адрес Yandex';
 
 // Error
 $_['error_permission'] = 'У вас недостаточно прав для внесения изменений!';

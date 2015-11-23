@@ -4,30 +4,23 @@
 // *	@source		See SOURCE.txt for source and other copyright.
 // *	@license	GNU General Public License version 3; see LICENSE.txt
 
-class ControllerFeedBlogSitemap extends Controller {
+class ControllerFeedBlogSitemapYandex extends Controller {
 	public function index() {
 		if ($this->config->get('blog_sitemap_status')) {
 			$output  = '<?xml version="1.0" encoding="UTF-8"?>';
-			$output .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">';
+			$output .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
 
 			$this->load->model('blog/article');
-			$this->load->model('tool/image');
 
 			$articles = $this->model_blog_article->getArticles();
 
 			foreach ($articles as $article) {
-				if ($article['image']) {
 					$output .= '<url>';
 					$output .= '<loc>' . $this->url->link('blog/article', 'article_id=' . $article['article_id']) . '</loc>';
 					$output .= '<changefreq>weekly</changefreq>';
 					$output .= '<priority>1.0</priority>';
-					$output .= '<image:image>';
-					$output .= '<image:loc>' . $this->model_tool_image->resize($article['image'], $this->config->get('config_image_popup_width'), $this->config->get('config_image_popup_height')) . '</image:loc>';
-					$output .= '<image:caption>' . $article['name'] . '</image:caption>';
-					$output .= '<image:title>' . $article['name'] . '</image:title>';
-					$output .= '</image:image>';
 					$output .= '</url>';
-				}
+					$output .= "\n";
 			}
 
 			$this->load->model('blog/category');
