@@ -30,14 +30,14 @@
         <h3><?php echo $text_facebook; ?></h3>
         <p><?php echo $text_facebook_info; ?></p>
         <a href="http://vk.com/club65930646"><?php echo $text_facebook_link; ?></a> </div>
-      <div class="col-sm-4"> <a href="http://forum.ocshop.info" class="icon transition"> <i class="fa fa-comments fa-4x"></i> </a>
+      <div class="col-sm-4"> <a href="http://forum.opencart.pro" class="icon transition"> <i class="fa fa-comments fa-4x"></i> </a>
         <h3><?php echo $text_forum; ?></h3>
         <p><?php echo $text_forum_info; ?></p>
-        <a href="http://forum.ocshop.info"><?php echo $text_forum_link; ?></a> </div>
-      <div class="col-sm-4"> <a href="http://ocshop.info" class="icon transition"> <i class="fa fa-book fa-4x"></i> </a>
+        <a href="http://forum.opencart.pro"><?php echo $text_forum_link; ?></a> </div>
+      <div class="col-sm-4"> <a href="http://opencart.pro/blog/" class="icon transition"> <i class="fa fa-book fa-4x"></i> </a>
         <h3><?php echo $text_commercial; ?></h3>
         <p><?php echo $text_commercial_info; ?></p>
-        <a href="http://ocshop.info" target="_BLANK"><?php echo $text_commercial_link; ?></a> </div>
+        <a href="http://opencart.pro/blog/" target="_BLANK"><?php echo $text_commercial_link; ?></a> </div>
     </div>
   </div>
 </div>

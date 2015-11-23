@@ -33,7 +33,7 @@ class ControllerFeedYandexMarket extends Controller {
 			$this->setShop('company', $this->config->get('yandex_market_company'));
 			$this->setShop('url', HTTP_SERVER);
 			$this->setShop('phone', $this->config->get('config_telephone'));
-			$this->setShop('platform', 'OCSHOP');
+			$this->setShop('platform', 'OPENCART');
 			$this->setShop('version', VERSION);
 
 			// Валюты

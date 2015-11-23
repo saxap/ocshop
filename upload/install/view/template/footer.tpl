@@ -1,5 +1,5 @@
 <footer>
-  <div class="container"><a href="http://ocshop.info" target="_blank"><?php echo $text_project; ?></a>|<a href="http://wiki.ocshop.info" target="_blank"><?php echo $text_documentation; ?></a>|<a href="http://forum.ocshop.info" target="_blank"><?php echo $text_support; ?></a><br />
+  <div class="container"><a href="http://opencart.pro/blog/" target="_blank"><?php echo $text_project; ?></a>|<a href="http://opencart.pro/wiki/" target="_blank"><?php echo $text_documentation; ?></a>|<a href="http://forum.opencart.pro" target="_blank"><?php echo $text_support; ?></a><br />
     </div>
 </footer>
 </body></html>

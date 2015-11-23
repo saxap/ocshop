@@ -269,7 +269,7 @@ class ControllerBlogCategory extends Controller {
 				);
 			}
 			
-			//ocshop sort viewed
+			//ocpro sort viewed
 			$data['sorts'][] = array(
 				'text'  => $this->language->get('text_viewed_asc'),
 				'value' => 'p.viewed-ASC',
@@ -281,7 +281,7 @@ class ControllerBlogCategory extends Controller {
 				'value' => 'p.viewed-DESC',
 				'href'  => $this->url->link('blog/category', 'blog_category_id=' . $this->request->get['blog_category_id'] . '&sort=p.viewed&order=DESC' . $url)
 			); 
-			//ocshop sort viewed
+			//ocpro sort viewed
 			
 			$url = '';
 

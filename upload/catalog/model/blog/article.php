@@ -137,9 +137,9 @@ class ModelBlogArticle extends Model {
 			
 			$sort_data = array(
 				'pd.name',
-				//ocshop
+				//ocpro
 				'p.viewed',
-				//ocshop
+				//ocpro
 				'rating',
 				'p.sort_order',
 				'p.date_added'
