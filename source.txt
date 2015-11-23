@@ -1,13 +1,11 @@
-// *	@copyright	OCSHOP.CMS \ ocshop.net 2011 - 2015.
-// *	@demo	http://ocshop.net
-// *	@blog	http://ocshop.info
-// *	@forum	http://forum.ocshop.info
+// *	@copyright	OPENCART.PRO 2011 - 2015.
+// *	@forum	http://forum.opencart.pro
 // *	@source		See SOURCE.txt for source and other copyright.
 // *	@license	GNU General Public License version 3; see LICENSE.txt
 
-OCSHOP.CMS  был создан в соответствии с GNU GPLv3 и включает в себя или является производным работ 
+OPENCART.PRO  был создан в соответствии с GNU GPLv3 и включает в себя или является производным работ 
 лицензируемых в соответствии GNU General Public License или других лицензии на бесплатное программное 
-обеспечение или Open Source. В OCSHOP.CMS использованы следующие источники:
+обеспечение или Open Source. В OPENCART.PRO использованы следующие источники:
 
 - OpenCart							(C) 2006-2015 Daniel Kerr, OpenCart Ltd.
 - Arastta							(С) 2015 Arastta Association.
