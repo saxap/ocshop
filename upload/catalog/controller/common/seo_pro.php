@@ -122,7 +122,7 @@ class ControllerCommonSeoPro extends Controller {
 			} elseif (isset($this->request->get['information_id'])) {
 				$this->request->get['route'] = 'information/information';
 			} elseif(isset($this->cache_data['queries'][$route_])) {
-					$this->response->redirect($this->cache_data['queries'][$route_], '301 Moved Permanently');
+					$this->response->redirect($this->cache_data['queries'][$route_], 301);
 			} else {
 				if (isset($queries[$parts[0]])) {
 					$this->request->get['route'] = $queries[$parts[0]];
@@ -404,7 +404,7 @@ class ControllerCommonSeoPro extends Controller {
 			$seo = str_replace('&amp;', '&', $this->url->link($this->request->get['route'], $this->getQueryString(array('route')), 'NONSSL'));
 		}
 		if (rawurldecode($url) != rawurldecode($seo)) {
-			$this->response->redirect($seo, '301 Moved Permanently');
+			$this->response->redirect($seo, 301);
 		}
 	}
 	private function getQueryString($exclude = array()) {
