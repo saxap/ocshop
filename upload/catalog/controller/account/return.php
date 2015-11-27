@@ -308,6 +308,8 @@ class ControllerAccountReturn extends Controller {
 			$this->response->redirect($this->url->link('account/return/success', '', true));
 		}
 
+		$this->load->language('account/return');
+
 		$this->document->setTitle($this->language->get('heading_title'));
 		$this->document->setRobots('noindex,follow');
 		$this->document->addScript('catalog/view/javascript/jquery/datetimepicker/moment.js');
