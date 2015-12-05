@@ -18,8 +18,16 @@ class ControllerBlogArticle extends Controller {
 			'separator' => false
 		);
 		
+		$configblog_name = $this->config->get('configblog_name');
+		
+		if (!empty($configblog_name)) {
+			$name = $this->config->get('configblog_name');
+		} else {
+			$name = $this->language->get('text_blog');
+		}
+		
 		$data['breadcrumbs'][] = array(
-			'text' => $this->language->get('text_blog'),
+			'text' => $name,
 			'href' => $this->url->link('blog/latest')
 		);
 		

@@ -43,6 +43,11 @@ class ControllerBlogSetting extends Controller {
 		$data['entry_image_related'] = $this->language->get('entry_image_related');
 		$data['entry_width'] = $this->language->get('entry_width');
 		$data['entry_height'] = $this->language->get('entry_height');
+		$data['entry_name'] = $this->language->get('entry_name');
+		$data['entry_html_h1'] = $this->language->get('entry_html_h1');
+		$data['entry_meta_title'] = $this->language->get('entry_meta_title');
+		$data['entry_meta_description'] = $this->language->get('entry_meta_description');
+		$data['entry_meta_keyword'] = $this->language->get('entry_meta_keyword');
 
 		$data['help_comment'] = $this->language->get('help_comment');
 		$data['help_article_limit'] = $this->language->get('help_article_limit');
@@ -57,6 +62,7 @@ class ControllerBlogSetting extends Controller {
 		$data['button_save'] = $this->language->get('button_save');
 		$data['button_cancel'] = $this->language->get('button_cancel');
 
+		$data['tab_general'] = $this->language->get('tab_general');
 		$data['tab_option'] = $this->language->get('tab_option');
 		$data['tab_image'] = $this->language->get('tab_image');
 
@@ -216,6 +222,36 @@ class ControllerBlogSetting extends Controller {
 			$data['configblog_image_related_height'] = $this->request->post['configblog_image_related_height'];
 		} else {
 			$data['configblog_image_related_height'] = $this->config->get('configblog_image_related_height');
+		}
+		
+		if (isset($this->request->post['configblog_name'])) {
+			$data['configblog_name'] = $this->request->post['configblog_name'];
+		} else {
+			$data['configblog_name'] = $this->config->get('configblog_name');
+		}
+		
+		if (isset($this->request->post['configblog_html_h1'])) {
+			$data['configblog_html_h1'] = $this->request->post['configblog_html_h1'];
+		} else {
+			$data['configblog_html_h1'] = $this->config->get('configblog_html_h1');
+		}
+		
+		if (isset($this->request->post['configblog_meta_title'])) {
+			$data['configblog_meta_title'] = $this->request->post['configblog_meta_title'];
+		} else {
+			$data['configblog_meta_title'] = $this->config->get('configblog_meta_title');
+		}
+
+		if (isset($this->request->post['configblog_meta_description'])) {
+			$data['configblog_meta_description'] = $this->request->post['configblog_meta_description'];
+		} else {
+			$data['configblog_meta_description'] = $this->config->get('configblog_meta_description');
+		}
+
+		if (isset($this->request->post['configblog_meta_keyword'])) {
+			$data['configblog_meta_keyword'] = $this->request->post['configblog_meta_keyword'];
+		} else {
+			$data['configblog_meta_keyword'] = $this->config->get('configblog_meta_keyword');
 		}
 
 		$data['header'] = $this->load->controller('common/header');

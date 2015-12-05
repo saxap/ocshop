@@ -28,6 +28,11 @@ $_['entry_image_article']              = 'Размер изображения в
 $_['entry_image_related']              = 'Размер изображения аналогичных статей, товаров';
 $_['entry_width']                      = 'Ширина';
 $_['entry_height']                     = 'Высота';
+$_['entry_name']                       = 'Название';
+$_['entry_meta_title']                 = 'Мета-тег Title';
+$_['entry_html_h1']                    = 'Html-тег H1';
+$_['entry_meta_description']           = 'Мета-тег Description';
+$_['entry_meta_keyword']               = 'Мета-тег Keywords';
 
 // Help
 $_['help_article_limit'] 	           = 'Определяет, сколько статей отображаются на странице (Список статей).';

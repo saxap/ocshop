@@ -40,8 +40,25 @@ class ControllerBlogLatest extends Controller {
 		} else {
 			$limit = $this->config->get('configblog_article_limit');
 		}
-
-		$this->document->setTitle($this->language->get('heading_title'));
+		
+		$configblog_html_h1 = $this->config->get('configblog_html_h1');
+		
+		if (!empty($configblog_html_h1)) {
+			$data['heading_title'] = $this->config->get('configblog_html_h1');
+		} else {
+			$data['heading_title'] = $this->language->get('heading_title');
+		}
+		
+		$configblog_meta_title = $this->config->get('configblog_meta_title');
+		
+		if (!empty($configblog_meta_title)) {
+			$this->document->setTitle($this->config->get('configblog_meta_title'));
+		} else {
+			$this->document->setTitle($this->language->get('heading_title'));
+		}
+		
+		$this->document->setDescription($this->config->get('configblog_meta_description'));
+		$this->document->setKeywords($this->config->get('configblog_meta_keyword'));
 
 		$data['breadcrumbs'] = array();
 
@@ -50,8 +67,16 @@ class ControllerBlogLatest extends Controller {
 			'href' => $this->url->link('common/home')
 		);
 		
+		$configblog_name = $this->config->get('configblog_name');
+		
+		if (!empty($configblog_name)) {
+			$name = $this->config->get('configblog_name');
+		} else {
+			$name = $this->language->get('heading_title');
+		}
+		
 		$data['breadcrumbs'][] = array(
-			'text' => $this->language->get('heading_title'),
+			'text' => $name,
 			'href' => $this->url->link('blog/latest')
 		);
 
@@ -72,8 +97,6 @@ class ControllerBlogLatest extends Controller {
 		if (isset($this->request->get['limit'])) {
 			$url .= '&limit=' . $this->request->get['limit'];
 		}
-
-		$data['heading_title'] = $this->language->get('heading_title');
 
 		$data['text_refine'] = $this->language->get('text_refine');
 		$data['text_views'] = $this->language->get('text_views');

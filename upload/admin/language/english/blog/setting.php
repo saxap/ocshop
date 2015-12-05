@@ -28,6 +28,11 @@ $_['entry_image_article']              = 'article Image List Size';
 $_['entry_image_related']              = 'Related article Image Size';
 $_['entry_width']                      = 'Width';
 $_['entry_height']                     = 'Height';
+$_['entry_name']                       = 'Name';
+$_['entry_meta_title']                 = 'Meta Title';
+$_['entry_html_h1']                    = 'Html Tag H1';
+$_['entry_meta_description']           = 'Meta Tag Description';
+$_['entry_meta_keyword']               = 'Meta Tag Keywords';
 
 // Help
 $_['help_article_limit'] 	           = 'Determines how many catalog items are shown per page (articles, etc).';

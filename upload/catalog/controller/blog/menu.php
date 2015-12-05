@@ -8,8 +8,15 @@ class ControllerBlogMenu extends Controller {
 	public function index() {
 
 		$this->load->language('blog/menu');
+		
+		$configblog_name = $this->config->get('configblog_name');
+		
+		if (!empty($configblog_name)) {
+			$data['text_blog'] = $this->config->get('configblog_name');
+		} else {
+			$data['text_blog'] = $this->language->get('text_blog');
+		}
 
-		$data['text_blog'] = $this->language->get('text_blog');
 		$data['text_all'] = $this->language->get('text_all');
 
 		$data['blog'] = $this->url->link('blog/latest');
