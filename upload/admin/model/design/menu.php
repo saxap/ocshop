@@ -72,12 +72,11 @@ class ModelDesignMenu extends Model {
         if ($data['type'] == 'custom') {
             $link = $data['link'];
 
-            $query = new stdClass();
-            $query->rows = array();
-
-            foreach ($languages as $language) {
-                $query->rows[] = array('name' => $data['name'], 'language_id' => $language['language_id']);
-            }
+            $data['menu_desc'] = array();            
+			
+			foreach ($languages as $language) {                
+				$data['menu_desc'][] = array('name' => $data['name'], 'language_id' => $language['language_id']);            
+			}
         }
         else {
             $link = (int)$data['id'];
