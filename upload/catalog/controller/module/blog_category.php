@@ -65,10 +65,10 @@ class ControllerModuleBlogCategory extends Controller {
 			);
 		}
 
-		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/blog/module/category.tpl')) {
-			return $this->load->view($this->config->get('config_template') . '/template/blog/module/category.tpl', $data);
+		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/blog/module/category')) {
+			return $this->load->view($this->config->get('config_template') . '/template/blog/module/category', $data);
 		} else {
-			return $this->load->view('default/template/blog/module/category.tpl', $data);
+			return $this->load->view('default/template/blog/module/category', $data);
 		}
 	}
 }

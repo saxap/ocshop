@@ -57,10 +57,10 @@ class ControllerModuleBlogLatest extends Controller {
 				);
 			}
 
-			if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/blog/module/latest.tpl')) {
-				return $this->load->view($this->config->get('config_template') . '/template/blog/module/latest.tpl', $data);
+			if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/blog/module/latest')) {
+				return $this->load->view($this->config->get('config_template') . '/template/blog/module/latest', $data);
 			} else {
-				return $this->load->view('default/template/blog/module/latest.tpl', $data);
+				return $this->load->view('default/template/blog/module/latest', $data);
 			}
 		}
 	}

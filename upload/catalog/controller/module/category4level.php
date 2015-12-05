@@ -117,10 +117,10 @@ class ControllerModuleCategory4level extends Controller {
 			);	
 		}
 
-		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/module/category4level.tpl')) {
-			return $this->load->view($this->config->get('config_template') . '/template/module/category4level.tpl', $data);
+		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/module/category4level')) {
+			return $this->load->view($this->config->get('config_template') . '/template/module/category4level', $data);
 		} else {
-			return $this->load->view('default/template/module/category4level.tpl', $data);
+			return $this->load->view('default/template/module/category4level', $data);
 		}
 	}
 }

@@ -17,10 +17,10 @@ class ControllerModuleImgcategory extends Controller {
 
 		$data['categories'] = $this->getCategories($setting['category_id']);
 
-		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/module/imgcategory.tpl')) {
-			return $this->load->view($this->config->get('config_template') . '/template/module/imgcategory.tpl', $data);
+		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/module/imgcategory')) {
+			return $this->load->view($this->config->get('config_template') . '/template/module/imgcategory', $data);
 		} else {
-			return $this->load->view('default/template/module/imgcategory.tpl', $data);
+			return $this->load->view('default/template/module/imgcategory', $data);
 		}
   	}
 

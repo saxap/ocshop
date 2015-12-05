@@ -89,10 +89,10 @@ class ControllerModulePopular extends Controller {
 			);
 		}
 
-			if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/module/popular.tpl')) {
-				return $this->load->view($this->config->get('config_template') . '/template/module/popular.tpl', $data);
+			if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/module/popular')) {
+				return $this->load->view($this->config->get('config_template') . '/template/module/popular', $data);
 			} else {
-			return $this->load->view('default/template/module/popular.tpl', $data);
+			return $this->load->view('default/template/module/popular', $data);
 		   }
 	    }
 	}

@@ -314,10 +314,10 @@ class ControllerBlogArticle extends Controller {
 			$data['footer'] = $this->load->controller('common/footer');
 			$data['header'] = $this->load->controller('common/header');
 
-			if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/blog/article.tpl')) {
-				$this->response->setOutput($this->load->view($this->config->get('config_template') . '/template/blog/article.tpl', $data));
+			if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/blog/article')) {
+				$this->response->setOutput($this->load->view($this->config->get('config_template') . '/template/blog/article', $data));
 			} else {
-				$this->response->setOutput($this->load->view('default/template/blog/article.tpl', $data));
+				$this->response->setOutput($this->load->view('default/template/blog/article', $data));
 			}
 		} else {
 			$url = '';
@@ -357,10 +357,10 @@ class ControllerBlogArticle extends Controller {
 
       		$data['continue'] = $this->url->link('common/home');
 
-			if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/error/not_found.tpl')) {
-				$this->template = $this->config->get('config_template') . '/template/error/not_found.tpl';
+			if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/error/not_found')) {
+				$this->template = $this->config->get('config_template') . '/template/error/not_found';
 			} else {
-				$this->template = 'default/template/error/not_found.tpl';
+				$this->template = 'default/template/error/not_found';
 			}
 			
 			$this->children = array(
@@ -467,10 +467,10 @@ class ControllerBlogArticle extends Controller {
 
 		$data['results'] = sprintf($this->language->get('text_pagination'), ($review_total) ? (($page - 1) * 5) + 1 : 0, ((($page - 1) * 5) > ($review_total - 5)) ? $review_total : ((($page - 1) * 5) + 5), $review_total, ceil($review_total / 5));
 
-		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/blog/review.tpl')) {
-			$this->response->setOutput($this->load->view($this->config->get('config_template') . '/template/blog/review.tpl', $data));
+		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/blog/review')) {
+			$this->response->setOutput($this->load->view($this->config->get('config_template') . '/template/blog/review', $data));
 		} else {
-			$this->response->setOutput($this->load->view('default/template/blog/review.tpl', $data));
+			$this->response->setOutput($this->load->view('default/template/blog/review', $data));
 		}
 	}
 	

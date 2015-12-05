@@ -56,10 +56,10 @@ class ControllerBlogMenu extends Controller {
 			}
 		}
 
-		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/blog/menu.tpl')) {
-			return $this->load->view($this->config->get('config_template') . '/template/blog/menu.tpl', $data);
+		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/blog/menu')) {
+			return $this->load->view($this->config->get('config_template') . '/template/blog/menu', $data);
 		} else {
-			return $this->load->view('default/template/blog/menu.tpl', $data);
+			return $this->load->view('default/template/blog/menu', $data);
 		}
 	}
 }

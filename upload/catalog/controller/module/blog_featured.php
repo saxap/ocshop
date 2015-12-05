@@ -59,10 +59,10 @@ class ControllerModuleBlogFeatured extends Controller {
 		}
 
 		if ($data['articles']) {
-			if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/blog/module/featured.tpl')) {
-				return $this->load->view($this->config->get('config_template') . '/template/blog/module/featured.tpl', $data);
+			if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/blog/module/featured')) {
+				return $this->load->view($this->config->get('config_template') . '/template/blog/module/featured', $data);
 			} else {
-				return $this->load->view('default/template/blog/module/featured.tpl', $data);
+				return $this->load->view('default/template/blog/module/featured', $data);
 			}
 		}
 	}

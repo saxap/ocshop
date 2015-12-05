@@ -258,10 +258,10 @@ class ControllerModuleProductTab extends Controller {
 			}
 		}
 
-			if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/module/product_tab.tpl')) {
-				return $this->load->view($this->config->get('config_template') . '/template/module/product_tab.tpl', $data);
+			if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/module/product_tab')) {
+				return $this->load->view($this->config->get('config_template') . '/template/module/product_tab', $data);
 			} else {
-				return $this->load->view('default/template/module/product_tab.tpl', $data);
+				return $this->load->view('default/template/module/product_tab', $data);
 			}
 	}
 }

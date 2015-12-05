@@ -27,7 +27,7 @@ class ControllerSearchSearch extends Controller {
 
 		$data['search_link'] = $this->url->link('search/search/search', 'token=' . $this->session->data['token'], true);
 		
-		return $this->load->view('search/search.tpl', $data);
+		return $this->load->view('search/search', $data);
 	}
 
     public function search(){
@@ -112,7 +112,7 @@ class ControllerSearchSearch extends Controller {
                     $data['manufacturers'][$key]['url'] = $this->url->link('catalog/manufacturer/edit', 'token=' . $this->session->data['token'] . '&manufacturer_id=' . $manufacturer['manufacturer_id'], true);
                 }
 
-                $json['result'] = $this->load->view('search/catalog_result.tpl', $data);
+                $json['result'] = $this->load->view('search/catalog_result', $data);
 
                 break;
             case 'customers':
@@ -122,7 +122,7 @@ class ControllerSearchSearch extends Controller {
                     $data['customers'][$key]['url'] = $this->url->link('sale/customer/edit', 'token=' . $this->session->data['token'] . '&customer_id=' . $customer['customer_id'], true);
                 }
 
-                $json['result'] = $this->load->view('search/customers_result.tpl', $data);
+                $json['result'] = $this->load->view('search/customers_result', $data);
                 break;
             case 'orders':
                 $data['orders'] = $this->model_search_search->getOrders($_data);
@@ -131,7 +131,7 @@ class ControllerSearchSearch extends Controller {
                     $data['orders'][$key]['url'] = $this->url->link('sale/order/info', 'token=' . $this->session->data['token'] . '&order_id=' . $order['order_id'], true);
                 }
 
-                $json['result'] = $this->load->view('search/orders_result.tpl', $data);
+                $json['result'] = $this->load->view('search/orders_result', $data);
                 break;
             default:
                 break;

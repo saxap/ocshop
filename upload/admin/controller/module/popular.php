@@ -147,7 +147,7 @@ public function index() {
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');
 
-		$this->response->setOutput($this->load->view('module/popular.tpl', $data));
+		$this->response->setOutput($this->load->view('module/popular', $data));
 	}
 	
 	protected function validate() {

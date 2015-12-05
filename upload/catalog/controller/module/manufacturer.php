@@ -39,10 +39,10 @@ class ControllerModuleMAnufacturer extends Controller {
 			);
 		}
 
-		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/module/manufacturer.tpl')) {
-			return $this->load->view($this->config->get('config_template') . '/template/module/manufacturer.tpl', $data);
+		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/module/manufacturer')) {
+			return $this->load->view($this->config->get('config_template') . '/template/module/manufacturer', $data);
 		} else {
-			return $this->load->view('default/template/module/manufacturer.tpl', $data);
+			return $this->load->view('default/template/module/manufacturer', $data);
 		}
 	}
 }
