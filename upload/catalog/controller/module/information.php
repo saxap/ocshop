@@ -27,6 +27,6 @@ class ControllerModuleInformation extends Controller {
 		$data['contact'] = $this->url->link('information/contact');
 		$data['sitemap'] = $this->url->link('information/sitemap');
 
-		return $this->load->view('module/information.tpl', $data);
+		return $this->load->view('module/information', $data);
 	}
 }

@@ -287,7 +287,7 @@ class ControllerSaleVoucher extends Controller {
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');
 
-		$this->response->setOutput($this->load->view('sale/voucher_list.tpl', $data));
+		$this->response->setOutput($this->load->view('sale/voucher_list', $data));
 	}
 
 	protected function getForm() {
@@ -484,7 +484,7 @@ class ControllerSaleVoucher extends Controller {
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');
 
-		$this->response->setOutput($this->load->view('sale/voucher_form.tpl', $data));
+		$this->response->setOutput($this->load->view('sale/voucher_form', $data));
 	}
 
 	protected function validateForm() {
@@ -592,7 +592,7 @@ class ControllerSaleVoucher extends Controller {
 
 		$data['results'] = sprintf($this->language->get('text_pagination'), ($history_total) ? (($page - 1) * 10) + 1 : 0, ((($page - 1) * 10) > ($history_total - 10)) ? $history_total : ((($page - 1) * 10) + 10), $history_total, ceil($history_total / 10));
 
-		$this->response->setOutput($this->load->view('sale/voucher_history.tpl', $data));
+		$this->response->setOutput($this->load->view('sale/voucher_history', $data));
 	}
 
 	public function send() {

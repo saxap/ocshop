@@ -76,7 +76,7 @@ class ControllerModuleLatest extends Controller {
 				);
 			}
 
-			return $this->load->view('module/latest.tpl', $data);
+			return $this->load->view('module/latest', $data);
 		}
 	}
 }

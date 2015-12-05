@@ -43,6 +43,6 @@ class ControllerDashboardActivity extends Controller {
 			);
 		}
 
-		return $this->load->view('dashboard/activity.tpl', $data);
+		return $this->load->view('dashboard/activity', $data);
 	}
 }

@@ -238,7 +238,7 @@ class ControllerPaymentPPProIframe extends Controller {
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');
 
-		$this->response->setOutput($this->load->view('payment/pp_pro_iframe.tpl', $data));
+		$this->response->setOutput($this->load->view('payment/pp_pro_iframe', $data));
 	}
 
 	public function install() {
@@ -327,7 +327,7 @@ class ControllerPaymentPPProIframe extends Controller {
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');
 
-		$this->response->setOutput($this->load->view('payment/pp_pro_iframe_refund.tpl', $data));
+		$this->response->setOutput($this->load->view('payment/pp_pro_iframe_refund', $data));
 	}
 
 	public function doRefund() {
@@ -600,7 +600,7 @@ class ControllerPaymentPPProIframe extends Controller {
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');
 
-		$this->response->setOutput($this->load->view('payment/pp_pro_iframe_transaction.tpl', $data));
+		$this->response->setOutput($this->load->view('payment/pp_pro_iframe_transaction', $data));
 	}
 
 	public function capture() {
@@ -852,7 +852,7 @@ class ControllerPaymentPPProIframe extends Controller {
 
 			$data['reauthorise_link'] = $this->url->link('payment/pp_pro_iframe/reauthorise', 'token=' . $this->session->data['token'], true);
 
-			return $this->load->view('payment/pp_pro_iframe_order.tpl', $data);
+			return $this->load->view('payment/pp_pro_iframe_order', $data);
 		}
 	}
 

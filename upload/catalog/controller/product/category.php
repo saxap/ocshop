@@ -397,7 +397,7 @@ class ControllerProductCategory extends Controller {
 			$data['footer'] = $this->load->controller('common/footer');
 			$data['header'] = $this->load->controller('common/header');
 
-			$this->response->setOutput($this->load->view('product/category.tpl', $data));
+			$this->response->setOutput($this->load->view('product/category', $data));
 		} else {
 			$url = '';
 
@@ -449,7 +449,7 @@ class ControllerProductCategory extends Controller {
 			$data['footer'] = $this->load->controller('common/footer');
 			$data['header'] = $this->load->controller('common/header');
 
-			$this->response->setOutput($this->load->view('error/not_found.tpl', $data));
+			$this->response->setOutput($this->load->view('error/not_found', $data));
 		}
 	}
 }

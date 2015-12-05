@@ -20,9 +20,6 @@ final class DB {
 	public function __construct($registry) {
 		$this->db = $registry->get('db');
 		
-		
-		
-		
 		register_shutdown_function('session_write_close');
 		
 		$this->expire = ini_get('session.gc_maxlifetime');
@@ -63,7 +60,6 @@ final class DB {
 	}
 	
 	public function __gc($expire) {
-		echo $expire;
 		$this->db->query("DELETE FROM `" . DB_PREFIX . "session` WHERE expire < " . ((int)time() + $expire));
 		
 		return true;

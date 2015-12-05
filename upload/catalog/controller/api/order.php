@@ -263,8 +263,9 @@ class ControllerApiOrder extends Controller {
 				foreach ($results as $result) {
 					if ($this->config->get($result['code'] . '_status')) {
 						$this->load->model('total/' . $result['code']);
-
-						$this->{'model_total_' . $result['code']}->getTotal($order_data['totals'], $total, $taxes);
+						
+						// We have to put the totals in an array so that they pass by reference.
+						$this->{'model_total_' . $result['code']}->getTotal(array($order_data['totals'], $total, $taxes));
 					}
 				}
 
@@ -630,8 +631,9 @@ class ControllerApiOrder extends Controller {
 					foreach ($results as $result) {
 						if ($this->config->get($result['code'] . '_status')) {
 							$this->load->model('total/' . $result['code']);
-
-							$this->{'model_total_' . $result['code']}->getTotal($order_data['totals'], $total, $taxes);
+							
+							// We have to put the totals in an array so that they pass by reference.
+							$this->{'model_total_' . $result['code']}->getTotal(array($order_data['totals'], $total, $taxes));
 						}
 					}
 

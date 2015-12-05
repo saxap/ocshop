@@ -54,7 +54,7 @@ class Session {
 		if (!isset($_SESSION[$key])) {
 			$_SESSION[$key] = array();
 		}
-				
+		
 		$this->data =& $_SESSION[$key];	
 		
 		return true;			

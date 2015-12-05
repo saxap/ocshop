@@ -261,7 +261,7 @@ class ControllerCatalogDownload extends Controller {
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');
 
-		$this->response->setOutput($this->load->view('catalog/download_list.tpl', $data));
+		$this->response->setOutput($this->load->view('catalog/download_list', $data));
 	}
 
 	protected function getForm() {
@@ -383,7 +383,7 @@ class ControllerCatalogDownload extends Controller {
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');
 
-		$this->response->setOutput($this->load->view('catalog/download_form.tpl', $data));
+		$this->response->setOutput($this->load->view('catalog/download_form', $data));
 	}
 
 	protected function validateForm() {

@@ -5,7 +5,9 @@
 // *	@license	GNU General Public License version 3; see LICENSE.txt
 
 class ModelTotalShipping extends Model {
-	public function getTotal(&$total_data, &$total, &$taxes) {
+	public function getTotal($totals) {
+		extract($totals);
+		
 		if ($this->cart->hasShipping() && isset($this->session->data['shipping_method'])) {
 			$total_data[] = array(
 				'code'       => 'shipping',

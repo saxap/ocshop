@@ -87,7 +87,7 @@ class ControllerPaymentGlobalpay extends Controller {
 
 		$data['response_url'] = HTTPS_SERVER . 'index.php?route=payment/globalpay/notify';
 
-		return $this->load->view('payment/globalpay.tpl', $data);
+		return $this->load->view('payment/globalpay', $data);
 	}
 
 	public function notify() {
@@ -258,6 +258,6 @@ class ControllerPaymentGlobalpay extends Controller {
 			}
 		}
 
-		$this->response->setOutput($this->load->view('payment/globalpay_response.tpl', $data));
+		$this->response->setOutput($this->load->view('payment/globalpay_response', $data));
 	}
 }

@@ -5,7 +5,9 @@
 // *	@license	GNU General Public License version 3; see LICENSE.txt
 
 class ModelTotalKlarnaFee extends Model {
-	public function getTotal(&$total_data, &$total, &$taxes) {
+	public function getTotal($totals) {
+		extract($totals);
+		
 		$this->load->language('total/klarna_fee');
 
 		$status = true;

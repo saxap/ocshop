@@ -66,6 +66,6 @@ class ControllerCommonContentBottom extends Controller {
 			}
 		}
 
-		return $this->load->view('common/content_bottom.tpl', $data);
+		return $this->load->view('common/content_bottom', $data);
 	}
 }

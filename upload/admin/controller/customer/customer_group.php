@@ -261,7 +261,7 @@ class ControllerCustomerCustomerGroup extends Controller {
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');
 
-		$this->response->setOutput($this->load->view('customer/customer_group_list.tpl', $data));
+		$this->response->setOutput($this->load->view('customer/customer_group_list', $data));
 	}
 
 	protected function getForm() {
@@ -363,7 +363,7 @@ class ControllerCustomerCustomerGroup extends Controller {
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');
 
-		$this->response->setOutput($this->load->view('customer/customer_group_form.tpl', $data));
+		$this->response->setOutput($this->load->view('customer/customer_group_form', $data));
 	}
 
 	protected function validateForm() {

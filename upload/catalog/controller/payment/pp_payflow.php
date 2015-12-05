@@ -80,7 +80,7 @@ class ControllerPaymentPPPayflow extends Controller {
 			);
 		}
 
-		return $this->load->view('payment/pp_payflow.tpl', $data);
+		return $this->load->view('payment/pp_payflow', $data);
 	}
 
 	public function send() {

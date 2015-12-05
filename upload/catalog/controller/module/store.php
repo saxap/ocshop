@@ -43,7 +43,7 @@ class ControllerModuleStore extends Controller {
 				);
 			}
 
-			return $this->load->view('module/store.tpl', $data);
+			return $this->load->view('module/store', $data);
 		}
 	}
 }

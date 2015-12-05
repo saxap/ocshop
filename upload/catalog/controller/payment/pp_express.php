@@ -16,7 +16,7 @@ class ControllerPaymentPPExpress extends Controller {
 		 */
 		unset($this->session->data['paypal']);
 
-		return $this->load->view('payment/pp_express.tpl', $data);
+		return $this->load->view('payment/pp_express', $data);
 	}
 
 	public function express() {
@@ -644,7 +644,8 @@ class ControllerPaymentPPExpress extends Controller {
 				if ($this->config->get($result['code'] . '_status')) {
 					$this->load->model('total/' . $result['code']);
 
-					$this->{'model_total_' . $result['code']}->getTotal($total_data, $total, $taxes);
+					// We have to put the totals in an array so that they pass by reference.
+					$this->{'model_total_' . $result['code']}->getTotal(array($total_data, $total, $taxes));
 				}
 			}
 
@@ -738,7 +739,7 @@ class ControllerPaymentPPExpress extends Controller {
 		$data['footer'] = $this->load->controller('common/footer');
 		$data['header'] = $this->load->controller('common/header');
 
-		$this->response->setOutput($this->load->view('payment/pp_express_confirm.tpl', $data));
+		$this->response->setOutput($this->load->view('payment/pp_express_confirm', $data));
 	}
 
 	public function expressComplete() {
@@ -827,7 +828,8 @@ class ControllerPaymentPPExpress extends Controller {
 				if ($this->config->get($result['code'] . '_status')) {
 					$this->load->model('total/' . $result['code']);
 
-					$this->{'model_total_' . $result['code']}->getTotal($total_data, $total, $taxes);
+					// We have to put the totals in an array so that they pass by reference.
+					$this->{'model_total_' . $result['code']}->getTotal(array($total_data, $total, $taxes));
 				}
 			}
 
@@ -1564,7 +1566,7 @@ class ControllerPaymentPPExpress extends Controller {
 			$data['footer'] = $this->load->controller('common/footer');
 			$data['header'] = $this->load->controller('common/header');
 
-			$this->response->setOutput($this->load->view('error/not_found.tpl'));
+			$this->response->setOutput($this->load->view('error/not_found', $data));
 		}
 	}
 
@@ -1986,6 +1988,6 @@ class ControllerPaymentPPExpress extends Controller {
 			'link' => $this->url->link('account/recurring', '', true)
 		);
 
-		return $this->load->view('common/buttons.tpl', $data);
+		return $this->load->view('common/buttons', $data);
 	}
 }

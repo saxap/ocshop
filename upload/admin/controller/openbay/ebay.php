@@ -77,7 +77,7 @@ class ControllerOpenbayEbay extends Controller {
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');
 
-		$this->response->setOutput($this->load->view('openbay/ebay.tpl', $data));
+		$this->response->setOutput($this->load->view('openbay/ebay', $data));
 	}
 
 	public function settings() {
@@ -359,7 +359,7 @@ class ControllerOpenbayEbay extends Controller {
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');
 
-		$this->response->setOutput($this->load->view('openbay/ebay_settings.tpl', $data));
+		$this->response->setOutput($this->load->view('openbay/ebay_settings', $data));
 	}
 
 	public function updateSettings() {
@@ -576,7 +576,7 @@ class ControllerOpenbayEbay extends Controller {
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');
 
-		$this->response->setOutput($this->load->view('openbay/ebay_summary.tpl', $data));
+		$this->response->setOutput($this->load->view('openbay/ebay_summary', $data));
 	}
 
 	public function getSellerSummary() {
@@ -638,7 +638,7 @@ class ControllerOpenbayEbay extends Controller {
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');
 
-		$this->response->setOutput($this->load->view('openbay/ebay_item_import.tpl', $data));
+		$this->response->setOutput($this->load->view('openbay/ebay_item_import', $data));
 	}
 
 	public function importItems() {
@@ -764,7 +764,7 @@ class ControllerOpenbayEbay extends Controller {
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');
 
-		$this->response->setOutput($this->load->view('openbay/ebay_subscription.tpl', $data));
+		$this->response->setOutput($this->load->view('openbay/ebay_subscription', $data));
 	}
 
 	public function viewUsage() {
@@ -803,7 +803,7 @@ class ControllerOpenbayEbay extends Controller {
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');
 
-		$this->response->setOutput($this->load->view('openbay/ebay_usage.tpl', $data));
+		$this->response->setOutput($this->load->view('openbay/ebay_usage', $data));
 	}
 
 	public function getUsage() {
@@ -854,7 +854,7 @@ class ControllerOpenbayEbay extends Controller {
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');
 
-		$this->response->setOutput($this->load->view('openbay/ebay_order_import.tpl', $data));
+		$this->response->setOutput($this->load->view('openbay/ebay_order_import', $data));
 	}
 
 	public function syncronise() {
@@ -899,7 +899,7 @@ class ControllerOpenbayEbay extends Controller {
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');
 
-		$this->response->setOutput($this->load->view('openbay/ebay_syncronise.tpl', $data));
+		$this->response->setOutput($this->load->view('openbay/ebay_syncronise', $data));
 	}
 
 	public function viewItemLinks() {
@@ -966,7 +966,7 @@ class ControllerOpenbayEbay extends Controller {
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');
 
-		$this->response->setOutput($this->load->view('openbay/ebay_item_link.tpl', $data));
+		$this->response->setOutput($this->load->view('openbay/ebay_item_link', $data));
 	}
 
 	public function saveItemLink() {
@@ -1110,7 +1110,7 @@ class ControllerOpenbayEbay extends Controller {
 				$data['column_left'] = $this->load->controller('common/column_left');
 				$data['footer'] = $this->load->controller('common/footer');
 
-				$this->response->setOutput($this->load->view('openbay/ebay_edit.tpl', $data));
+				$this->response->setOutput($this->load->view('openbay/ebay_edit', $data));
 			} else {
 				$this->response->redirect($this->url->link('extension/openbay/items', 'token=' . $this->session->data['token'], true));
 			}
@@ -1464,7 +1464,7 @@ class ControllerOpenbayEbay extends Controller {
 				$data['column_left'] = $this->load->controller('common/column_left');
 				$data['footer'] = $this->load->controller('common/footer');
 
-				$this->response->setOutput($this->load->view('openbay/ebay_new.tpl', $data));
+				$this->response->setOutput($this->load->view('openbay/ebay_new', $data));
 			} else {
 				$this->response->redirect($this->url->link('extension/openbay/items&token=' . $this->session->data['token']));
 			}
@@ -1657,7 +1657,7 @@ class ControllerOpenbayEbay extends Controller {
 				$data['column_left'] = $this->load->controller('common/column_left');
 				$data['footer'] = $this->load->controller('common/footer');
 
-				$this->response->setOutput($this->load->view('openbay/ebay_new_bulk.tpl', $data));
+				$this->response->setOutput($this->load->view('openbay/ebay_new_bulk', $data));
 			} else {
 				$this->load->language('openbay/ebay_newbulk');
 				$this->session->data['warning'] = $this->language->get('text_error_no_selection');

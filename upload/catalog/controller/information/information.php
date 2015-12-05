@@ -64,7 +64,7 @@ class ControllerInformationInformation extends Controller {
 			$data['footer'] = $this->load->controller('common/footer');
 			$data['header'] = $this->load->controller('common/header');
 
-			$this->response->setOutput($this->load->view('information/information.tpl', $data));
+			$this->response->setOutput($this->load->view('information/information', $data));
 		} else {
 			$data['breadcrumbs'][] = array(
 				'text' => $this->language->get('text_error'),
@@ -90,7 +90,7 @@ class ControllerInformationInformation extends Controller {
 			$data['footer'] = $this->load->controller('common/footer');
 			$data['header'] = $this->load->controller('common/header');
 
-			$this->response->setOutput($this->load->view('error/not_found.tpl', $data));
+			$this->response->setOutput($this->load->view('error/not_found', $data));
 		}
 	}
 

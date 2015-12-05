@@ -180,7 +180,7 @@ class ControllerAccountEdit extends Controller {
 		$data['footer'] = $this->load->controller('common/footer');
 		$data['header'] = $this->load->controller('common/header');
 
-		$this->response->setOutput($this->load->view('account/edit.tpl', $data));
+		$this->response->setOutput($this->load->view('account/edit', $data));
 	}
 
 	protected function validate() {

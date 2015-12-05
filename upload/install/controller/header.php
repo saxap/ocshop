@@ -14,6 +14,6 @@ class ControllerHeader extends Controller {
 
 		$data['base'] = HTTP_SERVER;
 
-		return $this->load->view('header.tpl', $data);
+		return $this->load->view('header', $data);
 	}
 }

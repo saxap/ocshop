@@ -264,7 +264,7 @@ class ControllerLocalisationWeightClass extends Controller {
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');
 
-		$this->response->setOutput($this->load->view('localisation/weight_class_list.tpl', $data));
+		$this->response->setOutput($this->load->view('localisation/weight_class_list', $data));
 	}
 
 	protected function getForm() {
@@ -361,7 +361,7 @@ class ControllerLocalisationWeightClass extends Controller {
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');
 
-		$this->response->setOutput($this->load->view('localisation/weight_class_form.tpl', $data));
+		$this->response->setOutput($this->load->view('localisation/weight_class_form', $data));
 	}
 
 	protected function validateForm() {

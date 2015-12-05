@@ -215,7 +215,7 @@ class ControllerPaymentPPPayflowIframe extends Controller {
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');
 
-		$this->response->setOutput($this->load->view('payment/pp_payflow_iframe.tpl', $data));
+		$this->response->setOutput($this->load->view('payment/pp_payflow_iframe', $data));
 	}
 
 	public function install() {
@@ -281,7 +281,7 @@ class ControllerPaymentPPPayflowIframe extends Controller {
 			$data['column_left'] = $this->load->controller('common/column_left');
 			$data['footer'] = $this->load->controller('common/footer');
 
-			$this->response->setOutput($this->load->view('payment/pp_payflow_iframe_refund.tpl', $data));
+			$this->response->setOutput($this->load->view('payment/pp_payflow_iframe_refund', $data));
 		} else {
 			return $this->forward('error/not_found');
 		}
@@ -533,7 +533,7 @@ class ControllerPaymentPPPayflowIframe extends Controller {
 				);
 			}
 
-			return $this->load->view('payment/pp_payflow_iframe_order.tpl', $data);
+			return $this->load->view('payment/pp_payflow_iframe_order', $data);
 		}
 	}
 

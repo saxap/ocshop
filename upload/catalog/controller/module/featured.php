@@ -79,7 +79,7 @@ class ControllerModuleFeatured extends Controller {
 		}
 
 		if ($data['products']) {
-			return $this->load->view('module/featured.tpl', $data);
+			return $this->load->view('module/featured', $data);
 		}
 	}
 }

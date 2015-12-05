@@ -70,7 +70,7 @@ class ControllerOpenbayEtsy extends Controller {
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');
 
-		$this->response->setOutput($this->load->view('openbay/etsy.tpl', $data));
+		$this->response->setOutput($this->load->view('openbay/etsy', $data));
 	}
 
 	public function settings() {
@@ -177,7 +177,7 @@ class ControllerOpenbayEtsy extends Controller {
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');
 
-		$this->response->setOutput($this->load->view('openbay/etsy_settings.tpl', $data));
+		$this->response->setOutput($this->load->view('openbay/etsy_settings', $data));
 	}
 
 	public function settingsUpdate() {

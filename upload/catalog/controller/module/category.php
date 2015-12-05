@@ -66,6 +66,6 @@ class ControllerModuleCategory extends Controller {
 			);
 		}
 
-		return $this->load->view('module/category.tpl', $data);
+		return $this->load->view('module/category', $data);
 	}
 }

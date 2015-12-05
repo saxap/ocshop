@@ -63,7 +63,7 @@ class ControllerProductManufacturer extends Controller {
 		$data['footer'] = $this->load->controller('common/footer');
 		$data['header'] = $this->load->controller('common/header');
 
-		$this->response->setOutput($this->load->view('product/manufacturer_list.tpl', $data));
+		$this->response->setOutput($this->load->view('product/manufacturer_list', $data));
 	}
 
 	public function info() {
@@ -392,7 +392,7 @@ class ControllerProductManufacturer extends Controller {
 			$data['footer'] = $this->load->controller('common/footer');
 			$data['header'] = $this->load->controller('common/header');
 
-			$this->response->setOutput($this->load->view('product/manufacturer_info.tpl', $data));
+			$this->response->setOutput($this->load->view('product/manufacturer_info', $data));
 		} else {
 			$url = '';
 
@@ -440,7 +440,7 @@ class ControllerProductManufacturer extends Controller {
 			$data['content_top'] = $this->load->controller('common/content_top');
 			$data['content_bottom'] = $this->load->controller('common/content_bottom');
 
-			$this->response->setOutput($this->load->view('error/not_found.tpl', $data));
+			$this->response->setOutput($this->load->view('error/not_found', $data));
 		}
 	}
 }

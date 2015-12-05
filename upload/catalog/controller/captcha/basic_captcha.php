@@ -20,7 +20,7 @@ class ControllerCaptchaBasicCaptcha extends Controller {
 
 		$data['route'] = $this->request->get['route']; 
 
-		return $this->load->view('captcha/basic_captcha.tpl', $data);
+		return $this->load->view('captcha/basic_captcha', $data);
 	}
 
 	public function validate() {

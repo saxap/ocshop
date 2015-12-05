@@ -176,7 +176,7 @@ class ControllerAccountVoucher extends Controller {
 		$data['footer'] = $this->load->controller('common/footer');
 		$data['header'] = $this->load->controller('common/header');
 
-		$this->response->setOutput($this->load->view('account/voucher.tpl', $data));
+		$this->response->setOutput($this->load->view('account/voucher', $data));
 	}
 
 	public function success() {
@@ -215,7 +215,7 @@ class ControllerAccountVoucher extends Controller {
 		$data['footer'] = $this->load->controller('common/footer');
 		$data['header'] = $this->load->controller('common/header');
 
-		$this->response->setOutput($this->load->view('common/success.tpl', $data));
+		$this->response->setOutput($this->load->view('common/success', $data));
 	}
 
 	protected function validate() {

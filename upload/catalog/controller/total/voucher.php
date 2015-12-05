@@ -23,7 +23,7 @@ class ControllerTotalVoucher extends Controller {
 				$data['voucher'] = '';
 			}
 
-			return $this->load->view('total/voucher.tpl', $data);
+			return $this->load->view('total/voucher', $data);
 		}
 	}
 
@@ -108,7 +108,7 @@ class ControllerTotalVoucher extends Controller {
 					$mail->setFrom($this->config->get('config_email'));
 					$mail->setSender(html_entity_decode($order_info['store_name'], ENT_QUOTES, 'UTF-8'));
 					$mail->setSubject(html_entity_decode(sprintf($language->get('text_subject'), $voucher['from_name']), ENT_QUOTES, 'UTF-8'));
-					$mail->setHtml($this->load->view('mail/voucher.tpl', $data));
+					$mail->setHtml($this->load->view('mail/voucher', $data));
 					$mail->send();
 				}
 			}

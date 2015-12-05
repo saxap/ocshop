@@ -52,6 +52,6 @@ class ControllerCommonStats extends Controller {
 			$data['other_status'] = 0;
 		}
 
-		return $this->load->view('common/stats.tpl', $data);
+		return $this->load->view('common/stats', $data);
 	}
 }

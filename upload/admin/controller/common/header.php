@@ -164,6 +164,6 @@ class ControllerCommonHeader extends Controller {
 		
 		$data['search'] = $this->load->controller('search/search');
 
-		return $this->load->view('common/header.tpl', $data);
+		return $this->load->view('common/header', $data);
 	}
 }

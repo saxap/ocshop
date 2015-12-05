@@ -384,7 +384,7 @@ class ControllerPaymentPPExpress extends Controller {
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');
 
-		$this->response->setOutput($this->load->view('payment/pp_express.tpl', $data));
+		$this->response->setOutput($this->load->view('payment/pp_express', $data));
 	}
 
 	public function imageLogo() {
@@ -788,7 +788,7 @@ class ControllerPaymentPPExpress extends Controller {
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');
 
-		$this->response->setOutput($this->load->view('payment/pp_express_refund.tpl', $data));
+		$this->response->setOutput($this->load->view('payment/pp_express_refund', $data));
 	}
 
 	public function doRefund() {
@@ -946,7 +946,7 @@ class ControllerPaymentPPExpress extends Controller {
 				$data['view_link'] = $this->url->link('payment/pp_express/viewTransaction', 'token=' . $this->session->data['token'], true);
 				$data['resend_link'] = $this->url->link('payment/pp_express/resend', 'token=' . $this->session->data['token'], true);
 
-				return $this->load->view('payment/pp_express_order.tpl', $data);
+				return $this->load->view('payment/pp_express_order', $data);
 			}
 		}
 	}
@@ -1057,7 +1057,7 @@ class ControllerPaymentPPExpress extends Controller {
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');
 
-		$this->response->setOutput($this->load->view('payment/pp_express_search.tpl', $data));
+		$this->response->setOutput($this->load->view('payment/pp_express_search', $data));
 	}
 
 	public function doSearch() {
@@ -1272,7 +1272,7 @@ class ControllerPaymentPPExpress extends Controller {
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');
 
-		$this->response->setOutput($this->load->view('payment/pp_express_view.tpl', $data));
+		$this->response->setOutput($this->load->view('payment/pp_express_view', $data));
 	}
 
 	private function formatRows($data) {
@@ -1334,6 +1334,6 @@ class ControllerPaymentPPExpress extends Controller {
 			);
 		}
 
-		return $this->load->view('common/buttons.tpl', $data);
+		return $this->load->view('common/buttons', $data);
 	}
 }

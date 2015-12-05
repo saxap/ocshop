@@ -4,7 +4,6 @@
 // *	@source		See SOURCE.txt for source and other copyright.
 // *	@license	GNU General Public License version 3; see LICENSE.txt
 
-use Cart\User;
 class ControllerCommonMaintenance extends Controller {
 	public function index() {
 		if ($this->config->get('config_maintenance')) {
@@ -19,7 +18,7 @@ class ControllerCommonMaintenance extends Controller {
 			}
 
 			// Show site if logged in as admin
-			$this->user = new User($this->registry);
+			$this->user = new Cart\User($this->registry);
 
 			if (($route != 'payment' && $route != 'api') && !$this->user->isLogged()) {
 				return new Action('common/maintenance/info');
@@ -54,6 +53,6 @@ class ControllerCommonMaintenance extends Controller {
 		$data['header'] = $this->load->controller('common/header');
 		$data['footer'] = $this->load->controller('common/footer');
 
-		$this->response->setOutput($this->load->view('common/maintenance.tpl', $data));
+		$this->response->setOutput($this->load->view('common/maintenance', $data));
 	}
 }
