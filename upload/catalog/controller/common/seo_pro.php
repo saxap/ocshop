@@ -35,6 +35,10 @@ class ControllerCommonSeoPro extends Controller {
 			foreach ($query->rows as $row) {
 				$this->cache_data['keywords'][$row['keyword']] = $row['query'];
 				$this->cache_data['queries'][$row['query']] = $row['keyword'];
+			} 
+			if(!isset($this->cache_data['queries']['common/home'])) {
+				$this->cache_data['queries']['common/home'] = '';
+				$this->cache_data['keywords'][''] = 'common/home';
 			}
 			$this->cache->set('seo_pro', $this->cache_data);
 		}
@@ -45,6 +49,8 @@ class ControllerCommonSeoPro extends Controller {
 			$this->languages[$result['code']] = $result;
 		}
 	}
+	
+	
 	public function index() {
 		// Add rewrite to url class
 		if ($this->config->get('config_seo_url')) {
@@ -54,7 +60,6 @@ class ControllerCommonSeoPro extends Controller {
 		}
 		// Decode URL
 		if (!isset($this->request->get['_route_'])) {
-
 			$this->validate();
 		} else {
 			$route_ = $this->request->get['_route_'];
@@ -108,7 +113,6 @@ class ControllerCommonSeoPro extends Controller {
 				$this->request->get['route'] = 'product/category';
 				//blog
 			} elseif (isset($this->request->get['article_id'])) {
-
 				$this->request->get['route'] = 'blog/article';
 				if (!isset($this->request->get['blog_category_id'])) {
 					$blog_category_id = $this->getPathByArticle($this->request->get['article_id']);
@@ -189,7 +193,6 @@ class ControllerCommonSeoPro extends Controller {
 					if (!$data['blog_category_id']) return $link;
 				}
 				break;
-
 			//blog	
 			case 'product/product/review':
 			case 'information/information/info':
@@ -201,21 +204,8 @@ class ControllerCommonSeoPro extends Controller {
 		
 		// Убираем старый вариант формирования, добавляем формирование ссылки с портом
 		$link = $url_info['scheme'] . '://' . $url_info['host'] . (isset($url_info['port']) ? ':' . $url_info['port'] : '') . '/';
-
 		
-		// Полностью запрещаем common/home
-		// Добавили  проверку доверенных роутов
-		if ($route == 'common/home') {
-				foreach ($data as $key => $value) {
-					if ((!in_array($key, $this->valide_routes)) || (empty($data[$key]))) {
-						unset($data[$key]);
-					};
-				}					
-			   $link .= (count($data) ? '?' . urldecode(http_build_query($data, '', '&amp;')) : '');		
-			} else {
-				$link .= 'index.php?route=' . $route . (count($data) ? '&amp;' . urldecode(http_build_query($data, '', '&amp;')) : '');			
-			}
-
+		$link .= 'index.php?route=' . $route . (count($data) ? '&amp;' . urldecode(http_build_query($data, '', '&amp;')) : '');			
 		
 		$queries = array();
 		foreach ($data as $key => $value) {
@@ -313,7 +303,6 @@ class ControllerCommonSeoPro extends Controller {
 		}
 		return $path[$product_id];
 	}
-
 	private function getPathByCategory($category_id) {
 		$category_id = (int)$category_id;
 		if ($category_id < 1) return false;
@@ -381,7 +370,6 @@ class ControllerCommonSeoPro extends Controller {
 		}
 		return $path[$article_id];
 	}
-
 	
 	//blog
 	private function validate() {
