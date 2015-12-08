@@ -1287,6 +1287,8 @@ class ControllerSaleOrder extends Controller {
 				$data['api_ip'] = '';
 			}
 
+			$data['store'] = $this->config->get('config_secure')?HTTPS_CATALOG:HTTP_CATALOG;
+
 			$data['header'] = $this->load->controller('common/header');
 			$data['column_left'] = $this->load->controller('common/column_left');
 			$data['footer'] = $this->load->controller('common/footer');
