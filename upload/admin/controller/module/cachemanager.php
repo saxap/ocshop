@@ -80,58 +80,70 @@ class ControllerModuleCachemanager extends Controller {
 
 	public function clearsystemcache() {
 		$this->load->language('module/cachemanager');
+
 		$files = glob(DIR_CACHE . 'cache.*');
-		foreach($files as $file){
-			$this->deldir($file);
+		if (!empty($files)) {
+			foreach($files as $file){
+				$this->deldir($file);
+			}
 		}
-                
+
 		$this->session->data['success'] = $this->language->get('text_success_system');
-	
+
 		$this->response->redirect($this->url->link('module/cachemanager', 'token=' . $this->session->data['token'], 'SSL'));
-		}
-        
+	}
+
 	public function clearcache() {
 		$this->load->language('module/cachemanager');
-                $imgfiles = glob(DIR_IMAGE . 'cache/*');
-              foreach($imgfiles as $imgfile){
-                     $this->deldir($imgfile);
+
+		$imgfiles = glob(DIR_IMAGE . 'cache/*');
+		if (!empty($imgfiles)) {
+			foreach($imgfiles as $imgfile){
+				$this->deldir($imgfile);
+			}
 		}
+
 		$this->session->data['success'] = $this->language->get('text_success_img');
-		
-        $this->response->redirect($this->url->link('module/cachemanager', 'token=' . $this->session->data['token'], 'SSL'));		
-		}
-	
+
+		$this->response->redirect($this->url->link('module/cachemanager', 'token=' . $this->session->data['token'], 'SSL'));
+	}
+
 	public function clearallcache() {
 		$this->load->language('module/cachemanager');
-        $imgfiles = glob(DIR_IMAGE . 'cache/*');
-             foreach($imgfiles as $imgfile){
-                     $this->deldir($imgfile);
+
+		$imgfiles = glob(DIR_IMAGE . 'cache/*');
+		if (!empty($imgfiles)) {
+			foreach($imgfiles as $imgfile){
+				$this->deldir($imgfile);
+			}
 		}
 		$files = glob(DIR_CACHE . 'cache.*');
+		if (!empty($files)) {
 			foreach($files as $file){
-			$this->deldir($file);
-		
+				$this->deldir($file);
+			}
 		}
-		
+
 		$this->session->data['success'] = $this->language->get('text_success');
-		
-        $this->response->redirect($this->url->link('module/cachemanager', 'token=' . $this->session->data['token'], 'SSL'));		
-		}
-		
-        public function deldir($dirname){         
+
+		$this->response->redirect($this->url->link('module/cachemanager', 'token=' . $this->session->data['token'], 'SSL'));
+	}
+
+	public function deldir($dirname){
 		if(file_exists($dirname)) {
 			if(is_dir($dirname)){
-                            $dir=opendir($dirname);
-                            while($filename=readdir($dir)){
-                                    if($filename!="." && $filename!=".."){
-                                        $file=$dirname."/".$filename;
-					$this->deldir($file); 
-                                    }
-                                }
-                            closedir($dir);  
-                            rmdir($dirname);
-                        }
-			else {@unlink($dirname);}			
+				$dir=opendir($dirname);
+				while($filename=readdir($dir)){
+					if($filename!="." && $filename!=".."){
+						$file=$dirname."/".$filename;
+						$this->deldir($file); 
+					}
+				}
+				closedir($dir);
+				rmdir($dirname);
+			} else {
+				@unlink($dirname);
+			}
 		}
 	}
 }
