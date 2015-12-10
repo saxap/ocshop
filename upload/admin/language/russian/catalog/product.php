@@ -19,6 +19,8 @@ $_['text_option']            = 'Опции';
 $_['text_option_value']      = 'Значение опции';
 $_['text_percent']           = 'Процент';
 $_['text_amount']            = 'Фиксированная сумма';
+$_['text_none_category']            	= ' --- Без Категории --- ';
+$_['text_none_manufacturer']            = ' --- Без Производителя --- ';
 
 // Column
 $_['column_name']            = 'Название товара';

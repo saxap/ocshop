@@ -312,7 +312,7 @@ $('input[name=\'filter_category_name\']').autocomplete({
 			dataType: 'json',
 			success: function(json) {
 				if (json.length>0) {
-					json.unshift({'category_id':null,'name':'<?php echo $text_all; ?>'},{'category_id':0,'name':'<?php echo $text_none; ?>'});
+					json.unshift({'category_id':null,'name':'<?php echo $text_all; ?>'},{'category_id':0,'name':'<?php echo $text_none_category; ?>'});
 				}
 				response($.map(json, function(item) {
 					return {
@@ -343,7 +343,7 @@ $('input[name=\'filter_manufacturer_name\']').autocomplete({
 			dataType: 'json',
 			success: function(json) {
 				if (json.length>0) {
-					json.unshift({'manufacturer_id':null,'name':'<?php echo $text_all; ?>'},{'manufacturer_id':0,'name':'<?php echo $text_none; ?>'});
+					json.unshift({'manufacturer_id':null,'name':'<?php echo $text_all; ?>'},{'manufacturer_id':0,'name':'<?php echo $text_none_manufacturer; ?>'});
 				}
 				response($.map(json, function(item) {
 					return {

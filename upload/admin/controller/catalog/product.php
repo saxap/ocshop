@@ -351,7 +351,7 @@ class ControllerCatalogProduct extends Controller {
 					}
 				}
 			} else {
-				$filter_category_name = $this->language->get('text_none');
+				$filter_category_name = $this->language->get('text_none_category');
 			}
 		}
 
@@ -373,7 +373,7 @@ class ControllerCatalogProduct extends Controller {
 					unset($this->request->get['filter_manufacturer']);
 				}
 			} elseif ($filter_manufacturer==0) {
-				$filter_manufacturer_name = $this->language->get('text_none');
+				$filter_manufacturer_name = $this->language->get('text_none_manufacturer');
 			}
 		}
 		
@@ -534,6 +534,8 @@ class ControllerCatalogProduct extends Controller {
 		$data['text_list'] = $this->language->get('text_list');
 		$data['text_all'] = $this->language->get('text_all');
 		$data['text_none'] = $this->language->get('text_none');
+		$data['text_none_category'] = $this->language->get('text_none_category');
+		$data['text_none_manufacturer'] = $this->language->get('text_none_manufacturer');
 		$data['text_enabled'] = $this->language->get('text_enabled');
 		$data['text_disabled'] = $this->language->get('text_disabled');
 		$data['text_no_results'] = $this->language->get('text_no_results');

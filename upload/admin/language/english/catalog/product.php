@@ -19,6 +19,8 @@ $_['text_option']            = 'Option';
 $_['text_option_value']      = 'Option Value';
 $_['text_percent']           = 'Percentage';
 $_['text_amount']            = 'Fixed Amount';
+$_['text_none_category']            	= ' --- None Category --- ';
+$_['text_none_manufacturer']            = ' --- None Manufacturer --- ';
 
 // Column
 $_['column_name']            = 'Product Name';
