@@ -321,7 +321,7 @@ class ControllerSaleOrder extends Controller {
 		$data['sort'] = $sort;
 		$data['order'] = $order;
 
-		$data['store'] = HTTPS_CATALOG;
+		$data['store'] = $this->config->get('config_secure')?HTTPS_CATALOG:HTTP_CATALOG;
 
 		// API login
 		$this->load->model('user/api');
@@ -635,7 +635,7 @@ class ControllerSaleOrder extends Controller {
 		$data['stores'][] = array(
 			'store_id' => 0,
 			'name'     => $this->language->get('text_default'),
-			'href'     => HTTP_CATALOG
+			'href'     => $this->config->get('config_secure')?HTTPS_CATALOG:HTTP_CATALOG
 		);
 
 		$results = $this->model_setting_store->getStores();
@@ -1286,6 +1286,8 @@ class ControllerSaleOrder extends Controller {
 				$data['api_key'] = '';
 				$data['api_ip'] = '';
 			}
+
+			$data['store'] = $this->config->get('config_secure')?HTTPS_CATALOG:HTTP_CATALOG;
 
 			$data['header'] = $this->load->controller('common/header');
 			$data['column_left'] = $this->load->controller('common/column_left');
