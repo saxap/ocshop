@@ -84,6 +84,7 @@ $_['entry_main_category']    = 'Главная категория';
 $_['entry_filter']           = 'Фильтры';
 $_['entry_download']         = 'Файлы для скачивания';
 $_['entry_related']          = 'Рекомендуемые товары';
+$_['entry_related_article']  = 'Рекомендуем почитать';
 $_['entry_tag']          	 = 'Теги товара';
 $_['entry_reward']           = 'Бонусные баллы';
 $_['entry_layout']           = 'Изменить макет';

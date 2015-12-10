@@ -145,6 +145,7 @@ $_['tab_google']                    = 'Google';
 $_['tab_sms']                       = 'SMS';
 $_['tab_extra_tab']          		= 'Extra Tab';
 $_['tab_module']          	 		= 'Tab';
+$_['tab_related']          	 		= 'Related';
 
 // Error
 $_['error_exception']               = 'Error Code(%s): %s in %s on line %s';

@@ -2911,6 +2911,30 @@ INSERT INTO `oc_product_related` (`product_id`, `related_id`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `oc_product_related_wb`
+--
+
+DROP TABLE IF EXISTS `oc_product_related_wb`;
+CREATE TABLE `oc_product_related_wb` (
+  `product_id` int(11) NOT NULL,
+  `category_id` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oc_product_related_mn`
+--
+
+DROP TABLE IF EXISTS `oc_product_related_mn`;
+CREATE TABLE `oc_product_related_mn` (
+  `product_id` int(11) NOT NULL,
+  `manufacturer_id` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `oc_product_reward`
 --
 
@@ -8541,6 +8565,19 @@ INSERT INTO `oc_article_related_product` (`article_id`, `product_id`) VALUES
 (124, 30),
 (124, 41),
 (124, 47);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oc_product_related_article`
+--
+
+DROP TABLE IF EXISTS `oc_product_related_article`;
+CREATE TABLE `oc_product_related_article` (
+  `article_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  PRIMARY KEY (`article_id`,`product_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 

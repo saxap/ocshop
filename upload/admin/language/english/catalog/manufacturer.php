@@ -35,6 +35,8 @@ $_['entry_image']    	     = 'Image';
 $_['entry_sort_order']  	 = 'Sort Order';
 $_['entry_noindex']          = 'Index';
 $_['entry_type']        	 = 'Type';
+$_['entry_related_mn']       = 'Featured Products:';
+$_['entry_related_article']  = 'Featured Articles:';
 
 // Help
 $_['help_keyword']       = 'Do not use spaces, instead replace spaces with - and make sure the keyword is globally unique.';

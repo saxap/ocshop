@@ -39,6 +39,8 @@ $_['entry_sort_order']       = 'Порядок сортировки';
 $_['entry_status']           = 'Статус';
 $_['entry_noindex']          = 'Индексация';
 $_['entry_layout']           = 'Изменить макет';
+$_['entry_related_wb']       = 'Рекомендуемые товары:';
+$_['entry_related_article']  = 'Рекомендуемые статьи:';
 
 // Help
 $_['help_filter']            = '(Автозаполнение)';

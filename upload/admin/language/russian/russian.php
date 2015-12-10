@@ -145,6 +145,7 @@ $_['tab_google']                    = 'Google';
 $_['tab_sms']                       = 'SMS';
 $_['tab_extra_tab']          		= 'Доп Таб';
 $_['tab_module']          	 		= 'Таб';
+$_['tab_related']          	 		= 'Рекомендуем';
 
 // Error
 $_['error_exception']               = 'Ошибка кода(%s): %s в %s на строке %s';

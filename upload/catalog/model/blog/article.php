@@ -239,35 +239,46 @@ class ModelBlogArticle extends Model {
 		return $article_data;
 	}
 	
+	public function getArticleRelatedByProduct($data) {
+		
+		$article_data = array();
+		
+		$this->load->model('blog/article');
+		
+		$sql = "SELECT * FROM " . DB_PREFIX . "product_related_article np LEFT JOIN " . DB_PREFIX . "article p ON (np.article_id = p.article_id) LEFT JOIN " . DB_PREFIX . "article_to_store p2s ON (p.article_id = p2s.article_id) WHERE np.product_id = '" . (int)$data['product_id'] . "' AND p.status = '1' AND p.date_available <= NOW() AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "' LIMIT ". $data['limit'];
+
+		$query = $this->db->query($sql);
+
+		foreach ($query->rows as $result) { 
+			$article_data[$result['article_id']] = $this->model_blog_article->getArticle($result['article_id']);
+		}
+
+		return $article_data;
+	}
+	
 	//category manuf
-	public function getArticleRelated_by_category($category_id, $limit) {
+	public function getArticleRelatedByCategory($data) {
 
 		$article_data = array();
 				
-		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "article_related_wb pr LEFT JOIN " . DB_PREFIX . "article p ON (pr.article_id = p.article_id) LEFT JOIN " . DB_PREFIX . "article_to_store p2s ON (p.article_id = p2s.article_id) WHERE pr.category_id = '" . (int)$category_id . "' AND p.status = '1' AND p.date_available <= NOW() AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "' LIMIT " . (int)$limit); 
+		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "article_related_wb pr LEFT JOIN " . DB_PREFIX . "article p ON (pr.article_id = p.article_id) LEFT JOIN " . DB_PREFIX . "article_to_store p2s ON (p.article_id = p2s.article_id) WHERE pr.category_id = '" . (int)$data['category_id'] . "' AND p.status = '1' AND p.date_available <= NOW() AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "' LIMIT " . (int)$data['limit']); 
 
 		foreach ($query->rows as $result) { 
-
 			$article_data[$result['article_id']] = $this->getArticle($result['article_id']);
-
 		}
-
-		
 
 		return $article_data;
 
 	}
 	
-public function getArticleRelated_by_manufacturer($manufacturer_id, $limit) {
+	public function getArticleRelatedByManufacturer($data) {
 
 		$article_data = array();
 
-		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "article_related_mn pr LEFT JOIN " . DB_PREFIX . "article p ON (pr.article_id = p.article_id) LEFT JOIN " . DB_PREFIX . "article_to_store p2s ON (p.article_id = p2s.article_id) WHERE pr.manufacturer_id = '" . (int)$manufacturer_id . "' AND p.status = '1' AND p.date_available <= NOW() AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "' LIMIT " . (int)$limit); 
+		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "article_related_mn pr LEFT JOIN " . DB_PREFIX . "article p ON (pr.article_id = p.article_id) LEFT JOIN " . DB_PREFIX . "article_to_store p2s ON (p.article_id = p2s.article_id) WHERE pr.manufacturer_id = '" . (int)$data['manufacturer_id'] . "' AND p.status = '1' AND p.date_available <= NOW() AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "' LIMIT " . (int)$data['limit']); 
 
 		foreach ($query->rows as $result) { 
-
 			$article_data[$result['article_id']] = $this->getArticle($result['article_id']);
-
 		}
 
 		
