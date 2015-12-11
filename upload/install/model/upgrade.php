@@ -366,7 +366,7 @@ class ModelUpgrade extends Model {
 		$query = $this->db->query("SELECT * FROM `" . DB_PREFIX . "module`");
 
 		foreach ($query->rows as $result) {
-			if ($result['setting']) {
+			if ($result['setting'] && preg_match('/^(a:)/', $result['setting'])) {
 				$value = unserialize($result['setting']);
 
 				$this->db->query("UPDATE `" . DB_PREFIX . "module` SET `setting` = '" . $this->db->escape(json_encode($value)) . "' WHERE `module_id` = '" . (int)$result['module_id'] . "'");
