@@ -123,6 +123,10 @@ class ControllerBlogArticle extends Controller {
 			} else {
 				$this->document->setTitle($article_info['name']);
 			}
+			
+			if ($article_info['noindex'] <= 0) {
+				$this->document->setRobots('noindex,follow');
+			}
 
 			$this->document->setDescription($article_info['meta_description']);
 			$this->document->setKeywords($article_info['meta_keyword']);

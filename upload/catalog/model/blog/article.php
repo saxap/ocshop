@@ -20,8 +20,9 @@ class ModelBlogArticle extends Model {
 		
 		if ($query->num_rows) {
 			return array(
-				'meta_title'        => $query->row['meta_title'],
-				'meta_h1'           => $query->row['meta_h1'],
+				'meta_title'       => $query->row['meta_title'],
+				'noindex'          => $query->row['noindex'],
+				'meta_h1'          => $query->row['meta_h1'],
 				'article_id'       => $query->row['article_id'],
 				'name'             => $query->row['name'],
 				'description'      => $query->row['description'],
