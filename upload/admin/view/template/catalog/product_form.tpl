@@ -462,7 +462,7 @@
 			  <div class="form-group">
                 <label class="col-sm-2 control-label" for="input-related-article"><span data-toggle="tooltip" title="<?php echo $help_related; ?>"><?php echo $entry_related_article; ?></span></label>
                 <div class="col-sm-10">
-                  <input type="text" name="product_related_article" value="" placeholder="<?php echo $entry_related_article; ?>" id="input-related-article" class="form-control" />
+                  <input type="text" name="product_related_article_input" value="" placeholder="<?php echo $entry_related_article; ?>" id="input-related-article" class="form-control" />
                   <div id="article-related" class="well well-sm" style="height: 150px; overflow: auto;">
                     <?php foreach ($product_related_article as $product_related_article) { ?>
                     <div id="article-related<?php echo $product_related_article['article_id']; ?>"><i class="fa fa-minus-circle"></i> <?php echo $product_related_article['name']; ?>
@@ -1189,7 +1189,7 @@ $('#product-related').delegate('.fa-minus-circle', 'click', function() {
 });
 
 // Related Article
-$('input[name=\'product_related_article\']').autocomplete({
+$('input[name=\'product_related_article_input\']').autocomplete({
 	'source': function(request, response) {
 		$.ajax({
 			url: 'index.php?route=blog/article/autocomplete&token=<?php echo $token; ?>&filter_name=' +  encodeURIComponent(request),

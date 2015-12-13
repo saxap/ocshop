@@ -258,7 +258,7 @@
 			<div class="form-group">
             <label class="col-sm-2 control-label" for="input-product-related"><?php echo $entry_related_wb; ?></label>
             <div class="col-sm-10">
-              <input type="text" name="product_related" value="" placeholder="<?php echo $entry_related_wb; ?>" id="input-product-related" class="form-control" />
+              <input type="text" name="product_related_input" value="" placeholder="<?php echo $entry_related_wb; ?>" id="input-product-related" class="form-control" />
               <div id="product-related" class="well well-sm" style="height: 150px; overflow: auto;">
                 <?php foreach ($product_related as $product_related) { ?>
                 <div id="product-related<?php echo $product_related['product_id']; ?>"><i class="fa fa-minus-circle"></i> <?php echo $product_related['name']; ?>
@@ -271,7 +271,7 @@
 			<div class="form-group">
             <label class="col-sm-2 control-label" for="input-article-related"><?php echo $entry_related_article; ?></label>
             <div class="col-sm-10">
-              <input type="text" name="article_related" value="" placeholder="<?php echo $entry_related_article; ?>" id="input-article-related" class="form-control" />
+              <input type="text" name="article_related_input" value="" placeholder="<?php echo $entry_related_article; ?>" id="input-article-related" class="form-control" />
               <div id="article-related" class="well well-sm" style="height: 150px; overflow: auto;">
                 <?php foreach ($article_related as $article_related) { ?>
                 <div id="article-related<?php echo $article_related['article_id']; ?>"><i class="fa fa-minus-circle"></i> <?php echo $article_related['name']; ?>
@@ -354,7 +354,7 @@ $('#category-filter').delegate('.fa-minus-circle', 'click', function() {
 $('#language a:first').tab('show');
 //--></script>
 <script type="text/javascript"><!--
-$('input[name=\'product_related\']').autocomplete({
+$('input[name=\'product_related_input\']').autocomplete({
 	source: function(request, response) {
 		$.ajax({
 			url: 'index.php?route=catalog/product/autocomplete&token=<?php echo $token; ?>&filter_name=' +  encodeURIComponent(request),
@@ -383,7 +383,7 @@ $('#product-related').delegate('.fa-minus-circle', 'click', function() {
 });
 //--></script>
 <script type="text/javascript"><!--
-$('input[name=\'article_related\']').autocomplete({
+$('input[name=\'article_related_input\']').autocomplete({
 	source: function(request, response) {
 		$.ajax({
 			url: 'index.php?route=blog/article/autocomplete&token=<?php echo $token; ?>&filter_name=' +  encodeURIComponent(request),
