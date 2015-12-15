@@ -1954,7 +1954,7 @@ CREATE TABLE `oc_manufacturer_description` (
   `meta_title` varchar(255) NOT NULL,
   `meta_h1` varchar(255) NOT NULL,
   PRIMARY KEY (`manufacturer_id`,`language_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `oc_manufacturer_description`
@@ -8270,7 +8270,7 @@ CREATE TABLE `oc_blog_category_description` (
   `meta_h1` varchar(255) NOT NULL,
   PRIMARY KEY (`blog_category_id`,`language_id`),
   KEY `name` (`name`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `oc_blog_category_description`
@@ -8296,7 +8296,7 @@ CREATE TABLE `oc_blog_category_to_layout` (
   `store_id` int(11) NOT NULL,
   `layout_id` int(11) NOT NULL,
   PRIMARY KEY (`blog_category_id`,`store_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `oc_blog_category_to_layout`
@@ -8318,7 +8318,7 @@ CREATE TABLE `oc_blog_category_to_store` (
   `blog_category_id` int(11) NOT NULL,
   `store_id` int(11) NOT NULL,
   PRIMARY KEY (`blog_category_id`,`store_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `oc_blog_category_to_store`
@@ -8341,7 +8341,7 @@ CREATE TABLE `oc_article_to_blog_category` (
   `blog_category_id` int(11) NOT NULL,
   `main_blog_category` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`article_id`,`blog_category_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `oc_article_to_blog_category`
@@ -8368,7 +8368,7 @@ CREATE TABLE `oc_blog_category_path` (
   `path_id` int(11) NOT NULL,
   `level` int(11) NOT NULL,
   PRIMARY KEY (`blog_category_id`,`path_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `oc_blog_category_path`
@@ -8458,7 +8458,7 @@ CREATE TABLE `oc_article_description` (
   `tag` text NOT NULL,
   PRIMARY KEY (`article_id`,`language_id`),
   KEY `name` (`name`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `oc_article_description`
@@ -8501,7 +8501,7 @@ CREATE TABLE `oc_article_related` (
   `article_id` int(11) NOT NULL,
   `related_id` int(11) NOT NULL,
   PRIMARY KEY (`article_id`,`related_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `oc_article_related`
@@ -8526,7 +8526,7 @@ CREATE TABLE `oc_article_related_mn` (
   `article_id` int(11) NOT NULL,
   `manufacturer_id` int(11) NOT NULL,
   PRIMARY KEY (`article_id`,`manufacturer_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `oc_article_related_mn`
@@ -8544,7 +8544,7 @@ CREATE TABLE `oc_article_related_product` (
   `article_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
   PRIMARY KEY (`article_id`,`product_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `oc_article_related_product`
@@ -8578,7 +8578,7 @@ CREATE TABLE `oc_product_related_article` (
   `article_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
   PRIMARY KEY (`article_id`,`product_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -8591,7 +8591,7 @@ CREATE TABLE `oc_article_related_wb` (
   `article_id` int(11) NOT NULL,
   `category_id` int(11) NOT NULL,
   PRIMARY KEY (`article_id`,`category_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `oc_article_related_wb`
@@ -8608,7 +8608,7 @@ CREATE TABLE `oc_article_to_download` (
   `article_id` int(11) NOT NULL,
   `download_id` int(11) NOT NULL,
   PRIMARY KEY (`article_id`,`download_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -8622,7 +8622,7 @@ CREATE TABLE `oc_article_to_layout` (
   `store_id` int(11) NOT NULL,
   `layout_id` int(11) NOT NULL,
   PRIMARY KEY (`article_id`,`store_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `oc_article_to_layout`
@@ -8645,7 +8645,7 @@ CREATE TABLE `oc_article_to_store` (
   `article_id` int(11) NOT NULL,
   `store_id` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`article_id`,`store_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `oc_article_to_store`
@@ -8671,7 +8671,7 @@ CREATE TABLE `oc_menu` (
   `menu_type` varchar(20) NOT NULL,
   `status` int(3) NOT NULL,
   PRIMARY KEY (`menu_id`)
-) DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `oc_menu`
@@ -8716,7 +8716,7 @@ CREATE TABLE `oc_menu_description` (
   `language_id` int(11) NOT NULL,
   PRIMARY KEY (`menu_id`,`language_id`),
   KEY `language_id` (`language_id`)
-) DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `oc_menu_description`
@@ -8764,7 +8764,7 @@ CREATE TABLE `oc_menu_to_store` (
   `store_id` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`menu_id`,`store_id`),
   KEY `store_id` (`store_id`)
-) DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `oc_menu_to_store`
@@ -8809,7 +8809,7 @@ CREATE TABLE `oc_menu_child` (
   `status` int(3) NOT NULL,
   PRIMARY KEY (`menu_child_id`),
   KEY `menu_id` (`menu_id`)
-) DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `oc_menu_child`
@@ -8869,7 +8869,7 @@ CREATE TABLE `oc_menu_child_description` (
   PRIMARY KEY (`menu_child_id`,`language_id`),
   KEY `menu_id` (`menu_id`),
   KEY `language_id` (`language_id`)
-) DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `oc_menu_child_description`
@@ -8961,7 +8961,7 @@ CREATE TABLE `oc_menu_child_to_store` (
   `store_id` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`menu_child_id`,`store_id`),
   KEY `store_id` (`store_id`)
-) DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `oc_menu_child_to_store`
