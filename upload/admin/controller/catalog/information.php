@@ -43,7 +43,7 @@ class ControllerCatalogInformation extends Controller {
 				$url .= '&page=' . $this->request->get['page'];
 			}
 
-			$this->response->redirect($this->url->link('catalog/information', 'token=' . $this->session->data['token'] . $url, true));
+			$this->response->redirect($this->url->ssl('catalog/information', 'token=' . $this->session->data['token'] . $url, true));
 		}
 
 		$this->getForm();
@@ -75,7 +75,7 @@ class ControllerCatalogInformation extends Controller {
 				$url .= '&page=' . $this->request->get['page'];
 			}
 
-			$this->response->redirect($this->url->link('catalog/information', 'token=' . $this->session->data['token'] . $url, true));
+			$this->response->redirect($this->url->ssl('catalog/information', 'token=' . $this->session->data['token'] . $url, true));
 		}
 
 		$this->getForm();
@@ -109,7 +109,7 @@ class ControllerCatalogInformation extends Controller {
 				$url .= '&page=' . $this->request->get['page'];
 			}
 
-			$this->response->redirect($this->url->link('catalog/information', 'token=' . $this->session->data['token'] . $url, true));
+			$this->response->redirect($this->url->ssl('catalog/information', 'token=' . $this->session->data['token'] . $url, true));
 		}
 
 		$this->getList();
@@ -152,19 +152,19 @@ class ControllerCatalogInformation extends Controller {
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_home'),
-			'href' => $this->url->link('common/dashboard', 'token=' . $this->session->data['token'], true)
+			'href' => $this->url->ssl('common/dashboard', 'token=' . $this->session->data['token'], true)
 		);
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('heading_title'),
-			'href' => $this->url->link('catalog/information', 'token=' . $this->session->data['token'] . $url, true)
+			'href' => $this->url->ssl('catalog/information', 'token=' . $this->session->data['token'] . $url, true)
 		);
 
-		$data['add'] = $this->url->link('catalog/information/add', 'token=' . $this->session->data['token'] . $url, true);
-		$data['delete'] = $this->url->link('catalog/information/delete', 'token=' . $this->session->data['token'] . $url, true);
+		$data['add'] = $this->url->ssl('catalog/information/add', 'token=' . $this->session->data['token'] . $url, true);
+		$data['delete'] = $this->url->ssl('catalog/information/delete', 'token=' . $this->session->data['token'] . $url, true);
 		
-		$data['enabled'] = $this->url->link('catalog/information/enable', 'token=' . $this->session->data['token'] . $url, 'SSL');
-        $data['disabled'] = $this->url->link('catalog/information/disable', 'token=' . $this->session->data['token'] . $url, 'SSL');
+		$data['enabled'] = $this->url->ssl('catalog/information/enable', 'token=' . $this->session->data['token'] . $url, true);
+        $data['disabled'] = $this->url->ssl('catalog/information/disable', 'token=' . $this->session->data['token'] . $url, true);
 
 		$data['informations'] = array();
 
@@ -186,7 +186,7 @@ class ControllerCatalogInformation extends Controller {
 				'sort_order'     => $result['sort_order'],
 				'noindex'  	  	 => $result['noindex'],
 				'href_shop'  	 => HTTP_CATALOG . 'index.php?route=information/information&information_id=' . ($result['information_id']),
-				'edit'           => $this->url->link('catalog/information/edit', 'token=' . $this->session->data['token'] . '&information_id=' . $result['information_id'] . $url, true)
+				'edit'           => $this->url->ssl('catalog/information/edit', 'token=' . $this->session->data['token'] . '&information_id=' . $result['information_id'] . $url, true)
 			);
 		}
 
@@ -241,9 +241,9 @@ class ControllerCatalogInformation extends Controller {
 			$url .= '&page=' . $this->request->get['page'];
 		}
 
-		$data['sort_title'] = $this->url->link('catalog/information', 'token=' . $this->session->data['token'] . '&sort=id.title' . $url, true);
-		$data['sort_sort_order'] = $this->url->link('catalog/information', 'token=' . $this->session->data['token'] . '&sort=i.sort_order' . $url, true);
-		$data['sort_noindex'] = $this->url->link('catalog/information', 'token=' . $this->session->data['token'] . '&sort=i.noindex' . $url, true);
+		$data['sort_title'] = $this->url->ssl('catalog/information', 'token=' . $this->session->data['token'] . '&sort=id.title' . $url, true);
+		$data['sort_sort_order'] = $this->url->ssl('catalog/information', 'token=' . $this->session->data['token'] . '&sort=i.sort_order' . $url, true);
+		$data['sort_noindex'] = $this->url->ssl('catalog/information', 'token=' . $this->session->data['token'] . '&sort=i.noindex' . $url, true);
 
 		$url = '';
 
@@ -259,7 +259,7 @@ class ControllerCatalogInformation extends Controller {
 		$pagination->total = $information_total;
 		$pagination->page = $page;
 		$pagination->limit = $this->config->get('config_limit_admin');
-		$pagination->url = $this->url->link('catalog/information', 'token=' . $this->session->data['token'] . $url . '&page={page}', true);
+		$pagination->url = $this->url->ssl('catalog/information', 'token=' . $this->session->data['token'] . $url . '&page={page}', true);
 
 		$data['pagination'] = $pagination->render();
 
@@ -362,21 +362,21 @@ class ControllerCatalogInformation extends Controller {
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_home'),
-			'href' => $this->url->link('common/dashboard', 'token=' . $this->session->data['token'], true)
+			'href' => $this->url->ssl('common/dashboard', 'token=' . $this->session->data['token'], true)
 		);
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('heading_title'),
-			'href' => $this->url->link('catalog/information', 'token=' . $this->session->data['token'] . $url, true)
+			'href' => $this->url->ssl('catalog/information', 'token=' . $this->session->data['token'] . $url, true)
 		);
 
 		if (!isset($this->request->get['information_id'])) {
-			$data['action'] = $this->url->link('catalog/information/add', 'token=' . $this->session->data['token'] . $url, true);
+			$data['action'] = $this->url->ssl('catalog/information/add', 'token=' . $this->session->data['token'] . $url, true);
 		} else {
-			$data['action'] = $this->url->link('catalog/information/edit', 'token=' . $this->session->data['token'] . '&information_id=' . $this->request->get['information_id'] . $url, true);
+			$data['action'] = $this->url->ssl('catalog/information/edit', 'token=' . $this->session->data['token'] . '&information_id=' . $this->request->get['information_id'] . $url, true);
 		}
 
-		$data['cancel'] = $this->url->link('catalog/information', 'token=' . $this->session->data['token'] . $url, true);
+		$data['cancel'] = $this->url->ssl('catalog/information', 'token=' . $this->session->data['token'] . $url, true);
 
 		if (isset($this->request->get['information_id']) && ($this->request->server['REQUEST_METHOD'] != 'POST')) {
 			$information_info = $this->model_catalog_information->getInformation($this->request->get['information_id']);

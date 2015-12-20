@@ -172,10 +172,18 @@ class ControllerPaymentAmazonLoginPay extends Controller {
 			$this->response->redirect($this->url->link('payment/amazon_login_pay/address', '', true));
 		}
 
-		$total_data = array();
-		$total = 0;
+		// Totals
+		$totals = array();
 		$taxes = $this->cart->getTaxes();
+		$total = 0;
 
+		// Because __call can not keep var references so we put them into an array.
+		$total_data = array(
+			'totals' => &$totals,
+			'taxes'  => &$taxes,
+			'total'  => &$total
+		);
+			
 		$old_taxes = $taxes;
 		$lpa_tax = array();
 
@@ -189,6 +197,7 @@ class ControllerPaymentAmazonLoginPay extends Controller {
 			} else {
 				$code = $value['key'];
 			}
+			
 			$sort_order[$key] = $this->config->get($code . '_sort_order');
 		}
 
@@ -200,14 +209,15 @@ class ControllerPaymentAmazonLoginPay extends Controller {
 			} else {
 				$code = $result['key'];
 			}
+			
 			if ($this->config->get($code . '_status')) {
 				$this->load->model('total/' . $code);
 				
 				// We have to put the totals in an array so that they pass by reference.
-				$this->{'model_total_' . $code}->getTotal(array($total_data, $total, $taxes));
+				$this->{'model_total_' . $code}->getTotal($total_data);
 
-				if (!empty($total_data[count($total_data) - 1]) && !isset($total_data[count($total_data) - 1]['code'])) {
-					$total_data[count($total_data) - 1]['code'] = $code;
+				if (!empty($totals[count($totals) - 1]) && !isset($totals[count($totals) - 1]['code'])) {
+					$totals[count($totals) - 1]['code'] = $code;
 				}
 
 				$tax_difference = 0;
@@ -230,7 +240,7 @@ class ControllerPaymentAmazonLoginPay extends Controller {
 
 		$sort_order = array();
 
-		foreach ($total_data as $key => $value) {
+		foreach ($totals as $key => $value) {
 			$sort_order[$key] = $value['sort_order'];
 
 			if (isset($lpa_tax[$value['code']])) {
@@ -240,7 +250,7 @@ class ControllerPaymentAmazonLoginPay extends Controller {
 			}
 		}
 
-		array_multisort($sort_order, SORT_ASC, $total_data);
+		array_multisort($sort_order, SORT_ASC, $totals);
 
 		$order_data = array();
 
@@ -469,7 +479,7 @@ class ControllerPaymentAmazonLoginPay extends Controller {
 
 		$data['totals'] = array();
 
-		foreach ($total_data as $total) {
+		foreach ($totals as $total) {
 			$data['totals'][] = array(
 				'title' => $total['title'],
 				'text' => $this->currency->format($total['value'])

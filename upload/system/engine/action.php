@@ -16,7 +16,8 @@ class Action {
 			$file = DIR_APPLICATION . 'controller/' . implode('/', $parts) . '.php';
 
 			if (is_file($file)) {
-				$this->route = implode('/', $parts);
+				$this->route = implode('/', $parts);		
+				
 				break;
 			} else {
 				$this->method = array_pop($parts);
@@ -30,10 +31,10 @@ class Action {
 			return false;
 		}
 		
-		// Initialize the class
-		$file  = DIR_APPLICATION . 'controller/' . $this->route . '.php';
+		$file = DIR_APPLICATION . 'controller/' . $this->route . '.php';		
 		$class = 'Controller' . preg_replace('/[^a-zA-Z0-9]/', '', $this->route);
-
+		
+		// Initialize the class
 		if (is_file($file)) {
 			include_once($file);
 		
@@ -41,9 +42,10 @@ class Action {
 		} else {
 			return false;
 		}
-
-		// Call the method if set
-		if (method_exists($controller, $this->method)) {
+		
+		$reflection = new ReflectionClass($class);
+		
+		if ($reflection->hasMethod($this->method) && $reflection->getMethod($this->method)->getNumberOfRequiredParameters() <= count($args)) {
 			return call_user_func_array(array($controller, $this->method), $args);
 		} else {
 			return false;

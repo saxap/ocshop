@@ -33,6 +33,8 @@ class ModelCustomerCustomField extends Model {
 				}
 			}
 		}
+		
+		return $custom_field_id;
 	}
 
 	public function editCustomField($custom_field_id, $data) {

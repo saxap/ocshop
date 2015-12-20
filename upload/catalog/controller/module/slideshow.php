@@ -6,7 +6,7 @@
 
 class ControllerModuleSlideshow extends Controller {
 	public function index($setting) {
-		static $module = 0;
+		static $module = 0;		
 
 		$this->load->model('design/banner');
 		$this->load->model('tool/image');

@@ -5,7 +5,7 @@
 // *	@license	GNU General Public License version 3; see LICENSE.txt
 
 class Language {
-	private $default = 'english';
+	private $default = 'en-gb';
 	private $directory;
 	private $data = array();
 
@@ -25,7 +25,7 @@ class Language {
 		return $this->data;
 	}
 	
-	public function load($filename) {
+	public function load($filename, &$data = array()) {
 		$_ = array();
 
 		$file = DIR_LANGUAGE . $this->default . '/' . $filename . '.php';
