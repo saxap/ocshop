@@ -14,17 +14,17 @@ class ControllerAccountSuccess extends Controller {
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_home'),
-			'href' => $this->url->link('common/home')
+			'href' => $this->url->ssl('common/home')
 		);
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_account'),
-			'href' => $this->url->link('account/account', '', true)
+			'href' => $this->url->ssl('account/account', '', true)
 		);
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_success'),
-			'href' => $this->url->link('account/success')
+			'href' => $this->url->ssl('account/success')
 		);
 
 		$data['heading_title'] = $this->language->get('heading_title');
@@ -34,17 +34,17 @@ class ControllerAccountSuccess extends Controller {
 		$customer_group_info = $this->model_account_customer_group->getCustomerGroup($this->config->get('config_customer_group_id'));
 
 		if ($customer_group_info && !$customer_group_info['approval']) {
-			$data['text_message'] = sprintf($this->language->get('text_message'), $this->url->link('information/contact'));
+			$data['text_message'] = sprintf($this->language->get('text_message'), $this->url->ssl('information/contact'));
 		} else {
-			$data['text_message'] = sprintf($this->language->get('text_approval'), $this->config->get('config_name'), $this->url->link('information/contact'));
+			$data['text_message'] = sprintf($this->language->get('text_approval'), $this->config->get('config_name'), $this->url->ssl('information/contact'));
 		}
 
 		$data['button_continue'] = $this->language->get('button_continue');
 
 		if ($this->cart->hasProducts()) {
-			$data['continue'] = $this->url->link('checkout/cart');
+			$data['continue'] = $this->url->ssl('checkout/cart');
 		} else {
-			$data['continue'] = $this->url->link('account/account', '', true);
+			$data['continue'] = $this->url->ssl('account/account', '', true);
 		}
 
 		$data['column_left'] = $this->load->controller('common/column_left');

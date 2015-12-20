@@ -53,7 +53,7 @@ class ControllerModuleBlogPopular extends Controller {
 					'viewed'      => $result['viewed'],
 					'reviews'    => sprintf($this->language->get('text_reviews'), (int)$result['reviews']),
 					'rating'      => $rating,
-					'href'        => $this->url->link('blog/article', 'article_id=' . $result['article_id']),
+					'href'        => $this->url->ssl('blog/article', 'article_id=' . $result['article_id']),
 				);
 			}
 

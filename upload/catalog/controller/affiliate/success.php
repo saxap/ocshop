@@ -14,30 +14,30 @@ class ControllerAffiliateSuccess extends Controller {
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_home'),
-			'href' => $this->url->link('common/home')
+			'href' => $this->url->ssl('common/home')
 		);
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_account'),
-			'href' => $this->url->link('affiliate/account', '', true)
+			'href' => $this->url->ssl('affiliate/account', '', true)
 		);
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_success'),
-			'href' => $this->url->link('affiliate/success')
+			'href' => $this->url->ssl('affiliate/success')
 		);
 
 		$data['heading_title'] = $this->language->get('heading_title');
 
 		if (!$this->config->get('config_affiliate_approval')) {
-			$data['text_message'] = sprintf($this->language->get('text_message'), $this->config->get('config_name'), $this->url->link('information/contact'));
+			$data['text_message'] = sprintf($this->language->get('text_message'), $this->config->get('config_name'), $this->url->ssl('information/contact'));
 		} else {
-			$data['text_message'] = sprintf($this->language->get('text_approval'), $this->config->get('config_name'), $this->url->link('information/contact'));
+			$data['text_message'] = sprintf($this->language->get('text_approval'), $this->config->get('config_name'), $this->url->ssl('information/contact'));
 		}
 
 		$data['button_continue'] = $this->language->get('button_continue');
 
-		$data['continue'] = $this->url->link('affiliate/account', '', true);
+		$data['continue'] = $this->url->ssl('affiliate/account', '', true);
 
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['column_right'] = $this->load->controller('common/column_right');

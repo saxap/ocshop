@@ -7,7 +7,7 @@
 class ControllerStep1 extends Controller {
 	public function index() {
 		if ($this->request->server['REQUEST_METHOD'] == 'POST') {
-			$this->response->redirect($this->url->link('step_2'));
+			$this->response->redirect($this->url->ssl('step_2'));
 		}
 
 		$this->document->setTitle($this->language->get('heading_step_1'));
@@ -23,7 +23,7 @@ class ControllerStep1 extends Controller {
 
 		$data['button_continue'] = $this->language->get('button_continue');
 
-		$data['action'] = $this->url->link('step_1');
+		$data['action'] = $this->url->ssl('step_1');
 
 		$data['footer'] = $this->load->controller('footer');
 		$data['header'] = $this->load->controller('header');

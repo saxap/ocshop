@@ -396,12 +396,12 @@ class ControllerCommonSeoPro extends Controller {
 		}
 		if (isset($this->request->server['HTTPS']) && (($this->request->server['HTTPS'] == 'on') || ($this->request->server['HTTPS'] == '1'))) {
 			$url = str_replace('&amp;', '&', $this->config->get('config_ssl') . ltrim($this->request->server['REQUEST_URI'], '/'));
-			$seo = str_replace('&amp;', '&', $this->url->link($this->request->get['route'], $this->getQueryString(array('route')), 'SSL'));
+			$seo = str_replace('&amp;', '&', $this->url->ssl($this->request->get['route'], $this->getQueryString(array('route')), 'SSL'));
 		} else {
 			$url = str_replace('&amp;', '&',
 				substr($this->config->get('config_url'), 0, strpos($this->config->get('config_url'), '/', 10)) // leave only domain
 				. $this->request->server['REQUEST_URI']);
-			$seo = str_replace('&amp;', '&', $this->url->link($this->request->get['route'], $this->getQueryString(array('route')), 'NONSSL'));
+			$seo = str_replace('&amp;', '&', $this->url->ssl($this->request->get['route'], $this->getQueryString(array('route')), 'NONSSL'));
 		}
 		if (rawurldecode($url) != rawurldecode($seo)) {
 			$this->response->redirect($seo, 301);

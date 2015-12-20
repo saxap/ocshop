@@ -13,7 +13,7 @@ class ControllerUpgrade extends Controller {
 
 			$this->model_upgrade->mysql();
 
-			$this->response->redirect($this->url->link('upgrade/success'));
+			$this->response->redirect($this->url->ssl('upgrade/success'));
 		}
 
 		$data = array();
@@ -24,7 +24,7 @@ class ControllerUpgrade extends Controller {
 			$data['error_warning'] = '';
 		}
 
-		$data['action'] = $this->url->link('upgrade');
+		$data['action'] = $this->url->ssl('upgrade');
 
 		$data['header'] = $this->load->controller('header');
 		$data['footer'] = $this->load->controller('footer');

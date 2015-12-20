@@ -628,7 +628,7 @@ class ControllerCatalogReview extends Controller {
                 $url .= '&order=' . $this->request->get['order'];
             }
 
-            $this->response->redirect($this->url->link('catalog/review', 'token=' . $this->session->data['token'] . $url, 'SSL'));
+            $this->response->redirect($this->url->ssl('catalog/review', 'token=' . $this->session->data['token'] . $url, true));
         }
 
         $this->getList();
@@ -673,7 +673,7 @@ class ControllerCatalogReview extends Controller {
                 $url .= '&order=' . $this->request->get['order'];
             }
 
-            $this->response->redirect($this->url->link('catalog/review', 'token=' . $this->session->data['token'] . $url, 'SSL'));
+            $this->response->redirect($this->url->ssl('catalog/review', 'token=' . $this->session->data['token'] . $url, true));
         }
 
         $this->getList();

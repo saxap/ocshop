@@ -35,7 +35,7 @@ class ControllerModuleImgcategory extends Controller {
 		
 		$i = 0;
 		foreach ($results as $result) {
-            $categories[$i]['href'] = $this->url->link('product/category', 'path=' . $result['category_id']);
+            $categories[$i]['href'] = $this->url->ssl('product/category', 'path=' . $result['category_id']);
 
 			if ($result['image']) {
                 $image = $result['image'];

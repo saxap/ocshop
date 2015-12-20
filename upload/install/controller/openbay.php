@@ -19,7 +19,7 @@ class ControllerOpenbay extends Controller {
 		$data['button_register_us'] = $this->language->get('button_register_us');
 		$data['button_back'] = $this->language->get('button_back');
 
-		$data['back'] = $this->url->link('step_4');
+		$data['back'] = $this->url->ssl('step_4');
 
 		$data['footer'] = $this->load->controller('footer');
 		$data['header'] = $this->load->controller('header');

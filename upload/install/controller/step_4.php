@@ -44,8 +44,8 @@ class ControllerStep4 extends Controller {
 		$data['button_join'] = $this->language->get('button_join');
 		$data['button_setup'] = $this->language->get('button_setup');
 
-		$data['link_maxmind'] = $this->url->link('maxmind');
-		$data['link_openbay'] = $this->url->link('openbay');
+		$data['link_maxmind'] = $this->url->ssl('maxmind');
+		$data['link_openbay'] = $this->url->ssl('openbay');
 
 		if (isset($this->session->data['success'])) {
 			$data['success'] = $this->session->data['success'];

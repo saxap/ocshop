@@ -545,7 +545,7 @@ class ControllerCatalogInformation extends Controller {
                 $url .= '&order=' . $this->request->get['order'];
             }
 
-            $this->response->redirect($this->url->link('catalog/information', 'token=' . $this->session->data['token'] . $url, 'SSL'));
+            $this->response->redirect($this->url->ssl('catalog/information', 'token=' . $this->session->data['token'] . $url, true));
         }
 
         $this->getList();
@@ -580,7 +580,7 @@ class ControllerCatalogInformation extends Controller {
                 $url .= '&order=' . $this->request->get['order'];
             }
 
-            $this->response->redirect($this->url->link('catalog/information', 'token=' . $this->session->data['token'] . $url, 'SSL'));
+            $this->response->redirect($this->url->ssl('catalog/information', 'token=' . $this->session->data['token'] . $url, 'SSL'));
         }
 
         $this->getList();

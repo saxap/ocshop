@@ -66,10 +66,10 @@ class ControllerPaymentNochex extends Controller {
 		$data['email_address'] = $order_info['email'];
 		$data['customer_phone_number']= $order_info['telephone'];
 		$data['test'] = $this->config->get('nochex_test');
-		$data['success_url'] = $this->url->link('checkout/success', '', true);
-		$data['cancel_url'] = $this->url->link('checkout/payment', '', true);
-		$data['declined_url'] = $this->url->link('payment/nochex/callback', 'method=decline', true);
-		$data['callback_url'] = $this->url->link('payment/nochex/callback', 'order=' . $this->session->data['order_id'], true);
+		$data['success_url'] = $this->url->ssl('checkout/success', '', true);
+		$data['cancel_url'] = $this->url->ssl('checkout/payment', '', true);
+		$data['declined_url'] = $this->url->ssl('payment/nochex/callback', 'method=decline', true);
+		$data['callback_url'] = $this->url->ssl('payment/nochex/callback', 'order=' . $this->session->data['order_id'], true);
 
 		return $this->load->view('payment/nochex', $data);
 	}
@@ -80,7 +80,7 @@ class ControllerPaymentNochex extends Controller {
 		if (isset($this->request->get['method']) && $this->request->get['method'] == 'decline') {
 			$this->session->data['error'] = $this->language->get('error_declined');
 
-			$this->response->redirect($this->url->link('checkout/cart'));
+			$this->response->redirect($this->url->ssl('checkout/cart'));
 		}
 
 		if (isset($this->request->post['order_id'])) {
@@ -96,7 +96,7 @@ class ControllerPaymentNochex extends Controller {
 		if (!$order_info) {
 			$this->session->data['error'] = $this->language->get('error_no_order');
 
-			$this->response->redirect($this->url->link('checkout/cart'));
+			$this->response->redirect($this->url->ssl('checkout/cart'));
 		}
 
 		// Fraud Verification Step.
@@ -127,6 +127,6 @@ class ControllerPaymentNochex extends Controller {
 
 		// Since it returned, the customer should see success.
 		// It's up to the store owner to manually verify payment.
-		$this->response->redirect($this->url->link('checkout/success', '', true));
+		$this->response->redirect($this->url->ssl('checkout/success', '', true));
 	}
 }

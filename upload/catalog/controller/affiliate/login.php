@@ -9,7 +9,7 @@ class ControllerAffiliateLogin extends Controller {
 
 	public function index() {
 		if ($this->affiliate->isLogged()) {
-			$this->response->redirect($this->url->link('affiliate/account', '', true));
+			$this->response->redirect($this->url->ssl('affiliate/account', '', true));
 		}
 
 		$this->load->language('affiliate/login');
@@ -34,7 +34,7 @@ class ControllerAffiliateLogin extends Controller {
 			if (isset($this->request->post['redirect']) && (strpos($this->request->post['redirect'], $this->config->get('config_url')) !== false || strpos($this->request->post['redirect'], $this->config->get('config_ssl')) !== false)) {
 				$this->response->redirect(str_replace('&amp;', '&', $this->request->post['redirect']));
 			} else {
-				$this->response->redirect($this->url->link('affiliate/account', '', true));
+				$this->response->redirect($this->url->ssl('affiliate/account', '', true));
 			}
 		}
 
@@ -42,17 +42,17 @@ class ControllerAffiliateLogin extends Controller {
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_home'),
-			'href' => $this->url->link('common/home')
+			'href' => $this->url->ssl('common/home')
 		);
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_account'),
-			'href' => $this->url->link('affiliate/account', '', true)
+			'href' => $this->url->ssl('affiliate/account', '', true)
 		);
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_login'),
-			'href' => $this->url->link('affiliate/login', '', true)
+			'href' => $this->url->ssl('affiliate/login', '', true)
 		);
 
 		$data['heading_title'] = $this->language->get('heading_title');
@@ -78,9 +78,9 @@ class ControllerAffiliateLogin extends Controller {
 			$data['error_warning'] = '';
 		}
 
-		$data['action'] = $this->url->link('affiliate/login', '', true);
-		$data['register'] = $this->url->link('affiliate/register', '', true);
-		$data['forgotten'] = $this->url->link('affiliate/forgotten', '', true);
+		$data['action'] = $this->url->ssl('affiliate/login', '', true);
+		$data['register'] = $this->url->ssl('affiliate/register', '', true);
+		$data['forgotten'] = $this->url->ssl('affiliate/forgotten', '', true);
 
 		if (isset($this->request->post['redirect'])) {
 			$data['redirect'] = $this->request->post['redirect'];

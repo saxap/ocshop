@@ -33,22 +33,22 @@ class ControllerCommonFooter extends Controller {
 			if ($result['bottom']) {
 				$data['informations'][] = array(
 					'title' => $result['title'],
-					'href'  => $this->url->link('information/information', 'information_id=' . $result['information_id'])
+					'href'  => $this->url->ssl('information/information', 'information_id=' . $result['information_id'])
 				);
 			}
 		}
 
-		$data['contact'] = $this->url->link('information/contact');
-		$data['return'] = $this->url->link('account/return/add', '', true);
-		$data['sitemap'] = $this->url->link('information/sitemap');
-		$data['manufacturer'] = $this->url->link('product/manufacturer');
-		$data['voucher'] = $this->url->link('account/voucher', '', true);
-		$data['affiliate'] = $this->url->link('affiliate/account', '', true);
-		$data['special'] = $this->url->link('product/special');
-		$data['account'] = $this->url->link('account/account', '', true);
-		$data['order'] = $this->url->link('account/order', '', true);
-		$data['wishlist'] = $this->url->link('account/wishlist', '', true);
-		$data['newsletter'] = $this->url->link('account/newsletter', '', true);
+		$data['contact'] = $this->url->ssl('information/contact');
+		$data['return'] = $this->url->ssl('account/return/add', '', true);
+		$data['sitemap'] = $this->url->ssl('information/sitemap');
+		$data['manufacturer'] = $this->url->ssl('product/manufacturer');
+		$data['voucher'] = $this->url->ssl('account/voucher', '', true);
+		$data['affiliate'] = $this->url->ssl('affiliate/account', '', true);
+		$data['special'] = $this->url->ssl('product/special');
+		$data['account'] = $this->url->ssl('account/account', '', true);
+		$data['order'] = $this->url->ssl('account/order', '', true);
+		$data['wishlist'] = $this->url->ssl('account/wishlist', '', true);
+		$data['newsletter'] = $this->url->ssl('account/newsletter', '', true);
 
 		$data['powered'] = sprintf($this->language->get('text_powered'), $this->config->get('config_name'), date('Y', time()));
 

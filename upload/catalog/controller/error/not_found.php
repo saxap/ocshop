@@ -14,7 +14,7 @@ class ControllerErrorNotFound extends Controller {
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_home'),
-			'href' => $this->url->link('common/home')
+			'href' => $this->url->ssl('common/home')
 		);
 
 		if (isset($this->request->get['route'])) {
@@ -34,7 +34,7 @@ class ControllerErrorNotFound extends Controller {
 
 			$data['breadcrumbs'][] = array(
 				'text' => $this->language->get('heading_title'),
-				'href' => $this->url->link($route, $url, $this->request->server['HTTPS'])
+				'href' => $this->url->ssl($route, $url, $this->request->server['HTTPS'])
 			);
 		}
 
@@ -44,7 +44,7 @@ class ControllerErrorNotFound extends Controller {
 
 		$data['button_continue'] = $this->language->get('button_continue');
 
-		$data['continue'] = $this->url->link('common/home');
+		$data['continue'] = $this->url->ssl('common/home');
 
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['column_right'] = $this->load->controller('common/column_right');

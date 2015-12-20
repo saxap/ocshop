@@ -16,7 +16,7 @@ class ControllerShippingXshipping extends Controller {
 			$this->session->data['success'] = $this->language->get('text_success');
 			
 			$this->session->data['success'] = $this->language->get('text_success');	
-			$this->response->redirect($this->url->link('extension/shipping', 'token=' . $this->session->data['token'], 'SSL'));
+			$this->response->redirect($this->url->ssl('extension/shipping', 'token=' . $this->session->data['token'] . $url, true));
 		}
 				
 		$data['heading_title'] = $this->language->get('heading_title');
@@ -51,21 +51,21 @@ class ControllerShippingXshipping extends Controller {
 
    		$data['breadcrumbs'][] = array(
        		'text'      => $this->language->get('text_home'),
-			'href'      => $this->url->link('common/home', 'token=' . $this->session->data['token'], 'SSL')
+			'href'      => $this->url->ssl('common/home', 'token=' . $this->session->data['token'] . $url, true)
    		);
 
    		$data['breadcrumbs'][] = array(
        		'text'      => $this->language->get('text_shipping'),
-			'href'      => $this->url->link('extension/shipping', 'token=' . $this->session->data['token'], 'SSL')
+			'href'      => $this->url->ssl('extension/shipping', 'token=' . $this->session->data['token'] . $url, true)
    		);
 		
    		$data['breadcrumbs'][] = array(
        		'text'      => $this->language->get('heading_title'),
-			'href'      => $this->url->link('shipping/xshipping', 'token=' . $this->session->data['token'], 'SSL')
+			'href'      => $this->url->ssl('shipping/xshipping', 'token=' . $this->session->data['token'] . $url, true)
    		);
 		
-		$data['action'] = $this->url->link('shipping/xshipping', 'token=' . $this->session->data['token'], 'SSL');
-		$data['cancel'] = $this->url->link('extension/xshipping', 'token=' . $this->session->data['token'], 'SSL');
+		$data['action'] = $this->url->ssl('shipping/xshipping', 'token=' . $this->session->data['token'] . $url, true);
+		$data['cancel'] = $this->url->ssl('extension/xshipping', 'token=' . $this->session->data['token'] . $url, true);
 		
 		for($i=1;$i<=12;$i++)
 		 {

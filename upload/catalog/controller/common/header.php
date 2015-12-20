@@ -63,7 +63,7 @@ class ControllerCommonHeader extends Controller {
 		}
 
 		$data['text_shopping_cart'] = $this->language->get('text_shopping_cart');
-		$data['text_logged'] = sprintf($this->language->get('text_logged'), $this->url->link('account/account', '', true), $this->customer->getFirstName(), $this->url->link('account/logout', '', true));
+		$data['text_logged'] = sprintf($this->language->get('text_logged'), $this->url->ssl('account/account', '', true), $this->customer->getFirstName(), $this->url->ssl('account/logout', '', true));
 
 		$data['text_account'] = $this->language->get('text_account');
 		$data['text_register'] = $this->language->get('text_register');
@@ -76,19 +76,19 @@ class ControllerCommonHeader extends Controller {
 		$data['text_category'] = $this->language->get('text_category');
 		$data['text_all'] = $this->language->get('text_all');
 
-		$data['home'] = $this->url->link('common/home');
-		$data['wishlist'] = $this->url->link('account/wishlist', '', true);
+		$data['home'] = $this->url->ssl('common/home');
+		$data['wishlist'] = $this->url->ssl('account/wishlist', '', true);
 		$data['logged'] = $this->customer->isLogged();
-		$data['account'] = $this->url->link('account/account', '', true);
-		$data['register'] = $this->url->link('account/register', '', true);
-		$data['login'] = $this->url->link('account/login', '', true);
-		$data['order'] = $this->url->link('account/order', '', true);
-		$data['transaction'] = $this->url->link('account/transaction', '', true);
-		$data['download'] = $this->url->link('account/download', '', true);
-		$data['logout'] = $this->url->link('account/logout', '', true);
-		$data['shopping_cart'] = $this->url->link('checkout/cart');
-		$data['checkout'] = $this->url->link('checkout/checkout', '', true);
-		$data['contact'] = $this->url->link('information/contact');
+		$data['account'] = $this->url->ssl('account/account', '', true);
+		$data['register'] = $this->url->ssl('account/register', '', true);
+		$data['login'] = $this->url->ssl('account/login', '', true);
+		$data['order'] = $this->url->ssl('account/order', '', true);
+		$data['transaction'] = $this->url->ssl('account/transaction', '', true);
+		$data['download'] = $this->url->ssl('account/download', '', true);
+		$data['logout'] = $this->url->ssl('account/logout', '', true);
+		$data['shopping_cart'] = $this->url->ssl('checkout/cart');
+		$data['checkout'] = $this->url->ssl('checkout/checkout', '', true);
+		$data['contact'] = $this->url->ssl('information/contact');
 		$data['telephone'] = $this->config->get('config_telephone');
 
 		// Menu
@@ -154,7 +154,7 @@ class ControllerCommonHeader extends Controller {
 
 					$children_data[] = array(
 						'name'  => $child['name'] . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_product->getTotalProducts($filter_data) . ')' : ''),
-						'href'  => $this->url->link('product/category', 'path=' . $category['category_id'] . '_' . $child['category_id'])
+						'href'  => $this->url->ssl('product/category', 'path=' . $category['category_id'] . '_' . $child['category_id'])
 					);
 				}
 
@@ -163,7 +163,7 @@ class ControllerCommonHeader extends Controller {
 					'name'     => $category['name'],
 					'children' => $children_data,
 					'column'   => $category['column'] ? $category['column'] : 1,
-					'href'     => $this->url->link('product/category', 'path=' . $category['category_id'])
+					'href'     => $this->url->ssl('product/category', 'path=' . $category['category_id'])
 				);
 			}
 		}
@@ -229,7 +229,7 @@ class ControllerCommonHeader extends Controller {
         if ( $check !== false ) {
 			$link = $item['link'];
         } else {
-            $link = $this->url->link($route, $args);
+            $link = $this->url->ssl($route, $args);
         }
 
         return $link;

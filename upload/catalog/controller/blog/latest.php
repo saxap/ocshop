@@ -47,12 +47,12 @@ class ControllerBlogLatest extends Controller {
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_home'),
-			'href' => $this->url->link('common/home')
+			'href' => $this->url->ssl('common/home')
 		);
 		
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('heading_title'),
-			'href' => $this->url->link('blog/latest')
+			'href' => $this->url->ssl('blog/latest')
 		);
 
 		$url = '';
@@ -132,7 +132,7 @@ class ControllerBlogLatest extends Controller {
 					'viewed'      => $result['viewed'],
 					'rating'      => $rating,
 					'reviews'     => sprintf($this->language->get('text_reviews'), (int)$result['reviews']),
-					'href'        => $this->url->link('blog/article',  '&article_id=' . $result['article_id'])
+					'href'        => $this->url->ssl('blog/article',  '&article_id=' . $result['article_id'])
 				);
 			}
 
@@ -147,57 +147,57 @@ class ControllerBlogLatest extends Controller {
 			$data['sorts'][] = array(
 				'text'  => $this->language->get('text_default'),
 				'value' => 'p.sort_order-ASC',
-				'href'  => $this->url->link('blog/latest', 'blog_category_id=' . '&sort=p.sort_order&order=ASC' . $url)
+				'href'  => $this->url->ssl('blog/latest', 'blog_category_id=' . '&sort=p.sort_order&order=ASC' . $url)
 			);
 			
 			$data['sorts'][] = array(
 				'text'  => $this->language->get('text_name_asc'),
 				'value' => 'pd.name-ASC',
-				'href'  => $this->url->link('blog/latest', 'blog_category_id=' . '&sort=pd.name&order=ASC' . $url)
+				'href'  => $this->url->ssl('blog/latest', 'blog_category_id=' . '&sort=pd.name&order=ASC' . $url)
 			);
 
 			$data['sorts'][] = array(
 				'text'  => $this->language->get('text_name_desc'),
 				'value' => 'pd.name-DESC',
-				'href'  => $this->url->link('blog/latest', 'blog_category_id=' . '&sort=pd.name&order=DESC' . $url)
+				'href'  => $this->url->ssl('blog/latest', 'blog_category_id=' . '&sort=pd.name&order=DESC' . $url)
 			);
 
 			$data['sorts'][] = array(
 				'text'  => $this->language->get('text_date_asc'),
 				'value' => 'p.date_added-ASC',
-				'href'  => $this->url->link('blog/latest',  '&sort=p.date_added&order=ASC' . $url)
+				'href'  => $this->url->ssl('blog/latest',  '&sort=p.date_added&order=ASC' . $url)
 			); 
 
 			$data['sorts'][] = array(
 				'text'  => $this->language->get('text_date_desc'),
 				'value' => 'p.date_added-DESC',
-				'href'  => $this->url->link('blog/latest', '&sort=p.date_added&order=DESC' . $url)
+				'href'  => $this->url->ssl('blog/latest', '&sort=p.date_added&order=DESC' . $url)
 			); 
 			
 			if ($this->config->get('configblog_review_status')) {
 				$data['sorts'][] = array(
 					'text'  => $this->language->get('text_rating_desc'),
 					'value' => 'rating-DESC',
-					'href'  => $this->url->link('blog/latest',  '&sort=rating&order=DESC' . $url)
+					'href'  => $this->url->ssl('blog/latest',  '&sort=rating&order=DESC' . $url)
 				); 
 				
 				$data['sorts'][] = array(
 					'text'  => $this->language->get('text_rating_asc'),
 					'value' => 'rating-ASC',
-					'href'  => $this->url->link('blog/latest',  '&sort=rating&order=ASC' . $url)
+					'href'  => $this->url->ssl('blog/latest',  '&sort=rating&order=ASC' . $url)
 				);
 			}
 
 			$data['sorts'][] = array(
 				'text'  => $this->language->get('text_viewed_desc'),
 				'value' => 'p.viewed-DESC',
-				'href'  => $this->url->link('blog/latest',  '&sort=p.viewed&order=DESC' . $url)
+				'href'  => $this->url->ssl('blog/latest',  '&sort=p.viewed&order=DESC' . $url)
 			);
 
 			$data['sorts'][] = array(
 				'text'  => $this->language->get('text_viewed_asc'),
 				'value' => 'p.viewed-ASC',
-				'href'  => $this->url->link('blog/latest',  '&sort=p.viewed&order=ASC' . $url)
+				'href'  => $this->url->ssl('blog/latest',  '&sort=p.viewed&order=ASC' . $url)
 			); 
 			
 			$url = '';
@@ -220,7 +220,7 @@ class ControllerBlogLatest extends Controller {
 			$data['limits'][] = array(
 				'text'  => $value,
 				'value' => $value,
-				'href'  => $this->url->link('blog/article', $url . '&limit=' . $value)
+				'href'  => $this->url->ssl('blog/article', $url . '&limit=' . $value)
 			);
 		}
 
@@ -243,13 +243,13 @@ class ControllerBlogLatest extends Controller {
 		$pagination->page = $page;
 		$pagination->limit = $limit;
 		$pagination->text = $this->language->get('text_pagination');
-		$pagination->url = $this->url->link('blog/latest', $url . '&page={page}');
+		$pagination->url = $this->url->ssl('blog/latest', $url . '&page={page}');
 
 		$data['pagination'] = $pagination->render();
 		
 		$data['article_total'] = $article_total;
 		
-		$data['continue'] = $this->url->link('common/home');
+		$data['continue'] = $this->url->ssl('common/home');
 
 		$data['sort'] = $sort;
 		$data['order'] = $order;

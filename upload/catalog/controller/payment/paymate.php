@@ -36,7 +36,7 @@ class ControllerPaymentPaymate extends Controller {
 		$data['regindi_state'] = html_entity_decode($order_info['payment_zone'], ENT_QUOTES, 'UTF-8');
 		$data['regindi_pcode'] = html_entity_decode($order_info['payment_postcode'], ENT_QUOTES, 'UTF-8');
 
-		$data['return'] = $this->url->link('payment/paymate/callback', 'hash=' . md5($order_info['order_id'] . $this->currency->format($order_info['total'], $order_info['currency_code'], $order_info['currency_value'], false) . $order_info['currency_code'] . $this->config->get('paymate_password')));
+		$data['return'] = $this->url->ssl('payment/paymate/callback', 'hash=' . md5($order_info['order_id'] . $this->currency->format($order_info['total'], $order_info['currency_code'], $order_info['currency_value'], false) . $order_info['currency_code'] . $this->config->get('paymate_password')));
 
 		return $this->load->view('payment/paymate', $data);
 	}
@@ -73,31 +73,31 @@ class ControllerPaymentPaymate extends Controller {
 
 			$data['breadcrumbs'][] = array(
 				'text' => $this->language->get('text_home'),
-				'href' => $this->url->link('common/home')
+				'href' => $this->url->ssl('common/home')
 			);
 
 			$data['breadcrumbs'][] = array(
 				'text' => $this->language->get('text_basket'),
-				'href' => $this->url->link('checkout/cart')
+				'href' => $this->url->ssl('checkout/cart')
 			);
 
 			$data['breadcrumbs'][] = array(
 				'text' => $this->language->get('text_checkout'),
-				'href' => $this->url->link('checkout/checkout', '', true)
+				'href' => $this->url->ssl('checkout/checkout', '', true)
 			);
 
 			$data['breadcrumbs'][] = array(
 				'text' => $this->language->get('text_failed'),
-				'href' => $this->url->link('checkout/success')
+				'href' => $this->url->ssl('checkout/success')
 			);
 
 			$data['heading_title'] = $this->language->get('text_failed');
 
-			$data['text_message'] = sprintf($this->language->get('text_failed_message'), $error, $this->url->link('information/contact'));
+			$data['text_message'] = sprintf($this->language->get('text_failed_message'), $error, $this->url->ssl('information/contact'));
 
 			$data['button_continue'] = $this->language->get('button_continue');
 
-			$data['continue'] = $this->url->link('common/home');
+			$data['continue'] = $this->url->ssl('common/home');
 
 			$data['column_left'] = $this->load->controller('common/column_left');
 			$data['column_right'] = $this->load->controller('common/column_right');
@@ -110,7 +110,7 @@ class ControllerPaymentPaymate extends Controller {
 		} else {
 			$this->model_checkout_order->addOrderHistory($order_id, $this->config->get('paymate_order_status_id'));
 
-			$this->response->redirect($this->url->link('checkout/success'));
+			$this->response->redirect($this->url->ssl('checkout/success'));
 		}
 	}
 }

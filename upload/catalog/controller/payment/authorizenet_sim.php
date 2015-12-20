@@ -78,12 +78,12 @@ class ControllerPaymentAuthorizeNetSim extends Controller {
 
 				$this->model_checkout_order->addOrderHistory($details['x_invoice_num'], $this->config->get('authorizenet_sim_order_status_id'), $message, true);
 
-				$this->response->redirect($this->url->link('checkout/success'));
+				$this->response->redirect($this->url->ssl('checkout/success'));
 			} else {
-				$this->response->redirect($this->url->link('checkout/failure'));
+				$this->response->redirect($this->url->ssl('checkout/failure'));
 			}
 		} else {
-			$this->response->redirect($this->url->link('checkout/failure'));
+			$this->response->redirect($this->url->ssl('checkout/failure'));
 		}
 	}
 }

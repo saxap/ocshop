@@ -24,7 +24,7 @@ class ControllerFeedYandexMarket extends Controller {
 
 			$this->session->data['success'] = $this->language->get('text_success');
 
-			$this->response->redirect($this->url->link('extension/feed', 'token=' . $this->session->data['token'], true));
+			$this->response->redirect($this->url->ssl('extension/feed', 'token=' . $this->session->data['token'], true));
 		}
 
 		$data['heading_title'] = $this->language->get('heading_title');
@@ -66,26 +66,26 @@ class ControllerFeedYandexMarket extends Controller {
 		$data['breadcrumbs'] = array();
 
 		$data['breadcrumbs'][] = array(
-			'href'      => $this->url->link('common/home', 'token=' . $this->session->data['token'], true),
+			'href'      => $this->url->ssl('common/home', 'token=' . $this->session->data['token'], true),
 			'text'      => $this->language->get('text_home'),
 			'separator' => FALSE
 		);
 
 		$data['breadcrumbs'][] = array(
-			'href'      => $this->url->link('extension/feed', 'token=' . $this->session->data['token'], true),
+			'href'      => $this->url->ssl('extension/feed', 'token=' . $this->session->data['token'], true),
 			'text'      => $this->language->get('text_feed'),
 			'separator' => ' :: '
 		);
 
 		$data['breadcrumbs'][] = array(
-			'href'      => $this->url->link('feed/yml', 'token=' . $this->session->data['token'], true),
+			'href'      => $this->url->ssl('feed/yml', 'token=' . $this->session->data['token'], true),
 			'text'      => $this->language->get('heading_title'),
 			'separator' => ' :: '
 		);
 
-		$data['action'] = $this->url->link('feed/yandex_market', 'token=' . $this->session->data['token'], true);
+		$data['action'] = $this->url->ssl('feed/yandex_market', 'token=' . $this->session->data['token'], true);
 
-		$data['cancel'] = $this->url->link('extension/feed', 'token=' . $this->session->data['token'], true);
+		$data['cancel'] = $this->url->ssl('extension/feed', 'token=' . $this->session->data['token'], true);
 
 		if (isset($this->request->post['yandex_market_status'])) {
 			$data['yandex_market_status'] = $this->request->post['yandex_market_status'];

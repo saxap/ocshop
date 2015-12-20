@@ -25,7 +25,7 @@ class ControllerSearchSearch extends Controller {
 		
 		
 
-		$data['search_link'] = $this->url->link('search/search/search', 'token=' . $this->session->data['token'], true);
+		$data['search_link'] = $this->url->ssl('search/search/search', 'token=' . $this->session->data['token'], true);
 		
 		return $this->load->view('search/search', $data);
 	}
@@ -81,7 +81,7 @@ class ControllerSearchSearch extends Controller {
                         $data['products'][$key]['image'] = $this->model_tool_image->resize('no_image.png', 30, 30);
                     }
 
-                    $data['products'][$key]['url'] = $this->url->link('catalog/product/edit', 'token=' . $this->session->data['token'] . '&product_id=' . $product['product_id'], true);
+                    $data['products'][$key]['url'] = $this->url->ssl('catalog/product/edit', 'token=' . $this->session->data['token'] . '&product_id=' . $product['product_id'], true);
                 }
 
                 // Get categories
@@ -95,7 +95,7 @@ class ControllerSearchSearch extends Controller {
                         $data['categories'][$key]['image'] = $this->model_tool_image->resize('no_image.png', 30, 30);
                     }
 
-                    $data['categories'][$key]['url'] = $this->url->link('catalog/category/edit', 'token=' . $this->session->data['token'] . '&category_id=' . $category['category_id'], true);
+                    $data['categories'][$key]['url'] = $this->url->ssl('catalog/category/edit', 'token=' . $this->session->data['token'] . '&category_id=' . $category['category_id'], true);
                 }
 
                 // Get manufacturers
@@ -109,7 +109,7 @@ class ControllerSearchSearch extends Controller {
                         $data['manufacturers'][$key]['image'] = $this->model_tool_image->resize('no_image.png', 30, 30);
                     }
 
-                    $data['manufacturers'][$key]['url'] = $this->url->link('catalog/manufacturer/edit', 'token=' . $this->session->data['token'] . '&manufacturer_id=' . $manufacturer['manufacturer_id'], true);
+                    $data['manufacturers'][$key]['url'] = $this->url->ssl('catalog/manufacturer/edit', 'token=' . $this->session->data['token'] . '&manufacturer_id=' . $manufacturer['manufacturer_id'], true);
                 }
 
                 $json['result'] = $this->load->view('search/catalog_result', $data);
@@ -119,7 +119,7 @@ class ControllerSearchSearch extends Controller {
                 $data['customers'] = $this->model_search_search->getCustomers($_data);
 
                 foreach($data['customers'] as $key => $customer){
-                    $data['customers'][$key]['url'] = $this->url->link('sale/customer/edit', 'token=' . $this->session->data['token'] . '&customer_id=' . $customer['customer_id'], true);
+                    $data['customers'][$key]['url'] = $this->url->ssl('sale/customer/edit', 'token=' . $this->session->data['token'] . '&customer_id=' . $customer['customer_id'], true);
                 }
 
                 $json['result'] = $this->load->view('search/customers_result', $data);
@@ -128,7 +128,7 @@ class ControllerSearchSearch extends Controller {
                 $data['orders'] = $this->model_search_search->getOrders($_data);
 
                 foreach($data['orders'] as $key => $order){
-                    $data['orders'][$key]['url'] = $this->url->link('sale/order/info', 'token=' . $this->session->data['token'] . '&order_id=' . $order['order_id'], true);
+                    $data['orders'][$key]['url'] = $this->url->ssl('sale/order/info', 'token=' . $this->session->data['token'] . '&order_id=' . $order['order_id'], true);
                 }
 
                 $json['result'] = $this->load->view('search/orders_result', $data);

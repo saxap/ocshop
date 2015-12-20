@@ -19,7 +19,7 @@ class ControllerDesignMenu extends Controller {
 
 			$this->session->data['success'] = $this->language->get('text_success');
 
-			$this->response->redirect($this->url->link('design/menu', 'token=' . $this->session->data['token'], true));
+			$this->response->redirect($this->url->ssl('design/menu', 'token=' . $this->session->data['token'], true));
 		}
 		
 		$data['heading_title'] = $this->language->get('heading_title');
@@ -84,20 +84,20 @@ class ControllerDesignMenu extends Controller {
         $this->document->addScript('view/javascript/jquery/layout/jquery-lockfixed.js');
         $this->document->addScript('view/javascript/menu/menu.js');
 		
-		$data['changeMenuPosition'] = $this->url->link('design/menu/changeMenuPosition', 'token=' . $this->session->data['token'], true);
+		$data['changeMenuPosition'] = $this->url->ssl('design/menu/changeMenuPosition', 'token=' . $this->session->data['token'], true);
 		
-		$data['deleteMenu'] = $this->url->link('design/menu/deleteMenu', 'token=' . $this->session->data['token'], true);
-		$data['deleteChildMenu'] = $this->url->link('design/menu/deleteChildMenu', 'token=' . $this->session->data['token'], true);
+		$data['deleteMenu'] = $this->url->ssl('design/menu/deleteMenu', 'token=' . $this->session->data['token'], true);
+		$data['deleteChildMenu'] = $this->url->ssl('design/menu/deleteChildMenu', 'token=' . $this->session->data['token'], true);
 				
-		$data['enableMenu'] = $this->url->link('design/menu/enableMenu', 'token=' . $this->session->data['token'], true);
-		$data['enableChildMenu'] = $this->url->link('design/menu/enableChildMenu', 'token=' . $this->session->data['token'], true);
+		$data['enableMenu'] = $this->url->ssl('design/menu/enableMenu', 'token=' . $this->session->data['token'], true);
+		$data['enableChildMenu'] = $this->url->ssl('design/menu/enableChildMenu', 'token=' . $this->session->data['token'], true);
 		
-		$data['disableMenu'] = $this->url->link('design/menu/disableMenu', 'token=' . $this->session->data['token'], true);
-		$data['disableChildMenu'] = $this->url->link('design/menu/disableChildMenu', 'token=' . $this->session->data['token'], true);
+		$data['disableMenu'] = $this->url->ssl('design/menu/disableMenu', 'token=' . $this->session->data['token'], true);
+		$data['disableChildMenu'] = $this->url->ssl('design/menu/disableChildMenu', 'token=' . $this->session->data['token'], true);
 
-		$data['refresch'] = $this->url->link('design/menu', 'token=' . $this->session->data['token'], true);
-		$data['add'] = $this->url->link('design/menu/add', 'token=' . $this->session->data['token'], true);
-		$data['save'] = $this->url->link('design/menu/save', 'token=' . $this->session->data['token'], true);
+		$data['refresch'] = $this->url->ssl('design/menu', 'token=' . $this->session->data['token'], true);
+		$data['add'] = $this->url->ssl('design/menu/add', 'token=' . $this->session->data['token'], true);
+		$data['save'] = $this->url->ssl('design/menu/save', 'token=' . $this->session->data['token'], true);
 
 		$data['menu_child'] = array();
 
@@ -162,7 +162,7 @@ class ControllerDesignMenu extends Controller {
 
 		$data['token'] = $this->session->data['token'];
 		
-		$data['action'] = $this->url->link('design/menu', 'token=' . $this->session->data['token'], true);
+		$data['action'] = $this->url->ssl('design/menu', 'token=' . $this->session->data['token'], true);
 		
 		if (isset($this->request->post['configmenu_menu'])) {
 			$data['configmenu_menu'] = $this->request->post['configmenu_menu'];

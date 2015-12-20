@@ -29,24 +29,24 @@ class ControllerAccountVoucher extends Controller {
 				'amount'           => $this->currency->convert($this->request->post['amount'], $this->currency->getCode(), $this->config->get('config_currency'))
 			);
 
-			$this->response->redirect($this->url->link('account/voucher/success'));
+			$this->response->redirect($this->url->ssl('account/voucher/success'));
 		}
 
 		$data['breadcrumbs'] = array();
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_home'),
-			'href' => $this->url->link('common/home')
+			'href' => $this->url->ssl('common/home')
 		);
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_account'),
-			'href' => $this->url->link('account/account', '', true)
+			'href' => $this->url->ssl('account/account', '', true)
 		);
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_voucher'),
-			'href' => $this->url->link('account/voucher', '', true)
+			'href' => $this->url->ssl('account/voucher', '', true)
 		);
 
 		$data['heading_title'] = $this->language->get('heading_title');
@@ -111,7 +111,7 @@ class ControllerAccountVoucher extends Controller {
 			$data['error_amount'] = '';
 		}
 
-		$data['action'] = $this->url->link('account/voucher', '', true);
+		$data['action'] = $this->url->ssl('account/voucher', '', true);
 
 		if (isset($this->request->post['to_name'])) {
 			$data['to_name'] = $this->request->post['to_name'];
@@ -190,12 +190,12 @@ class ControllerAccountVoucher extends Controller {
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_home'),
-			'href' => $this->url->link('common/home')
+			'href' => $this->url->ssl('common/home')
 		);
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('heading_title'),
-			'href' => $this->url->link('account/voucher')
+			'href' => $this->url->ssl('account/voucher')
 		);
 
 		$data['heading_title'] = $this->language->get('heading_title');
@@ -206,7 +206,7 @@ class ControllerAccountVoucher extends Controller {
 
 		$data['button_continue'] = $this->language->get('button_continue');
 
-		$data['continue'] = $this->url->link('checkout/cart');
+		$data['continue'] = $this->url->ssl('checkout/cart');
 
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['column_right'] = $this->load->controller('common/column_right');

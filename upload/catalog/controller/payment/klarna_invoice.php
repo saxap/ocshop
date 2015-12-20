@@ -426,7 +426,7 @@ class ControllerPaymentKlarnaInvoice extends Controller {
 
 						$this->model_checkout_order->addOrderHistory($this->session->data['order_id'], $order_status, $comment, 1);
 
-						$json['redirect'] = $this->url->link('checkout/success');
+						$json['redirect'] = $this->url->ssl('checkout/success');
 					}
 				}
 

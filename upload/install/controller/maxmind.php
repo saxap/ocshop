@@ -17,7 +17,7 @@ class ControllerMaxmind extends Controller {
 
 			$this->session->data['success'] = $this->language->get('text_maxmind_success');
 
-			$this->response->redirect($this->url->link('step_4'));
+			$this->response->redirect($this->url->ssl('step_4'));
 		} else {
 			$this->document->setTitle($this->language->get('heading_maxmind'));
 
@@ -37,7 +37,7 @@ class ControllerMaxmind extends Controller {
 			$data['button_continue'] = $this->language->get('button_continue');
 			$data['button_back'] = $this->language->get('button_back');
 
-			$data['action'] = $this->url->link('maxmind');
+			$data['action'] = $this->url->ssl('maxmind');
 
 			if (isset($this->error['key'])) {
 				$data['error_key'] = $this->error['key'];
@@ -71,7 +71,7 @@ class ControllerMaxmind extends Controller {
 				$data['maxmind_order_status_id'] = '';
 			}
 
-			$data['back'] = $this->url->link('step_4');
+			$data['back'] = $this->url->ssl('step_4');
 
 			$data['footer'] = $this->load->controller('footer');
 			$data['header'] = $this->load->controller('header');

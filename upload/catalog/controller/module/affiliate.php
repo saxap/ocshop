@@ -22,16 +22,16 @@ class ControllerModuleAffiliate extends Controller {
 		$data['text_transaction'] = $this->language->get('text_transaction');
 
 		$data['logged'] = $this->affiliate->isLogged();
-		$data['register'] = $this->url->link('affiliate/register', '', true);
-		$data['login'] = $this->url->link('affiliate/login', '', true);
-		$data['logout'] = $this->url->link('affiliate/logout', '', true);
-		$data['forgotten'] = $this->url->link('affiliate/forgotten', '', true);
-		$data['account'] = $this->url->link('affiliate/account', '', true);
-		$data['edit'] = $this->url->link('affiliate/edit', '', true);
-		$data['password'] = $this->url->link('affiliate/password', '', true);
-		$data['payment'] = $this->url->link('affiliate/payment', '', true);
-		$data['tracking'] = $this->url->link('affiliate/tracking', '', true);
-		$data['transaction'] = $this->url->link('affiliate/transaction', '', true);
+		$data['register'] = $this->url->ssl('affiliate/register', '', true);
+		$data['login'] = $this->url->ssl('affiliate/login', '', true);
+		$data['logout'] = $this->url->ssl('affiliate/logout', '', true);
+		$data['forgotten'] = $this->url->ssl('affiliate/forgotten', '', true);
+		$data['account'] = $this->url->ssl('affiliate/account', '', true);
+		$data['edit'] = $this->url->ssl('affiliate/edit', '', true);
+		$data['password'] = $this->url->ssl('affiliate/password', '', true);
+		$data['payment'] = $this->url->ssl('affiliate/payment', '', true);
+		$data['tracking'] = $this->url->ssl('affiliate/tracking', '', true);
+		$data['transaction'] = $this->url->ssl('affiliate/transaction', '', true);
 
 		return $this->load->view('module/affiliate', $data);
 	}

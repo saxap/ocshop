@@ -557,7 +557,7 @@ class ControllerCatalogCategory extends Controller {
                 $url .= '&order=' . $this->request->get['order'];
             }
 
-            $this->response->redirect($this->url->link('catalog/category', 'token=' . $this->session->data['token'] . $url, 'SSL'));
+            $this->response->redirect($this->url->ssl('catalog/category', 'token=' . $this->session->data['token'] . $url, true));
         }
 
         $this->getList();
@@ -592,7 +592,7 @@ class ControllerCatalogCategory extends Controller {
                 $url .= '&order=' . $this->request->get['order'];
             }
 
-            $this->response->redirect($this->url->link('catalog/category', 'token=' . $this->session->data['token'] . $url, 'SSL'));
+            $this->response->redirect($this->url->ssl('catalog/category', 'token=' . $this->session->data['token'] . $url, true));
         }
 
         $this->getList();
@@ -656,8 +656,8 @@ class ControllerCatalogCategory extends Controller {
 		static $href_category = null;
 		static $href_action = null;
 		if ($href_category === null) {
-			$href_category = $this->url->link('catalog/category', 'token=' . $this->session->data['token'] . '&path=', true);
-			$href_action = $this->url->link('catalog/category/update', 'token=' . $this->session->data['token'] . '&category_id=', true);
+			$href_category = $this->url->ssl('catalog/category', 'token=' . $this->session->data['token'] . '&path=', true);
+			$href_action = $this->url->ssl('catalog/category/update', 'token=' . $this->session->data['token'] . '&category_id=', true);
 		}
 		$results = $this->model_catalog_category->getCategoriesByParentId($parent_id);
 		foreach ($results as $result) {
@@ -684,7 +684,7 @@ class ControllerCatalogCategory extends Controller {
 				'name'        => $name,
 				'sort_order'  => $result['sort_order'],
 				'noindex'  	  => $result['noindex'],
-				'edit'        => $this->url->link('catalog/category/edit', 'token=' . $this->session->data['token'] . '&category_id=' . $result['category_id'], true),
+				'edit'        => $this->url->ssl('catalog/category/edit', 'token=' . $this->session->data['token'] . '&category_id=' . $result['category_id'], true),
 				'selected'    => $selected,
 				'action'      => $action,
 				'href'        => $href,

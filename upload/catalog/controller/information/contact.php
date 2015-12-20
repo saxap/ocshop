@@ -29,7 +29,7 @@ class ControllerInformationContact extends Controller {
 			$mail->setText($this->request->post['enquiry']);
 			$mail->send();
 
-			$this->response->redirect($this->url->link('information/contact/success'));
+			$this->response->redirect($this->url->ssl('information/contact/success'));
 		}
 
 		$this->load->language('information/contact');
@@ -38,12 +38,12 @@ class ControllerInformationContact extends Controller {
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_home'),
-			'href' => $this->url->link('common/home')
+			'href' => $this->url->ssl('common/home')
 		);
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('heading_title'),
-			'href' => $this->url->link('information/contact')
+			'href' => $this->url->ssl('information/contact')
 		);
 
 		$data['heading_title'] = $this->language->get('heading_title');
@@ -83,7 +83,7 @@ class ControllerInformationContact extends Controller {
 
 		$data['button_submit'] = $this->language->get('button_submit');
 
-		$data['action'] = $this->url->link('information/contact', '', true);
+		$data['action'] = $this->url->ssl('information/contact', '', true);
 
 		$this->load->model('tool/image');
 
@@ -199,12 +199,12 @@ class ControllerInformationContact extends Controller {
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_home'),
-			'href' => $this->url->link('common/home')
+			'href' => $this->url->ssl('common/home')
 		);
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('heading_title'),
-			'href' => $this->url->link('information/contact')
+			'href' => $this->url->ssl('information/contact')
 		);
 
 		$data['heading_title'] = $this->language->get('heading_title');
@@ -213,7 +213,7 @@ class ControllerInformationContact extends Controller {
 
 		$data['button_continue'] = $this->language->get('button_continue');
 
-		$data['continue'] = $this->url->link('common/home');
+		$data['continue'] = $this->url->ssl('common/home');
 
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['column_right'] = $this->load->controller('common/column_right');

@@ -16,7 +16,7 @@ class ControllerFeedBlogSitemapYandex extends Controller {
 
 			foreach ($articles as $article) {
 					$output .= '<url>';
-					$output .= '<loc>' . $this->url->link('blog/article', 'article_id=' . $article['article_id']) . '</loc>';
+					$output .= '<loc>' . $this->url->ssl('blog/article', 'article_id=' . $article['article_id']) . '</loc>';
 					$output .= '<changefreq>weekly</changefreq>';
 					$output .= '<priority>1.0</priority>';
 					$output .= '</url>';
@@ -47,7 +47,7 @@ class ControllerFeedBlogSitemapYandex extends Controller {
 			}
 
 			$output .= '<url>';
-			$output .= '<loc>' . $this->url->link('blog/category', 'blog_category_id=' . $new_path) . '</loc>';
+			$output .= '<loc>' . $this->url->ssl('blog/category', 'blog_category_id=' . $new_path) . '</loc>';
 			$output .= '<changefreq>weekly</changefreq>';
 			$output .= '<priority>0.7</priority>';
 			$output .= '</url>';

@@ -75,7 +75,7 @@ class ControllerPaymentTwoCheckout extends Controller {
 
 		$data['lang'] = $this->session->data['language'];
 
-		$data['return_url'] = $this->url->link('payment/twocheckout/callback', '', true);
+		$data['return_url'] = $this->url->ssl('payment/twocheckout/callback', '', true);
 
 		return $this->load->view('payment/twocheckout', $data);
 	}
@@ -105,10 +105,10 @@ class ControllerPaymentTwoCheckout extends Controller {
 
 			echo '<html>' . "\n";
 			echo '<head>' . "\n";
-			echo '  <meta http-equiv="Refresh" content="0; url=' . $this->url->link('checkout/success') . '">' . "\n";
+			echo '  <meta http-equiv="Refresh" content="0; url=' . $this->url->ssl('checkout/success') . '">' . "\n";
 			echo '</head>' . "\n";
 			echo '<body>' . "\n";
-			echo '  <p>Please follow <a href="' . $this->url->link('checkout/success') . '">link</a>!</p>' . "\n";
+			echo '  <p>Please follow <a href="' . $this->url->ssl('checkout/success') . '">link</a>!</p>' . "\n";
 			echo '</body>' . "\n";
 			echo '</html>' . "\n";
 			exit();

@@ -86,7 +86,7 @@ class ControllerStep3 extends Controller {
 
 			fclose($file);
 
-			$this->response->redirect($this->url->link('step_4'));
+			$this->response->redirect($this->url->ssl('step_4'));
 		}
 
 		$this->document->setTitle($this->language->get('heading_step_3'));
@@ -172,7 +172,7 @@ class ControllerStep3 extends Controller {
 			$data['error_email'] = '';
 		}
 
-		$data['action'] = $this->url->link('step_3');
+		$data['action'] = $this->url->ssl('step_3');
 
 		if (isset($this->request->post['db_driver'])) {
 			$data['db_driver'] = $this->request->post['db_driver'];
@@ -239,7 +239,7 @@ class ControllerStep3 extends Controller {
 		$data['pdo'] = extension_loaded('pdo');
 		$data['pgsql'] = extension_loaded('pgsql');
 
-		$data['back'] = $this->url->link('step_2');
+		$data['back'] = $this->url->ssl('step_2');
 
 		$data['footer'] = $this->load->controller('footer');
 		$data['header'] = $this->load->controller('header');

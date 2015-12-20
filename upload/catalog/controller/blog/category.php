@@ -45,12 +45,12 @@ class ControllerBlogCategory extends Controller {
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_home'),
-			'href' => $this->url->link('common/home')
+			'href' => $this->url->ssl('common/home')
 		);
 		
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_blog'),
-			'href' => $this->url->link('blog/latest')
+			'href' => $this->url->ssl('blog/latest')
 		);
 
 		if (isset($this->request->get['blog_category_id'])) {
@@ -86,7 +86,7 @@ class ControllerBlogCategory extends Controller {
 				if ($category_info) {
 					$data['breadcrumbs'][] = array(
 						'text' => $category_info['name'],
-						'href' => $this->url->link('blog/category', 'blog_category_id=' . $blog_category_id . $url)
+						'href' => $this->url->ssl('blog/category', 'blog_category_id=' . $blog_category_id . $url)
 					);
 				}
 			}
@@ -116,7 +116,7 @@ class ControllerBlogCategory extends Controller {
 			
 			$this->document->setDescription($category_info['meta_description']);
 			$this->document->setKeywords($category_info['meta_keyword']);
-			$this->document->addLink($this->url->link('blog/category', 'blog_category_id=' . $this->request->get['blog_category_id']), 'canonical');
+			$this->document->addLink($this->url->ssl('blog/category', 'blog_category_id=' . $this->request->get['blog_category_id']), 'canonical');
 
 			$data['text_refine'] = $this->language->get('text_refine');
 			$data['text_empty'] = $this->language->get('text_empty');
@@ -132,7 +132,7 @@ class ControllerBlogCategory extends Controller {
 			// Set the last category breadcrumb
 			$data['breadcrumbs'][] = array(
 				'text' => $category_info['name'],
-				'href' => $this->url->link('blog/category', 'blog_category_id=' . $this->request->get['blog_category_id'])
+				'href' => $this->url->ssl('blog/category', 'blog_category_id=' . $this->request->get['blog_category_id'])
 			);
 
 			if ($category_info['image']) {
@@ -171,7 +171,7 @@ class ControllerBlogCategory extends Controller {
 
 				$data['categories'][] = array(
 					'name'  => $result['name'] . ($this->config->get('configblog_article_count') ? ' (' . $this->model_blog_article->getTotalArticles($filter_data) . ')' : ''),
-					'href'  => $this->url->link('blog/category', 'blog_category_id=' . $this->request->get['blog_category_id'] . '_' . $result['blog_category_id'] . $url)
+					'href'  => $this->url->ssl('blog/category', 'blog_category_id=' . $this->request->get['blog_category_id'] . '_' . $result['blog_category_id'] . $url)
 				);
 			}
 
@@ -213,7 +213,7 @@ class ControllerBlogCategory extends Controller {
 					'date_added'  => date($this->language->get('date_format_short'), strtotime($result['date_added'])),
 					'viewed'      => $result['viewed'],
 					'rating'      => $result['rating'],
-					'href'        => $this->url->link('blog/article', 'blog_category_id=' . $this->request->get['blog_category_id'] . '&article_id=' . $result['article_id'] . $url)
+					'href'        => $this->url->ssl('blog/article', 'blog_category_id=' . $this->request->get['blog_category_id'] . '&article_id=' . $result['article_id'] . $url)
 				);
 			}
 
@@ -228,44 +228,44 @@ class ControllerBlogCategory extends Controller {
 			$data['sorts'][] = array(
 				'text'  => $this->language->get('text_default'),
 				'value' => 'p.sort_order-ASC',
-				'href'  => $this->url->link('blog/category', 'blog_category_id=' . $this->request->get['blog_category_id'] . '&sort=p.sort_order&order=ASC' . $url)
+				'href'  => $this->url->ssl('blog/category', 'blog_category_id=' . $this->request->get['blog_category_id'] . '&sort=p.sort_order&order=ASC' . $url)
 			);
 			
 			$data['sorts'][] = array(
 				'text'  => $this->language->get('text_name_asc'),
 				'value' => 'pd.name-ASC',
-				'href'  => $this->url->link('blog/category', 'blog_category_id=' . $this->request->get['blog_category_id'] . '&sort=pd.name&order=ASC' . $url)
+				'href'  => $this->url->ssl('blog/category', 'blog_category_id=' . $this->request->get['blog_category_id'] . '&sort=pd.name&order=ASC' . $url)
 			);
 
 			$data['sorts'][] = array(
 				'text'  => $this->language->get('text_name_desc'),
 				'value' => 'pd.name-DESC',
-				'href'  => $this->url->link('blog/category', 'blog_category_id=' . $this->request->get['blog_category_id'] . '&sort=pd.name&order=DESC' . $url)
+				'href'  => $this->url->ssl('blog/category', 'blog_category_id=' . $this->request->get['blog_category_id'] . '&sort=pd.name&order=DESC' . $url)
 			);
 
 			$data['sorts'][] = array(
 				'text'  => $this->language->get('text_date_asc'),
 				'value' => 'p.date_added-ASC',
-				'href'  => $this->url->link('blog/category', 'blog_category_id=' . $this->request->get['blog_category_id'] . '&sort=p.date_added&order=ASC' . $url)
+				'href'  => $this->url->ssl('blog/category', 'blog_category_id=' . $this->request->get['blog_category_id'] . '&sort=p.date_added&order=ASC' . $url)
 			); 
 
 			$data['sorts'][] = array(
 				'text'  => $this->language->get('text_date_desc'),
 				'value' => 'p.date_added-DESC',
-				'href'  => $this->url->link('blog/category', 'blog_category_id=' . $this->request->get['blog_category_id'] . '&sort=p.date_added&order=DESC' . $url)
+				'href'  => $this->url->ssl('blog/category', 'blog_category_id=' . $this->request->get['blog_category_id'] . '&sort=p.date_added&order=DESC' . $url)
 			); 
 			
 			if ($this->config->get('configblog_review_status')) {
 				$data['sorts'][] = array(
 					'text'  => $this->language->get('text_rating_desc'),
 					'value' => 'rating-DESC',
-					'href'  => $this->url->link('blog/category', 'blog_category_id=' . $this->request->get['blog_category_id'] . '&sort=rating&order=DESC' . $url)
+					'href'  => $this->url->ssl('blog/category', 'blog_category_id=' . $this->request->get['blog_category_id'] . '&sort=rating&order=DESC' . $url)
 				); 
 				
 				$data['sorts'][] = array(
 					'text'  => $this->language->get('text_rating_asc'),
 					'value' => 'rating-ASC',
-					'href'  => $this->url->link('blog/category', 'blog_category_id=' . $this->request->get['blog_category_id'] . '&sort=rating&order=ASC' . $url)
+					'href'  => $this->url->ssl('blog/category', 'blog_category_id=' . $this->request->get['blog_category_id'] . '&sort=rating&order=ASC' . $url)
 				);
 			}
 			
@@ -273,13 +273,13 @@ class ControllerBlogCategory extends Controller {
 			$data['sorts'][] = array(
 				'text'  => $this->language->get('text_viewed_asc'),
 				'value' => 'p.viewed-ASC',
-				'href'  => $this->url->link('blog/category', 'blog_category_id=' . $this->request->get['blog_category_id'] . '&sort=p.viewed&order=ASC' . $url)
+				'href'  => $this->url->ssl('blog/category', 'blog_category_id=' . $this->request->get['blog_category_id'] . '&sort=p.viewed&order=ASC' . $url)
 			); 
 
 			$data['sorts'][] = array(
 				'text'  => $this->language->get('text_viewed_desc'),
 				'value' => 'p.viewed-DESC',
-				'href'  => $this->url->link('blog/category', 'blog_category_id=' . $this->request->get['blog_category_id'] . '&sort=p.viewed&order=DESC' . $url)
+				'href'  => $this->url->ssl('blog/category', 'blog_category_id=' . $this->request->get['blog_category_id'] . '&sort=p.viewed&order=DESC' . $url)
 			); 
 			//ocpro sort viewed
 			
@@ -303,7 +303,7 @@ class ControllerBlogCategory extends Controller {
 				$data['limits'][] = array(
 					'text'  => $value,
 					'value' => $value,
-					'href'  => $this->url->link('blog/category', 'blog_category_id=' . $this->request->get['blog_category_id'] . $url . '&limit=' . $value)
+					'href'  => $this->url->ssl('blog/category', 'blog_category_id=' . $this->request->get['blog_category_id'] . $url . '&limit=' . $value)
 				);
 			}
 
@@ -325,7 +325,7 @@ class ControllerBlogCategory extends Controller {
 			$pagination->total = $article_total;
 			$pagination->page = $page;
 			$pagination->limit = $limit;
-			$pagination->url = $this->url->link('blog/category', 'blog_category_id=' . $this->request->get['blog_category_id'] . $url . '&page={page}');
+			$pagination->url = $this->url->ssl('blog/category', 'blog_category_id=' . $this->request->get['blog_category_id'] . $url . '&page={page}');
 
 			$data['pagination'] = $pagination->render();
 
@@ -335,7 +335,7 @@ class ControllerBlogCategory extends Controller {
 			$data['order'] = $order;
 			$data['limit'] = $limit;
 
-			$data['continue'] = $this->url->link('common/home');
+			$data['continue'] = $this->url->ssl('common/home');
 
 			$data['column_left'] = $this->load->controller('common/column_left');
 			$data['column_right'] = $this->load->controller('common/column_right');
@@ -374,7 +374,7 @@ class ControllerBlogCategory extends Controller {
 
 			$data['breadcrumbs'][] = array(
 				'text' => $this->language->get('text_error'),
-				'href' => $this->url->link('blog/category', $url)
+				'href' => $this->url->ssl('blog/category', $url)
 			);
 
 			$this->document->setTitle($this->language->get('text_error'));
@@ -385,7 +385,7 @@ class ControllerBlogCategory extends Controller {
 
 			$data['button_continue'] = $this->language->get('button_continue');
 
-			$data['continue'] = $this->url->link('common/home');
+			$data['continue'] = $this->url->ssl('common/home');
 
 			$this->response->addHeader($this->request->server['SERVER_PROTOCOL'] . ' 404 Not Found');
 

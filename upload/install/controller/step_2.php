@@ -9,7 +9,7 @@ class ControllerStep2 extends Controller {
 
 	public function index() {
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate()) {
-			$this->response->redirect($this->url->link('step_3'));
+			$this->response->redirect($this->url->ssl('step_3'));
 		}
 
 		$this->document->setTitle($this->language->get('heading_step_2'));
@@ -64,7 +64,7 @@ class ControllerStep2 extends Controller {
 			$data['error_warning'] = '';
 		}
 
-		$data['action'] = $this->url->link('step_2');
+		$data['action'] = $this->url->ssl('step_2');
 
 		$data['php_version'] = phpversion();
 		$data['register_globals'] = ini_get('register_globals');
@@ -98,7 +98,7 @@ class ControllerStep2 extends Controller {
 		$data['upload'] = DIR_SYSTEM . 'storage/upload';
 		$data['modification'] = DIR_SYSTEM . 'storage/modification';
 
-		$data['back'] = $this->url->link('step_1');
+		$data['back'] = $this->url->ssl('step_1');
 
 		$data['footer'] = $this->load->controller('footer');
 		$data['header'] = $this->load->controller('header');

@@ -14,18 +14,18 @@ class ControllerHowtoBlogun extends Controller {
 
 		$data['heading_title'] = $this->language->get('heading_title');
 		
-		$data['gogettop'] = $this->url->link('howto/gogettop', 'token=' . $this->session->data['token'], true);
+		$data['gogettop'] = $this->url->ssl('howto/gogettop', 'token=' . $this->session->data['token'], true);
 
 		$data['breadcrumbs'] = array();
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_home'),
-			'href' => $this->url->link('common/dashboard', 'token=' . $this->session->data['token'], true)
+			'href' => $this->url->ssl('common/dashboard', 'token=' . $this->session->data['token'], true)
 		);
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('heading_title'),
-			'href' => $this->url->link('howto/blogun', 'token=' . $this->session->data['token'], true)
+			'href' => $this->url->ssl('howto/blogun', 'token=' . $this->session->data['token'], true)
 		);
 
 

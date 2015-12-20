@@ -19,7 +19,7 @@ class ControllerPaymentCheque extends Controller {
 		$data['payable'] = $this->config->get('cheque_payable');
 		$data['address'] = nl2br($this->config->get('config_address'));
 
-		$data['continue'] = $this->url->link('checkout/success');
+		$data['continue'] = $this->url->ssl('checkout/success');
 
 		return $this->load->view('payment/cheque', $data);
 	}

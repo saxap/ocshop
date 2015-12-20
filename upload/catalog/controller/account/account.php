@@ -7,9 +7,9 @@
 class ControllerAccountAccount extends Controller {
 	public function index() {
 		if (!$this->customer->isLogged()) {
-			$this->session->data['redirect'] = $this->url->link('account/account', '', true);
+			$this->session->data['redirect'] = $this->url->ssl('account/account', '', true);
 
-			$this->response->redirect($this->url->link('account/login', '', true));
+			$this->response->redirect($this->url->ssl('account/login', '', true));
 		}
 
 		$this->load->language('account/account');
@@ -21,12 +21,12 @@ class ControllerAccountAccount extends Controller {
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_home'),
-			'href' => $this->url->link('common/home')
+			'href' => $this->url->ssl('common/home')
 		);
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_account'),
-			'href' => $this->url->link('account/account', '', true)
+			'href' => $this->url->ssl('account/account', '', true)
 		);
 
 		if (isset($this->session->data['success'])) {
@@ -56,19 +56,19 @@ class ControllerAccountAccount extends Controller {
 		$data['text_newsletter'] = $this->language->get('text_newsletter');
 		$data['text_recurring'] = $this->language->get('text_recurring');
 
-		$data['edit'] = $this->url->link('account/edit', '', true);
-		$data['password'] = $this->url->link('account/password', '', true);
-		$data['address'] = $this->url->link('account/address', '', true);
-		$data['wishlist'] = $this->url->link('account/wishlist');
-		$data['order'] = $this->url->link('account/order', '', true);
-		$data['download'] = $this->url->link('account/download', '', true);
-		$data['return'] = $this->url->link('account/return', '', true);
-		$data['transaction'] = $this->url->link('account/transaction', '', true);
-		$data['newsletter'] = $this->url->link('account/newsletter', '', true);
-		$data['recurring'] = $this->url->link('account/recurring', '', true);
+		$data['edit'] = $this->url->ssl('account/edit', '', true);
+		$data['password'] = $this->url->ssl('account/password', '', true);
+		$data['address'] = $this->url->ssl('account/address', '', true);
+		$data['wishlist'] = $this->url->ssl('account/wishlist');
+		$data['order'] = $this->url->ssl('account/order', '', true);
+		$data['download'] = $this->url->ssl('account/download', '', true);
+		$data['return'] = $this->url->ssl('account/return', '', true);
+		$data['transaction'] = $this->url->ssl('account/transaction', '', true);
+		$data['newsletter'] = $this->url->ssl('account/newsletter', '', true);
+		$data['recurring'] = $this->url->ssl('account/recurring', '', true);
 
 		if ($this->config->get('reward_status')) {
-			$data['reward'] = $this->url->link('account/reward', '', true);
+			$data['reward'] = $this->url->ssl('account/reward', '', true);
 		} else {
 			$data['reward'] = '';
 		}

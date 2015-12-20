@@ -70,9 +70,9 @@ class ControllerTotalReward extends Controller {
 			$this->session->data['success'] = $this->language->get('text_success');
 
 			if (isset($this->request->post['redirect'])) {
-				$json['redirect'] = $this->url->link($this->request->post['redirect']);
+				$json['redirect'] = $this->url->ssl($this->request->post['redirect']);
 			} else {
-				$json['redirect'] = $this->url->link('checkout/cart');	
+				$json['redirect'] = $this->url->ssl('checkout/cart');	
 			}
 		}
 

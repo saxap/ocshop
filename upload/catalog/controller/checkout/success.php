@@ -59,22 +59,22 @@ class ControllerCheckoutSuccess extends Controller {
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_home'),
-			'href' => $this->url->link('common/home')
+			'href' => $this->url->ssl('common/home')
 		);
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_basket'),
-			'href' => $this->url->link('checkout/cart')
+			'href' => $this->url->ssl('checkout/cart')
 		);
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_checkout'),
-			'href' => $this->url->link('checkout/checkout', '', true)
+			'href' => $this->url->ssl('checkout/checkout', '', true)
 		);
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_success'),
-			'href' => $this->url->link('checkout/success')
+			'href' => $this->url->ssl('checkout/success')
 		);
 
 		if (! empty($this->session->data['last_order_id']) ) {
@@ -84,14 +84,14 @@ class ControllerCheckoutSuccess extends Controller {
 		}
 
 		if ($this->customer->isLogged()) {
-			$data['text_message'] = sprintf($this->language->get('text_customer'), $this->url->link('account/order/info&order_id=' . $this->session->data['last_order_id'], '', 'SSL'), $this->url->link('account/account', '', 'SSL'), $this->url->link('account/order', '', 'SSL'), $this->url->link('information/contact'), $this->url->link('product/special'), $this->session->data['last_order_id'], $this->url->link('account/download', '', 'SSL'));
+			$data['text_message'] = sprintf($this->language->get('text_customer'), $this->url->ssl('account/order/info&order_id=' . $this->session->data['last_order_id'], '', 'SSL'), $this->url->ssl('account/account', '', 'SSL'), $this->url->ssl('account/order', '', 'SSL'), $this->url->ssl('information/contact'), $this->url->ssl('product/special'), $this->session->data['last_order_id'], $this->url->ssl('account/download', '', 'SSL'));
 		} else {
-			$data['text_message'] = sprintf($this->language->get('text_guest'), $this->url->link('information/contact'), $this->session->data['last_order_id']);
+			$data['text_message'] = sprintf($this->language->get('text_guest'), $this->url->ssl('information/contact'), $this->session->data['last_order_id']);
 		}
 
 		$data['button_continue'] = $this->language->get('button_continue');
 
-		$data['continue'] = $this->url->link('common/home');
+		$data['continue'] = $this->url->ssl('common/home');
 
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['column_right'] = $this->load->controller('common/column_right');

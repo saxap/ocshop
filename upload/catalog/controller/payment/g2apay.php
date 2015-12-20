@@ -10,7 +10,7 @@ class ControllerPaymentG2APay extends Controller {
 
 		$data['button_confirm'] = $this->language->get('button_confirm');
 
-		$data['action'] = $this->url->link('payment/g2apay/checkout', '', true);
+		$data['action'] = $this->url->ssl('payment/g2apay/checkout', '', true);
 
 		return $this->load->view('payment/g2apay', $data);
 	}
@@ -91,8 +91,8 @@ class ControllerPaymentG2APay extends Controller {
 			'amount' => $order_total,
 			'currency' => $order_info['currency_code'],
 			'email' => $order_info['email'],
-			'url_failure' => $this->url->link('checkout/failure'),
-			'url_ok' => $this->url->link('payment/g2apay/success'),
+			'url_failure' => $this->url->ssl('checkout/failure'),
+			'url_ok' => $this->url->ssl('payment/g2apay/success'),
 			'items' => json_encode($items)
 		);
 
@@ -103,11 +103,11 @@ class ControllerPaymentG2APay extends Controller {
 		$this->model_payment_g2apay->logger($fields);
 
 		if ($response_data === false) {
-			$this->response->redirect($this->url->link('payment/failure', '', true));
+			$this->response->redirect($this->url->ssl('payment/failure', '', true));
 		}
 
 		if (strtolower($response_data->status) != 'ok') {
-			$this->response->redirect($this->url->link('payment/failure', '', true));
+			$this->response->redirect($this->url->ssl('payment/failure', '', true));
 		}
 
 		$this->model_payment_g2apay->addG2aOrder($order_info);
@@ -144,7 +144,7 @@ class ControllerPaymentG2APay extends Controller {
 			$this->model_checkout_order->addOrderHistory($order_id, $this->config->get('g2apay_order_status_id'));
 		}
 
-		$this->response->redirect($this->url->link('checkout/success'));
+		$this->response->redirect($this->url->ssl('checkout/success'));
 	}
 
 	public function ipn() {

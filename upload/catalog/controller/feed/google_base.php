@@ -36,7 +36,7 @@ class ControllerFeedGoogleBase extends Controller {
 					if (!in_array($product['product_id'], $product_data) && $product['description']) {
 						$output .= '<item>';
 						$output .= '<title><![CDATA[' . $product['name'] . ']]></title>';
-						$output .= '<link>' . $this->url->link('product/product', 'product_id=' . $product['product_id']) . '</link>';
+						$output .= '<link>' . $this->url->ssl('product/product', 'product_id=' . $product['product_id']) . '</link>';
 						$output .= '<description><![CDATA[' . $product['description'] . ']]></description>';
 						$output .= '<g:brand><![CDATA[' . html_entity_decode($product['manufacturer'], ENT_QUOTES, 'UTF-8') . ']]></g:brand>';
 						$output .= '<g:condition>new</g:condition>';

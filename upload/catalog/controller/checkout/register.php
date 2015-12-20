@@ -93,7 +93,7 @@ class ControllerCheckoutRegister extends Controller {
 			$information_info = $this->model_catalog_information->getInformation($this->config->get('config_account_id'));
 
 			if ($information_info) {
-				$data['text_agree'] = sprintf($this->language->get('text_agree'), $this->url->link('information/information/agree', 'information_id=' . $this->config->get('config_account_id'), true), $information_info['title'], $information_info['title']);
+				$data['text_agree'] = sprintf($this->language->get('text_agree'), $this->url->ssl('information/information/agree', 'information_id=' . $this->config->get('config_account_id'), true), $information_info['title'], $information_info['title']);
 			} else {
 				$data['text_agree'] = '';
 			}
@@ -113,12 +113,12 @@ class ControllerCheckoutRegister extends Controller {
 
 		// Validate if customer is already logged out.
 		if ($this->customer->isLogged()) {
-			$json['redirect'] = $this->url->link('checkout/checkout', '', true);
+			$json['redirect'] = $this->url->ssl('checkout/checkout', '', true);
 		}
 
 		// Validate cart has products and has stock.
 		if ((!$this->cart->hasProducts() && empty($this->session->data['vouchers'])) || (!$this->cart->hasStock() && !$this->config->get('config_stock_checkout'))) {
-			$json['redirect'] = $this->url->link('checkout/cart');
+			$json['redirect'] = $this->url->ssl('checkout/cart');
 		}
 
 		// Validate minimum quantity requirements.
@@ -134,7 +134,7 @@ class ControllerCheckoutRegister extends Controller {
 			}
 
 			if ($product['minimum'] > $product_total) {
-				$json['redirect'] = $this->url->link('checkout/cart');
+				$json['redirect'] = $this->url->ssl('checkout/cart');
 
 				break;
 			}
@@ -259,7 +259,7 @@ class ControllerCheckoutRegister extends Controller {
 					$this->session->data['shipping_address'] = $this->model_account_address->getAddress($this->customer->getAddressId());
 				}
 			} else {
-				$json['redirect'] = $this->url->link('account/success');
+				$json['redirect'] = $this->url->ssl('account/success');
 			}
 
 			unset($this->session->data['guest']);

@@ -14,7 +14,7 @@ class ControllerProductProduct extends Controller {
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_home'),
-			'href' => $this->url->link('common/home')
+			'href' => $this->url->ssl('common/home')
 		);
 
 		$this->load->model('catalog/category');
@@ -38,7 +38,7 @@ class ControllerProductProduct extends Controller {
 				if ($category_info) {
 					$data['breadcrumbs'][] = array(
 						'text' => $category_info['name'],
-						'href' => $this->url->link('product/category', 'path=' . $path)
+						'href' => $this->url->ssl('product/category', 'path=' . $path)
 					);
 				}
 			}
@@ -67,7 +67,7 @@ class ControllerProductProduct extends Controller {
 
 				$data['breadcrumbs'][] = array(
 					'text' => $category_info['name'],
-					'href' => $this->url->link('product/category', 'path=' . $this->request->get['path'] . $url)
+					'href' => $this->url->ssl('product/category', 'path=' . $this->request->get['path'] . $url)
 				);
 			}
 		}
@@ -77,7 +77,7 @@ class ControllerProductProduct extends Controller {
 		if (isset($this->request->get['manufacturer_id'])) {
 			$data['breadcrumbs'][] = array(
 				'text' => $this->language->get('text_brand'),
-				'href' => $this->url->link('product/manufacturer')
+				'href' => $this->url->ssl('product/manufacturer')
 			);
 
 			$url = '';
@@ -103,7 +103,7 @@ class ControllerProductProduct extends Controller {
 			if ($manufacturer_info) {
 				$data['breadcrumbs'][] = array(
 					'text' => $manufacturer_info['name'],
-					'href' => $this->url->link('product/manufacturer/info', 'manufacturer_id=' . $this->request->get['manufacturer_id'] . $url)
+					'href' => $this->url->ssl('product/manufacturer/info', 'manufacturer_id=' . $this->request->get['manufacturer_id'] . $url)
 				);
 			}
 		}
@@ -149,7 +149,7 @@ class ControllerProductProduct extends Controller {
 
 			$data['breadcrumbs'][] = array(
 				'text' => $this->language->get('text_search'),
-				'href' => $this->url->link('product/search', $url)
+				'href' => $this->url->ssl('product/search', $url)
 			);
 		}
 
@@ -216,7 +216,7 @@ class ControllerProductProduct extends Controller {
 
 			$data['breadcrumbs'][] = array(
 				'text' => $product_info['name'],
-				'href' => $this->url->link('product/product', $url . '&product_id=' . $this->request->get['product_id'])
+				'href' => $this->url->ssl('product/product', $url . '&product_id=' . $this->request->get['product_id'])
 			);
 			
 			if ($product_info['meta_title']) {
@@ -237,7 +237,7 @@ class ControllerProductProduct extends Controller {
 			
 			$this->document->setDescription($product_info['meta_description']);
 			$this->document->setKeywords($product_info['meta_keyword']);
-			$this->document->addLink($this->url->link('product/product', 'product_id=' . $this->request->get['product_id']), 'canonical');
+			$this->document->addLink($this->url->ssl('product/product', 'product_id=' . $this->request->get['product_id']), 'canonical');
 			$this->document->addScript('catalog/view/javascript/jquery/magnific/jquery.magnific-popup.min.js');
 			$this->document->addStyle('catalog/view/javascript/jquery/magnific/magnific-popup.css');
 			$this->document->addScript('catalog/view/javascript/jquery/datetimepicker/moment.js');
@@ -255,7 +255,7 @@ class ControllerProductProduct extends Controller {
 			$data['text_option'] = $this->language->get('text_option');
 			$data['text_minimum'] = sprintf($this->language->get('text_minimum'), $product_info['minimum']);
 			$data['text_write'] = $this->language->get('text_write');
-			$data['text_login'] = sprintf($this->language->get('text_login'), $this->url->link('account/login', '', true), $this->url->link('account/register', '', true));
+			$data['text_login'] = sprintf($this->language->get('text_login'), $this->url->ssl('account/login', '', true), $this->url->ssl('account/register', '', true));
 			$data['text_note'] = $this->language->get('text_note');
 			$data['text_tags'] = $this->language->get('text_tags');
 			$data['text_related'] = $this->language->get('text_related');
@@ -283,7 +283,7 @@ class ControllerProductProduct extends Controller {
 
 			$data['product_id'] = (int)$this->request->get['product_id'];
 			$data['manufacturer'] = $product_info['manufacturer'];
-			$data['manufacturers'] = $this->url->link('product/manufacturer/info', 'manufacturer_id=' . $product_info['manufacturer_id']);
+			$data['manufacturers'] = $this->url->ssl('product/manufacturer/info', 'manufacturer_id=' . $product_info['manufacturer_id']);
 			$data['model'] = $product_info['model'];
 			$data['reward'] = $product_info['reward'];
 			$data['points'] = $product_info['points'];
@@ -463,7 +463,7 @@ class ControllerProductProduct extends Controller {
 					'tax'         => $tax,
 					'minimum'     => $result['minimum'] > 0 ? $result['minimum'] : 1,
 					'rating'      => $rating,
-					'href'        => $this->url->link('product/product', 'product_id=' . $result['product_id'])
+					'href'        => $this->url->ssl('product/product', 'product_id=' . $result['product_id'])
 				);
 			}
 
@@ -475,7 +475,7 @@ class ControllerProductProduct extends Controller {
 				foreach ($tags as $tag) {
 					$data['tags'][] = array(
 						'tag'  => trim($tag),
-						'href' => $this->url->link('product/search', 'tag=' . trim($tag))
+						'href' => $this->url->ssl('product/search', 'tag=' . trim($tag))
 					);
 				}
 			}
@@ -557,7 +557,7 @@ class ControllerProductProduct extends Controller {
 
 			$data['breadcrumbs'][] = array(
 				'text' => $this->language->get('text_error'),
-				'href' => $this->url->link('product/product', $url . '&product_id=' . $product_id)
+				'href' => $this->url->ssl('product/product', $url . '&product_id=' . $product_id)
 			);
 
 			$this->document->setTitle($this->language->get('text_error'));
@@ -568,7 +568,7 @@ class ControllerProductProduct extends Controller {
 
 			$data['button_continue'] = $this->language->get('button_continue');
 
-			$data['continue'] = $this->url->link('common/home');
+			$data['continue'] = $this->url->ssl('common/home');
 
 			$this->response->addHeader($this->request->server['SERVER_PROTOCOL'] . ' 404 Not Found');
 
@@ -615,7 +615,7 @@ class ControllerProductProduct extends Controller {
 		$pagination->total = $review_total;
 		$pagination->page = $page;
 		$pagination->limit = 5;
-		$pagination->url = $this->url->link('product/product/review', 'product_id=' . $this->request->get['product_id'] . '&page={page}');
+		$pagination->url = $this->url->ssl('product/product/review', 'product_id=' . $this->request->get['product_id'] . '&page={page}');
 
 		$data['pagination'] = $pagination->render();
 

@@ -48,7 +48,7 @@ class ControllerModuleBlogCategory extends Controller {
 					$children_data[] = array(
 						'blog_category_id' => $child['blog_category_id'],
 						'name' => $child['name'] . ($this->config->get('configblog_article_count') ? ' (' . $this->model_blog_article->getTotalArticles($filter_data) . ')' : ''),
-						'href' => $this->url->link('blog/category', 'blog_category_id=' . $category['blog_category_id'] . '_' . $child['blog_category_id'])
+						'href' => $this->url->ssl('blog/category', 'blog_category_id=' . $category['blog_category_id'] . '_' . $child['blog_category_id'])
 					);
 				}
 			}
@@ -61,7 +61,7 @@ class ControllerModuleBlogCategory extends Controller {
 				'blog_category_id' => $category['blog_category_id'],
 				'name'        => $category['name'] . ($this->config->get('configblog_article_count') ? ' (' . $this->model_blog_article->getTotalArticles($filter_data) . ')' : ''),
 				'children'    => $children_data,
-				'href'        => $this->url->link('blog/category', 'blog_category_id=' . $category['blog_category_id'])
+				'href'        => $this->url->ssl('blog/category', 'blog_category_id=' . $category['blog_category_id'])
 			);
 		}
 

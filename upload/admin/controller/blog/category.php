@@ -45,7 +45,7 @@ class ControllerBlogCategory extends Controller {
 				$url .= '&page=' . $this->request->get['page'];
 			}
 
-			$this->response->redirect($this->url->link('blog/category', 'token=' . $this->session->data['token'] . $url, true));
+			$this->response->redirect($this->url->ssl('blog/category', 'token=' . $this->session->data['token'] . $url, true));
 		}
 
 		$this->getForm();
@@ -77,7 +77,7 @@ class ControllerBlogCategory extends Controller {
 				$url .= '&page=' . $this->request->get['page'];
 			}
 
-			$this->response->redirect($this->url->link('blog/category', 'token=' . $this->session->data['token'] . $url, true));
+			$this->response->redirect($this->url->ssl('blog/category', 'token=' . $this->session->data['token'] . $url, true));
 		}
 
 		$this->getForm();
@@ -111,7 +111,7 @@ class ControllerBlogCategory extends Controller {
 				$url .= '&page=' . $this->request->get['page'];
 			}
 
-			$this->response->redirect($this->url->link('blog/category', 'token=' . $this->session->data['token'] . $url, true));
+			$this->response->redirect($this->url->ssl('blog/category', 'token=' . $this->session->data['token'] . $url, true));
 		}
 
 		$this->getList();
@@ -129,7 +129,7 @@ class ControllerBlogCategory extends Controller {
 
 			$this->session->data['success'] = $this->language->get('text_success');
 
-			$this->response->redirect($this->url->link('blog/category', 'token=' . $this->session->data['token'], true));
+			$this->response->redirect($this->url->ssl('blog/category', 'token=' . $this->session->data['token'], true));
 		}
 
 		$this->getList();
@@ -141,20 +141,20 @@ class ControllerBlogCategory extends Controller {
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_home'),
-			'href' => $this->url->link('common/dashboard', 'token=' . $this->session->data['token'], true)
+			'href' => $this->url->ssl('common/dashboard', 'token=' . $this->session->data['token'], true)
 		);
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('heading_title'),
-			'href' => $this->url->link('blog/category', 'token=' . $this->session->data['token'] . '&path=', true)
+			'href' => $this->url->ssl('blog/category', 'token=' . $this->session->data['token'] . '&path=', true)
 		);
 
-		$data['add'] = $this->url->link('blog/category/add', 'token=' . $this->session->data['token'], true);
-		$data['delete'] = $this->url->link('blog/category/delete', 'token=' . $this->session->data['token'], true);
-		$data['repair'] = $this->url->link('blog/category/repair', 'token=' . $this->session->data['token'], true);
+		$data['add'] = $this->url->ssl('blog/category/add', 'token=' . $this->session->data['token'] . $url, true);
+		$data['delete'] = $this->url->ssl('blog/category/delete', 'token=' . $this->session->data['token'] . $url, true);
+		$data['repair'] = $this->url->ssl('blog/category/repair', 'token=' . $this->session->data['token'] . $url, true);
 		
-		$data['enabled'] = $this->url->link('blog/category/enable', 'token=' . $this->session->data['token'], 'SSL');
-        $data['disabled'] = $this->url->link('blog/category/disable', 'token=' . $this->session->data['token'], 'SSL');
+		$data['enabled'] = $this->url->ssl('blog/category/enable', 'token=' . $this->session->data['token'] . $url, true);
+        $data['disabled'] = $this->url->ssl('blog/category/disable', 'token=' . $this->session->data['token'] . $url, true);
 
 		if (isset($this->request->get['path'])) {
 			if ($this->request->get['path'] != '') {
@@ -309,21 +309,21 @@ class ControllerBlogCategory extends Controller {
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_home'),
-			'href' => $this->url->link('common/dashboard', 'token=' . $this->session->data['token'], true)
+			'href' => $this->url->ssl('common/dashboard', 'token=' . $this->session->data['token'], true)
 		);
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('heading_title'),
-			'href' => $this->url->link('blog/category', 'token=' . $this->session->data['token'] . $url, true)
+			'href' => $this->url->ssl('blog/category', 'token=' . $this->session->data['token'] . $url, true)
 		);
 
 		if (!isset($this->request->get['blog_category_id'])) {
-			$data['action'] = $this->url->link('blog/category/add', 'token=' . $this->session->data['token'] . $url, true);
+			$data['action'] = $this->url->ssl('blog/category/add', 'token=' . $this->session->data['token'] . $url, true);
 		} else {
-			$data['action'] = $this->url->link('blog/category/edit', 'token=' . $this->session->data['token'] . '&blog_category_id=' . $this->request->get['blog_category_id'] . $url, true);
+			$data['action'] = $this->url->ssl('blog/category/edit', 'token=' . $this->session->data['token'] . '&blog_category_id=' . $this->request->get['blog_category_id'] . $url, true);
 		}
 
-		$data['cancel'] = $this->url->link('blog/category', 'token=' . $this->session->data['token'] . $url, true);
+		$data['cancel'] = $this->url->ssl('blog/category', 'token=' . $this->session->data['token'] . $url, true);
 
 		if (isset($this->request->get['blog_category_id']) && ($this->request->server['REQUEST_METHOD'] != 'POST')) {
 			$category_info = $this->model_blog_category->getCategory($this->request->get['blog_category_id']);
@@ -532,7 +532,7 @@ class ControllerBlogCategory extends Controller {
                 $url .= '&order=' . $this->request->get['order'];
             }
 
-            $this->response->redirect($this->url->link('blog/category', 'token=' . $this->session->data['token'] . $url, 'SSL'));
+            $this->response->redirect($this->url->ssl('blog/category', 'token=' . $this->session->data['token'] . $url, true));
         }
 
         $this->getList();
@@ -567,7 +567,7 @@ class ControllerBlogCategory extends Controller {
                 $url .= '&order=' . $this->request->get['order'];
             }
 
-            $this->response->redirect($this->url->link('blog/category', 'token=' . $this->session->data['token'] . $url, 'SSL'));
+            $this->response->redirect($this->url->ssl('blog/category', 'token=' . $this->session->data['token'] . $url, true));
         }
 
         $this->getList();
@@ -631,8 +631,8 @@ class ControllerBlogCategory extends Controller {
 		static $href_category = null;
 		static $href_action = null;
 		if ($href_category === null) {
-			$href_category = $this->url->link('blog/category', 'token=' . $this->session->data['token'] . '&path=', true);
-			$href_action = $this->url->link('blog/category/update', 'token=' . $this->session->data['token'] . '&blog_category_id=', true);
+			$href_category = $this->url->ssl('blog/category', 'token=' . $this->session->data['token'] . '&path=', true);
+			$href_action = $this->url->ssl('blog/category/update', 'token=' . $this->session->data['token'] . '&blog_category_id=', true);
 		}
 		$results = $this->model_blog_category->getCategoriesByParentId($parent_id);
 		foreach ($results as $result) {
@@ -659,7 +659,7 @@ class ControllerBlogCategory extends Controller {
 				'name'        => $name,
 				'sort_order'  => $result['sort_order'],
 				'noindex'  	  => $result['noindex'],
-				'edit'        => $this->url->link('blog/category/edit', 'token=' . $this->session->data['token'] . '&blog_category_id=' . $result['blog_category_id'], true),
+				'edit'        => $this->url->ssl('blog/category/edit', 'token=' . $this->session->data['token'] . '&blog_category_id=' . $result['blog_category_id'], true),
 				'selected'    => $selected,
 				'action'      => $action,
 				'href'        => $href,

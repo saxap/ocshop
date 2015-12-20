@@ -193,7 +193,7 @@ class ControllerPaymentPPPro extends Controller {
 
 			$this->model_checkout_order->addOrderHistory($this->session->data['order_id'], $this->config->get('pp_pro_order_status_id'), $message, false);
 
-			$json['success'] = $this->url->link('checkout/success');
+			$json['success'] = $this->url->ssl('checkout/success');
 		} else {
 			$json['error'] = $response_info['L_LONGMESSAGE0'];
 		}

@@ -84,7 +84,7 @@ class ControllerProductSearch extends Controller {
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_home'),
-			'href' => $this->url->link('common/home')
+			'href' => $this->url->ssl('common/home')
 		);
 
 		$url = '';
@@ -127,7 +127,7 @@ class ControllerProductSearch extends Controller {
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('heading_title'),
-			'href' => $this->url->link('product/search', $url)
+			'href' => $this->url->ssl('product/search', $url)
 		);
 
 		if (isset($this->request->get['search'])) {
@@ -163,7 +163,7 @@ class ControllerProductSearch extends Controller {
 		$data['button_list'] = $this->language->get('button_list');
 		$data['button_grid'] = $this->language->get('button_grid');
 
-		$data['compare'] = $this->url->link('product/compare');
+		$data['compare'] = $this->url->ssl('product/compare');
 
 		$this->load->model('catalog/category');
 
@@ -263,7 +263,7 @@ class ControllerProductSearch extends Controller {
 					'tax'         => $tax,
 					'minimum'     => $result['minimum'] > 0 ? $result['minimum'] : 1,
 					'rating'      => $result['rating'],
-					'href'        => $this->url->link('product/product', 'product_id=' . $result['product_id'] . $url)
+					'href'        => $this->url->ssl('product/product', 'product_id=' . $result['product_id'] . $url)
 				);
 			}
 
@@ -298,57 +298,57 @@ class ControllerProductSearch extends Controller {
 			$data['sorts'][] = array(
 				'text'  => $this->language->get('text_default'),
 				'value' => 'p.sort_order-ASC',
-				'href'  => $this->url->link('product/search', 'sort=p.sort_order&order=ASC' . $url)
+				'href'  => $this->url->ssl('product/search', 'sort=p.sort_order&order=ASC' . $url)
 			);
 
 			$data['sorts'][] = array(
 				'text'  => $this->language->get('text_name_asc'),
 				'value' => 'pd.name-ASC',
-				'href'  => $this->url->link('product/search', 'sort=pd.name&order=ASC' . $url)
+				'href'  => $this->url->ssl('product/search', 'sort=pd.name&order=ASC' . $url)
 			);
 
 			$data['sorts'][] = array(
 				'text'  => $this->language->get('text_name_desc'),
 				'value' => 'pd.name-DESC',
-				'href'  => $this->url->link('product/search', 'sort=pd.name&order=DESC' . $url)
+				'href'  => $this->url->ssl('product/search', 'sort=pd.name&order=DESC' . $url)
 			);
 
 			$data['sorts'][] = array(
 				'text'  => $this->language->get('text_price_asc'),
 				'value' => 'p.price-ASC',
-				'href'  => $this->url->link('product/search', 'sort=p.price&order=ASC' . $url)
+				'href'  => $this->url->ssl('product/search', 'sort=p.price&order=ASC' . $url)
 			);
 
 			$data['sorts'][] = array(
 				'text'  => $this->language->get('text_price_desc'),
 				'value' => 'p.price-DESC',
-				'href'  => $this->url->link('product/search', 'sort=p.price&order=DESC' . $url)
+				'href'  => $this->url->ssl('product/search', 'sort=p.price&order=DESC' . $url)
 			);
 
 			if ($this->config->get('config_review_status')) {
 				$data['sorts'][] = array(
 					'text'  => $this->language->get('text_rating_desc'),
 					'value' => 'rating-DESC',
-					'href'  => $this->url->link('product/search', 'sort=rating&order=DESC' . $url)
+					'href'  => $this->url->ssl('product/search', 'sort=rating&order=DESC' . $url)
 				);
 
 				$data['sorts'][] = array(
 					'text'  => $this->language->get('text_rating_asc'),
 					'value' => 'rating-ASC',
-					'href'  => $this->url->link('product/search', 'sort=rating&order=ASC' . $url)
+					'href'  => $this->url->ssl('product/search', 'sort=rating&order=ASC' . $url)
 				);
 			}
 
 			$data['sorts'][] = array(
 				'text'  => $this->language->get('text_model_asc'),
 				'value' => 'p.model-ASC',
-				'href'  => $this->url->link('product/search', 'sort=p.model&order=ASC' . $url)
+				'href'  => $this->url->ssl('product/search', 'sort=p.model&order=ASC' . $url)
 			);
 
 			$data['sorts'][] = array(
 				'text'  => $this->language->get('text_model_desc'),
 				'value' => 'p.model-DESC',
-				'href'  => $this->url->link('product/search', 'sort=p.model&order=DESC' . $url)
+				'href'  => $this->url->ssl('product/search', 'sort=p.model&order=DESC' . $url)
 			);
 
 			$url = '';
@@ -391,7 +391,7 @@ class ControllerProductSearch extends Controller {
 				$data['limits'][] = array(
 					'text'  => $value,
 					'value' => $value,
-					'href'  => $this->url->link('product/search', $url . '&limit=' . $value)
+					'href'  => $this->url->ssl('product/search', $url . '&limit=' . $value)
 				);
 			}
 
@@ -433,7 +433,7 @@ class ControllerProductSearch extends Controller {
 			$pagination->total = $product_total;
 			$pagination->page = $page;
 			$pagination->limit = $limit;
-			$pagination->url = $this->url->link('product/search', $url . '&page={page}');
+			$pagination->url = $this->url->ssl('product/search', $url . '&page={page}');
 
 			$data['pagination'] = $pagination->render();
 
@@ -441,15 +441,15 @@ class ControllerProductSearch extends Controller {
 
 			// http://googlewebmastercentral.blogspot.com/2011/09/pagination-with-relnext-and-relprev.html
 			if ($page == 1) {
-			    $this->document->addLink($this->url->link('product/search', '', true), 'canonical');
+			    $this->document->addLink($this->url->ssl('product/search', '', true), 'canonical');
 			} elseif ($page == 2) {
-			    $this->document->addLink($this->url->link('product/search', '', true), 'prev');
+			    $this->document->addLink($this->url->ssl('product/search', '', true), 'prev');
 			} else {
-			    $this->document->addLink($this->url->link('product/search', $url . '&page='. ($page - 1), true), 'prev');
+			    $this->document->addLink($this->url->ssl('product/search', $url . '&page='. ($page - 1), true), 'prev');
 			}
 
 			if ($limit && ceil($product_total / $limit) > $page) {
-			    $this->document->addLink($this->url->link('product/search', $url . '&page='. ($page + 1), true), 'next');
+			    $this->document->addLink($this->url->ssl('product/search', $url . '&page='. ($page + 1), true), 'next');
 			}
 		}
 

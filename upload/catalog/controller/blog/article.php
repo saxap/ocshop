@@ -14,13 +14,13 @@ class ControllerBlogArticle extends Controller {
 
 		$data['breadcrumbs'][] = array(
 			'text'      => $this->language->get('text_home'),
-			'href'      => $this->url->link('common/home'),			
+			'href'      => $this->url->ssl('common/home'),			
 			'separator' => false
 		);
 		
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_blog'),
-			'href' => $this->url->link('blog/latest')
+			'href' => $this->url->ssl('blog/latest')
 		);
 		
 		$this->load->model('blog/category');	
@@ -41,7 +41,7 @@ class ControllerBlogArticle extends Controller {
 				if ($category_info) {
 					$data['breadcrumbs'][] = array(
 						'text'      => $category_info['name'],
-						'href'      => $this->url->link('blog/category', 'blog_category_id=' . $blog_category_id)
+						'href'      => $this->url->ssl('blog/category', 'blog_category_id=' . $blog_category_id)
 					);
 				}
 			}
@@ -107,7 +107,7 @@ class ControllerBlogArticle extends Controller {
 			
 			$data['breadcrumbs'][] = array(
 				'text' => $article_info['name'],
-				'href' => $this->url->link('blog/article', 'article_id=' . $this->request->get['article_id'])
+				'href' => $this->url->ssl('blog/article', 'article_id=' . $this->request->get['article_id'])
 			);
 			
 			if ($article_info['meta_title']) {
@@ -118,7 +118,7 @@ class ControllerBlogArticle extends Controller {
 
 			$this->document->setDescription($article_info['meta_description']);
 			$this->document->setKeywords($article_info['meta_keyword']);
-			$this->document->addLink($this->url->link('blog/article', 'article_id=' . $this->request->get['article_id']), 'canonical');
+			$this->document->addLink($this->url->ssl('blog/article', 'article_id=' . $this->request->get['article_id']), 'canonical');
 			
 			if ($article_info['meta_h1']) {	
 				$data['heading_title'] = $article_info['meta_h1'];
@@ -128,7 +128,7 @@ class ControllerBlogArticle extends Controller {
 			
 			$data['text_select'] = $this->language->get('text_select');
 			$data['text_write'] = $this->language->get('text_write');
-			$data['text_login'] = sprintf($this->language->get('text_login'), $this->url->link('account/login', '', true), $this->url->link('account/register', '', true));
+			$data['text_login'] = sprintf($this->language->get('text_login'), $this->url->ssl('account/login', '', true), $this->url->ssl('account/register', '', true));
 			$data['text_loading'] = $this->language->get('text_loading');
 			$data['text_note'] = $this->language->get('text_note');
 			$data['text_share'] = $this->language->get('text_share');
@@ -203,7 +203,7 @@ class ControllerBlogArticle extends Controller {
 					'date_added'  => date($this->language->get('date_format_short'), strtotime($result['date_added'])),
 					'viewed'      => $result['viewed'],
 					'reviews'    => sprintf($this->language->get('text_reviews'), (int)$result['reviews']),
-					'href'    	 => $this->url->link('blog/article', 'article_id=' . $result['article_id']),
+					'href'    	 => $this->url->ssl('blog/article', 'article_id=' . $result['article_id']),
 				);
 			}
 
@@ -255,7 +255,7 @@ class ControllerBlogArticle extends Controller {
 					'tax'        => $tax,
 					'minimum'     => $result['minimum'] > 0 ? $result['minimum'] : 1,
 					'reviews'    => sprintf($this->language->get('text_reviews'), (int)$result['reviews']),
-					'href'    	 => $this->url->link('product/product', 'product_id=' . $result['product_id']),
+					'href'    	 => $this->url->ssl('product/product', 'product_id=' . $result['product_id']),
 				);
 			}	
 			
@@ -292,7 +292,7 @@ class ControllerBlogArticle extends Controller {
                         'date_added' => date($this->language->get('date_format_short'), strtotime($result['date_added'])),
                         'name'       => $result['name'],
                         'size'       => round(substr($size, 0, strpos($size, '.') + 4), 2) . $suffix[$i],
-                        'href'       => $this->url->link('blog/article/download', '&article_id='. $this->request->get['article_id']. '&download_id=' . $result['download_id'])
+                        'href'       => $this->url->ssl('blog/article/download', '&article_id='. $this->request->get['article_id']. '&download_id=' . $result['download_id'])
                     );
                 }
             } 
@@ -344,7 +344,7 @@ class ControllerBlogArticle extends Controller {
 								
       		$data['breadcrumbs'][] = array(
         		'text'      => $this->language->get('text_error'),
-				'href'      => $this->url->link('blog/article', $url . '&article_id=' . $article_id)
+				'href'      => $this->url->ssl('blog/article', $url . '&article_id=' . $article_id)
       		);			
 		
       		$this->document->setTitle($this->language->get('text_error'));
@@ -355,7 +355,7 @@ class ControllerBlogArticle extends Controller {
 
       		$data['button_continue'] = $this->language->get('button_continue');
 
-      		$data['continue'] = $this->url->link('common/home');
+      		$data['continue'] = $this->url->ssl('common/home');
 
 			if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/error/not_found')) {
 				$this->template = $this->config->get('config_template') . '/template/error/not_found';
@@ -461,7 +461,7 @@ class ControllerBlogArticle extends Controller {
 		$pagination->total = $review_total;
 		$pagination->page = $page;
 		$pagination->limit = 5;
-		$pagination->url = $this->url->link('blog/article/review', 'article_id=' . $this->request->get['article_id'] . '&page={page}');
+		$pagination->url = $this->url->ssl('blog/article/review', 'article_id=' . $this->request->get['article_id'] . '&page={page}');
 
 		$data['pagination'] = $pagination->render();
 

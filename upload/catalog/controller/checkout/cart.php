@@ -13,12 +13,12 @@ class ControllerCheckoutCart extends Controller {
 		$data['breadcrumbs'] = array();
 
 		$data['breadcrumbs'][] = array(
-			'href' => $this->url->link('common/home'),
+			'href' => $this->url->ssl('common/home'),
 			'text' => $this->language->get('text_home')
 		);
 
 		$data['breadcrumbs'][] = array(
-			'href' => $this->url->link('checkout/cart'),
+			'href' => $this->url->ssl('checkout/cart'),
 			'text' => $this->language->get('heading_title')
 		);
 
@@ -52,7 +52,7 @@ class ControllerCheckoutCart extends Controller {
 			}
 
 			if ($this->config->get('config_customer_price') && !$this->customer->isLogged()) {
-				$data['attention'] = sprintf($this->language->get('text_login'), $this->url->link('account/login'), $this->url->link('account/register'));
+				$data['attention'] = sprintf($this->language->get('text_login'), $this->url->ssl('account/login'), $this->url->ssl('account/register'));
 			} else {
 				$data['attention'] = '';
 			}
@@ -65,7 +65,7 @@ class ControllerCheckoutCart extends Controller {
 				$data['success'] = '';
 			}
 
-			$data['action'] = $this->url->link('checkout/cart/edit', '', true);
+			$data['action'] = $this->url->ssl('checkout/cart/edit', '', true);
 
 			if ($this->config->get('config_cart_weight')) {
 				$data['weight'] = $this->weight->format($this->cart->getWeight(), $this->config->get('config_weight_class_id'), $this->language->get('decimal_point'), $this->language->get('thousand_point'));
@@ -168,7 +168,7 @@ class ControllerCheckoutCart extends Controller {
 					'reward'    => ($product['reward'] ? sprintf($this->language->get('text_points'), $product['reward']) : ''),
 					'price'     => $price,
 					'total'     => $total,
-					'href'      => $this->url->link('product/product', 'product_id=' . $product['product_id'])
+					'href'      => $this->url->ssl('product/product', 'product_id=' . $product['product_id'])
 				);
 			}
 
@@ -181,7 +181,7 @@ class ControllerCheckoutCart extends Controller {
 						'key'         => $key,
 						'description' => $voucher['description'],
 						'amount'      => $this->currency->format($voucher['amount']),
-						'remove'      => $this->url->link('checkout/cart', 'remove=' . $key)
+						'remove'      => $this->url->ssl('checkout/cart', 'remove=' . $key)
 					);
 				}
 			}
@@ -239,9 +239,9 @@ class ControllerCheckoutCart extends Controller {
 				);
 			}
 
-			$data['continue'] = $this->url->link('common/home');
+			$data['continue'] = $this->url->ssl('common/home');
 
-			$data['checkout'] = $this->url->link('checkout/checkout', '', true);
+			$data['checkout'] = $this->url->ssl('checkout/checkout', '', true);
 
 			$this->load->model('extension/extension');
 
@@ -274,7 +274,7 @@ class ControllerCheckoutCart extends Controller {
 
 			$data['button_continue'] = $this->language->get('button_continue');
 
-			$data['continue'] = $this->url->link('common/home');
+			$data['continue'] = $this->url->ssl('common/home');
 
 			unset($this->session->data['success']);
 
@@ -348,7 +348,7 @@ class ControllerCheckoutCart extends Controller {
 			if (!$json) {
 				$this->cart->add($this->request->post['product_id'], $quantity, $option, $recurring_id);
 
-				$json['success'] = sprintf($this->language->get('text_success'), $this->url->link('product/product', 'product_id=' . $this->request->post['product_id']), $product_info['name'], $this->url->link('checkout/cart'));
+				$json['success'] = sprintf($this->language->get('text_success'), $this->url->ssl('product/product', 'product_id=' . $this->request->post['product_id']), $product_info['name'], $this->url->ssl('checkout/cart'));
 
 				// Unset all shipping and payment methods
 				unset($this->session->data['shipping_method']);
@@ -402,7 +402,7 @@ class ControllerCheckoutCart extends Controller {
 
 				$json['total'] = sprintf($this->language->get('text_items'), $this->cart->countProducts() + (isset($this->session->data['vouchers']) ? count($this->session->data['vouchers']) : 0), $this->currency->format($total));
 			} else {
-				$json['redirect'] = str_replace('&amp;', '&', $this->url->link('product/product', 'product_id=' . $this->request->post['product_id']));
+				$json['redirect'] = str_replace('&amp;', '&', $this->url->ssl('product/product', 'product_id=' . $this->request->post['product_id']));
 			}
 		}
 
@@ -427,7 +427,7 @@ class ControllerCheckoutCart extends Controller {
 			unset($this->session->data['payment_methods']);
 			unset($this->session->data['reward']);
 
-			$this->response->redirect($this->url->link('checkout/cart'));
+			$this->response->redirect($this->url->ssl('checkout/cart'));
 		}
 
 		$this->response->addHeader('Content-Type: application/json');

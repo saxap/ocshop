@@ -73,7 +73,7 @@ class ControllerModuleCategory4level extends Controller {
 							$children3_data[] = array(
 								'category_id' => $child3['category_id'],
 								'name'        => $child3['name'] . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_product->getTotalProducts($filter_data3) . ')' : ''),
-								'href'        => $this->url->link('product/category', 'path=' . $category['category_id'] . '_' . $child['category_id']. '_' . $child2['category_id']. '_' . $child3['category_id'])	
+								'href'        => $this->url->ssl('product/category', 'path=' . $category['category_id'] . '_' . $child['category_id']. '_' . $child2['category_id']. '_' . $child3['category_id'])	
 							);		
 						
 						
@@ -87,7 +87,7 @@ class ControllerModuleCategory4level extends Controller {
 						'category_id' => $child2['category_id'],
 						'name'        => $child2['name'] . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_product->getTotalProducts($filter_data2) . ')' : ''),
 						'children3'    => $children3_data,
-						'href'        => $this->url->link('product/category', 'path=' . $category['category_id'] . '_' . $child['category_id']. '_' . $child2['category_id'])	
+						'href'        => $this->url->ssl('product/category', 'path=' . $category['category_id'] . '_' . $child['category_id']. '_' . $child2['category_id'])	
 					);		
 				
 				
@@ -101,7 +101,7 @@ class ControllerModuleCategory4level extends Controller {
 					'category_id' => $child['category_id'],
 					'name'        => $child['name'] . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_product->getTotalProducts($filter_data1) . ')' : ''),
 					'children2'    => $children2_data,
-					'href'        => $this->url->link('product/category', 'path=' . $category['category_id'] . '_' . $child['category_id'])	
+					'href'        => $this->url->ssl('product/category', 'path=' . $category['category_id'] . '_' . $child['category_id'])	
 				);		
 			}
 			
@@ -113,7 +113,7 @@ class ControllerModuleCategory4level extends Controller {
 				'category_id' => $category['category_id'],
 				'name'        => $category['name'] . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_product->getTotalProducts($filter_data) . ')' : ''),
 				'children'    => $children_data,
-				'href'        => $this->url->link('product/category', 'path=' . $category['category_id'])
+				'href'        => $this->url->ssl('product/category', 'path=' . $category['category_id'])
 			);	
 		}
 

@@ -7,9 +7,9 @@
 class ControllerAffiliateAccount extends Controller {
 	public function index() {
 		if (!$this->affiliate->isLogged()) {
-			$this->session->data['redirect'] = $this->url->link('affiliate/account', '', true);
+			$this->session->data['redirect'] = $this->url->ssl('affiliate/account', '', true);
 
-			$this->response->redirect($this->url->link('affiliate/login', '', true));
+			$this->response->redirect($this->url->ssl('affiliate/login', '', true));
 		}
 
 		$this->load->language('affiliate/account');
@@ -18,12 +18,12 @@ class ControllerAffiliateAccount extends Controller {
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_home'),
-			'href' => $this->url->link('common/home')
+			'href' => $this->url->ssl('common/home')
 		);
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_account'),
-			'href' => $this->url->link('affiliate/account', '', true)
+			'href' => $this->url->ssl('affiliate/account', '', true)
 		);
 
 		$this->document->setTitle($this->language->get('heading_title'));
@@ -47,11 +47,11 @@ class ControllerAffiliateAccount extends Controller {
 			$data['success'] = '';
 		}
 
-		$data['edit'] = $this->url->link('affiliate/edit', '', true);
-		$data['password'] = $this->url->link('affiliate/password', '', true);
-		$data['payment'] = $this->url->link('affiliate/payment', '', true);
-		$data['tracking'] = $this->url->link('affiliate/tracking', '', true);
-		$data['transaction'] = $this->url->link('affiliate/transaction', '', true);
+		$data['edit'] = $this->url->ssl('affiliate/edit', '', true);
+		$data['password'] = $this->url->ssl('affiliate/password', '', true);
+		$data['payment'] = $this->url->ssl('affiliate/payment', '', true);
+		$data['tracking'] = $this->url->ssl('affiliate/tracking', '', true);
+		$data['transaction'] = $this->url->ssl('affiliate/transaction', '', true);
 
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['column_right'] = $this->load->controller('common/column_right');

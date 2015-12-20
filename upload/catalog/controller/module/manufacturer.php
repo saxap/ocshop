@@ -35,7 +35,7 @@ class ControllerModuleMAnufacturer extends Controller {
 			$data['manufacturers'][] = array(
 				'manufacturer_id' => $manufacturer['manufacturer_id'],
 				'name'        => $manufacturer['name'] ,
-				'href'        => $this->url->link('product/manufacturer/info', 'manufacturer_id=' . $manufacturer['manufacturer_id'])
+				'href'        => $this->url->ssl('product/manufacturer/info', 'manufacturer_id=' . $manufacturer['manufacturer_id'])
 			);
 		}
 

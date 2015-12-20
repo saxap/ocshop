@@ -52,7 +52,7 @@ class ControllerModuleBlogFeatured extends Controller {
 						'rating'      => $rating,
 						'date_added'  => date($this->language->get('date_format_short'), strtotime($article_info['date_added'])),
 						'viewed'      => $article_info['viewed'],
-						'href'        => $this->url->link('blog/article', 'article_id=' . $article_info['article_id'])
+						'href'        => $this->url->ssl('blog/article', 'article_id=' . $article_info['article_id'])
 					);
 				}
 			}

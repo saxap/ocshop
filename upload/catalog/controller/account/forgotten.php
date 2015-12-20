@@ -9,7 +9,7 @@ class ControllerAccountForgotten extends Controller {
 
 	public function index() {
 		if ($this->customer->isLogged()) {
-			$this->response->redirect($this->url->link('account/account', '', true));
+			$this->response->redirect($this->url->ssl('account/account', '', true));
 		}
 
 		$this->load->language('account/forgotten');
@@ -64,24 +64,24 @@ class ControllerAccountForgotten extends Controller {
 				$this->model_account_activity->addActivity('forgotten', $activity_data);
 			}
 
-			$this->response->redirect($this->url->link('account/login', '', true));
+			$this->response->redirect($this->url->ssl('account/login', '', true));
 		}
 
 		$data['breadcrumbs'] = array();
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_home'),
-			'href' => $this->url->link('common/home')
+			'href' => $this->url->ssl('common/home')
 		);
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_account'),
-			'href' => $this->url->link('account/account', '', true)
+			'href' => $this->url->ssl('account/account', '', true)
 		);
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_forgotten'),
-			'href' => $this->url->link('account/forgotten', '', true)
+			'href' => $this->url->ssl('account/forgotten', '', true)
 		);
 
 		$data['heading_title'] = $this->language->get('heading_title');
@@ -102,9 +102,9 @@ class ControllerAccountForgotten extends Controller {
 			$data['error_warning'] = '';
 		}
 
-		$data['action'] = $this->url->link('account/forgotten', '', true);
+		$data['action'] = $this->url->ssl('account/forgotten', '', true);
 
-		$data['back'] = $this->url->link('account/login', '', true);
+		$data['back'] = $this->url->ssl('account/login', '', true);
 
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['column_right'] = $this->load->controller('common/column_right');

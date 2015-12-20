@@ -51,7 +51,7 @@ class ControllerPaymentPaypoint extends Controller {
 		}
 
 		$data['currency'] = $this->currency->getCode();
-		$data['callback'] = $this->url->link('payment/paypoint/callback', '', true);
+		$data['callback'] = $this->url->ssl('payment/paypoint/callback', '', true);
 
 		switch ($this->config->get('paypoint_test')) {
 			case 'live':
@@ -111,9 +111,9 @@ class ControllerPaymentPaypoint extends Controller {
 
 			$data['text_response'] = $this->language->get('text_response');
 			$data['text_success'] = $this->language->get('text_success');
-			$data['text_success_wait'] = sprintf($this->language->get('text_success_wait'), $this->url->link('checkout/success'));
+			$data['text_success_wait'] = sprintf($this->language->get('text_success_wait'), $this->url->ssl('checkout/success'));
 			$data['text_failure'] = $this->language->get('text_failure');
-			$data['text_failure_wait'] = sprintf($this->language->get('text_failure_wait'), $this->url->link('checkout/cart'));
+			$data['text_failure_wait'] = sprintf($this->language->get('text_failure_wait'), $this->url->ssl('checkout/cart'));
 
 			if (isset($this->request->get['code']) && $this->request->get['code'] == 'A' && $status) {
 				$message = '';
@@ -142,7 +142,7 @@ class ControllerPaymentPaypoint extends Controller {
 
 				$this->model_checkout_order->addOrderHistory($order_id, $this->config->get('paypoint_order_status_id'), $message, false);
 
-				$data['continue'] = $this->url->link('checkout/success');
+				$data['continue'] = $this->url->ssl('checkout/success');
 
 				$data['column_left'] = $this->load->controller('common/column_left');
 				$data['column_right'] = $this->load->controller('common/column_right');
@@ -153,7 +153,7 @@ class ControllerPaymentPaypoint extends Controller {
 
 				$this->response->setOutput($this->load->view('payment/paypoint_success', $data));
 			} else {
-				$data['continue'] = $this->url->link('checkout/cart');
+				$data['continue'] = $this->url->ssl('checkout/cart');
 
 				$data['column_left'] = $this->load->controller('common/column_left');
 				$data['column_right'] = $this->load->controller('common/column_right');

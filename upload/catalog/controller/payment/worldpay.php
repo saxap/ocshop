@@ -31,7 +31,7 @@ class ControllerPaymentWorldpay extends Controller {
 
 		$data['worldpay_client_key'] = $this->config->get('worldpay_client_key');
 
-		$data['form_submit'] = $this->url->link('payment/worldpay/send', '', true);
+		$data['form_submit'] = $this->url->ssl('payment/worldpay/send', '', true);
 
 		if ($this->config->get('worldpay_card') == '1' && $this->customer->isLogged()) {
 			$data['worldpay_card'] = true;
@@ -129,11 +129,11 @@ class ControllerPaymentWorldpay extends Controller {
 				$this->model_payment_worldpay->recurringPayment($item, $this->session->data['order_id'] . rand(), $this->request->post['token']);
 			}
 
-			$this->response->redirect($this->url->link('checkout/success', '', true));
+			$this->response->redirect($this->url->ssl('checkout/success', '', true));
 		} else {
 
 			$this->session->data['error'] = $this->language->get('error_process_order');
-			$this->response->redirect($this->url->link('checkout/checkout', '', true));
+			$this->response->redirect($this->url->ssl('checkout/checkout', '', true));
 		}
 	}
 

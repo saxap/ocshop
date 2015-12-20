@@ -37,24 +37,24 @@ class ControllerModuleCachemanager extends Controller {
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_home'),
-			'href' => $this->url->link('common/dashboard', 'token=' . $this->session->data['token'], true)
+			'href' => $this->url->ssl('common/dashboard', 'token=' . $this->session->data['token'], true)
 		);
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_module'),
-			'href' => $this->url->link('extension/module', 'token=' . $this->session->data['token'], true)
+			'href' => $this->url->ssl('extension/module', 'token=' . $this->session->data['token'], true)
 		);
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('heading_title'),
-			'href' => $this->url->link('module/cachemanager', 'token=' . $this->session->data['token'], true)
+			'href' => $this->url->ssl('module/cachemanager', 'token=' . $this->session->data['token'], true)
 		);
 
 		$data['clearallcache'] = (HTTPS_SERVER . 'index.php?route=module/cachemanager/clearallcache&token=' . $this->session->data['token']);
 		$data['clearcache'] = (HTTPS_SERVER . 'index.php?route=module/cachemanager/clearcache&token=' . $this->session->data['token']);
 		$data['clearsystemcache'] = (HTTPS_SERVER . 'index.php?route=module/cachemanager/clearsystemcache&token=' . $this->session->data['token']);
 
-		$data['cancel'] = $this->url->link('extension/module', 'token=' . $this->session->data['token'], true);
+		$data['cancel'] = $this->url->ssl('extension/module', 'token=' . $this->session->data['token'], true);
 
 		$data['modules'] = array();
 		
@@ -87,7 +87,7 @@ class ControllerModuleCachemanager extends Controller {
                 
 		$this->session->data['success'] = $this->language->get('text_success_system');
 	
-		$this->response->redirect($this->url->link('module/cachemanager', 'token=' . $this->session->data['token'], true));
+		$this->response->redirect($this->url->ssl('module/cachemanager', 'token=' . $this->session->data['token'], true));
 		}
         
 	public function clearcache() {
@@ -98,7 +98,7 @@ class ControllerModuleCachemanager extends Controller {
 		}
 		$this->session->data['success'] = $this->language->get('text_success_img');
 		
-        $this->response->redirect($this->url->link('module/cachemanager', 'token=' . $this->session->data['token'], true));		
+        $this->response->redirect($this->url->ssl('module/cachemanager', 'token=' . $this->session->data['token'], true));		
 		}
 	
 	public function clearallcache() {
@@ -115,7 +115,7 @@ class ControllerModuleCachemanager extends Controller {
 		
 		$this->session->data['success'] = $this->language->get('text_success');
 		
-        $this->response->redirect($this->url->link('module/cachemanager', 'token=' . $this->session->data['token'], true));		
+        $this->response->redirect($this->url->ssl('module/cachemanager', 'token=' . $this->session->data['token'], true));		
 		}
 		
         public function deldir($dirname){         

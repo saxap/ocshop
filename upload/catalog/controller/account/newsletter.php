@@ -7,9 +7,9 @@
 class ControllerAccountNewsletter extends Controller {
 	public function index() {
 		if (!$this->customer->isLogged()) {
-			$this->session->data['redirect'] = $this->url->link('account/newsletter', '', true);
+			$this->session->data['redirect'] = $this->url->ssl('account/newsletter', '', true);
 
-			$this->response->redirect($this->url->link('account/login', '', true));
+			$this->response->redirect($this->url->ssl('account/login', '', true));
 		}
 
 		$this->load->language('account/newsletter');
@@ -23,24 +23,24 @@ class ControllerAccountNewsletter extends Controller {
 
 			$this->session->data['success'] = $this->language->get('text_success');
 
-			$this->response->redirect($this->url->link('account/account', '', true));
+			$this->response->redirect($this->url->ssl('account/account', '', true));
 		}
 
 		$data['breadcrumbs'] = array();
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_home'),
-			'href' => $this->url->link('common/home')
+			'href' => $this->url->ssl('common/home')
 		);
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_account'),
-			'href' => $this->url->link('account/account', '', true)
+			'href' => $this->url->ssl('account/account', '', true)
 		);
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_newsletter'),
-			'href' => $this->url->link('account/newsletter', '', true)
+			'href' => $this->url->ssl('account/newsletter', '', true)
 		);
 
 		$data['heading_title'] = $this->language->get('heading_title');
@@ -53,11 +53,11 @@ class ControllerAccountNewsletter extends Controller {
 		$data['button_continue'] = $this->language->get('button_continue');
 		$data['button_back'] = $this->language->get('button_back');
 
-		$data['action'] = $this->url->link('account/newsletter', '', true);
+		$data['action'] = $this->url->ssl('account/newsletter', '', true);
 
 		$data['newsletter'] = $this->customer->getNewsletter();
 
-		$data['back'] = $this->url->link('account/account', '', true);
+		$data['back'] = $this->url->ssl('account/account', '', true);
 
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['column_right'] = $this->load->controller('common/column_right');
