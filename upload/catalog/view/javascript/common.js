@@ -129,7 +129,7 @@ $(document).ready(function() {
 	
 	 //Module-container layout fix
 	cols = $('#column-right, #column-left').length;
-	var productSet =  $('#content .product-layout:not(.product-list), #content .product-layout:not(.product-grid)');
+	var productSet =  $('#content .product-layout:not(.product-list,.product-grid)');
 	if (cols == 2) {
 		productSet.attr('class', 'product-layout col-lg-6 col-md-6 col-sm-12 col-xs-12');
 	} else if (cols == 1) {
