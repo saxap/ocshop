@@ -13,7 +13,7 @@ class Template {
 		if (class_exists($class)) {
 			$this->adaptor = new $class($expire);
 		} else {
-			exit('Error: Could not load template driver ' . $adaptor . '!');
+			throw new \Exception('Error: Could not load template adaptor ' . $adaptor . '!');
 		}
 	}
 

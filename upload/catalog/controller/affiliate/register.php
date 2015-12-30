@@ -250,7 +250,7 @@ class ControllerAffiliateRegister extends Controller {
 		}
 
 		if (isset($this->request->post['zone_id'])) {
-			$data['zone_id'] = $this->request->post['zone_id'];
+			$data['zone_id'] = (int)$this->request->post['zone_id'];
 		} else {
 			$data['zone_id'] = '';
 		}
@@ -403,7 +403,7 @@ class ControllerAffiliateRegister extends Controller {
 			$this->error['country'] = $this->language->get('error_country');
 		}
 
-		if (!isset($this->request->post['zone_id']) || $this->request->post['zone_id'] == '') {
+		if (!isset($this->request->post['zone_id']) || $this->request->post['zone_id'] == '' || !is_numeric($this->request->post['zone_id'])) {
 			$this->error['zone'] = $this->language->get('error_zone');
 		}
 

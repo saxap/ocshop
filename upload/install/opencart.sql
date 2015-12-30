@@ -1721,7 +1721,7 @@ CREATE TABLE `oc_language` (
 
 INSERT INTO `oc_language` (`language_id`, `name`, `code`, `locale`, `image`, `directory`, `sort_order`, `status`) VALUES
 (1, 'Russian', 'ru', 'ru_RU.UTF-8,ru_RU,russian', 'ru.png', 'russian', 0, 1),
-(2, 'English', 'en', 'en_US.UTF-8,en_US,en-gb,english', 'gb.png', 'english', 1, 1);
+(2, 'English', 'en-gb', 'en_US.UTF-8,en_US,en-gb,english', 'gb.png', 'english', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -3381,7 +3381,7 @@ INSERT INTO `oc_setting` (`setting_id`, `store_id`, `code`, `key`, `value`, `ser
 (181, 0, 'config', 'config_meta_title', 'CMS для интернет магазинов OPENCART.PRO. Русский Opencart', 0),
 (182, 0, 'config', 'config_meta_description', 'CMS для интернет магазинов OPENCART.PRO. Русский Opencart', 0),
 (183, 0, 'config', 'config_meta_keyword', 'CMS для интернет магазинов OPENCART.PRO. Русский Opencart', 0),
-(184, 0, 'config', 'config_template', 'default', 0),
+(184, 0, 'config', 'config_theme', 'theme_default', 0),
 (185, 0, 'config', 'config_layout_id', '4', 0),
 (186, 0, 'config', 'config_country_id', '222', 0),
 (187, 0, 'config', 'config_zone_id', '3563', 0),

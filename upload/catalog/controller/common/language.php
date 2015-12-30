@@ -12,7 +12,7 @@ class ControllerCommonLanguage extends Controller {
 
 		$data['action'] = $this->url->ssl('common/language/language', '', $this->request->server['HTTPS']);
 
-		$data['code'] = $this->session->data['language'];
+		$data['code'] = $this->request->cookie['language'];
 
 		$this->load->model('localisation/language');
 
@@ -34,8 +34,6 @@ class ControllerCommonLanguage extends Controller {
 		} else {
 			$url_data = $this->request->get;
 
-			unset($url_data['_route_']);
-
 			$route = $url_data['route'];
 
 			unset($url_data['route']);
@@ -54,7 +52,7 @@ class ControllerCommonLanguage extends Controller {
 
 	public function language() {
 		if (isset($this->request->post['code'])) {
-			$this->session->data['language'] = $this->request->post['code'];
+			setcookie('language', $this->request->post['code'], time() + 60 * 60 * 24 * 30, '/', $this->request->server['HTTP_HOST']);
 		}
 
 		if (isset($this->request->post['redirect'])) {

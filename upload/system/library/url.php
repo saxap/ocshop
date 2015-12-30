@@ -5,11 +5,13 @@
 // *	@license	GNU General Public License version 3; see LICENSE.txt
 
 class Url {
-	private $domain;
+	private $base;
+	private $ssl;
 	private $rewrite = array();
 
-	public function __construct($domain) {
-		$this->domain = $domain;
+	public function __construct($base, $ssl = false) {
+		$this->base = $base;
+		$this->ssl = $ssl;
 	}
 	
 	public function addRewrite($rewrite) {
@@ -21,7 +23,7 @@ class Url {
 			return $this->ssl($route, $args);
 		}
 
-		$url = 'http://' . $this->domain . '/index.php?route=' . $route;
+		$url = 'http://' . $this->base . 'index.php?route=' . $route;
 
 		if ($args) {
 			if (is_array($args)) {
@@ -39,10 +41,10 @@ class Url {
 	}
 	
 	public function ssl($route, $args = '') {
-		if ($_SERVER['HTTPS']) {
-			$url = 'https://' . $this->domain . '/index.php?route=' . $route;
+		if ($this->ssl) {
+			$url = 'https://' . $this->base . 'index.php?route=' . $route;
 		} else {
-			$url = 'http://' . $this->domain . '/index.php?route=' . $route;
+			$url = 'http://' . $this->base . 'index.php?route=' . $route;
 		}
 		
 		if ($args) {
