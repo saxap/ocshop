@@ -85,12 +85,12 @@ class ControllerAccountReturn extends Controller {
 		$pagination = new Pagination();
 		$pagination->total = $return_total;
 		$pagination->page = $page;
-		$pagination->limit = $this->config->get('config_product_limit');
-		$pagination->url = $this->url->ssl('account/return', 'page={page}', true);
+		$pagination->limit = $this->config->get($this->config->get('config_theme') . '_product_limit');
+		$pagination->url = $this->url->link('account/return', 'page={page}', true);
 
 		$data['pagination'] = $pagination->render();
 
-		$data['results'] = sprintf($this->language->get('text_pagination'), ($return_total) ? (($page - 1) * $this->config->get('config_product_limit')) + 1 : 0, ((($page - 1) * $this->config->get('config_product_limit')) > ($return_total - $this->config->get('config_product_limit'))) ? $return_total : ((($page - 1) * $this->config->get('config_product_limit')) + $this->config->get('config_product_limit')), $return_total, ceil($return_total / $this->config->get('config_product_limit')));
+		$data['results'] = sprintf($this->language->get('text_pagination'), ($return_total) ? (($page - 1) * $this->config->get($this->config->get('config_theme') . '_product_limit')) + 1 : 0, ((($page - 1) * $this->config->get($this->config->get('config_theme') . '_product_limit')) > ($return_total - $this->config->get($this->config->get('config_theme') . '_product_limit'))) ? $return_total : ((($page - 1) * $this->config->get($this->config->get('config_theme') . '_product_limit')) + $this->config->get($this->config->get('config_theme') . '_product_limit')), $return_total, ceil($return_total / $this->config->get($this->config->get('config_theme') . '_product_limit')));
 
 		$data['continue'] = $this->url->ssl('account/account', '', true);
 
@@ -307,8 +307,6 @@ class ControllerAccountReturn extends Controller {
 
 			$this->response->redirect($this->url->ssl('account/return/success', '', true));
 		}
-
-		$this->load->language('account/return');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 		$this->document->setRobots('noindex,follow');

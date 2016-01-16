@@ -7,7 +7,6 @@
 class Event {
 	protected $registry;
 	public $data = array();
-	protected $current;
 
 	public function __construct($registry) {
 		$this->registry = $registry;
@@ -28,8 +27,8 @@ class Event {
 			if (preg_match('/^' . str_replace(array('\*', '\?'), array('.*', '.'), preg_quote($key, '/')) . '/', $trigger)) {
 				foreach ($value as $event) {
 					$result = $event->execute($this->registry, $args);
-				
-					if (!is_null($result)) {
+					
+					if (!is_null($result) && !($result instanceof Exception)) {
 						return $result;
 					}
 				}

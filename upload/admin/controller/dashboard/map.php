@@ -14,7 +14,7 @@ class ControllerDashboardMap extends Controller {
 		$data['text_sale'] = $this->language->get('text_sale');
 
 		$data['token'] = $this->session->data['token'];
-
+		
 		return $this->load->view('dashboard/map', $data);
 	}
 
@@ -28,7 +28,7 @@ class ControllerDashboardMap extends Controller {
 		foreach ($results as $result) {
 			$json[strtolower($result['iso_code_2'])] = array(
 				'total'  => $result['total'],
-				'amount' => $this->currency->format($result['amount'], $this->config->get('currency_code'))
+				'amount' => $this->currency->format($result['amount'], $this->config->get('config_currency'))
 			);
 		}
 
