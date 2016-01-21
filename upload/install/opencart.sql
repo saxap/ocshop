@@ -1870,7 +1870,7 @@ INSERT INTO `oc_length_class` (`length_class_id`, `value`) VALUES
 
 DROP TABLE IF EXISTS `oc_length_class_description`;
 CREATE TABLE `oc_length_class_description` (
-  `length_class_id` int(11) NOT NULL AUTO_INCREMENT,
+  `length_class_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
   `title` varchar(32) NOT NULL,
   `unit` varchar(4) NOT NULL,
@@ -1883,11 +1883,11 @@ CREATE TABLE `oc_length_class_description` (
 
 INSERT INTO `oc_length_class_description` (`length_class_id`, `language_id`, `title`, `unit`) VALUES
 (1, 1, 'Сантиметр', 'см'),
-(2, 2, 'Centimeter', 'cm'),
-(3, 1, 'Миллиметр', 'мм'),
-(4, 2, 'Millimeter', 'mm'),
-(5, 1, 'Дюйм', 'in'),
-(6, 2, 'Inch', 'in');
+(1, 2, 'Centimeter', 'cm'),
+(2, 1, 'Миллиметр', 'мм'),
+(2, 2, 'Millimeter', 'mm'),
+(3, 1, 'Дюйм', 'in'),
+(3, 2, 'Inch', 'in');
 
 -- --------------------------------------------------------
 
@@ -3934,7 +3934,7 @@ INSERT INTO `oc_weight_class` (`weight_class_id`, `value`) VALUES
 
 DROP TABLE IF EXISTS `oc_weight_class_description`;
 CREATE TABLE `oc_weight_class_description` (
-  `weight_class_id` int(11) NOT NULL AUTO_INCREMENT,
+  `weight_class_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
   `title` varchar(32) NOT NULL,
   `unit` varchar(4) NOT NULL,
@@ -3947,13 +3947,13 @@ CREATE TABLE `oc_weight_class_description` (
 
 INSERT INTO `oc_weight_class_description` (`weight_class_id`, `language_id`, `title`, `unit`) VALUES
 (1, 1, 'Килограммы', 'кг'),
-(2, 2, 'Kilogram', 'kg'),
-(3, 1, 'Граммы', 'г'),
-(4, 2, 'Gram', 'g'),
+(1, 2, 'Kilogram', 'kg'),
+(2, 1, 'Граммы', 'г'),
+(2, 2, 'Gram', 'g'),
 (5, 1, 'Фунты', 'lb'),
-(6, 2, 'Pound', 'lb'),
-(7, 1, 'Унции', 'oz'),
-(7, 2, 'Ounce', 'oz');
+(5, 2, 'Pound', 'lb'),
+(6, 1, 'Унции', 'oz'),
+(6, 2, 'Ounce', 'oz');
 
 -- --------------------------------------------------------
 
