@@ -133,7 +133,7 @@ class ControllerModuleCachemanager extends Controller {
 		if(file_exists($dirname)) {
 			if(is_dir($dirname)){
 				$dir=opendir($dirname);
-				while($filename=readdir($dir)){
+				while(($filename=readdir($dir)) !== false){
 					if($filename!="." && $filename!=".."){
 						$file=$dirname."/".$filename;
 						$this->deldir($file); 
