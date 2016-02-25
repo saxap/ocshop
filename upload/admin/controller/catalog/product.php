@@ -43,8 +43,24 @@ class ControllerCatalogProduct extends Controller {
 				$url .= '&filter_price=' . $this->request->get['filter_price'];
 			}
 
+			if (isset($this->request->get['filter_price_min'])) {
+				$url .= '&filter_price_min=' . $this->request->get['filter_price_min'];
+			}
+
+			if (isset($this->request->get['filter_price_max'])) {
+				$url .= '&filter_price_max=' . $this->request->get['filter_price_max'];
+			}
+
 			if (isset($this->request->get['filter_quantity'])) {
 				$url .= '&filter_quantity=' . $this->request->get['filter_quantity'];
+			}
+
+			if (isset($this->request->get['filter_quantity_min'])) {
+				$url .= '&filter_quantity_min=' . $this->request->get['filter_quantity_min'];
+			}
+
+			if (isset($this->request->get['filter_quantity_max'])) {
+				$url .= '&filter_quantity_max=' . $this->request->get['filter_quantity_max'];
 			}
 
 			if (isset($this->request->get['filter_status'])) {
@@ -110,8 +126,24 @@ class ControllerCatalogProduct extends Controller {
 				$url .= '&filter_price=' . $this->request->get['filter_price'];
 			}
 
+			if (isset($this->request->get['filter_price_min'])) {
+				$url .= '&filter_price_min=' . $this->request->get['filter_price_min'];
+			}
+
+			if (isset($this->request->get['filter_price_max'])) {
+				$url .= '&filter_price_max=' . $this->request->get['filter_price_max'];
+			}
+
 			if (isset($this->request->get['filter_quantity'])) {
 				$url .= '&filter_quantity=' . $this->request->get['filter_quantity'];
+			}
+
+			if (isset($this->request->get['filter_quantity_min'])) {
+				$url .= '&filter_quantity_min=' . $this->request->get['filter_quantity_min'];
+			}
+
+			if (isset($this->request->get['filter_quantity_max'])) {
+				$url .= '&filter_quantity_max=' . $this->request->get['filter_quantity_max'];
 			}
 
 			if (isset($this->request->get['filter_status'])) {
@@ -179,8 +211,24 @@ class ControllerCatalogProduct extends Controller {
 				$url .= '&filter_price=' . $this->request->get['filter_price'];
 			}
 
+			if (isset($this->request->get['filter_price_min'])) {
+				$url .= '&filter_price_min=' . $this->request->get['filter_price_min'];
+			}
+
+			if (isset($this->request->get['filter_price_max'])) {
+				$url .= '&filter_price_max=' . $this->request->get['filter_price_max'];
+			}
+
 			if (isset($this->request->get['filter_quantity'])) {
 				$url .= '&filter_quantity=' . $this->request->get['filter_quantity'];
+			}
+
+			if (isset($this->request->get['filter_quantity_min'])) {
+				$url .= '&filter_quantity_min=' . $this->request->get['filter_quantity_min'];
+			}
+
+			if (isset($this->request->get['filter_quantity_max'])) {
+				$url .= '&filter_quantity_max=' . $this->request->get['filter_quantity_max'];
 			}
 
 			if (isset($this->request->get['filter_status'])) {
@@ -248,8 +296,24 @@ class ControllerCatalogProduct extends Controller {
 				$url .= '&filter_price=' . $this->request->get['filter_price'];
 			}
 
+			if (isset($this->request->get['filter_price_min'])) {
+				$url .= '&filter_price_min=' . $this->request->get['filter_price_min'];
+			}
+
+			if (isset($this->request->get['filter_price_max'])) {
+				$url .= '&filter_price_max=' . $this->request->get['filter_price_max'];
+			}
+
 			if (isset($this->request->get['filter_quantity'])) {
 				$url .= '&filter_quantity=' . $this->request->get['filter_quantity'];
+			}
+
+			if (isset($this->request->get['filter_quantity_min'])) {
+				$url .= '&filter_quantity_min=' . $this->request->get['filter_quantity_min'];
+			}
+
+			if (isset($this->request->get['filter_quantity_max'])) {
+				$url .= '&filter_quantity_max=' . $this->request->get['filter_quantity_max'];
 			}
 
 			if (isset($this->request->get['filter_status'])) {
@@ -308,10 +372,34 @@ class ControllerCatalogProduct extends Controller {
 			$filter_price = null;
 		}
 
+		if (isset($this->request->get['filter_price_min'])) {
+			$filter_price_min = $this->request->get['filter_price_min'];
+		} else {
+			$filter_price_min = null;
+		}
+
+		if (isset($this->request->get['filter_price_max'])) {
+			$filter_price_max = $this->request->get['filter_price_max'];
+		} else {
+			$filter_price_max = null;
+		}
+
 		if (isset($this->request->get['filter_quantity'])) {
 			$filter_quantity = $this->request->get['filter_quantity'];
 		} else {
 			$filter_quantity = null;
+		}
+
+		if (isset($this->request->get['filter_quantity_min'])) {
+			$filter_quantity_min = $this->request->get['filter_quantity_min'];
+		} else {
+			$filter_quantity_min = null;
+		}
+
+		if (isset($this->request->get['filter_quantity_max'])) {
+			$filter_quantity_max = $this->request->get['filter_quantity_max'];
+		} else {
+			$filter_quantity_max = null;
 		}
 
 		if (isset($this->request->get['filter_status'])) {
@@ -415,8 +503,24 @@ class ControllerCatalogProduct extends Controller {
 			$url .= '&filter_price=' . $this->request->get['filter_price'];
 		}
 
+		if (isset($this->request->get['filter_price_min'])) {
+			$url .= '&filter_price_min=' . $this->request->get['filter_price_min'];
+		}
+
+		if (isset($this->request->get['filter_price_max'])) {
+			$url .= '&filter_price_max=' . $this->request->get['filter_price_max'];
+		}
+
 		if (isset($this->request->get['filter_quantity'])) {
 			$url .= '&filter_quantity=' . $this->request->get['filter_quantity'];
+		}
+
+		if (isset($this->request->get['filter_quantity_min'])) {
+			$url .= '&filter_quantity_min=' . $this->request->get['filter_quantity_min'];
+		}
+
+		if (isset($this->request->get['filter_quantity_max'])) {
+			$url .= '&filter_quantity_max=' . $this->request->get['filter_quantity_max'];
 		}
 
 		if (isset($this->request->get['filter_status'])) {
@@ -475,7 +579,11 @@ class ControllerCatalogProduct extends Controller {
 			'filter_name'	  => $filter_name,
 			'filter_model'	  => $filter_model,
 			'filter_price'	  => $filter_price,
+			'filter_price_min'=> $filter_price_min,
+			'filter_price_max'=> $filter_price_max,
 			'filter_quantity' => $filter_quantity,
+			'filter_quantity_min' => $filter_quantity_min,
+			'filter_quantity_max' => $filter_quantity_max,
 			'filter_status'   => $filter_status,
 			'filter_category'		=> $filter_category,
 			'filter_sub_category'		=> $filter_sub_category,
@@ -561,6 +669,8 @@ class ControllerCatalogProduct extends Controller {
 		$data['entry_sub_category'] = $this->language->get('entry_sub_category');
 		$data['entry_manufacturer'] = $this->language->get('entry_manufacturer');
 		$data['entry_noindex'] = $this->language->get('entry_noindex');
+		$data['entry_min'] = $this->language->get('entry_min');
+		$data['entry_max'] = $this->language->get('entry_max');
 
 		$data['button_copy'] = $this->language->get('button_copy');
 		$data['button_add'] = $this->language->get('button_add');
@@ -568,6 +678,7 @@ class ControllerCatalogProduct extends Controller {
 		$data['button_shop'] = $this->language->get('button_shop');
 		$data['button_delete'] = $this->language->get('button_delete');
 		$data['button_filter'] = $this->language->get('button_filter');
+		$data['button_clear'] = $this->language->get('button_clear');
 		
 		$data['button_enable'] = $this->language->get('button_enable');
         $data['button_disable'] = $this->language->get('button_disable');
@@ -608,8 +719,24 @@ class ControllerCatalogProduct extends Controller {
 			$url .= '&filter_price=' . $this->request->get['filter_price'];
 		}
 
+		if (isset($this->request->get['filter_price_min'])) {
+			$url .= '&filter_price_min=' . $this->request->get['filter_price_min'];
+		}
+
+		if (isset($this->request->get['filter_price_max'])) {
+			$url .= '&filter_price_max=' . $this->request->get['filter_price_max'];
+		}
+
 		if (isset($this->request->get['filter_quantity'])) {
 			$url .= '&filter_quantity=' . $this->request->get['filter_quantity'];
+		}
+
+		if (isset($this->request->get['filter_quantity_min'])) {
+			$url .= '&filter_quantity_min=' . $this->request->get['filter_quantity_min'];
+		}
+
+		if (isset($this->request->get['filter_quantity_max'])) {
+			$url .= '&filter_quantity_max=' . $this->request->get['filter_quantity_max'];
 		}
 
 		if (isset($this->request->get['filter_status'])) {
@@ -663,8 +790,24 @@ class ControllerCatalogProduct extends Controller {
 			$url .= '&filter_price=' . $this->request->get['filter_price'];
 		}
 
+		if (isset($this->request->get['filter_price_min'])) {
+			$url .= '&filter_price_min=' . $this->request->get['filter_price_min'];
+		}
+
+		if (isset($this->request->get['filter_price_max'])) {
+			$url .= '&filter_price_max=' . $this->request->get['filter_price_max'];
+		}
+
 		if (isset($this->request->get['filter_quantity'])) {
 			$url .= '&filter_quantity=' . $this->request->get['filter_quantity'];
+		}
+
+		if (isset($this->request->get['filter_quantity_min'])) {
+			$url .= '&filter_quantity_min=' . $this->request->get['filter_quantity_min'];
+		}
+
+		if (isset($this->request->get['filter_quantity_max'])) {
+			$url .= '&filter_quantity_max=' . $this->request->get['filter_quantity_max'];
 		}
 
 		if (isset($this->request->get['filter_status'])) {
@@ -707,7 +850,11 @@ class ControllerCatalogProduct extends Controller {
 		$data['filter_name'] = $filter_name;
 		$data['filter_model'] = $filter_model;
 		$data['filter_price'] = $filter_price;
+		$data['filter_price_min'] = $filter_price_min;
+		$data['filter_price_max'] = $filter_price_max;
 		$data['filter_quantity'] = $filter_quantity;
+		$data['filter_quantity_min'] = $filter_quantity_min;
+		$data['filter_quantity_max'] = $filter_quantity_max;
 		$data['filter_status'] = $filter_status;
 		$data['filter_category_name'] = $filter_category_name;
 		$data['filter_category'] = $filter_category;
@@ -906,8 +1053,24 @@ class ControllerCatalogProduct extends Controller {
 			$url .= '&filter_price=' . $this->request->get['filter_price'];
 		}
 
+		if (isset($this->request->get['filter_price_min'])) {
+			$url .= '&filter_price_min=' . $this->request->get['filter_price_min'];
+		}
+
+		if (isset($this->request->get['filter_price_max'])) {
+			$url .= '&filter_price_max=' . $this->request->get['filter_price_max'];
+		}
+
 		if (isset($this->request->get['filter_quantity'])) {
 			$url .= '&filter_quantity=' . $this->request->get['filter_quantity'];
+		}
+
+		if (isset($this->request->get['filter_quantity_min'])) {
+			$url .= '&filter_quantity_min=' . $this->request->get['filter_quantity_min'];
+		}
+
+		if (isset($this->request->get['filter_quantity_max'])) {
+			$url .= '&filter_quantity_max=' . $this->request->get['filter_quantity_max'];
 		}
 
 		if (isset($this->request->get['filter_status'])) {
