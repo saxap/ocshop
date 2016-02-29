@@ -503,8 +503,24 @@ class ModelCatalogProduct extends Model {
 			$sql .= " AND p.price LIKE '" . $this->db->escape($data['filter_price']) . "%'";
 		}
 
+		if (isset($data['filter_price_min']) && !is_null($data['filter_price_min'])) {
+			$sql .= " AND p.price >= '" . (float)$data['filter_price_min'] . "'";
+		}
+
+		if (isset($data['filter_price_max']) && !is_null($data['filter_price_max'])) {
+			$sql .= " AND p.price <= '" . (float)$data['filter_price_max'] . "'";
+		}
+
 		if (isset($data['filter_quantity']) && !is_null($data['filter_quantity'])) {
 			$sql .= " AND p.quantity = '" . (int)$data['filter_quantity'] . "'";
+		}
+
+		if (isset($data['filter_quantity_min']) && !is_null($data['filter_quantity_min'])) {
+			$sql .= " AND p.quantity >= '" . (int)$data['filter_quantity_min'] . "'";
+		}
+
+		if (isset($data['filter_quantity_max']) && !is_null($data['filter_quantity_max'])) {
+			$sql .= " AND p.quantity <= '" . (int)$data['filter_quantity_max'] . "'";
 		}
 
 		if (isset($data['filter_status']) && !is_null($data['filter_status'])) {
@@ -823,8 +839,24 @@ class ModelCatalogProduct extends Model {
 			$sql .= " AND p.price LIKE '" . $this->db->escape($data['filter_price']) . "%'";
 		}
 
+		if (isset($data['filter_price_min']) && !is_null($data['filter_price_min'])) {
+			$sql .= " AND p.price >= '" . (float)$data['filter_price_min'] . "'";
+		}
+
+		if (isset($data['filter_price_max']) && !is_null($data['filter_price_max'])) {
+			$sql .= " AND p.price <= '" . (float)$data['filter_price_max'] . "'";
+		}
+
 		if (isset($data['filter_quantity']) && !is_null($data['filter_quantity'])) {
 			$sql .= " AND p.quantity = '" . (int)$data['filter_quantity'] . "'";
+		}
+
+		if (isset($data['filter_quantity_min']) && !is_null($data['filter_quantity_min'])) {
+			$sql .= " AND p.quantity >= '" . (int)$data['filter_quantity_min'] . "'";
+		}
+
+		if (isset($data['filter_quantity_max']) && !is_null($data['filter_quantity_max'])) {
+			$sql .= " AND p.quantity <= '" . (int)$data['filter_quantity_max'] . "'";
 		}
 
 		if (isset($data['filter_status']) && !is_null($data['filter_status'])) {
