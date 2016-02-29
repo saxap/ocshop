@@ -49,7 +49,7 @@ class ModelBlogCategory extends Model {
 		$this->cache->delete('seo_pro');
 		$this->cache->delete('seo_url');
 
-		if (isset($data['keyword'])) {
+		if (isset($data['keyword']) && !empty($data['keyword'])) {
 			$this->db->query("INSERT INTO " . DB_PREFIX . "url_alias SET query = 'blog_category_id=" . (int)$blog_category_id . "', keyword = '" . $this->db->escape($data['keyword']) . "'");
 		}
 
