@@ -35,5 +35,5 @@ class DB {
 	
 	public function connected() {
 		return $this->adaptor->connected();
-	}	
+	}
 }

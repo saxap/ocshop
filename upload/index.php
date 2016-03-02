@@ -5,7 +5,7 @@
 // *	@license	GNU General Public License version 3; see LICENSE.txt
 
 // Version
-define('VERSION', '2.2.0.0_rc');
+define('VERSION', '2.2.0.1b');
 
 // Configuration
 if (is_file('config.php')) {

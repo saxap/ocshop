@@ -10,7 +10,6 @@ class ControllerOpenbayAmazon extends Controller {
 			return;
 		}
 
-		$this->load->library('log');
 		$this->load->model('checkout/order');
 		$this->load->model('openbay/amazon_order');
 		$this->load->language('openbay/amazon_order');
@@ -18,11 +17,9 @@ class ControllerOpenbayAmazon extends Controller {
 		$logger = new Log('amazon.log');
 		$logger->write('amazon/order - started');
 
-		$token = $this->config->get('openbay_amazon_token');
-
 		$incoming_token = isset($this->request->post['token']) ? $this->request->post['token'] : '';
 
-		if ($incoming_token !== $token) {
+		if (!hash_equals($this->config->get('openbay_amazon_token'), $incoming_token)) {
 			$logger->write('amazon/order - Incorrect token: ' . $incoming_token);
 			return;
 		}
@@ -303,10 +300,6 @@ class ControllerOpenbayAmazon extends Controller {
 		$logger->write('Order ' . $amazon_order_id . ' was added to the database (ID: ' . $order_id . ')');
 		$logger->write("Finished processing the order");
 
-		$logger->write("Notifying Openbay::addOrder($order_id)");
-		$this->openbay->addOrder($order_id);
-		$logger->write("Openbay notified");
-
 		$this->model_openbay_amazon_order->acknowledgeOrder($order_id);
 
 		if($this->config->get('openbay_amazon_notify_admin') == 1){
@@ -322,19 +315,15 @@ class ControllerOpenbayAmazon extends Controller {
 			return;
 		}
 
-		$this->load->library('log');
-		$this->load->library('openbay/amazon');
 		$this->load->model('openbay/amazon_listing');
 		$this->load->model('openbay/amazon_product');
 
 		$logger = new Log('amazon_listing.log');
 		$logger->write('amazon/listing - started');
 
-		$token = $this->config->get('openbay_amazon_token');
-
 		$incoming_token = isset($this->request->post['token']) ? $this->request->post['token'] : '';
 
-		if ($incoming_token !== $token) {
+		if (!hash_equals($this->config->get('openbay_amazon_token'), $incoming_token)) {
 			$logger->write('amazon/listing - Incorrect token: ' . $incoming_token);
 			return;
 		}
@@ -372,11 +361,9 @@ class ControllerOpenbayAmazon extends Controller {
 		$logger = new Log('amazon.log');
 		$logger->write('amazon/listing_reports - started');
 
-		$token = $this->config->get('openbay_amazon_token');
-
 		$incoming_token = isset($this->request->post['token']) ? $this->request->post['token'] : '';
 
-		if ($incoming_token !== $token) {
+		if (!hash_equals($this->config->get('openbay_amazon_token'), $incoming_token)) {
 			$logger->write('amazon/listing_reports - Incorrect token: ' . $incoming_token);
 			return;
 		}
@@ -421,9 +408,7 @@ class ControllerOpenbayAmazon extends Controller {
 
 		ob_start();
 
-		$this->load->library('openbay/amazon');
 		$this->load->model('openbay/amazon_product');
-		$this->load->library('log');
 		$logger = new Log('amazon_product.log');
 
 		$logger->write("AmazonProduct/inbound: incoming data");
@@ -502,11 +487,9 @@ class ControllerOpenbayAmazon extends Controller {
 		$logger = new Log('amazon.log');
 		$logger->write('amazon/search - started');
 
-		$token = $this->config->get('openbay_amazon_token');
-
 		$incoming_token = isset($this->request->post['token']) ? $this->request->post['token'] : '';
 
-		if ($incoming_token !== $token) {
+		if (!hash_equals($this->config->get('openbay_amazon_token'), $incoming_token)) {
 			$logger->write('amazon/search - Incorrect token: ' . $incoming_token);
 			return;
 		}
@@ -558,7 +541,9 @@ class ControllerOpenbayAmazon extends Controller {
 				$this->response->setOutput("error 005");
 				return;
 			}
+
 			$product_id = trim((string)$data_xml->product_id);
+
 			if ($product_id === "all") {
 				$all_rows = $this->db->query("SELECT * FROM `" . DB_PREFIX . "amazon_product`")->rows;
 
@@ -582,7 +567,7 @@ class ControllerOpenbayAmazon extends Controller {
 		}
 	}
 
-	public function eventAddOrderHistory($order_id) {
+	public function eventAddOrderHistory($route, $order_id, $order_status_id, $comment = '', $notify = false, $override = false) {
 		if (!empty($order_id)) {
 			$this->load->model('openbay/amazon_order');
 

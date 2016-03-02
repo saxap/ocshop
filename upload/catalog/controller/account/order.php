@@ -5,8 +5,6 @@
 // *	@license	GNU General Public License version 3; see LICENSE.txt
 
 class ControllerAccountOrder extends Controller {
-	private $error = array();
-
 	public function index() {
 		if (!$this->customer->isLogged()) {
 			$this->session->data['redirect'] = $this->url->ssl('account/order', '', true);
@@ -17,7 +15,13 @@ class ControllerAccountOrder extends Controller {
 		$this->load->language('account/order');
 
 		$this->document->setTitle($this->language->get('heading_title'));
+		
+		$url = '';
 
+		if (isset($this->request->get['page'])) {
+			$url .= '&page=' . $this->request->get['page'];
+		}
+		
 		$data['breadcrumbs'] = array();
 
 		$data['breadcrumbs'][] = array(
@@ -29,13 +33,7 @@ class ControllerAccountOrder extends Controller {
 			'text' => $this->language->get('text_account'),
 			'href' => $this->url->ssl('account/account', '', true)
 		);
-
-		$url = '';
-
-		if (isset($this->request->get['page'])) {
-			$url .= '&page=' . $this->request->get['page'];
-		}
-
+		
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('heading_title'),
 			'href' => $this->url->ssl('account/order', $url, true)
@@ -46,11 +44,11 @@ class ControllerAccountOrder extends Controller {
 		$data['text_empty'] = $this->language->get('text_empty');
 
 		$data['column_order_id'] = $this->language->get('column_order_id');
-		$data['column_status'] = $this->language->get('column_status');
-		$data['column_date_added'] = $this->language->get('column_date_added');
 		$data['column_customer'] = $this->language->get('column_customer');
 		$data['column_product'] = $this->language->get('column_product');
 		$data['column_total'] = $this->language->get('column_total');
+		$data['column_status'] = $this->language->get('column_status');
+		$data['column_date_added'] = $this->language->get('column_date_added');
 
 		$data['button_view'] = $this->language->get('button_view');
 		$data['button_continue'] = $this->language->get('button_continue');
@@ -80,7 +78,7 @@ class ControllerAccountOrder extends Controller {
 				'date_added' => date($this->language->get('date_format_short'), strtotime($result['date_added'])),
 				'products'   => ($product_total + $voucher_total),
 				'total'      => $this->currency->format($result['total'], $result['currency_code'], $result['currency_value']),
-				'href'       => $this->url->ssl('account/order/info', 'order_id=' . $result['order_id'], true),
+				'view'       => $this->url->link('account/order/info', 'order_id=' . $result['order_id'], true),
 			);
 		}
 
@@ -128,6 +126,12 @@ class ControllerAccountOrder extends Controller {
 		if ($order_info) {
 			$this->document->setTitle($this->language->get('text_order'));
 
+			$url = '';
+
+			if (isset($this->request->get['page'])) {
+				$url .= '&page=' . $this->request->get['page'];
+			}
+
 			$data['breadcrumbs'] = array();
 
 			$data['breadcrumbs'][] = array(
@@ -139,12 +143,6 @@ class ControllerAccountOrder extends Controller {
 				'text' => $this->language->get('text_account'),
 				'href' => $this->url->ssl('account/account', '', true)
 			);
-
-			$url = '';
-
-			if (isset($this->request->get['page'])) {
-				$url .= '&page=' . $this->request->get['page'];
-			}
 
 			$data['breadcrumbs'][] = array(
 				'text' => $this->language->get('heading_title'),
@@ -168,6 +166,7 @@ class ControllerAccountOrder extends Controller {
 			$data['text_payment_address'] = $this->language->get('text_payment_address');
 			$data['text_history'] = $this->language->get('text_history');
 			$data['text_comment'] = $this->language->get('text_comment');
+			$data['text_no_results'] = $this->language->get('text_no_results');
 
 			$data['column_name'] = $this->language->get('column_name');
 			$data['column_model'] = $this->language->get('column_model');

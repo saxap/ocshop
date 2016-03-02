@@ -4,6 +4,11 @@
 // *	@source		See SOURCE.txt for source and other copyright.
 // *	@license	GNU General Public License version 3; see LICENSE.txt
 
+/*
+* Event System Userguide
+* 
+* https://github.com/opencart/opencart/wiki/Events-(script-notifications)-2.2.x.x
+*/
 class Event {
 	protected $registry;
 	public $data = array();

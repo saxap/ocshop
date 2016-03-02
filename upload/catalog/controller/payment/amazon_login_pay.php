@@ -17,7 +17,7 @@ class ControllerPaymentAmazonLoginPay extends Controller {
 			$this->response->redirect($this->url->ssl('payment/amazon_login_pay/failure', '', true));
 		}
 
-		if ($this->config->get('amazon_login_pay_minimum_total') > 0 && $this->config->get('amazon_login_pay_minimum_total') > $this->cart->getTotal()) {
+		if ($this->config->get('amazon_login_pay_minimum_total') > 0 && $this->config->get('amazon_login_pay_minimum_total') > $this->cart->getSubTotal()) {
 			$this->failure(sprintf($this->language->get('error_minimum'), $this->currency->format($this->config->get('amazon_login_pay_minimum_total'), $this->session->data['currency'])));
 		}
 
@@ -72,7 +72,7 @@ class ControllerPaymentAmazonLoginPay extends Controller {
 			$this->response->redirect($this->url->ssl('payment/amazon_login_pay/failure', '', true));
 		}
 
-		if ($this->config->get('amazon_login_pay_minimum_total') > 0 && $this->config->get('amazon_login_pay_minimum_total') > $this->cart->getTotal()) {
+		if ($this->config->get('amazon_login_pay_minimum_total') > 0 && $this->config->get('amazon_login_pay_minimum_total') > $this->cart->getSubTotal()) {
 			$this->failure(sprintf($this->language->get('error_minimum'), $this->currency->format($this->config->get('amazon_login_pay_minimum_total'), $this->session->data['currency'])));
 		}
 
@@ -121,7 +121,7 @@ class ControllerPaymentAmazonLoginPay extends Controller {
 			$this->response->redirect($this->url->ssl('payment/amazon_login_pay/loginFailure', '', true));
 		}
 
-		if ($this->config->get('amazon_login_pay_minimum_total') > 0 && $this->config->get('amazon_login_pay_minimum_total') > $this->cart->getTotal()) {
+		if ($this->config->get('amazon_login_pay_minimum_total') > 0 && $this->config->get('amazon_login_pay_minimum_total') > $this->cart->getSubTotal()) {
 			$this->failure(sprintf($this->language->get('error_minimum'), $this->currency->format($this->config->get('amazon_login_pay_minimum_total'), $this->session->data['currency'])));
 		}
 
@@ -183,7 +183,7 @@ class ControllerPaymentAmazonLoginPay extends Controller {
 			'taxes'  => &$taxes,
 			'total'  => &$total
 		);
-			
+
 		$old_taxes = $taxes;
 		$lpa_tax = array();
 
@@ -197,7 +197,7 @@ class ControllerPaymentAmazonLoginPay extends Controller {
 			} else {
 				$code = $value['key'];
 			}
-			
+
 			$sort_order[$key] = $this->config->get($code . '_sort_order');
 		}
 
@@ -209,10 +209,10 @@ class ControllerPaymentAmazonLoginPay extends Controller {
 			} else {
 				$code = $result['key'];
 			}
-			
+
 			if ($this->config->get($code . '_status')) {
 				$this->load->model('total/' . $code);
-				
+
 				// We have to put the totals in an array so that they pass by reference.
 				$this->{'model_total_' . $code}->getTotal($total_data);
 
@@ -244,9 +244,9 @@ class ControllerPaymentAmazonLoginPay extends Controller {
 			$sort_order[$key] = $value['sort_order'];
 
 			if (isset($lpa_tax[$value['code']])) {
-				$total_data[$key]['lpa_tax'] = $lpa_tax[$value['code']];
+				$total_data['totals'][$key]['lpa_tax'] = $lpa_tax[$value['code']];
 			} else {
-				$total_data[$key]['lpa_tax'] = '';
+				$total_data['totals'][$key]['lpa_tax'] = '';
 			}
 		}
 
@@ -369,7 +369,7 @@ class ControllerPaymentAmazonLoginPay extends Controller {
 
 		$order_data['products'] = $product_data;
 		$order_data['vouchers'] = array();
-		$order_data['totals'] = $total_data;
+		$order_data['totals'] = $total_data['totals'];
 
 		$order_data['comment'] = '';
 		$order_data['total'] = $total;
@@ -439,7 +439,7 @@ class ControllerPaymentAmazonLoginPay extends Controller {
 
 		$this->session->data['order_id'] = $this->model_checkout_order->addOrder($order_data);
 
-		$this->model_payment_amazon_login_pay->addTaxesForTotals($this->session->data['order_id'], $total_data);
+		$this->model_payment_amazon_login_pay->addTaxesForTotals($this->session->data['order_id'], $total_data['totals']);
 
 		$this->session->data['lpa']['amazon_login_pay_order_id'] = $this->model_payment_amazon_login_pay->setOrderShipping($this->session->data['order_id'], $order_data['lpa_free_shipping']);
 
@@ -850,7 +850,7 @@ class ControllerPaymentAmazonLoginPay extends Controller {
 	public function ipn() {
 		$this->load->model('payment/amazon_login_pay');
 		$this->model_payment_amazon_login_pay->logger('IPN received');
-		if (isset($this->request->get['token']) && $this->request->get['token'] == $this->config->get('amazon_login_pay_ipn_token')) {
+		if (isset($this->request->get['token']) && hash_equals($this->config->get('amazon_login_pay_ipn_token'), $this->request->get['token'])) {
 			$body = file_get_contents('php://input');
 			if ($body) {
 				$ipn_details_xml = $this->model_payment_amazon_login_pay->parseRawMessage($body);
@@ -874,7 +874,7 @@ class ControllerPaymentAmazonLoginPay extends Controller {
 		$this->response->addHeader('Content-Type: application/json');
 	}
 
-	public function capture($order_id) {
+	public function capture($route, $output, $order_id, $order_status_id) {
 		$this->load->model('payment/amazon_login_pay');
 		$this->load->model('checkout/order');
 

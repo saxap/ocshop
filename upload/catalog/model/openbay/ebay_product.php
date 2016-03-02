@@ -253,9 +253,9 @@ class ModelOpenbayEbayProduct extends Model {
 						`minimum`               = '1',
 						`status`                = '1',
 						" . $openstock_sql . "
-						`date_available`        = 'now()',
-						`date_added`            = 'now()',
-						`date_modified`         = 'now()'
+						`date_available`        = now(),
+						`date_added`            = now(),
+						`date_modified`         = now()
 				");
 
 				$product_id = $this->db->getLastId();
