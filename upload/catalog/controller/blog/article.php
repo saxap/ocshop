@@ -131,7 +131,9 @@ class ControllerBlogArticle extends Controller {
 			$this->document->setDescription($article_info['meta_description']);
 			$this->document->setKeywords($article_info['meta_keyword']);
 			$this->document->addLink($this->url->link('blog/article', 'article_id=' . $this->request->get['article_id']), 'canonical');
-			
+			$this->document->addScript('catalog/view/javascript/jquery/magnific/jquery.magnific-popup.min.js');
+			$this->document->addStyle('catalog/view/javascript/jquery/magnific/magnific-popup.css');
+
 			if ($article_info['meta_h1']) {	
 				$data['heading_title'] = $article_info['meta_h1'];
 				} else {
