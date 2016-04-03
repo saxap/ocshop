@@ -37,7 +37,7 @@
               <span class="fa fa-stack"><i class="fa fa-star fa-stack-1x"></i><i class="fa fa-star-o fa-stack-1x"></i></span>
               <?php } ?>
               <?php } ?>
-              <a href="" onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;"><?php echo $reviews; ?></a> / <a href="" onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;"><?php echo $text_write; ?></a></p>
+              <a href="" onclick="gotoReview(); return false;"><?php echo $reviews; ?></a> / <a href="" onclick="gotoReviewWrite(); return false;"><?php echo $text_write; ?></a></p>
             <hr>
             <!-- AddThis Button BEGIN -->
             <div class="addthis_toolbox addthis_default_style"><a class="addthis_button_facebook_like" fb:like:layout="button_count"></a> <a class="addthis_button_tweet"></a> <a class="addthis_button_pinterest_pinit"></a> <a class="addthis_counter addthis_pill_style"></a></div>
@@ -353,23 +353,26 @@ $('#button-review').on('click', function() {
 //--></script>
 <script type="text/javascript"><!--
 $(document).ready(function() {
+  $('#description').find('a>img').each(function(){
+    $(this).parent().addClass('gallery');
+  });
+  $('#description').magnificPopup({
+    delegate: 'a.gallery',
+    type: 'image',
+    gallery: {
+        enabled: true
+    }
+  });
 
-    $('.date').datepicker({dateFormat: 'yy-mm-dd'});
-    $('.datetime').datetimepicker({
-        dateFormat: 'yy-mm-dd',
-        timeFormat: 'h:m'
-    });
-    $('.time').timepicker({timeFormat: 'h:m'});
-
-    $('.thumbnails').magnificPopup({
-        delegate: 'li a', // child items selector, by clicking on it popup will open
-        type: 'image',
-        gallery: {
-            enabled: true
-        }
-        // other options
-    });
-
+  gotoReview = function() {
+    offset = $('#form-review').offset();
+    $('html, body').animate({ scrollTop: offset.top-20 }, 'slow');
+  }
+  gotoReviewWrite = function() {
+    offset = $('#form-review h2').offset();
+    $('html, body').animate({ scrollTop: offset.top-20 }, 'slow');
+  }
+  
 });
 --></script> 
 <?php echo $footer; ?>
