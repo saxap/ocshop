@@ -291,6 +291,8 @@ class ControllerCatalogManufacturer extends Controller {
 		$data['entry_sort_order'] = $this->language->get('entry_sort_order');
 		$data['entry_noindex'] = $this->language->get('entry_noindex');
 		$data['entry_customer_group'] = $this->language->get('entry_customer_group');
+		$data['entry_layout'] = $this->language->get('entry_layout');
+		$data['tab_design'] = $this->language->get('tab_design');
 		$data['entry_related_mn'] = $this->language->get('entry_related_mn');
 		$data['entry_related_article'] = $this->language->get('entry_related_article');
 
@@ -447,6 +449,18 @@ class ControllerCatalogManufacturer extends Controller {
 		} else {
 			$data['noindex'] = 1;
 		}
+		
+		if (isset($this->request->post['manufacturer_layout'])) {
+			$data['manufacturer_layout'] = $this->request->post['manufacturer_layout'];
+		} elseif (isset($this->request->get['manufacturer_id'])) {
+			$data['manufacturer_layout'] = $this->model_catalog_manufacturer->getManufacturerLayouts($this->request->get['manufacturer_id']);
+		} else {
+			$data['manufacturer_layout'] = array();
+		}
+
+		$this->load->model('design/layout');
+
+		$data['layouts'] = $this->model_design_layout->getLayouts();
 
 		if (isset($this->request->post['sort_order'])) {
 			$data['sort_order'] = $this->request->post['sort_order'];
