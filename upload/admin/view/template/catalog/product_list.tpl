@@ -55,7 +55,8 @@
               </div>
               <div class="form-group">
                 <label class="control-label" for="input-category-name"><?php echo $entry_category; ?></label> <label class="control-label pull-right" for="input-sub-category"><?php echo $entry_sub_category; ?> <input type="checkbox" class="checkbox-inline" name="filter_sub_category" id="input-sub-category" class="form-control"<?php echo ($filter_sub_category)?' checked="checked"':''; ?> /></label>
-                <div class="input-group">
+                <div class="clearfix"></div>
+				<div class="input-group">
                   <input type="text" name="filter_category_name" value="<?php echo $filter_category_name; ?>" placeholder="<?php echo $entry_category; ?>" id="input-category-name" class="form-control" />
                   <div class="input-group-btn">
                     <button type="button" id="button-clear-input-category-name" class="btn btn-default"><i class="fa fa-times"></i></button>
