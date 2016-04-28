@@ -229,8 +229,6 @@ class ControllerCommonSeoPro extends Controller {
 					}
 					unset($data[$key]);
 					break;
-				default:
-					break;				
 				//blog
 				case 'blog_category_id':
 					$blog_categories = explode('_', $value);
@@ -239,9 +237,9 @@ class ControllerCommonSeoPro extends Controller {
 					}
 					unset($data[$key]);
 					break;
+				//blog	
 				default:
 					break;
-				//blog	
 			}
 		}
 		if(empty($queries)) {
