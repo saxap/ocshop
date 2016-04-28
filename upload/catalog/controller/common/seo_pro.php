@@ -237,9 +237,9 @@ class ControllerCommonSeoPro extends Controller {
 					}
 					unset($data[$key]);
 					break;
+				//blog	
 				default:
 					break;
-				//blog	
 			}
 		}
 		if(empty($queries)) {
