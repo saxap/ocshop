@@ -72,7 +72,8 @@ class ControllerDesignMenu extends Controller {
 		
 		$data['text_menu_enable'] = $this->language->get('text_menu_enable');
 		$data['text_yes'] = $this->language->get('text_yes');
-		$data['text_no'] = $this->language->get('text_no');
+        $data['text_no'] = $this->language->get('text_no');
+        $data['text_default'] = $this->language->get('text_default');
 		
         $this->load->model('design/menu');
 
