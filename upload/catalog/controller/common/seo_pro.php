@@ -381,6 +381,9 @@ class ControllerCommonSeoPro extends Controller {
 			return;
 		}
 		$request_url = preg_replace('#/+#','/',$this->request->server['REQUEST_URI']);
+		if (rawurldecode($request_url) != rawurldecode($this->request->server['REQUEST_URI'])) {
+			$this->response->redirect($request_url, 301);
+		}
 		if (isset($this->request->server['HTTPS']) && (($this->request->server['HTTPS'] == 'on') || ($this->request->server['HTTPS'] == '1'))) {
 			$url = str_replace('&amp;', '&', $this->config->get('config_ssl') . ltrim($request_url, '/'));
 			$seo = str_replace('&amp;', '&', $this->url->link($this->request->get['route'], $this->getQueryString(array('route')), 'SSL'));
@@ -390,9 +393,7 @@ class ControllerCommonSeoPro extends Controller {
 				. $request_url);
 			$seo = str_replace('&amp;', '&', $this->url->link($this->request->get['route'], $this->getQueryString(array('route')), 'NONSSL'));
 		}
-		if (rawurldecode($request_url) != rawurldecode($this->request->server['REQUEST_URI'])) {
-			$this->response->redirect($request_url, 301);
-		} elseif (rawurldecode($url) != rawurldecode($seo)) {
+		if (rawurldecode($url) != rawurldecode($seo)) {
 			$this->response->redirect($seo, 301);
 		}
 	}
