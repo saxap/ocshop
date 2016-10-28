@@ -215,7 +215,7 @@ class ControllerCommonSeoPro extends Controller {
 					$data = array();
 					if ($this->config->get('config_seo_url_include_path')) {
 						$data['blog_category_id'] = $this->getPathByArticle($tmp['article_id']);
-						if (!$data['blog_category_id']) return $link;
+						if (!$data['blog_category_id']) unset($data['blog_category_id']);
 					}
 					$data['article_id'] = $tmp['article_id'];
 				}
